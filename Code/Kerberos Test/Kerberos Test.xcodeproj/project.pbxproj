@@ -1,0 +1,459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E3D8C31914BA029500283134 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D8C31814BA029500283134 /* UIKit.framework */; };
+		E3D8C31B14BA029500283134 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D8C31A14BA029500283134 /* Foundation.framework */; };
+		E3D8C31D14BA029500283134 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D8C31C14BA029500283134 /* CoreGraphics.framework */; };
+		E3D8C32314BA029500283134 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E3D8C32114BA029500283134 /* InfoPlist.strings */; };
+		E3D8C32514BA029500283134 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D8C32414BA029500283134 /* main.m */; };
+		E3D8C32914BA029500283134 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D8C32814BA029500283134 /* AppDelegate.m */; };
+		E3D8C32C14BA029500283134 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3D8C32A14BA029500283134 /* MainStoryboard_iPhone.storyboard */; };
+		E3D8C32F14BA029500283134 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3D8C32D14BA029500283134 /* MainStoryboard_iPad.storyboard */; };
+		E3D8C33214BA029600283134 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D8C33114BA029600283134 /* ViewController.m */; };
+		E3D8C33A14BA029600283134 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D8C33914BA029600283134 /* SenTestingKit.framework */; };
+		E3D8C33B14BA029600283134 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D8C31814BA029500283134 /* UIKit.framework */; };
+		E3D8C33C14BA029600283134 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D8C31A14BA029500283134 /* Foundation.framework */; };
+		E3D8C34414BA029600283134 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E3D8C34214BA029600283134 /* InfoPlist.strings */; };
+		E3D8C34714BA029600283134 /* Kerberos_TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D8C34614BA029600283134 /* Kerberos_TestTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E3D8C33D14BA029600283134 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3D8C30B14BA029500283134 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3D8C31314BA029500283134;
+			remoteInfo = "Kerberos Test";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E3D8C31414BA029500283134 /* Kerberos Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kerberos Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3D8C31814BA029500283134 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E3D8C31A14BA029500283134 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E3D8C31C14BA029500283134 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E3D8C32014BA029500283134 /* Kerberos Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Kerberos Test-Info.plist"; sourceTree = "<group>"; };
+		E3D8C32214BA029500283134 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E3D8C32414BA029500283134 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E3D8C32614BA029500283134 /* Kerberos Test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kerberos Test-Prefix.pch"; sourceTree = "<group>"; };
+		E3D8C32714BA029500283134 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E3D8C32814BA029500283134 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E3D8C32B14BA029500283134 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		E3D8C32E14BA029500283134 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		E3D8C33014BA029600283134 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E3D8C33114BA029600283134 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E3D8C33814BA029600283134 /* Kerberos TestTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kerberos TestTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3D8C33914BA029600283134 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		E3D8C34114BA029600283134 /* Kerberos TestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Kerberos TestTests-Info.plist"; sourceTree = "<group>"; };
+		E3D8C34314BA029600283134 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E3D8C34514BA029600283134 /* Kerberos_TestTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kerberos_TestTests.h; sourceTree = "<group>"; };
+		E3D8C34614BA029600283134 /* Kerberos_TestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Kerberos_TestTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E3D8C31114BA029500283134 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3D8C31914BA029500283134 /* UIKit.framework in Frameworks */,
+				E3D8C31B14BA029500283134 /* Foundation.framework in Frameworks */,
+				E3D8C31D14BA029500283134 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3D8C33414BA029600283134 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3D8C33A14BA029600283134 /* SenTestingKit.framework in Frameworks */,
+				E3D8C33B14BA029600283134 /* UIKit.framework in Frameworks */,
+				E3D8C33C14BA029600283134 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E3D8C30914BA029500283134 = {
+			isa = PBXGroup;
+			children = (
+				E3D8C31E14BA029500283134 /* Kerberos Test */,
+				E3D8C33F14BA029600283134 /* Kerberos TestTests */,
+				E3D8C31714BA029500283134 /* Frameworks */,
+				E3D8C31514BA029500283134 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E3D8C31514BA029500283134 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E3D8C31414BA029500283134 /* Kerberos Test.app */,
+				E3D8C33814BA029600283134 /* Kerberos TestTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E3D8C31714BA029500283134 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3D8C31814BA029500283134 /* UIKit.framework */,
+				E3D8C31A14BA029500283134 /* Foundation.framework */,
+				E3D8C31C14BA029500283134 /* CoreGraphics.framework */,
+				E3D8C33914BA029600283134 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3D8C31E14BA029500283134 /* Kerberos Test */ = {
+			isa = PBXGroup;
+			children = (
+				E3D8C32714BA029500283134 /* AppDelegate.h */,
+				E3D8C32814BA029500283134 /* AppDelegate.m */,
+				E3D8C32A14BA029500283134 /* MainStoryboard_iPhone.storyboard */,
+				E3D8C32D14BA029500283134 /* MainStoryboard_iPad.storyboard */,
+				E3D8C33014BA029600283134 /* ViewController.h */,
+				E3D8C33114BA029600283134 /* ViewController.m */,
+				E3D8C31F14BA029500283134 /* Supporting Files */,
+			);
+			path = "Kerberos Test";
+			sourceTree = "<group>";
+		};
+		E3D8C31F14BA029500283134 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E3D8C32014BA029500283134 /* Kerberos Test-Info.plist */,
+				E3D8C32114BA029500283134 /* InfoPlist.strings */,
+				E3D8C32414BA029500283134 /* main.m */,
+				E3D8C32614BA029500283134 /* Kerberos Test-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E3D8C33F14BA029600283134 /* Kerberos TestTests */ = {
+			isa = PBXGroup;
+			children = (
+				E3D8C34514BA029600283134 /* Kerberos_TestTests.h */,
+				E3D8C34614BA029600283134 /* Kerberos_TestTests.m */,
+				E3D8C34014BA029600283134 /* Supporting Files */,
+			);
+			path = "Kerberos TestTests";
+			sourceTree = "<group>";
+		};
+		E3D8C34014BA029600283134 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E3D8C34114BA029600283134 /* Kerberos TestTests-Info.plist */,
+				E3D8C34214BA029600283134 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E3D8C31314BA029500283134 /* Kerberos Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3D8C34A14BA029600283134 /* Build configuration list for PBXNativeTarget "Kerberos Test" */;
+			buildPhases = (
+				E3D8C31014BA029500283134 /* Sources */,
+				E3D8C31114BA029500283134 /* Frameworks */,
+				E3D8C31214BA029500283134 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Kerberos Test";
+			productName = "Kerberos Test";
+			productReference = E3D8C31414BA029500283134 /* Kerberos Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E3D8C33714BA029600283134 /* Kerberos TestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3D8C34D14BA029600283134 /* Build configuration list for PBXNativeTarget "Kerberos TestTests" */;
+			buildPhases = (
+				E3D8C33314BA029600283134 /* Sources */,
+				E3D8C33414BA029600283134 /* Frameworks */,
+				E3D8C33514BA029600283134 /* Resources */,
+				E3D8C33614BA029600283134 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E3D8C33E14BA029600283134 /* PBXTargetDependency */,
+			);
+			name = "Kerberos TestTests";
+			productName = "Kerberos TestTests";
+			productReference = E3D8C33814BA029600283134 /* Kerberos TestTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E3D8C30B14BA029500283134 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Rose-Hulman Institute of Technology";
+			};
+			buildConfigurationList = E3D8C30E14BA029500283134 /* Build configuration list for PBXProject "Kerberos Test" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E3D8C30914BA029500283134;
+			productRefGroup = E3D8C31514BA029500283134 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E3D8C31314BA029500283134 /* Kerberos Test */,
+				E3D8C33714BA029600283134 /* Kerberos TestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E3D8C31214BA029500283134 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3D8C32314BA029500283134 /* InfoPlist.strings in Resources */,
+				E3D8C32C14BA029500283134 /* MainStoryboard_iPhone.storyboard in Resources */,
+				E3D8C32F14BA029500283134 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3D8C33514BA029600283134 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3D8C34414BA029600283134 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E3D8C33614BA029600283134 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E3D8C31014BA029500283134 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3D8C32514BA029500283134 /* main.m in Sources */,
+				E3D8C32914BA029500283134 /* AppDelegate.m in Sources */,
+				E3D8C33214BA029600283134 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3D8C33314BA029600283134 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3D8C34714BA029600283134 /* Kerberos_TestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E3D8C33E14BA029600283134 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E3D8C31314BA029500283134 /* Kerberos Test */;
+			targetProxy = E3D8C33D14BA029600283134 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E3D8C32114BA029500283134 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3D8C32214BA029500283134 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E3D8C32A14BA029500283134 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3D8C32B14BA029500283134 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		E3D8C32D14BA029500283134 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3D8C32E14BA029500283134 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		E3D8C34214BA029600283134 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3D8C34314BA029600283134 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E3D8C34814BA029600283134 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E3D8C34914BA029600283134 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E3D8C34B14BA029600283134 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Kerberos Test/Kerberos Test-Prefix.pch";
+				INFOPLIST_FILE = "Kerberos Test/Kerberos Test-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E3D8C34C14BA029600283134 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Kerberos Test/Kerberos Test-Prefix.pch";
+				INFOPLIST_FILE = "Kerberos Test/Kerberos Test-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E3D8C34E14BA029600283134 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Kerberos Test.app/Kerberos Test";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Kerberos Test/Kerberos Test-Prefix.pch";
+				INFOPLIST_FILE = "Kerberos TestTests/Kerberos TestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		E3D8C34F14BA029600283134 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Kerberos Test.app/Kerberos Test";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Kerberos Test/Kerberos Test-Prefix.pch";
+				INFOPLIST_FILE = "Kerberos TestTests/Kerberos TestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E3D8C30E14BA029500283134 /* Build configuration list for PBXProject "Kerberos Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3D8C34814BA029600283134 /* Debug */,
+				E3D8C34914BA029600283134 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3D8C34A14BA029600283134 /* Build configuration list for PBXNativeTarget "Kerberos Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3D8C34B14BA029600283134 /* Debug */,
+				E3D8C34C14BA029600283134 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E3D8C34D14BA029600283134 /* Build configuration list for PBXNativeTarget "Kerberos TestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3D8C34E14BA029600283134 /* Debug */,
+				E3D8C34F14BA029600283134 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E3D8C30B14BA029500283134 /* Project object */;
+}
