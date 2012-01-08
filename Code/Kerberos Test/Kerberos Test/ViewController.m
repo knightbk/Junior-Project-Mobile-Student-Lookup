@@ -44,7 +44,7 @@
 
 - (void) connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
-    if ([challenge previousFailureCount] > 0)
+    if ([challenge previousFailureCount] > 1)
     {
         [[challenge sender] cancelAuthenticationChallenge:challenge];
         
