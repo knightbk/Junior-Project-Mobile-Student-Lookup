@@ -141,15 +141,13 @@ ID</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>380</x>
-      <y>140</y>
+      <y>160</y>
       <w>170</w>
-      <h>70</h>
+      <h>50</h>
     </coordinates>
-    <panel_attributes>lt=-
-m1=*
-m2=1
-advised by &gt;</panel_attributes>
-    <additional_attributes>30;50;150;50</additional_attributes>
+    <panel_attributes>lt=-&gt;
+</panel_attributes>
+    <additional_attributes>30;30;150;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
@@ -159,9 +157,7 @@ advised by &gt;</panel_attributes>
       <w>80</w>
       <h>150</h>
     </coordinates>
-    <panel_attributes>lt=-
-m1=   *
-m2= 1
+    <panel_attributes>lt=-&lt;
 </panel_attributes>
     <additional_attributes>30;130;60;30</additional_attributes>
   </element>
@@ -173,22 +169,8 @@ m2= 1
       <w>100</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>V has a</panel_attributes>
+    <panel_attributes/>
     <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>380</x>
-      <y>100</y>
-      <w>170</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=*
-m2=1
-&lt; advises</panel_attributes>
-    <additional_attributes>30;50;150;50</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
@@ -272,5 +254,17 @@ m2=1
     <panel_attributes>lt=-&gt;
 </panel_attributes>
     <additional_attributes>30;290;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>380</x>
+      <y>130</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-&lt;
+</panel_attributes>
+    <additional_attributes>30;30;150;30</additional_attributes>
   </element>
 </diagram>
