@@ -168,7 +168,7 @@ wasSuccessful</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>740</x>
-      <y>600</y>
+      <y>580</y>
       <w>270</w>
       <h>94</h>
     </coordinates>
@@ -181,7 +181,7 @@ store authentication
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>540</x>
-      <y>620</y>
+      <y>640</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -239,16 +239,16 @@ wasSuccessful</panel_attributes>
       <x>980</x>
       <y>370</y>
       <w>50</w>
-      <h>290</h>
+      <h>270</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>30;30;30;270</additional_attributes>
+    <additional_attributes>30;30;30;250</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>990</x>
-      <y>640</y>
+      <y>620</y>
       <w>40</w>
       <h>30</h>
     </coordinates>
@@ -292,12 +292,12 @@ wasSuccessful</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>980</x>
-      <y>640</y>
+      <y>620</y>
       <w>50</w>
-      <h>130</h>
+      <h>150</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>30;30;30;110</additional_attributes>
+    <additional_attributes>30;30;30;130</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
@@ -320,6 +320,28 @@ wasSuccessful</panel_attributes>
     </coordinates>
     <panel_attributes>/Sequence Diagram:/
 Change Authentication</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>600</x>
+      <y>600</y>
+      <w>450</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Text</type>
+    <coordinates>
+      <x>600</x>
+      <y>600</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>if [wasSuccessful]</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
