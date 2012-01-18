@@ -26,6 +26,7 @@
 		E32079F91499122E005ACDD0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32079CC1499122E005ACDD0 /* Foundation.framework */; };
 		E3207A011499122E005ACDD0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E32079FF1499122E005ACDD0 /* InfoPlist.strings */; };
 		E3207A041499122E005ACDD0 /* ScheduleLookupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3207A031499122E005ACDD0 /* ScheduleLookupTests.m */; };
+		E340E72914C75A3300EBA4E0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = E340E72814C75A3300EBA4E0 /* Person.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		E3207A001499122E005ACDD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E3207A021499122E005ACDD0 /* ScheduleLookupTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleLookupTests.h; sourceTree = "<group>"; };
 		E3207A031499122E005ACDD0 /* ScheduleLookupTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleLookupTests.m; sourceTree = "<group>"; };
+		E340E72714C75A3300EBA4E0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		E340E72814C75A3300EBA4E0 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,18 +127,13 @@
 		E32079D01499122E005ACDD0 /* ScheduleLookup */ = {
 			isa = PBXGroup;
 			children = (
+				E340E72614C759FC00EBA4E0 /* Model */,
+				E340E72514C758AF00EBA4E0 /* View Controllers */,
 				E32079D91499122E005ACDD0 /* AppDelegate.h */,
 				E32079DA1499122E005ACDD0 /* AppDelegate.m */,
 				E32079DC1499122E005ACDD0 /* MainStoryboard_iPhone.storyboard */,
 				E32079DF1499122E005ACDD0 /* MainStoryboard_iPad.storyboard */,
-				E32079E21499122E005ACDD0 /* FirstViewController.h */,
-				E32079E31499122E005ACDD0 /* FirstViewController.m */,
-				E32079E51499122E005ACDD0 /* first.png */,
-				E32079E71499122E005ACDD0 /* first@2x.png */,
-				E32079E91499122E005ACDD0 /* SecondViewController.h */,
-				E32079EA1499122E005ACDD0 /* SecondViewController.m */,
-				E32079EC1499122E005ACDD0 /* second.png */,
-				E32079EE1499122E005ACDD0 /* second@2x.png */,
+				E340E72314C757DE00EBA4E0 /* Images */,
 				E32079D11499122E005ACDD0 /* Supporting Files */,
 			);
 			path = ScheduleLookup;
@@ -169,6 +167,37 @@
 				E32079FF1499122E005ACDD0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E340E72314C757DE00EBA4E0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E32079E51499122E005ACDD0 /* first.png */,
+				E32079E71499122E005ACDD0 /* first@2x.png */,
+				E32079EC1499122E005ACDD0 /* second.png */,
+				E32079EE1499122E005ACDD0 /* second@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		E340E72514C758AF00EBA4E0 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E32079E21499122E005ACDD0 /* FirstViewController.h */,
+				E32079E31499122E005ACDD0 /* FirstViewController.m */,
+				E32079E91499122E005ACDD0 /* SecondViewController.h */,
+				E32079EA1499122E005ACDD0 /* SecondViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E340E72614C759FC00EBA4E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E340E72714C75A3300EBA4E0 /* Person.h */,
+				E340E72814C75A3300EBA4E0 /* Person.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +316,7 @@
 				E32079DB1499122E005ACDD0 /* AppDelegate.m in Sources */,
 				E32079E41499122E005ACDD0 /* FirstViewController.m in Sources */,
 				E32079EB1499122E005ACDD0 /* SecondViewController.m in Sources */,
+				E340E72914C75A3300EBA4E0 /* Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +496,7 @@
 				E3207A091499122E005ACDD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E3207A0A1499122E005ACDD0 /* Build configuration list for PBXNativeTarget "ScheduleLookupTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +505,7 @@
 				E3207A0C1499122E005ACDD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

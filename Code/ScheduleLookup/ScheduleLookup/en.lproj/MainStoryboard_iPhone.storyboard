@@ -44,10 +44,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Overlay" id="SoT-m9-FOU"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="SoT-m9-FOU"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="697" y="819"/>
+            <point key="canvasLocation" x="718" y="775"/>
         </scene>
         <scene sceneID="13">
             <objects>
@@ -64,13 +64,29 @@
                                     <navigationItem title="My Favorites" id="D5Q-f4-e8J"/>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zDn-kq-592">
+                                <rect key="frame" x="0.0" y="40" width="320" height="371"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="MT1-Fq-t6g">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" id="6"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="697" y="202"/>
+            <point key="canvasLocation" x="718" y="180"/>
         </scene>
         <scene sceneID="15">
             <objects>
