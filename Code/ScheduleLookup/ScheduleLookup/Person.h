@@ -19,6 +19,8 @@
 @property(strong, nonatomic) NSString *cmNumber;
 @property(strong, nonatomic) NSString *alias;
 
-- (Person *) initPersonWithAlias:(NSString *)newAlias;
+- (Person *) initPersonWithAlias:(NSString *)newAlias 
+                    WithCmNumber:(NSString *)newCmNumber  
+                        WithName:(NSString *)newName;
 - (NSString *) getEmailAddress;
 @end

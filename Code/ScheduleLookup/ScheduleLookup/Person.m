@@ -13,7 +13,9 @@
 
 @synthesize name, cmNumber, alias;
 
-- (Person *) initPersonWithAlias:(NSString *)newAlias WithCmNumber:(NSString *)newCmNumber  WithName:(NSString *)newName
+- (Person *) initPersonWithAlias:(NSString *)newAlias 
+                    WithCmNumber:(NSString *)newCmNumber  
+                        WithName:(NSString *)newName
 {
     self.alias = newAlias;
     self.name = newName;

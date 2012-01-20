@@ -27,6 +27,8 @@
 		E3207A011499122E005ACDD0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E32079FF1499122E005ACDD0 /* InfoPlist.strings */; };
 		E3207A041499122E005ACDD0 /* ScheduleLookupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3207A031499122E005ACDD0 /* ScheduleLookupTests.m */; };
 		E340E72914C75A3300EBA4E0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = E340E72814C75A3300EBA4E0 /* Person.m */; };
+		E371603614C9C51400883E8C /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = E371603514C9C51400883E8C /* Student.m */; };
+		E371603E14C9D3D100883E8C /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = E371603D14C9D3D100883E8C /* Faculty.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,10 @@
 		E3207A031499122E005ACDD0 /* ScheduleLookupTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleLookupTests.m; sourceTree = "<group>"; };
 		E340E72714C75A3300EBA4E0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		E340E72814C75A3300EBA4E0 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		E371603414C9C51400883E8C /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		E371603514C9C51400883E8C /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		E371603C14C9D3D100883E8C /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faculty.h; sourceTree = "<group>"; };
+		E371603D14C9D3D100883E8C /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faculty.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +202,10 @@
 			children = (
 				E340E72714C75A3300EBA4E0 /* Person.h */,
 				E340E72814C75A3300EBA4E0 /* Person.m */,
+				E371603414C9C51400883E8C /* Student.h */,
+				E371603514C9C51400883E8C /* Student.m */,
+				E371603C14C9D3D100883E8C /* Faculty.h */,
+				E371603D14C9D3D100883E8C /* Faculty.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -317,6 +327,8 @@
 				E32079E41499122E005ACDD0 /* FirstViewController.m in Sources */,
 				E32079EB1499122E005ACDD0 /* SecondViewController.m in Sources */,
 				E340E72914C75A3300EBA4E0 /* Person.m in Sources */,
+				E371603614C9C51400883E8C /* Student.m in Sources */,
+				E371603E14C9D3D100883E8C /* Faculty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
