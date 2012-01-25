@@ -20,4 +20,6 @@
 - (NSString *) advisorFromStringData:(NSString *)sdata;
 - (NSString *) usernameFromStringData:(NSString *)sdata;
 
+-(IBAction)backgroundTap:(id)sender;
+
 @end

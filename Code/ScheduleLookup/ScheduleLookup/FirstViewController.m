@@ -13,6 +13,8 @@
 @synthesize nameLabel, usernameLabel, advisorLabel, credentialsAlertView;
 
 
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -25,6 +27,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [nameLabel setHidden:TRUE];
+    [usernameLabel setHidden:TRUE];
+    [advisorLabel setHidden:TRUE];
     credentialsAlertView = [[UIAlertView alloc] initWithTitle:@"Credentials" 
                                                     message:@"Enter RHIT Credentials" 
                                                    delegate:nil 
@@ -34,6 +39,8 @@
     credentialsAlertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
     [credentialsAlertView show];
 }
+
+
 
 - (void)viewDidUnload
 {
@@ -71,20 +78,41 @@
         return YES;
     }
 }
+//recognizes cancel touches on screen
+UIGestureRecognizer* cancelGesture;
+
+- (void) backgroundTouched:(id)sender {
+    [self.view endEditing:YES];
+}
 
 #pragma mark - UISearchBarDelegate Methods
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    [self.view endEditing:TRUE];
-    
+    [self.view endEditing:YES];
     NSString *url = [NSString stringWithFormat:@"https://prodweb.rose-hulman.edu/regweb-cgi/reg-sched.pl?type=Username&termcode=201220&view=tgrid&id=%@", searchBar.text];
 
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     [connection start];
-    
+
 }
+//will place cancelGesture methods only when searchBar is being edited.
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    cancelGesture = [UITapGestureRecognizer new];
+    [cancelGesture addTarget:self action:@selector(backgroundTouched:)];
+    [self.view addGestureRecognizer:cancelGesture];
+}
+
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    if (cancelGesture) {
+        [self.view removeGestureRecognizer:cancelGesture];
+        cancelGesture = nil;
+    }
+}
+
+
+
 
 #pragma mark - NSURLConnectionDelegate Methods
 
@@ -125,7 +153,9 @@
     [nameLabel setText:person.name];
     [advisorLabel setText:person.advisor];
     [usernameLabel setText:person.alias];
-    
+    [nameLabel setHidden:false];
+    [usernameLabel setHidden:false];
+    [advisorLabel setHidden:false];
     [connection cancel];
 }
 
