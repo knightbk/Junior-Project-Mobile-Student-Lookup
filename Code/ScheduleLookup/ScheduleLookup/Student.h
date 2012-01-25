@@ -13,15 +13,18 @@
 {
     NSString *major;
     NSString *year;
+    NSString *advisor;
 }
 
 @property(strong, nonatomic) NSString *major;
 @property(strong, nonatomic) NSString *year;
+@property(strong, nonatomic) NSString *advisor;
 
 - (Student *) initStudentWithAlias:(NSString *)newAlias 
                       WithCmNumber:(NSString *)newCmNumber  
                           WithName:(NSString *)newName 
                          WithMajor:(NSString *)newMajor 
-                          WithYear:(NSString *)newYear;
+                          WithYear:(NSString *)newYear 
+                       WithAdvisor:(NSString *)newAdvisor;
 
 @end

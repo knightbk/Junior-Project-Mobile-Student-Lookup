@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController <UISearchBarDelegate, NSURLConnectionDelegate>
+
+@property(weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property(weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property(weak, nonatomic) IBOutlet UILabel *advisorLabel;
+@property(strong, nonatomic) UIAlertView *credentialsAlertView;
+
+- (NSString *) nameFromStringData:(NSString *)sdata;
+- (NSString *) firstMatchStringWithRegex:(NSString *)regex WithStringData:(NSString *)sdata;
+- (NSString *) advisorFromStringData:(NSString *)sdata;
+- (NSString *) usernameFromStringData:(NSString *)sdata;
 
 @end

@@ -7,8 +7,11 @@
 //
 
 #import "FirstViewController.h"
-
+#import "Student.h"
 @implementation FirstViewController
+
+@synthesize nameLabel, usernameLabel, advisorLabel, credentialsAlertView;
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -22,6 +25,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    credentialsAlertView = [[UIAlertView alloc] initWithTitle:@"Credentials" 
+                                                    message:@"Enter RHIT Credentials" 
+                                                   delegate:nil 
+                                          cancelButtonTitle:@"Done" 
+                                          otherButtonTitles:nil];
+    
+    credentialsAlertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+    [credentialsAlertView show];
 }
 
 - (void)viewDidUnload
@@ -60,5 +71,94 @@
         return YES;
     }
 }
+
+#pragma mark - UISearchBarDelegate Methods
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self.view endEditing:TRUE];
+    
+    NSString *url = [NSString stringWithFormat:@"https://prodweb.rose-hulman.edu/regweb-cgi/reg-sched.pl?type=Username&termcode=201220&view=tgrid&id=%@", searchBar.text];
+
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [connection start];
+    
+}
+
+#pragma mark - NSURLConnectionDelegate Methods
+
+- (void) connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+        
+    if ([challenge previousFailureCount] > 1)
+    {
+        [[challenge sender] cancelAuthenticationChallenge:challenge];
+        
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials" message:@"The credentials you input for your account are invalid." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+    else
+    {
+        [[challenge sender]  useCredential:[NSURLCredential credentialWithUser:[[credentialsAlertView textFieldAtIndex:0] text] 
+                                                                      password:[[credentialsAlertView textFieldAtIndex:1] text]
+                                                                   persistence:NSURLCredentialPersistenceForSession] 
+                forAuthenticationChallenge:challenge];
+    }
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection 
+{
+    [connection cancel];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data 
+{
+    NSString *sdata = [[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding];
+    Student *person = [[Student alloc] initStudentWithAlias:[self usernameFromStringData:sdata] 
+                                               WithCmNumber:nil 
+                                                   WithName:[self nameFromStringData:sdata] 
+                                                  WithMajor:nil 
+                                                   WithYear:nil 
+                                                WithAdvisor:[self advisorFromStringData:sdata]];
+    
+    [nameLabel setText:person.name];
+    [advisorLabel setText:person.advisor];
+    [usernameLabel setText:person.alias];
+    
+    [connection cancel];
+}
+
+- (NSString *) nameFromStringData:(NSString *)sdata
+{
+    return [self firstMatchStringWithRegex:@">Name: ([a-zA-Z ]+)<" WithStringData:sdata];
+}
+
+- (NSString *) advisorFromStringData:(NSString *)sdata
+{
+    return [self firstMatchStringWithRegex:@"> Advisor: ([a-zA-Z ]+)<" WithStringData:sdata];
+}
+
+- (NSString *) usernameFromStringData:(NSString *)sdata
+{
+    return [self firstMatchStringWithRegex:@">Username: ([a-zA-Z ]+)<" WithStringData:sdata];
+}
+
+- (NSString *) firstMatchStringWithRegex:(NSString *)expression WithStringData:(NSString *)sdata
+{
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:expression
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:&error];
+    
+    NSTextCheckingResult *rangeOfFirstMatch = [regex firstMatchInString:sdata options:0 range:NSMakeRange(0, [sdata length])];
+    
+    NSString *name = @"";
+    if (!NSEqualRanges([rangeOfFirstMatch rangeAtIndex:0], NSMakeRange(NSNotFound, 0))) {
+        name = [sdata substringWithRange:[rangeOfFirstMatch rangeAtIndex:1]];
+    }
+    return name;
+}
+
 
 @end
