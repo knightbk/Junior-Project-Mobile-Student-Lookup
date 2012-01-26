@@ -93,7 +93,8 @@
 //recognizes cancel touches on screen
 UIGestureRecognizer* cancelGesture;
 
-- (void) backgroundTouched:(id)sender {
+- (IBAction)backgroundTouched:(id)sender 
+{
     [self.view endEditing:YES];
 }
 
