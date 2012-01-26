@@ -21,6 +21,19 @@
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
 }
+- (void)hideLabels:(BOOL)val
+{
+    if(val){
+    [nameLabel setHidden:TRUE];
+    [usernameLabel setHidden:TRUE];
+    [advisorLabel setHidden:TRUE];
+    }
+    else{
+        [nameLabel setHidden:false];
+        [usernameLabel setHidden:false];
+        [advisorLabel setHidden:false];
+    }
+}
 
 #pragma mark - View lifecycle
 
@@ -28,9 +41,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    [nameLabel setHidden:TRUE];
-    [usernameLabel setHidden:TRUE];
-    [advisorLabel setHidden:TRUE];
+    [self hideLabels:(true)];
     credentialsAlertView = [[UIAlertView alloc] initWithTitle:@"Credentials" 
                                                     message:@"Enter RHIT Credentials" 
                                                    delegate:nil 
@@ -152,9 +163,7 @@ UIGestureRecognizer* cancelGesture;
     [nameLabel setText:person.name];
     [advisorLabel setText:person.advisor];
     [usernameLabel setText:person.alias];
-    [nameLabel setHidden:false];
-    [usernameLabel setHidden:false];
-    [advisorLabel setHidden:false];
+    [self hideLabels:(false)];
     [connection cancel];
 }
 
