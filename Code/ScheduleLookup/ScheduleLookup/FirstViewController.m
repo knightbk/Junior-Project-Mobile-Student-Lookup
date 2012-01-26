@@ -8,6 +8,7 @@
 
 #import "FirstViewController.h"
 #import "Student.h"
+#import "Factory.h"
 @implementation FirstViewController
 
 @synthesize nameLabel, usernameLabel, advisorLabel, credentialsAlertView;
@@ -119,12 +120,14 @@ UIGestureRecognizer* cancelGesture;
 - (void) connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
         
-    if ([challenge previousFailureCount] > 1)
+    if ([challenge previousFailureCount] > 0)
     {
         [[challenge sender] cancelAuthenticationChallenge:challenge];
-        
+        /*
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials" message:@"The credentials you input for your account are invalid." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
+        */
+        [credentialsAlertView show];
     }
     else
     {
@@ -143,12 +146,8 @@ UIGestureRecognizer* cancelGesture;
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data 
 {
     NSString *sdata = [[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding];
-    Student *person = [[Student alloc] initStudentWithAlias:[self usernameFromStringData:sdata] 
-                                               WithCmNumber:nil 
-                                                   WithName:[self nameFromStringData:sdata] 
-                                                  WithMajor:nil 
-                                                   WithYear:nil 
-                                                WithAdvisor:[self advisorFromStringData:sdata]];
+
+    Student *person = [Factory studentFromStudentSchedulePage:sdata]; 
     
     [nameLabel setText:person.name];
     [advisorLabel setText:person.advisor];
@@ -159,36 +158,6 @@ UIGestureRecognizer* cancelGesture;
     [connection cancel];
 }
 
-- (NSString *) nameFromStringData:(NSString *)sdata
-{
-    return [self firstMatchStringWithRegex:@">Name: ([a-zA-Z ]+)<" WithStringData:sdata];
-}
-
-- (NSString *) advisorFromStringData:(NSString *)sdata
-{
-    return [self firstMatchStringWithRegex:@"> Advisor: ([a-zA-Z ]+)<" WithStringData:sdata];
-}
-
-- (NSString *) usernameFromStringData:(NSString *)sdata
-{
-    return [self firstMatchStringWithRegex:@">Username: ([a-zA-Z ]+)<" WithStringData:sdata];
-}
-
-- (NSString *) firstMatchStringWithRegex:(NSString *)expression WithStringData:(NSString *)sdata
-{
-    NSError *error = NULL;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:expression
-                                                                           options:NSRegularExpressionCaseInsensitive
-                                                                             error:&error];
-    
-    NSTextCheckingResult *rangeOfFirstMatch = [regex firstMatchInString:sdata options:0 range:NSMakeRange(0, [sdata length])];
-    
-    NSString *name = @"";
-    if (!NSEqualRanges([rangeOfFirstMatch rangeAtIndex:0], NSMakeRange(NSNotFound, 0))) {
-        name = [sdata substringWithRange:[rangeOfFirstMatch rangeAtIndex:1]];
-    }
-    return name;
-}
 
 
 @end

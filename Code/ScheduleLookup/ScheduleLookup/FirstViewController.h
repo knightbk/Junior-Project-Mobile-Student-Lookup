@@ -15,8 +15,8 @@
 @property(weak, nonatomic) IBOutlet UILabel *advisorLabel;
 @property(strong, nonatomic) UIAlertView *credentialsAlertView;
 
-- (NSString *) nameFromStringData:(NSString *)sdata;
 - (NSString *) firstMatchStringWithRegex:(NSString *)regex WithStringData:(NSString *)sdata;
+- (NSString *) nameFromStringData:(NSString *)sdata;
 - (NSString *) advisorFromStringData:(NSString *)sdata;
 - (NSString *) usernameFromStringData:(NSString *)sdata;
 
