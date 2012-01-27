@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="11.3">
-  <zoom_level>3</zoom_level>
+  <zoom_level>5</zoom_level>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>288</x>
-      <y>471</y>
-      <w>33</w>
-      <h>21</h>
+      <x>515</x>
+      <y>520</y>
+      <w>55</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>Schedule
 --
@@ -19,10 +19,10 @@ String term
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>213</x>
-      <y>429</y>
-      <w>30</w>
-      <h>18</h>
+      <x>390</x>
+      <y>450</y>
+      <w>50</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>Favorites
 --
@@ -34,10 +34,10 @@ String term
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>240</x>
-      <y>471</y>
-      <w>24</w>
-      <h>21</h>
+      <x>435</x>
+      <y>520</y>
+      <w>40</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>Overlay
 --
@@ -49,10 +49,10 @@ String term
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>297</x>
-      <y>414</y>
-      <w>57</w>
-      <h>30</h>
+      <x>530</x>
+      <y>425</y>
+      <w>70</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Abstract&gt;&gt; Person
 --
@@ -66,10 +66,10 @@ String email
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>204</x>
-      <y>387</y>
-      <w>42</w>
-      <h>24</h>
+      <x>375</x>
+      <y>380</y>
+      <w>70</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>User
 --
@@ -82,10 +82,10 @@ String password
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>264</x>
-      <y>360</y>
-      <w>42</w>
-      <h>24</h>
+      <x>475</x>
+      <y>335</y>
+      <w>70</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>Student
 --
@@ -98,10 +98,10 @@ String year
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>333</x>
-      <y>357</y>
-      <w>63</w>
-      <h>30</h>
+      <x>590</x>
+      <y>330</y>
+      <w>65</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>Faculty
 --
@@ -115,10 +115,10 @@ String phoneNumber
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>381</x>
-      <y>459</y>
-      <w>42</w>
-      <h>36</h>
+      <x>670</x>
+      <y>500</y>
+      <w>70</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Class
 --
@@ -133,46 +133,46 @@ String number
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>330</x>
-      <y>378</y>
-      <w>14</w>
-      <h>41</h>
+      <x>580</x>
+      <y>365</y>
+      <w>24</w>
+      <h>69</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>9;36;9;9</additional_attributes>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>15;60;15;15</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>294</x>
-      <y>375</y>
-      <w>14</w>
-      <h>44</h>
+      <x>520</x>
+      <y>360</y>
+      <w>24</w>
+      <h>74</h>
     </coordinates>
     <panel_attributes>lt=&gt;&gt;
 
 </panel_attributes>
-    <additional_attributes>9;39;9;9</additional_attributes>
+    <additional_attributes>15;65;15;15</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>300</x>
-      <y>435</y>
-      <w>14</w>
-      <h>41</h>
+      <x>535</x>
+      <y>460</y>
+      <w>24</w>
+      <h>69</h>
     </coordinates>
     <panel_attributes>lt=-&lt;&lt;&lt;
 </panel_attributes>
-    <additional_attributes>9;36;9;9</additional_attributes>
+    <additional_attributes>15;60;15;15</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.custom.Text</type>
     <coordinates>
-      <x>312</x>
-      <y>456</y>
-      <w>30</w>
-      <h>30</h>
+      <x>555</x>
+      <y>495</y>
+      <w>50</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -180,92 +180,92 @@ String number
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>219</x>
-      <y>402</y>
-      <w>14</w>
-      <h>32</h>
+      <x>400</x>
+      <y>405</y>
+      <w>24</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 </panel_attributes>
-    <additional_attributes>9;9;9;27</additional_attributes>
+    <additional_attributes>15;15;15;45</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>234</x>
-      <y>426</y>
-      <w>68</w>
-      <h>14</h>
+      <x>425</x>
+      <y>445</y>
+      <w>114</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;</panel_attributes>
-    <additional_attributes>9;9;63;9</additional_attributes>
+    <additional_attributes>15;15;105;15</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>312</x>
-      <y>471</y>
-      <w>74</w>
-      <h>14</h>
+      <x>555</x>
+      <y>520</y>
+      <w>124</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 </panel_attributes>
-    <additional_attributes>9;9;69;9</additional_attributes>
+    <additional_attributes>15;15;115;15</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>285</x>
-      <y>339</y>
-      <w>128</w>
-      <h>125</h>
+      <x>510</x>
+      <y>295</y>
+      <w>214</w>
+      <h>214</h>
     </coordinates>
     <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>123;120;123;9;9;9;9;21</additional_attributes>
+    <additional_attributes>205;205;205;15;15;15;15;40</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>384</x>
-      <y>378</y>
-      <w>14</w>
-      <h>86</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-</panel_attributes>
-    <additional_attributes>9;81;9;9</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>297</x>
-      <y>357</y>
-      <w>41</w>
-      <h>14</h>
+      <x>525</x>
+      <y>305</y>
+      <w>179</w>
+      <h>129</h>
     </coordinates>
     <panel_attributes>lt=-&lt;
 </panel_attributes>
-    <additional_attributes>9;9;36;9</additional_attributes>
+    <additional_attributes>15;30;15;15;170;15;170;120</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>255</x>
-      <y>468</y>
-      <w>38</w>
-      <h>14</h>
+      <x>530</x>
+      <y>330</y>
+      <w>69</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-&lt;
+</panel_attributes>
+    <additional_attributes>15;15;60;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>460</x>
+      <y>515</y>
+      <w>64</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 </panel_attributes>
-    <additional_attributes>9;9;33;9</additional_attributes>
+    <additional_attributes>15;15;55;15</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>201</x>
-      <y>726</y>
-      <w>228</w>
-      <h>171</h>
+      <x>370</x>
+      <y>945</y>
+      <w>380</w>
+      <h>285</h>
     </coordinates>
     <panel_attributes>View</panel_attributes>
     <additional_attributes/>
@@ -273,10 +273,10 @@ String number
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>201</x>
-      <y>339</y>
-      <w>228</w>
-      <h>159</h>
+      <x>370</x>
+      <y>285</y>
+      <w>410</w>
+      <h>300</h>
     </coordinates>
     <panel_attributes>Model
 </panel_attributes>
@@ -285,10 +285,10 @@ String number
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>201</x>
-      <y>525</y>
-      <w>228</w>
-      <h>174</h>
+      <x>370</x>
+      <y>610</y>
+      <w>380</w>
+      <h>290</h>
     </coordinates>
     <panel_attributes>Controller</panel_attributes>
     <additional_attributes/>
@@ -296,32 +296,32 @@ String number
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>309</x>
-      <y>690</y>
-      <w>14</w>
-      <h>41</h>
+      <x>550</x>
+      <y>885</y>
+      <w>24</w>
+      <h>69</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>9;9;9;36</additional_attributes>
+    <additional_attributes>15;15;15;60</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>300</x>
-      <y>489</y>
-      <w>14</w>
-      <h>41</h>
+      <x>535</x>
+      <y>570</y>
+      <w>24</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>9;9;9;36</additional_attributes>
+    <additional_attributes>15;15;15;40</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>333</x>
-      <y>582</y>
-      <w>63</w>
-      <h>27</h>
+      <x>590</x>
+      <y>705</y>
+      <w>105</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>FavoritesViewController
 --
@@ -332,10 +332,10 @@ String number
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>243</x>
-      <y>540</y>
-      <w>63</w>
-      <h>27</h>
+      <x>440</x>
+      <y>635</y>
+      <w>105</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>ScheduleViewController
 --
@@ -346,10 +346,10 @@ String number
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>333</x>
-      <y>639</y>
-      <w>63</w>
-      <h>27</h>
+      <x>590</x>
+      <y>800</y>
+      <w>105</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>SettingsViewController
 --
@@ -360,10 +360,10 @@ String number
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>246</x>
-      <y>582</y>
-      <w>63</w>
-      <h>27</h>
+      <x>445</x>
+      <y>705</y>
+      <w>105</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>SearchViewController
 --
@@ -374,10 +374,10 @@ String number
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>333</x>
-      <y>540</y>
-      <w>63</w>
-      <h>27</h>
+      <x>590</x>
+      <y>635</y>
+      <w>105</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>OverlayViewController
 --
@@ -388,10 +388,10 @@ String number
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>246</x>
-      <y>657</y>
-      <w>63</w>
-      <h>27</h>
+      <x>445</x>
+      <y>830</y>
+      <w>105</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>PersonInfoViewController
 --
@@ -402,10 +402,10 @@ String number
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>228</x>
-      <y>621</y>
-      <w>63</w>
-      <h>27</h>
+      <x>415</x>
+      <y>770</y>
+      <w>105</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>CourseViewController
 --
@@ -416,98 +416,98 @@ String number
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>261</x>
-      <y>558</y>
-      <w>14</w>
-      <h>29</h>
+      <x>470</x>
+      <y>665</y>
+      <w>24</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>9;9;9;24</additional_attributes>
+    <additional_attributes>15;15;15;40</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>240</x>
-      <y>600</y>
-      <w>14</w>
-      <h>26</h>
+      <x>435</x>
+      <y>735</y>
+      <w>24</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>9;21;9;9</additional_attributes>
+    <additional_attributes>15;35;15;15</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>291</x>
-      <y>600</y>
-      <w>14</w>
-      <h>62</h>
+      <x>520</x>
+      <y>735</y>
+      <w>24</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>9;57;9;9</additional_attributes>
+    <additional_attributes>15;95;15;15</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>213</x>
-      <y>546</y>
-      <w>38</w>
-      <h>119</h>
+      <x>390</x>
+      <y>645</y>
+      <w>64</w>
+      <h>199</h>
     </coordinates>
     <panel_attributes>lt=&gt;-</panel_attributes>
-    <additional_attributes>33;114;9;114;9;9;30;9</additional_attributes>
+    <additional_attributes>55;190;15;190;15;15;50;15</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>297</x>
-      <y>546</y>
-      <w>41</w>
-      <h>14</h>
+      <x>530</x>
+      <y>645</y>
+      <w>69</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>9;9;36;9</additional_attributes>
+    <additional_attributes>15;15;60;15</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>300</x>
-      <y>582</y>
-      <w>38</w>
-      <h>86</h>
+      <x>535</x>
+      <y>705</y>
+      <w>64</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>9;81;21;81;21;9;33;9</additional_attributes>
+    <additional_attributes>15;135;35;135;35;15;55;15</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>270</x>
-      <y>639</y>
-      <w>14</w>
-      <h>23</h>
+      <x>485</x>
+      <y>800</y>
+      <w>24</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>9;18;9;9</additional_attributes>
+    <additional_attributes>15;30;15;15</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>222</x>
-      <y>552</y>
-      <w>26</w>
-      <h>74</h>
+      <x>405</x>
+      <y>655</y>
+      <w>44</w>
+      <h>124</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>9;69;9;9;21;9</additional_attributes>
+    <additional_attributes>15;115;15;15;35;15</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>336</x>
-      <y>777</y>
-      <w>63</w>
-      <h>27</h>
+      <x>595</x>
+      <y>1030</y>
+      <w>105</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>FavoritesView
 </panel_attributes>
@@ -516,10 +516,10 @@ String number
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>243</x>
-      <y>735</y>
-      <w>63</w>
-      <h>27</h>
+      <x>440</x>
+      <y>960</y>
+      <w>105</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>ScheduleView
 </panel_attributes>
@@ -528,10 +528,10 @@ String number
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>333</x>
-      <y>834</y>
-      <w>63</w>
-      <h>27</h>
+      <x>590</x>
+      <y>1125</y>
+      <w>105</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>SettingsView</panel_attributes>
     <additional_attributes/>
@@ -539,10 +539,10 @@ String number
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>246</x>
-      <y>777</y>
-      <w>63</w>
-      <h>27</h>
+      <x>445</x>
+      <y>1030</y>
+      <w>105</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>SearchView
 </panel_attributes>
@@ -551,10 +551,10 @@ String number
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>327</x>
-      <y>735</y>
-      <w>63</w>
-      <h>27</h>
+      <x>580</x>
+      <y>960</y>
+      <w>105</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>OverlayView
 </panel_attributes>
@@ -563,10 +563,10 @@ String number
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>246</x>
-      <y>852</y>
-      <w>63</w>
-      <h>27</h>
+      <x>445</x>
+      <y>1155</y>
+      <w>105</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>PersonInfoView
 </panel_attributes>
@@ -575,10 +575,10 @@ String number
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>228</x>
-      <y>816</y>
-      <w>63</w>
-      <h>27</h>
+      <x>415</x>
+      <y>1095</y>
+      <w>105</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>CourseView
 </panel_attributes>
@@ -587,10 +587,10 @@ String number
   <element>
     <type>com.umlet.element.Note</type>
     <coordinates>
-      <x>117</x>
-      <y>543</y>
-      <w>81</w>
-      <h>18</h>
+      <x>230</x>
+      <y>640</y>
+      <w>135</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>ViewControllers extend UIViewController
 bg=orange</panel_attributes>
@@ -599,10 +599,28 @@ bg=orange</panel_attributes>
   <element>
     <type>com.umlet.element.Note</type>
     <coordinates>
-      <x>3</x>
-      <y>339</y>
-      <w>186</w>
-      <h>69</h>
+      <x>50</x>
+      <y>395</y>
+      <w>310</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>We are using the GRASP Principle of Simple Fabrication by "fabricating" factory classes which 
+will fetch the website HTML for us and convert it into data for a Person(student / faculty).
+
+In addition, the factory is a Protected Variation use, because if the website ever changes,
+we would only ever need to change the factory where all the scraping code is.
+
+This also adds a layer of indirection, so the classes aren't directly talking to the web service.
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Note</type>
+    <coordinates>
+      <x>50</x>
+      <y>310</y>
+      <w>310</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Due to iOS programming standards and constraints, we must adhere to Model, View, Controller
 Class architecture. Here we have diagrammed our View, which depends on the Controller, 
@@ -611,5 +629,56 @@ classes, they have been shown as simple boxes, and do not have any individual pr
 public variables or methods.
 bg=orange</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>635</x>
+      <y>425</y>
+      <w>70</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Factory
+--
+...
+--
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>635</x>
+      <y>365</y>
+      <w>24</w>
+      <h>69</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+</panel_attributes>
+    <additional_attributes>15;60;15;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>680</x>
+      <y>460</y>
+      <w>24</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+</panel_attributes>
+    <additional_attributes>15;15;15;40</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>550</x>
+      <y>455</y>
+      <w>94</w>
+      <h>74</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+</panel_attributes>
+    <additional_attributes>85;15;15;65</additional_attributes>
   </element>
 </diagram>
