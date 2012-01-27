@@ -16,7 +16,7 @@
                             <searchBar contentMode="redraw" barStyle="blackOpaque" text="" id="WHu-Ws-S3J">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="WSn-zo-W2s"/>
                                 </connections>
