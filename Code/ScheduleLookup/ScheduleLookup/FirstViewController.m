@@ -9,6 +9,7 @@
 #import "FirstViewController.h"
 #import "Student.h"
 #import "Factory.h"
+#import "StudentFactory.h"
 @implementation FirstViewController
 
 @synthesize nameLabel, usernameLabel, advisorLabel, credentialsAlertView;
@@ -159,7 +160,7 @@ UIGestureRecognizer* cancelGesture;
 {
     NSString *sdata = [[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding];
 
-    Student *person = [Factory studentFromStudentSchedulePage:sdata]; 
+    Student *person = [StudentFactory studentFromStudentSchedulePage:sdata]; 
     
     [nameLabel setText:person.name];
     [advisorLabel setText:person.advisor];
