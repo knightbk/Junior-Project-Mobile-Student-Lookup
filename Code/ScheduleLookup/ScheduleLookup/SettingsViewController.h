@@ -11,11 +11,12 @@
 
 KeychainItemWrapper *keychain;
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController <UITextFieldDelegate>
 + (NSString *)giveUsername;
 + (NSString *)givePass;
 - (IBAction) savePassword:(id)sender;
 - (IBAction) recoverPassword:(id)sender;
+-(IBAction)textFieldDidEndEditing:(UITextField *)textField;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *recoverButton;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;

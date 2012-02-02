@@ -40,16 +40,11 @@
     // Store password to keychain
     if ([passwordTextField text])
         [keychain setObject:[passwordTextField text] forKey:(__bridge id)kSecValueData];    	    
-    
-    NSLog(@"username: %@",[usernameTextField text]);
-    NSLog(@"password: %@",[passwordTextField text]);
 }
 - (IBAction)recoverPassword:(id)sender{
     [usernameTextField setText:[keychain objectForKey:(__bridge id)kSecAttrAccount]];
-    NSLog(@"username: %@", [usernameTextField text]);
     
     [passwordTextField setText:[keychain objectForKey:(__bridge id)kSecValueData]];
-    NSLog(@"password: %@", [passwordTextField text]);  
 }
 
 + (NSString *)giveUsername
@@ -76,10 +71,9 @@
 	}
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)theTextField 
+- (IBAction)textFieldDidEndEditing:(UITextField *)textField
 {
-    [theTextField resignFirstResponder];
-    return YES;
+    [textField resignFirstResponder];
 }
 
 #pragma mark - View lifecycle

@@ -140,8 +140,6 @@ UIGestureRecognizer* cancelGesture;
                                                                       password:[SettingsViewController givePass]
                                                                    persistence:NSURLCredentialPersistenceForSession] 
                 forAuthenticationChallenge:challenge];
-         NSLog(@"username: %@",[SettingsViewController giveUsername]); 
-        NSLog(@"password: %@",[SettingsViewController givePass]);
     }
 }
 
