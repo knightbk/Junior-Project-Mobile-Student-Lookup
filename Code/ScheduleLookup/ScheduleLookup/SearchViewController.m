@@ -6,11 +6,11 @@
 //  Copyright (c) 2011 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "SearchViewController.h"
 #import "Student.h"
 #import "Factory.h"
 #import "StudentFactory.h"
-@implementation FirstViewController
+@implementation SearchViewController
 
 @synthesize nameLabel, usernameLabel, advisorLabel, credentialsAlertView;
 
