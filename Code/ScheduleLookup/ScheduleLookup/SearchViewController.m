@@ -9,10 +9,11 @@
 #import "SearchViewController.h"
 #import "Student.h"
 #import "Factory.h"
+#import "SettingsViewController.h"
 #import "StudentFactory.h"
 @implementation SearchViewController
 
-@synthesize nameLabel, usernameLabel, advisorLabel, credentialsAlertView;
+@synthesize nameLabel, usernameLabel, advisorLabel;
 
 
 
@@ -43,14 +44,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self hideLabels:(true)];
-    credentialsAlertView = [[UIAlertView alloc] initWithTitle:@"Credentials" 
-                                                    message:@"Enter RHIT Credentials" 
-                                                   delegate:nil 
-                                          cancelButtonTitle:@"Done" 
-                                          otherButtonTitles:nil];
-    
-    credentialsAlertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
-    [credentialsAlertView show];
 }
 
 
@@ -140,19 +133,20 @@ UIGestureRecognizer* cancelGesture;
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials" message:@"The credentials you input for your account are invalid." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         */
-        [credentialsAlertView show];
     }
     else
     {
-        [[challenge sender]  useCredential:[NSURLCredential credentialWithUser:[[credentialsAlertView textFieldAtIndex:0] text] 
-                                                                      password:[[credentialsAlertView textFieldAtIndex:1] text]
+        [[challenge sender]  useCredential:[NSURLCredential credentialWithUser:[SettingsViewController giveUsername]
+                                                                      password:[SettingsViewController givePass]
                                                                    persistence:NSURLCredentialPersistenceForSession] 
                 forAuthenticationChallenge:challenge];
+         NSLog(@"username: %@",[SettingsViewController giveUsername]); 
+        NSLog(@"password: %@",[SettingsViewController givePass]);
     }
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection 
-{
+{ 
     [connection cancel];
 }
 

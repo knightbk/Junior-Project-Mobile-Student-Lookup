@@ -21,18 +21,18 @@
 {
  		// Store username to keychain 	
         if ([usernameTextField text])
-            [keychain setObject:[usernameTextField text] forKey:(__bridge_transfer id)kSecAttrAccount];
+            [keychain setObject:[usernameTextField text] forKey:(__bridge id)kSecAttrAccount];
         
  		// Store password to keychain
         if ([passwordTextField text])
-            [keychain setObject:[passwordTextField text] forKey:(__bridge_transfer id)kSecValueData];    	    
+            [keychain setObject:[passwordTextField text] forKey:(__bridge id)kSecValueData];    	    
 
 }
 - (IBAction)recoverPassword:(id)sender{
-    [usernameTextField setText:[keychain objectForKey:(__bridge_transfer id)kSecAttrAccount]];
+    [usernameTextField setText:[keychain objectForKey:(__bridge id)kSecAttrAccount]];
     NSLog(@"username: %@", [usernameTextField text]);
     
-    [passwordTextField setText:[keychain objectForKey:(__bridge_transfer id)kSecValueData]];
+    [passwordTextField setText:[keychain objectForKey:(__bridge id)kSecValueData]];
     NSLog(@"password: %@", [passwordTextField text]);  
 }
 

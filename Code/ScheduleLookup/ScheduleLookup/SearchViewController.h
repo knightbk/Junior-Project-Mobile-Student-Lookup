@@ -13,7 +13,7 @@
 @property(weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property(weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property(weak, nonatomic) IBOutlet UILabel *advisorLabel;
-@property(strong, nonatomic) UIAlertView *credentialsAlertView;
+
 
 - (IBAction)backgroundTouched:(id)sender;
 

@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KeychainItemWrapper.h"
+
+KeychainItemWrapper *keychain;
 
 @interface SettingsViewController : UIViewController
++ (NSString *)giveUsername;
++ (NSString *)givePass;
+- (IBAction) savePassword:(id)sender;
+- (IBAction) recoverPassword:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@property (weak, nonatomic) IBOutlet UIButton *recoverButton;
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+
 
 @end
