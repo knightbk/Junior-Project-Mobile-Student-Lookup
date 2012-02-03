@@ -17,8 +17,6 @@ KeychainItemWrapper *keychain;
 - (IBAction) savePassword:(id)sender;
 - (IBAction) recoverPassword:(id)sender;
 -(IBAction)textFieldDidEndEditing:(UITextField *)textField;
-@property (weak, nonatomic) IBOutlet UIButton *saveButton;
-@property (weak, nonatomic) IBOutlet UIButton *recoverButton;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 

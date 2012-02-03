@@ -9,6 +9,7 @@
 #import "SearchViewController.h"
 #import "Student.h"
 #import "Factory.h"
+
 #import "SettingsViewController.h"
 #import "StudentFactory.h"
 @implementation SearchViewController
@@ -129,16 +130,16 @@ UIGestureRecognizer* cancelGesture;
     if ([challenge previousFailureCount] > 0)
     {
         [[challenge sender] cancelAuthenticationChallenge:challenge];
-        /*
+        
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials" message:@"The credentials you input for your account are invalid." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        */
+        
     }
     else
     {
         [[challenge sender]  useCredential:[NSURLCredential credentialWithUser:[SettingsViewController giveUsername]
                                                                       password:[SettingsViewController givePass]
-                                                                   persistence:NSURLCredentialPersistenceForSession] 
+                                                                   persistence:NSURLCredentialPersistenceNone] 
                 forAuthenticationChallenge:challenge];
     }
 }
@@ -153,8 +154,9 @@ UIGestureRecognizer* cancelGesture;
     NSString *sdata = [[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding];
 
     Student *person = [StudentFactory studentFromStudentSchedulePage:sdata]; 
-    
+
     [nameLabel setText:person.name];
+    
     [advisorLabel setText:person.advisor];
     [usernameLabel setText:person.alias];
     [self hideLabels:(false)];

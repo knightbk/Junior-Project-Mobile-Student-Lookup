@@ -116,44 +116,12 @@
                                     <action selector="textFieldDidEndEditing:" destination="Z3N-gO-d2d" eventType="editingDidEndOnExit" id="zjn-ea-XfB"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lsx-o9-zVR">
-                                <rect key="frame" x="93" y="151" width="135" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Save Password">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="savePassword:" destination="Z3N-gO-d2d" eventType="touchUpInside" id="BZ4-i9-VWw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="laz-jD-BQu">
-                                <rect key="frame" x="81" y="217" width="159" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Recover Password">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="recoverPassword:" destination="Z3N-gO-d2d" eventType="touchUpInside" id="lo7-fR-aFL"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="SoT-m9-FOU"/>
                     <connections>
                         <outlet property="passwordTextField" destination="kWa-XL-lYi" id="C6P-ft-qGk"/>
-                        <outlet property="recoverButton" destination="laz-jD-BQu" id="kUH-Zf-upj"/>
-                        <outlet property="saveButton" destination="lsx-o9-zVR" id="7dK-B6-Vd8"/>
                         <outlet property="usernameTextField" destination="bK8-Wi-aE0" id="cvs-fV-DvG"/>
                     </connections>
                 </viewController>
@@ -239,8 +207,6 @@
                 <relationship kind="action" name="savePassword:"/>
                 <relationship kind="action" name="textFieldDidEndEditing:" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="recoverButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
             </relationships>
         </class>

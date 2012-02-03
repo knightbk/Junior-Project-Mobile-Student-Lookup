@@ -9,7 +9,7 @@
 #import "SettingsViewController.h"
 
 @implementation SettingsViewController
-@synthesize  saveButton, usernameTextField, passwordTextField, recoverButton;
+@synthesize  usernameTextField, passwordTextField;
 
 
 
@@ -32,26 +32,15 @@
 
 
 - (IBAction)savePassword:(id)sender
-{
-    // Store username to keychain 	
-    if ([usernameTextField text])
-        [keychain setObject:[usernameTextField text] forKey:(__bridge id)kSecAttrAccount];
-    
-    // Store password to keychain
-    if ([passwordTextField text])
-        [keychain setObject:[passwordTextField text] forKey:(__bridge id)kSecValueData];    	    
+{  	    
 }
-- (IBAction)recoverPassword:(id)sender{
-    [usernameTextField setText:[keychain objectForKey:(__bridge id)kSecAttrAccount]];
-    
-    [passwordTextField setText:[keychain objectForKey:(__bridge id)kSecValueData]];
-}
+
 
 + (NSString *)giveUsername
 {
     return [keychain objectForKey:(__bridge_transfer id)kSecAttrAccount];
 }
-+ (NSString *)givePass
++ (NSString *)givePass 
 {
     return [keychain objectForKey:(__bridge_transfer id)kSecValueData];
 }
@@ -85,10 +74,28 @@
 }
 */
 
+- (void)viewWillAppear:(BOOL)animated
+{
+        [usernameTextField setText:[keychain objectForKey:(__bridge id)kSecAttrAccount]];
+        
+        [passwordTextField setText:[keychain objectForKey:(__bridge id)kSecValueData]];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    
+    // Store username to keychain 	
+    if ([usernameTextField text])
+        [keychain setObject:[usernameTextField text] forKey:(__bridge id)kSecAttrAccount];
+    
+    // Store password to keychain
+    if ([passwordTextField text])
+        [keychain setObject:[passwordTextField text] forKey:(__bridge id)kSecValueData];  
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    
     keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"testID" accessGroup:nil];
     [super viewDidLoad];
 }
