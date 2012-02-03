@@ -31,10 +31,6 @@
 }
 
 
-- (IBAction)savePassword:(id)sender
-{  	    
-}
-
 
 + (NSString *)giveUsername
 {
