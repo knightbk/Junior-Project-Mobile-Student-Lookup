@@ -4,8 +4,8 @@
   <element>
     <type>com.umlet.element.Actor</type>
     <coordinates>
-      <x>60</x>
-      <y>90</y>
+      <x>50</x>
+      <y>240</y>
       <w>100</w>
       <h>140</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>80</x>
-      <y>160</y>
+      <x>70</x>
+      <y>310</y>
       <w>50</w>
       <h>360</h>
     </coordinates>
@@ -26,8 +26,8 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>310</x>
-      <y>160</y>
+      <x>300</x>
+      <y>310</y>
       <w>50</w>
       <h>350</h>
     </coordinates>
@@ -37,8 +37,8 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>290</x>
-      <y>160</y>
+      <x>280</x>
+      <y>310</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -48,8 +48,8 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>80</x>
-      <y>160</y>
+      <x>70</x>
+      <y>310</y>
       <w>280</w>
       <h>70</h>
     </coordinates>
@@ -60,8 +60,8 @@ go to Search page</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>80</x>
-      <y>180</y>
+      <x>70</x>
+      <y>330</y>
       <w>280</w>
       <h>70</h>
     </coordinates>
@@ -72,8 +72,8 @@ display search Screen</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>10</x>
-      <y>0</y>
+      <x>0</x>
+      <y>150</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -85,8 +85,8 @@ lt=-
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>80</x>
-      <y>220</y>
+      <x>70</x>
+      <y>370</y>
       <w>280</w>
       <h>70</h>
     </coordinates>
@@ -97,8 +97,8 @@ type in query</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>80</x>
-      <y>320</y>
+      <x>70</x>
+      <y>470</y>
       <w>280</w>
       <h>70</h>
     </coordinates>
@@ -109,8 +109,8 @@ contactInformation(query)</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>80</x>
-      <y>200</y>
+      <x>70</x>
+      <y>350</y>
       <w>280</w>
       <h>70</h>
     </coordinates>
@@ -121,8 +121,8 @@ specify Search field</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>50</x>
-      <y>330</y>
+      <x>40</x>
+      <y>480</y>
       <w>340</w>
       <h>60</h>
     </coordinates>
@@ -132,8 +132,8 @@ specify Search field</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>50</x>
-      <y>330</y>
+      <x>40</x>
+      <y>480</y>
       <w>40</w>
       <h>30</h>
     </coordinates>
@@ -143,8 +143,8 @@ specify Search field</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>80</x>
-      <y>240</y>
+      <x>70</x>
+      <y>390</y>
       <w>280</w>
       <h>70</h>
     </coordinates>
@@ -155,8 +155,8 @@ send Search</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>310</x>
-      <y>270</y>
+      <x>300</x>
+      <y>420</y>
       <w>120</w>
       <h>70</h>
     </coordinates>
@@ -166,8 +166,8 @@ send Search</panel_attributes>
   <element>
     <type>com.umlet.element.custom.Text</type>
     <coordinates>
-      <x>410</x>
-      <y>290</y>
+      <x>400</x>
+      <y>440</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
@@ -178,8 +178,8 @@ scrape data</panel_attributes>
   <element>
     <type>com.umlet.element.custom.Text</type>
     <coordinates>
-      <x>110</x>
-      <y>330</y>
+      <x>100</x>
+      <y>480</y>
       <w>180</w>
       <h>30</h>
     </coordinates>
@@ -189,8 +189,8 @@ scrape data</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>50</x>
-      <y>390</y>
+      <x>40</x>
+      <y>540</y>
       <w>340</w>
       <h>60</h>
     </coordinates>
@@ -200,8 +200,8 @@ scrape data</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>50</x>
-      <y>390</y>
+      <x>40</x>
+      <y>540</y>
       <w>40</w>
       <h>30</h>
     </coordinates>
@@ -211,8 +211,8 @@ scrape data</panel_attributes>
   <element>
     <type>com.umlet.element.custom.Text</type>
     <coordinates>
-      <x>110</x>
-      <y>390</y>
+      <x>100</x>
+      <y>540</y>
       <w>60</w>
       <h>30</h>
     </coordinates>
@@ -222,8 +222,8 @@ scrape data</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>80</x>
-      <y>370</y>
+      <x>70</x>
+      <y>520</y>
       <w>280</w>
       <h>70</h>
     </coordinates>
