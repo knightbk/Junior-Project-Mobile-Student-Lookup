@@ -10,12 +10,9 @@
 #import "Student.h"
 
 @interface Factory : NSObject
-
-+ (Student *) studentFromStudentSchedulePage:(NSString *) html;
-+ (NSString *) nameFromStringData:(NSString *)sdata;
-+ (NSString *) advisorFromStringData:(NSString *)sdata;
-+ (NSString *) usernameFromStringData:(NSString *)sdata;
 + (NSString *) firstMatchStringWithRegex:(NSString *)expression WithStringData:(NSString *)sdata;
++ (NSString *) usernameFromStringData:(NSString *)sdata;
++ (NSString *) nameFromStringData:(NSString *)sdata;
 
 
 @end

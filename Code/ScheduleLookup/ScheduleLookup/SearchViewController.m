@@ -6,12 +6,15 @@
 //  Copyright (c) 2011 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "SearchViewController.h"
 #import "Student.h"
 #import "Factory.h"
-@implementation FirstViewController
 
-@synthesize nameLabel, usernameLabel, advisorLabel, credentialsAlertView;
+#import "SettingsViewController.h"
+#import "StudentFactory.h"
+@implementation SearchViewController
+
+@synthesize nameLabel, usernameLabel, advisorLabel;
 
 
 
@@ -42,14 +45,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self hideLabels:(true)];
-    credentialsAlertView = [[UIAlertView alloc] initWithTitle:@"Credentials" 
-                                                    message:@"Enter RHIT Credentials" 
-                                                   delegate:nil 
-                                          cancelButtonTitle:@"Done" 
-                                          otherButtonTitles:nil];
-    
-    credentialsAlertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
-    [credentialsAlertView show];
 }
 
 
@@ -135,23 +130,22 @@ UIGestureRecognizer* cancelGesture;
     if ([challenge previousFailureCount] > 0)
     {
         [[challenge sender] cancelAuthenticationChallenge:challenge];
-        /*
+        
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials" message:@"The credentials you input for your account are invalid." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        */
-        [credentialsAlertView show];
+        
     }
     else
     {
-        [[challenge sender]  useCredential:[NSURLCredential credentialWithUser:[[credentialsAlertView textFieldAtIndex:0] text] 
-                                                                      password:[[credentialsAlertView textFieldAtIndex:1] text]
-                                                                   persistence:NSURLCredentialPersistenceForSession] 
+        [[challenge sender]  useCredential:[NSURLCredential credentialWithUser:[SettingsViewController giveUsername]
+                                                                      password:[SettingsViewController givePass]
+                                                                   persistence:NSURLCredentialPersistenceNone] 
                 forAuthenticationChallenge:challenge];
     }
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection 
-{
+{ 
     [connection cancel];
 }
 
@@ -159,9 +153,10 @@ UIGestureRecognizer* cancelGesture;
 {
     NSString *sdata = [[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding];
 
-    Student *person = [Factory studentFromStudentSchedulePage:sdata]; 
-    
+    Student *person = [StudentFactory studentFromStudentSchedulePage:sdata]; 
+
     [nameLabel setText:person.name];
+    
     [advisorLabel setText:person.advisor];
     [usernameLabel setText:person.alias];
     [self hideLabels:(false)];

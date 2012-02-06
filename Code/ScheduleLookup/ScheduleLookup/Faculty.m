@@ -17,7 +17,7 @@
                           WithName:(NSString *)newName 
                     WithDepartment:(NSString *)newDepartment
                   WithOfficeNumber:(NSString *)newOfficeNumber
-                   WithPhoneNumber:(NSString *)newPhoneNumber
+                   WithOfficeNumber:(NSString *)newPhoneNumber
 {
     if (self = [super initPersonWithAlias:newAlias WithCmNumber:newCmNumber  WithName:newName])
     {

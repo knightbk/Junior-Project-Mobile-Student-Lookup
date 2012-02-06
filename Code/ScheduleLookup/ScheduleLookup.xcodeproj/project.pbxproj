@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE1BADCF14DA60FE00C54FFE /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BADCE14DA60FE00C54FFE /* KeychainItemWrapper.m */; };
+		CE5CE84014DC36C700E096C8 /* FacultyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5CE83F14DC36C700E096C8 /* FacultyFactory.m */; };
+		CEB729CB14DA65AE002E54EC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB729CA14DA65AE002E54EC /* Security.framework */; };
+		CED1D5F414D9D1AE00255F0C /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = CED1D5F314D9D1AE00255F0C /* Factory.m */; };
 		E32079CB1499122E005ACDD0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32079CA1499122E005ACDD0 /* UIKit.framework */; };
 		E32079CD1499122E005ACDD0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32079CC1499122E005ACDD0 /* Foundation.framework */; };
 		E32079CF1499122E005ACDD0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32079CE1499122E005ACDD0 /* CoreGraphics.framework */; };
@@ -15,7 +19,7 @@
 		E32079DB1499122E005ACDD0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E32079DA1499122E005ACDD0 /* AppDelegate.m */; };
 		E32079DE1499122E005ACDD0 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E32079DC1499122E005ACDD0 /* MainStoryboard_iPhone.storyboard */; };
 		E32079E11499122E005ACDD0 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E32079DF1499122E005ACDD0 /* MainStoryboard_iPad.storyboard */; };
-		E32079E41499122E005ACDD0 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32079E31499122E005ACDD0 /* FirstViewController.m */; };
+		E32079E41499122E005ACDD0 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32079E31499122E005ACDD0 /* SearchViewController.m */; };
 		E32079E61499122E005ACDD0 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = E32079E51499122E005ACDD0 /* first.png */; };
 		E32079E81499122E005ACDD0 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E32079E71499122E005ACDD0 /* first@2x.png */; };
 		E32079EB1499122E005ACDD0 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32079EA1499122E005ACDD0 /* SecondViewController.m */; };
@@ -27,9 +31,10 @@
 		E3207A011499122E005ACDD0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E32079FF1499122E005ACDD0 /* InfoPlist.strings */; };
 		E3207A041499122E005ACDD0 /* ScheduleLookupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3207A031499122E005ACDD0 /* ScheduleLookupTests.m */; };
 		E340E72914C75A3300EBA4E0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = E340E72814C75A3300EBA4E0 /* Person.m */; };
-		E36E4BB314D1324900EDE057 /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = E36E4BB214D1324900EDE057 /* Factory.m */; };
+		E36E4BB314D1324900EDE057 /* StudentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E36E4BB214D1324900EDE057 /* StudentFactory.m */; };
 		E371603614C9C51400883E8C /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = E371603514C9C51400883E8C /* Student.m */; };
 		E371603E14C9D3D100883E8C /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = E371603D14C9D3D100883E8C /* Faculty.m */; };
+		E3DE69DE14DA20D800299023 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DE69DD14DA20D800299023 /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +48,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE1BADCD14DA60FE00C54FFE /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		CE1BADCE14DA60FE00C54FFE /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		CE25624A14DB119700706B01 /* ScheduleLookup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ScheduleLookup.entitlements; sourceTree = "<group>"; };
+		CE5CE83E14DC36C700E096C8 /* FacultyFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacultyFactory.h; sourceTree = "<group>"; };
+		CE5CE83F14DC36C700E096C8 /* FacultyFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacultyFactory.m; sourceTree = "<group>"; };
+		CEB729CA14DA65AE002E54EC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CED1D5F214D9D0E800255F0C /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
+		CED1D5F314D9D1AE00255F0C /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
 		E32079C61499122E005ACDD0 /* ScheduleLookup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleLookup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32079CA1499122E005ACDD0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E32079CC1499122E005ACDD0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,8 +68,8 @@
 		E32079DA1499122E005ACDD0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E32079DD1499122E005ACDD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		E32079E01499122E005ACDD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		E32079E21499122E005ACDD0 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		E32079E31499122E005ACDD0 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		E32079E21499122E005ACDD0 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		E32079E31499122E005ACDD0 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		E32079E51499122E005ACDD0 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		E32079E71499122E005ACDD0 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		E32079E91499122E005ACDD0 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
@@ -71,12 +84,14 @@
 		E3207A031499122E005ACDD0 /* ScheduleLookupTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleLookupTests.m; sourceTree = "<group>"; };
 		E340E72714C75A3300EBA4E0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		E340E72814C75A3300EBA4E0 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		E36E4BB114D1324900EDE057 /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
-		E36E4BB214D1324900EDE057 /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
+		E36E4BB114D1324900EDE057 /* StudentFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentFactory.h; sourceTree = "<group>"; };
+		E36E4BB214D1324900EDE057 /* StudentFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentFactory.m; sourceTree = "<group>"; };
 		E371603414C9C51400883E8C /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		E371603514C9C51400883E8C /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		E371603C14C9D3D100883E8C /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faculty.h; sourceTree = "<group>"; };
 		E371603D14C9D3D100883E8C /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faculty.m; sourceTree = "<group>"; };
+		E3DE69DC14DA20D800299023 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		E3DE69DD14DA20D800299023 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB729CB14DA65AE002E54EC /* Security.framework in Frameworks */,
 				E32079CB1499122E005ACDD0 /* UIKit.framework in Frameworks */,
 				E32079CD1499122E005ACDD0 /* Foundation.framework in Frameworks */,
 				E32079CF1499122E005ACDD0 /* CoreGraphics.framework in Frameworks */,
@@ -103,6 +119,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CED1D5F114D9D0AA00255F0C /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				CE5CE83E14DC36C700E096C8 /* FacultyFactory.h */,
+				CE5CE83F14DC36C700E096C8 /* FacultyFactory.m */,
+				CED1D5F314D9D1AE00255F0C /* Factory.m */,
+				E36E4BB114D1324900EDE057 /* StudentFactory.h */,
+				CED1D5F214D9D0E800255F0C /* Factory.h */,
+				E36E4BB214D1324900EDE057 /* StudentFactory.m */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
 		E32079BB1499122E005ACDD0 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +154,7 @@
 		E32079C91499122E005ACDD0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEB729CA14DA65AE002E54EC /* Security.framework */,
 				E32079CA1499122E005ACDD0 /* UIKit.framework */,
 				E32079CC1499122E005ACDD0 /* Foundation.framework */,
 				E32079CE1499122E005ACDD0 /* CoreGraphics.framework */,
@@ -136,6 +166,9 @@
 		E32079D01499122E005ACDD0 /* ScheduleLookup */ = {
 			isa = PBXGroup;
 			children = (
+				CE25624A14DB119700706B01 /* ScheduleLookup.entitlements */,
+				CE1BADCD14DA60FE00C54FFE /* KeychainItemWrapper.h */,
+				CE1BADCE14DA60FE00C54FFE /* KeychainItemWrapper.m */,
 				E340E72614C759FC00EBA4E0 /* Model */,
 				E340E72514C758AF00EBA4E0 /* View Controllers */,
 				E32079D91499122E005ACDD0 /* AppDelegate.h */,
@@ -192,10 +225,12 @@
 		E340E72514C758AF00EBA4E0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E32079E21499122E005ACDD0 /* FirstViewController.h */,
-				E32079E31499122E005ACDD0 /* FirstViewController.m */,
+				E32079E21499122E005ACDD0 /* SearchViewController.h */,
+				E32079E31499122E005ACDD0 /* SearchViewController.m */,
 				E32079E91499122E005ACDD0 /* SecondViewController.h */,
 				E32079EA1499122E005ACDD0 /* SecondViewController.m */,
+				E3DE69DC14DA20D800299023 /* SettingsViewController.h */,
+				E3DE69DD14DA20D800299023 /* SettingsViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -209,8 +244,7 @@
 				E371603514C9C51400883E8C /* Student.m */,
 				E371603C14C9D3D100883E8C /* Faculty.h */,
 				E371603D14C9D3D100883E8C /* Faculty.m */,
-				E36E4BB114D1324900EDE057 /* Factory.h */,
-				E36E4BB214D1324900EDE057 /* Factory.m */,
+				CED1D5F114D9D0AA00255F0C /* Factories */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -329,12 +363,16 @@
 			files = (
 				E32079D71499122E005ACDD0 /* main.m in Sources */,
 				E32079DB1499122E005ACDD0 /* AppDelegate.m in Sources */,
-				E32079E41499122E005ACDD0 /* FirstViewController.m in Sources */,
+				E32079E41499122E005ACDD0 /* SearchViewController.m in Sources */,
 				E32079EB1499122E005ACDD0 /* SecondViewController.m in Sources */,
 				E340E72914C75A3300EBA4E0 /* Person.m in Sources */,
 				E371603614C9C51400883E8C /* Student.m in Sources */,
 				E371603E14C9D3D100883E8C /* Faculty.m in Sources */,
-				E36E4BB314D1324900EDE057 /* Factory.m in Sources */,
+				E36E4BB314D1324900EDE057 /* StudentFactory.m in Sources */,
+				CED1D5F414D9D1AE00255F0C /* Factory.m in Sources */,
+				E3DE69DE14DA20D800299023 /* SettingsViewController.m in Sources */,
+				CE1BADCF14DA60FE00C54FFE /* KeychainItemWrapper.m in Sources */,
+				CE5CE84014DC36C700E096C8 /* FacultyFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

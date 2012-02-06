@@ -8,26 +8,13 @@
 
 #import "Factory.h"
 
-@implementation Factory
 
-+ (Student *) studentFromStudentSchedulePage:(NSString *) html
-{
-    return [[Student alloc] initStudentWithAlias:[self usernameFromStringData:html] 
-                                    WithCmNumber:nil 
-                                        WithName:[self nameFromStringData:html] 
-                                       WithMajor:nil 
-                                        WithYear:nil 
-                                     WithAdvisor:[self advisorFromStringData:html]];
-}
+
+@implementation Factory
 
 + (NSString *) nameFromStringData:(NSString *)sdata
 {
     return [self firstMatchStringWithRegex:@">Name: ([a-zA-Z ]+)<" WithStringData:sdata];
-}
-
-+ (NSString *) advisorFromStringData:(NSString *)sdata
-{
-    return [self firstMatchStringWithRegex:@"> Advisor: ([a-zA-Z ]+)<" WithStringData:sdata];
 }
 
 + (NSString *) usernameFromStringData:(NSString *)sdata
@@ -50,6 +37,5 @@
     }
     return name;
 }
-
 
 @end

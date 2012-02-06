@@ -10,18 +10,45 @@
 
 @implementation ViewController
 
-@synthesize usernameTextField,passwordTextField;
+@synthesize usernameTextField,passwordTextField, testButton, recoverButton;
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
 }
+- (IBAction)savePassword:(id)sender
+{
+ 		// Store username to keychain 	
+        if ([usernameTextField text])
+            [keychain setObject:[usernameTextField text] forKey:(__bridge id)kSecAttrAccount];
+        
+ 		// Store password to keychain
+        if ([passwordTextField text])
+            [keychain setObject:[passwordTextField text] forKey:(__bridge id)kSecValueData];    	    
+
+}
+- (IBAction)recoverPassword:(id)sender{
+    [usernameTextField setText:[keychain objectForKey:(__bridge id)kSecAttrAccount]];
+    NSLog(@"username: %@", [usernameTextField text]);
+    
+    [passwordTextField setText:[keychain objectForKey:(__bridge id)kSecValueData]];
+    NSLog(@"password: %@", [passwordTextField text]);  
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField 
+{
+    [theTextField resignFirstResponder];
+    return YES;
+}
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
+    // Create instance of keychain wrapper
+	keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"testID" accessGroup:nil];
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -100,5 +127,7 @@
         return YES;
     }
 }
+
+
 
 @end
