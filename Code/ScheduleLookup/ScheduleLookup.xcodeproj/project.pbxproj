@@ -124,9 +124,9 @@
 			children = (
 				CE5CE83E14DC36C700E096C8 /* FacultyFactory.h */,
 				CE5CE83F14DC36C700E096C8 /* FacultyFactory.m */,
+				CED1D5F214D9D0E800255F0C /* Factory.h */,
 				CED1D5F314D9D1AE00255F0C /* Factory.m */,
 				E36E4BB114D1324900EDE057 /* StudentFactory.h */,
-				CED1D5F214D9D0E800255F0C /* Factory.h */,
 				E36E4BB214D1324900EDE057 /* StudentFactory.m */,
 			);
 			name = Factories;
