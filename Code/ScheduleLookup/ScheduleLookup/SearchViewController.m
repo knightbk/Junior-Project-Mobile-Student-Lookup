@@ -13,6 +13,8 @@
 #import "KeychainItemWrapper.h"
 #import "SettingsViewController.h"
 #import "StudentFactory.h"
+#import "Schedule.h"
+#import "ScheduleFactory.h"
 @implementation SearchViewController
 
 @synthesize nameLabel, usernameLabel, advisorLabel;
@@ -154,7 +156,9 @@ UIGestureRecognizer* cancelGesture;
 {
     NSString *sdata = [[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding];
 
-    Student *person = [StudentFactory studentFromStudentSchedulePage:sdata]; 
+    Student *person = [StudentFactory studentFromStudentSchedulePage:sdata];
+    NSLog(@"%@",[ScheduleFactory firstMatchStringWithRegex:@"<TR>.*>([A-Z-]{2,4}[0-9]{3}R?L?-[0-9]{2}|[0]{2}[A-Z-]{2,5}-[0-9]{2})<.*?<TD>([0-9]{4})</TD><TD>([^<]+)</TD>.*?>([a-zA-Z0-9]+)<.*?<TD>([0-9]+)\n?</TD><TD>([0-9]+)</TD><TD>([0-9]+)</TD>.*?\n*.*<TD>([MTWRF]+/[^<]+|TBA|TBA/TBA/TBA)</TD><TD>([^<]*)</TD><TD>([^<]*)</TD></TR>"
+                                WithStringData:sdata]);
 
     [nameLabel setText:person.name];
     
