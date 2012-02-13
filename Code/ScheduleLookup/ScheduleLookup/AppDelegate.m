@@ -3,21 +3,25 @@
 //  ScheduleLookup
 //
 //  Created by Mark Vitale on 12/14/11.
+//  Modified by Brandon Knight on 2/13/2012
 //  Copyright (c) 2011 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
 #import "AppDelegate.h"
-
+#import "KeychainItemWrapper.h"
 @implementation AppDelegate
 
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    passwordItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:@"$(TeamIdentifierPrefix)edu.rose-hulman.ScheduleLookup"];
     // Override point for customization after application launch.
     return YES;
 }
-							
+
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     /*

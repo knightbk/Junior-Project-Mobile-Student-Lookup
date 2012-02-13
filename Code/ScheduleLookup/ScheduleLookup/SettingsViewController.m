@@ -3,11 +3,13 @@
 //  ScheduleLookup
 //
 //  Created by Mark Vitale on 2/1/12.
+//  Modified by Brandon Knight on 2/13/2012
 //  Copyright (c) 2012 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
 #import "SettingsViewController.h"
-
+#import "AppDelegate.h"
+#import "KeychainItemWrapper.h"
 @implementation SettingsViewController
 @synthesize  usernameTextField, passwordTextField;
 
@@ -30,16 +32,6 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-
-
-+ (NSString *)giveUsername
-{
-    return [keychain objectForKey:(__bridge_transfer id)kSecAttrAccount];
-}
-+ (NSString *)givePass 
-{
-    return [keychain objectForKey:(__bridge_transfer id)kSecValueData];
-}
 
 -(void)findAndResignFirstResponder{
 	for (UIView *aView in [self.view subviews]){
@@ -72,27 +64,26 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-        [usernameTextField setText:[keychain objectForKey:(__bridge id)kSecAttrAccount]];
+        [usernameTextField setText:[passwordItem objectForKey:(__bridge id)kSecAttrAccount]];
         
-        [passwordTextField setText:[keychain objectForKey:(__bridge id)kSecValueData]];
+        [passwordTextField setText:[passwordItem objectForKey:(__bridge id)kSecValueData]];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
     
     // Store username to keychain 	
     if ([usernameTextField text])
-        [keychain setObject:[usernameTextField text] forKey:(__bridge id)kSecAttrAccount];
+        [passwordItem setObject:[usernameTextField text] forKey:(__bridge id)kSecAttrAccount];
     
     // Store password to keychain
     if ([passwordTextField text])
-        [keychain setObject:[passwordTextField text] forKey:(__bridge id)kSecValueData];  
+        [passwordItem setObject:[passwordTextField text] forKey:(__bridge id)kSecValueData];  
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-    
-    keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"testID" accessGroup:nil];
+
     [super viewDidLoad];
 }
 

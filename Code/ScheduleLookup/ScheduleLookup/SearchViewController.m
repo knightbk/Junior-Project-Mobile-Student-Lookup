@@ -3,13 +3,14 @@
 //  ScheduleLookup
 //
 //  Created by Mark Vitale on 12/14/11.
+//  Modified by Brandon Knight on 2/13/2012
 //  Copyright (c) 2011 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
 #import "SearchViewController.h"
 #import "Student.h"
 #import "Factory.h"
-
+#import "KeychainItemWrapper.h"
 #import "SettingsViewController.h"
 #import "StudentFactory.h"
 @implementation SearchViewController
@@ -137,8 +138,8 @@ UIGestureRecognizer* cancelGesture;
     }
     else
     {
-        [[challenge sender]  useCredential:[NSURLCredential credentialWithUser:[SettingsViewController giveUsername]
-                                                                      password:[SettingsViewController givePass]
+        [[challenge sender]  useCredential:[NSURLCredential credentialWithUser:[passwordItem objectForKey:(__bridge_transfer id)kSecAttrAccount]
+                                                                      password:[passwordItem objectForKey:(__bridge_transfer id)kSecValueData]
                                                                    persistence:NSURLCredentialPersistenceNone] 
                 forAuthenticationChallenge:challenge];
     }
