@@ -7,14 +7,24 @@
 //
 
 #import "ScheduleFactory.h"
-
+#import "Schedule.h"
 
 
 @implementation ScheduleFactory
 
-+ (NSString *) scheduleFromStringData:(NSString *)sdata
++ (Schedule *) scheduleFromSchedulePage:(NSString *) html
 {
-    return [self firstMatchStringWithRegex:@">Name: ([a-zA-Z ]+)<" WithStringData:sdata];
+    return [[Schedule alloc] initScheduleWithAlias:nil
+                                           WithCRN:nil
+                                        WithCredit:nil
+                                      WithComments:nil 
+                                           WithCAP:nil
+                                    WithInstructor:nil
+                                   WithDescription:nil
+                                          WithENRL:nil
+                                WithFinal_Schedule:nil
+                                 WithTerm_Schedule:nil
+                                         WithOther:nil];
 }
 
 

@@ -11,7 +11,7 @@
 
 @interface ScheduleFactory: NSObject
 + (NSString *) firstMatchStringWithRegex:(NSString *)expression WithStringData:(NSString *)sdata;
-+ (NSString *) scheduleFromStringData:(NSString *)sdata;
++ (Schedule *) scheduleFromSchedulePage:(NSString *)html;
 
 
 
