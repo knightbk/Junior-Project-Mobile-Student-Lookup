@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "KeychainItemWrapper.h"
-
-KeychainItemWrapper *keychain;
-
+#import "AppDelegate.h"
 @interface SettingsViewController : UIViewController <UITextFieldDelegate>
-+ (NSString *)giveUsername;
-+ (NSString *)givePass;
+
+
 -(IBAction)textFieldDidEndEditing:(UITextField *)textField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;

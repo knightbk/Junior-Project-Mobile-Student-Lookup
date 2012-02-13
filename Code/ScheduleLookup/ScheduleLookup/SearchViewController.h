@@ -15,6 +15,6 @@
 @property(weak, nonatomic) IBOutlet UILabel *advisorLabel;
 
 
-- (IBAction)backgroundTouched:(id)sender;
+
 
 @end
