@@ -35,13 +35,19 @@
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];
     
-    NSTextCheckingResult *rangeOfFirstMatch = [regex firstMatchInString:sdata options:0 range:NSMakeRange(0, [sdata length])];
-    
-    NSString *name = @"";
-    if (!NSEqualRanges([rangeOfFirstMatch rangeAtIndex:0], NSMakeRange(NSNotFound, 0))) {
-        name = [sdata substringWithRange:[rangeOfFirstMatch rangeAtIndex:1]];
+    NSArray *matches = [regex matchesInString:sdata options:0 range:NSMakeRange(0, [sdata length])];
+    NSLog(@"---------------------");
+
+    //each of these matches should have 10 fields
+    //Currently only logging the values and returning an empty string to keep from throwing errors.
+    for (NSTextCheckingResult *match in matches) {
+        for (int i=1; i < [match numberOfRanges]; i++) {
+            NSString *temp = [sdata substringWithRange:[match rangeAtIndex:i]];
+            NSLog(@"%@", temp);
+        }
+        NSLog(@"---------------------");
     }
-    return name;
+    return @"";
 }
 
 @end
