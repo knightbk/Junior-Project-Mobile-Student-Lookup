@@ -26,7 +26,8 @@
                                  WithTerm_Schedule:nil
                                          WithOther:nil];
 }
-
+//this would indicate that a whole sched could only have 1 course...
+//this "schedule" seem slike a course, and a schedule will take an array of courses.
 
 + (NSString *) firstMatchStringWithRegex:(NSString *)expression WithStringData:(NSString *)sdata
 {
@@ -39,7 +40,7 @@
     NSLog(@"---------------------");
 
     //each of these matches should have 10 fields
-    //Currently only logging the values and returning an empty string to keep from throwing errors.
+    //Currently only logging the values and returning an empty string to keep from throwing errors. 
     for (NSTextCheckingResult *match in matches) {
         for (int i=1; i < [match numberOfRanges]; i++) {
             NSString *temp = [sdata substringWithRange:[match rangeAtIndex:i]];
