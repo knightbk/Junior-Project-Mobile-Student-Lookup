@@ -17,7 +17,7 @@
 #import "ScheduleFactory.h"
 @implementation SearchViewController
 
-@synthesize nameLabel, usernameLabel, advisorLabel;
+@synthesize nameLabel, usernameLabel, advisorLabel, scheduleTextView;
 
 
 
@@ -158,9 +158,8 @@ UIGestureRecognizer* cancelGesture;
 
     Student *person = [StudentFactory studentFromStudentSchedulePage:sdata];
     Schedule *schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];
-    
     [nameLabel setText:person.name];
-    
+    scheduleTextView.text = [schedule scheduleInformationString];
     [advisorLabel setText:person.advisor];
     [usernameLabel setText:person.alias];
     [self hideLabels:(false)];

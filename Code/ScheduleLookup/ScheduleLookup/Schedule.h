@@ -15,5 +15,7 @@
 }
 
 - (Schedule *) initScheduleWithClassArray:(NSMutableArray *) aSchedule;
+- (NSString *) scheduleInformationString;
+
 @property(strong, nonatomic) NSMutableArray *schedule;
 @end

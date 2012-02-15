@@ -9,6 +9,7 @@
 
 
 #import "Schedule.h"
+#import "ClassSchedule.h"
 @implementation Schedule
 
 @synthesize schedule;
@@ -20,6 +21,16 @@
     self.schedule = aSchedule;
     
     return self;
+}
+
+- (NSString *) scheduleInformationString
+{
+    NSMutableString *result = [NSMutableString stringWithString:@"----------\n"];
+    for (ClassSchedule *class in self.schedule) {
+        [result appendString:[class classInformationString]];
+        [result appendString:@"----------\n"];
+    }
+    return result;
 }
 
 @end

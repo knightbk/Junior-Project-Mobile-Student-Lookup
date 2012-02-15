@@ -14,7 +14,7 @@
 @property(weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property(weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property(weak, nonatomic) IBOutlet UILabel *advisorLabel;
-
+@property(weak, nonatomic) IBOutlet UITextView *scheduleTextView;
 
 
 

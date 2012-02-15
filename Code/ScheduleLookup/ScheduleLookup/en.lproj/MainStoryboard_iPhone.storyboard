@@ -63,6 +63,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="S0l-B3-5u6">
+                                <rect key="frame" x="20" y="164" width="280" height="227"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -70,6 +77,7 @@
                     <connections>
                         <outlet property="advisorLabel" destination="CkA-an-VxW" id="zFG-oU-iuC"/>
                         <outlet property="nameLabel" destination="gyp-jZ-VWa" id="p37-rg-B5f"/>
+                        <outlet property="scheduleTextView" destination="S0l-B3-5u6" id="jMy-Iv-16E"/>
                         <outlet property="usernameLabel" destination="9Gc-e6-JNB" id="pbr-sf-Z7D"/>
                     </connections>
                 </viewController>
@@ -194,17 +202,15 @@
         <class className="SearchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backgroundTouched:"/>
                 <relationship kind="outlet" name="advisorLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scheduleTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="usernameLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="recoverPassword:"/>
-                <relationship kind="action" name="savePassword:"/>
                 <relationship kind="action" name="textFieldDidEndEditing:" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>

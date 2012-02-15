@@ -35,13 +35,16 @@
 @property(strong, nonatomic) NSString *Final_Schedule;
 
 - (ClassSchedule *) initClassScheduleWithAlias:(NSString *)newAlias 
-                             WithCRN:(NSString *)newCRN  
-                          WithCredit:(NSString *)newCredit
-                        WithComments:(NSString *)newComments
-                             WithCAP:(NSString *)newCAP
-                      WithInstructor:(NSString *)newInstructor  
-                     WithDescription:(NSString *)newDescription
-                            WithENRL:(NSString *)newENRL
-                  WithFinal_Schedule:(NSString *)newFinal_Schedule
-                   WithTerm_Schedule:(NSString *)newTerm_Schedule;
+                                       WithCRN:(NSString *)newCRN  
+                               WithDescription:(NSString *)newDescription
+                                WithInstructor:(NSString *)newInstructor  
+                                    WithCredit:(NSString *)newCredit
+                                      WithENRL:(NSString *)newENRL
+                                       WithCAP:(NSString *)newCAP
+                             WithTerm_Schedule:(NSString *)newTerm_Schedule
+                                  WithComments:(NSString *)newComments
+                            WithFinal_Schedule:(NSString *)newFinal_Schedule;
+
+- (NSString *) classInformationString;
+
 @end
