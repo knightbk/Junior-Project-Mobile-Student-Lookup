@@ -158,9 +158,7 @@ UIGestureRecognizer* cancelGesture;
 
     Student *person = [StudentFactory studentFromStudentSchedulePage:sdata];
     Schedule *schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];
-    NSLog(@"%@",[ScheduleFactory firstMatchStringWithRegex:@"<TR>.*>([A-Z-]{2,4}[0-9]{3}R?L?-[0-9]{2}|[0]{2}[A-Z-]{2,5}-[0-9]{2})<.*?<TD>([0-9]{4})</TD><TD>([^<]+)</TD>.*?>([a-zA-Z0-9]+)<.*?<TD>([0-9]+)\n?</TD><TD>([0-9]+)</TD><TD>([0-9]+)</TD>.*?\n*.*<TD>([MTWRF]+/[^<]+|TBA|TBA/TBA/TBA)</TD><TD>([^<]*)</TD><TD>([^<]*)</TD></TR>"
-                                WithStringData:sdata]);
-
+    
     [nameLabel setText:person.name];
     
     [advisorLabel setText:person.advisor];

@@ -10,7 +10,7 @@
 #import "Schedule.h"
 
 @interface ScheduleFactory: NSObject
-+ (NSString *) firstMatchStringWithRegex:(NSString *)expression WithStringData:(NSString *)sdata;
++ (Schedule *) matchesInStrings:(NSString *)expression WithStringData:(NSString *)sdata;
 + (Schedule *) scheduleFromSchedulePage:(NSString *)html;
 
 

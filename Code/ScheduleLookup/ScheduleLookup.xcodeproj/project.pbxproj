@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CE1BADCF14DA60FE00C54FFE /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BADCE14DA60FE00C54FFE /* KeychainItemWrapper.m */; };
+		CE57E7B514EB71C50033E59A /* ClassFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57E7B214EB71C50033E59A /* ClassFactory.m */; };
+		CE57E7B614EB71C50033E59A /* ClassSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57E7B414EB71C50033E59A /* ClassSchedule.m */; };
 		CE5CE84014DC36C700E096C8 /* FacultyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5CE83F14DC36C700E096C8 /* FacultyFactory.m */; };
 		CEB33E7314E9B4820048C518 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB33E7214E9B4820048C518 /* Schedule.m */; };
 		CEB33E7714E9B5740048C518 /* ScheduleFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB33E7614E9B5740048C518 /* ScheduleFactory.m */; };
@@ -53,6 +55,10 @@
 		CE1BADCD14DA60FE00C54FFE /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		CE1BADCE14DA60FE00C54FFE /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		CE25624A14DB119700706B01 /* ScheduleLookup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ScheduleLookup.entitlements; sourceTree = "<group>"; };
+		CE57E7B114EB71C50033E59A /* ClassFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassFactory.h; sourceTree = "<group>"; };
+		CE57E7B214EB71C50033E59A /* ClassFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassFactory.m; sourceTree = "<group>"; };
+		CE57E7B314EB71C50033E59A /* ClassSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSchedule.h; sourceTree = "<group>"; };
+		CE57E7B414EB71C50033E59A /* ClassSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassSchedule.m; sourceTree = "<group>"; };
 		CE5CE83E14DC36C700E096C8 /* FacultyFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacultyFactory.h; sourceTree = "<group>"; };
 		CE5CE83F14DC36C700E096C8 /* FacultyFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacultyFactory.m; sourceTree = "<group>"; };
 		CEB33E7114E9B4820048C518 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
@@ -128,6 +134,8 @@
 		CED1D5F114D9D0AA00255F0C /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				CE57E7B114EB71C50033E59A /* ClassFactory.h */,
+				CE57E7B214EB71C50033E59A /* ClassFactory.m */,
 				CEB33E7514E9B5740048C518 /* ScheduleFactory.h */,
 				CEB33E7614E9B5740048C518 /* ScheduleFactory.m */,
 				CE5CE83E14DC36C700E096C8 /* FacultyFactory.h */,
@@ -246,6 +254,8 @@
 		E340E72614C759FC00EBA4E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE57E7B314EB71C50033E59A /* ClassSchedule.h */,
+				CE57E7B414EB71C50033E59A /* ClassSchedule.m */,
 				CEB33E7114E9B4820048C518 /* Schedule.h */,
 				CEB33E7214E9B4820048C518 /* Schedule.m */,
 				E340E72714C75A3300EBA4E0 /* Person.h */,
@@ -385,6 +395,8 @@
 				CE5CE84014DC36C700E096C8 /* FacultyFactory.m in Sources */,
 				CEB33E7314E9B4820048C518 /* Schedule.m in Sources */,
 				CEB33E7714E9B5740048C518 /* ScheduleFactory.m in Sources */,
+				CE57E7B514EB71C50033E59A /* ClassFactory.m in Sources */,
+				CE57E7B614EB71C50033E59A /* ClassSchedule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
