@@ -15,7 +15,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    passwordItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:@"$(TeamIdentifierPrefix)edu.rose-hulman.ScheduleLookup"];
+    passwordItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:@"edu.rose-hulman.ScheduleLookup"];
     // Override point for customization after application launch.
     return YES;
 }

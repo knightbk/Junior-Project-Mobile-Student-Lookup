@@ -12,45 +12,226 @@
 #import "Factory.h"
 #import "KeychainItemWrapper.h"
 #import "SettingsViewController.h"
+#import "GCCalendarPortraitView.h"
 #import "StudentFactory.h"
 #import "Schedule.h"
 #import "ScheduleFactory.h"
+#import "ClassSchedule.h"
+#import "ClassFactory.h"
+#import "SearchUserViewController.h"
 @implementation SearchViewController
 
-@synthesize nameLabel, usernameLabel, advisorLabel, scheduleTextView;
+@synthesize schedule = _schedule;
 
 
-
+- (void)calendarViewAddButtonPressed:(GCCalendarView *)view {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+- (void)calendarTileTouchedInView:(GCCalendarView *)view withEvent:(GCCalendarEvent *)event {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
+}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
 }
-- (void)hideLabels:(BOOL)val
+
+- (int) getPeriod:(NSString *) period
 {
-    if(val){
-    [nameLabel setHidden:TRUE];
-    [usernameLabel setHidden:TRUE];
-    [advisorLabel setHidden:TRUE];
-    }
-    else{
-        [nameLabel setHidden:false];
-        [usernameLabel setHidden:false];
-        [advisorLabel setHidden:false];
-    }
+    
+    return 0;
+}
+- (BOOL) isSlash:(char) character
+{
+    if (character == '/')
+        return true;
+    else
+        return false;
 }
 
-#pragma mark - View lifecycle
++ (NSMutableArray *) parseThis:(ClassSchedule *) withClass
+{
+    SearchViewController *thing = [[SearchViewController alloc] init];
+    NSMutableArray *things = [[NSMutableArray alloc] initWithObjects:[withClass Course], [withClass CRN], [withClass Description],[withClass Instructor], [withClass Credit], [withClass ENRL], [withClass CAP], [withClass Term_Schedule], [withClass Comments], [withClass Final_Schedule], nil];
+    NSMutableArray *newString = [[NSMutableArray alloc] init];
+    NSString *tempString = @"";
+    NSString *checkMe =[things objectAtIndex:7];
+    for(int i = 0; i < [checkMe length]; i++){
+        if ([thing isSlash:[checkMe characterAtIndex:i]]) {
+            i++;
+            while( ! [thing isSlash:[checkMe characterAtIndex:i]])
+            {
+                tempString = [tempString stringByAppendingString:[checkMe substringWithRange:NSMakeRange(i, 1)]];
+                
+                i++;
+                
+            }
+            [newString addObject:tempString];
+            tempString = [tempString stringByAppendingString:@":"];
+        }
+    }
+    NSLog(@"%@", tempString);
+    for(NSObject *match in newString){
+        NSLog(@"%@", match);
+        
+    }
+    
+    
+    return newString;
+}
 
 - (void)viewDidLoad
 {
+    
+    self.dataSource = self;
+    self.delegate = self;
+    [self loadView];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    [self hideLabels:(true)];
-    scheduleTextView.text = @"";
+    
 }
+- (NSArray *)calendarEventsForDate:(NSDate *)date{
+	NSMutableArray *events = [NSMutableArray array];
+	
+    SearchUserViewController *obj = (SearchUserViewController *)[[(UINavigationController *)[[[self tabBarController] viewControllers] objectAtIndex:0] viewControllers] objectAtIndex:0];
+    
+	NSDateComponents *components = [[NSCalendar currentCalendar] components:
+									(NSWeekdayCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit)
+																   fromDate:date];
+	[components setSecond:0];
 
+    
+	// create 5 calendar events that aren't all day events
+    
+   
+    for(ClassSchedule *c in obj.schedule.schedule){
+        GCCalendarEvent *event = [[GCCalendarEvent alloc] init];
+        event.color = [[GCCalendar colors] objectAtIndex:1];
+        event.allDayEvent = NO;
+        NSLog(@"first");
+        event.eventName = c.Course;
+        event.eventDescription = c.Description;
+
+        NSMutableArray *array = [SearchViewController parseThis:c];
+        if(c != nil){
+            for(NSString *match in array){
+                
+                if([match length] == 1){
+                    if([match characterAtIndex:0] == '1'){
+                        [components setHour:8];
+                        [components setMinute:5];
+                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [components setMinute:50];
+                        
+                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [events addObject:event];
+                    }
+                    if([match characterAtIndex:0] == '2'){
+                        [components setHour:9];
+                        [components setMinute:0];  
+                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [components setMinute:50];
+                        
+                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [events addObject:event];
+                    }
+                    if([match characterAtIndex:0] == '3'){
+                        [components setHour:9];
+                        [components setMinute:55];
+                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [components setHour:10];
+                        [components setMinute:45];
+                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [events addObject:event];
+                    }
+                    if([match characterAtIndex:0] == '4'){
+                        [components setHour:10];
+                        [components setMinute:50];
+                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [components setHour:11];
+                        [components setMinute:40];
+                        
+                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [events addObject:event];
+                    }
+                    if([match characterAtIndex:0] == '5'){
+                        [components setHour:11];
+                        [components setMinute:45];
+                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [components setHour:12];
+                        [components setMinute:35];
+                        
+                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [events addObject:event];
+                    }
+                    if([match characterAtIndex:0] == '6'){
+                        [components setHour:12];
+                        [components setMinute:40];
+                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [components setHour:13];
+                        [components setMinute:30];
+                        
+                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [events addObject:event];
+                        
+                    }
+                    if([match characterAtIndex:0] == '7'){
+                        [components setHour:13];
+                        [components setMinute:35];
+                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        [components setHour:14];
+                        [components setMinute:25];
+                        
+                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [events addObject:event];
+                    }
+                    if([match characterAtIndex:0] == '8'){
+                        [components setHour:14];
+                        [components setMinute:30];
+                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        [components setHour:15];
+                        [components setMinute:20];
+                        
+                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [events addObject:event];
+                    }
+                    if([match characterAtIndex:0] == '9'){
+                        [components setHour:15];
+                        [components setMinute:25];
+                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [components setHour:16];
+                        [components setMinute:15];
+                        
+                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                        
+                        [events addObject:event];
+                    }
+                    
+                }
+            }
+        }
+	}
+	
+    
+	
+	return events;
+}
 
 
 - (void)viewDidUnload
@@ -63,6 +244,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self today];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -89,84 +271,17 @@
         return YES;
     }
 }
-//recognizes cancel touches on screen
-UIGestureRecognizer* cancelGesture;
 
-- (IBAction)backgroundTouched:(id)sender 
-{
-    [self.view endEditing:YES];
+#pragma mark - SearchUserDelegate methods
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UINavigationController * popoverNavigationController = segue.destinationViewController;
+    SearchUserViewController * targetController = [[popoverNavigationController viewControllers] objectAtIndex:0];
+   targetController.delegate = self;
 }
 
-#pragma mark - UISearchBarDelegate Methods
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    [self.view endEditing:YES];
-    NSString *url = [NSString stringWithFormat:@"https://prodweb.rose-hulman.edu/regweb-cgi/reg-sched.pl?type=Username&termcode=201220&view=tgrid&id=%@", searchBar.text];
-
-    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
-    NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [connection start];
-
+- (void)controller:(SearchUserViewController *)controller withSchedule:(Schedule *)personSchedule{
+    self.schedule = personSchedule;
 }
-//will place cancelGesture methods only when searchBar is being edited.
--(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    cancelGesture = [UITapGestureRecognizer new];
-    [cancelGesture addTarget:self action:@selector(backgroundTouched:)];
-    [self.view addGestureRecognizer:cancelGesture];
-}
-
--(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
-    if (cancelGesture) {
-        [self.view removeGestureRecognizer:cancelGesture];
-        cancelGesture = nil;
-    }
-}
-
-
-
-
-#pragma mark - NSURLConnectionDelegate Methods
-
-- (void) connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
-{
-        
-    if ([challenge previousFailureCount] > 0)
-    {
-        [[challenge sender] cancelAuthenticationChallenge:challenge];
-        
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials" message:@"The credentials you input for your account are invalid." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        
-    }
-    else
-    {
-        [[challenge sender]  useCredential:[NSURLCredential credentialWithUser:[passwordItem objectForKey:(__bridge_transfer id)kSecAttrAccount]
-                                                                      password:[passwordItem objectForKey:(__bridge_transfer id)kSecValueData]
-                                                                   persistence:NSURLCredentialPersistenceNone] 
-                forAuthenticationChallenge:challenge];
-    }
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection 
-{ 
-    [connection cancel];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data 
-{
-    NSString *sdata = [[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding];
-
-    Student *person = [StudentFactory studentFromStudentSchedulePage:sdata];
-    Schedule *schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];
-    [nameLabel setText:person.name];
-    scheduleTextView.text = [schedule scheduleInformationString];
-    [advisorLabel setText:person.advisor];
-    [usernameLabel setText:person.alias];
-    [self hideLabels:(false)];
-    [connection cancel];
-}
-
-
 
 @end

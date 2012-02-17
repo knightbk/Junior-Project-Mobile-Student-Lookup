@@ -8,14 +8,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCCalendar.h"
+#import "ClassSchedule.h"
+#import "SearchUserDelegate.h"
+@interface SearchViewController : GCCalendarPortraitView <UISearchBarDelegate, NSURLConnectionDelegate, GCCalendarDataSource, GCCalendarDelegate, SearchUserDelegate>
+{
+}
 
-@interface SearchViewController : UIViewController <UISearchBarDelegate, NSURLConnectionDelegate>
-
-@property(weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property(weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property(weak, nonatomic) IBOutlet UILabel *advisorLabel;
-@property(weak, nonatomic) IBOutlet UITextView *scheduleTextView;
-
-
+@property (strong) Schedule *schedule;
++ (NSMutableArray *) parseThis:(ClassSchedule *) withClass;
 
 @end
