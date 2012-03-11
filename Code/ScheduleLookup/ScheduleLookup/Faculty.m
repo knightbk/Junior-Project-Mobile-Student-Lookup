@@ -23,7 +23,8 @@
     {
         self.department = newDepartment;
         self.officeNumber = newOfficeNumber;
-        self.phoneNumber = [NSString stringWithFormat:@"812-%@", newPhoneNumber];
+        self.phoneNumber = newPhoneNumber;
+        //self.phoneNumber = [NSString stringWithFormat:@"812-%@", newPhoneNumber];
     }
     
     return self;
@@ -32,6 +33,11 @@
 - (NSString *) asText
 {
     return [NSString stringWithFormat:@"Alias: %@\nCM: %@\nName: %@\nDept: %@\nRoom: %@\nPhone: %@\n",[self alias], [self cmNumber], [self name], [self department], [self officeNumber], [self phoneNumber]];
+}
+
+- (NSString *) getPhoneNumberWithAreaCode
+{
+    return [NSString stringWithFormat:@"812-%@", self.phoneNumber];
 }
 
 @end

@@ -8,8 +8,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserInfoViewController.h"
 
-@interface SearchViewController : UIViewController <UISearchBarDelegate, NSURLConnectionDelegate>
+@interface SearchViewController : UIViewController <UISearchBarDelegate, NSURLConnectionDelegate, UserInfoViewControllerDelegate>
 
 @property(weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property(weak, nonatomic) IBOutlet UILabel *usernameLabel;

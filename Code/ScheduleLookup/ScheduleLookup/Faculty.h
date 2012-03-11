@@ -28,4 +28,6 @@
                    WithPhoneNumber:(NSString *)newPhoneNumber;
 
 - (NSString *) asText;
+- (NSString *) getPhoneNumberWithAreaCode;
+
 @end

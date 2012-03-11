@@ -2,7 +2,7 @@
 //  UserInfoViewController.m
 //  ScheduleLookup
 //
-//  Created by Nix on 3/11/12.
+//  Created by Nick Crawford on 3/11/12.
 //  Copyright (c) 2012 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
@@ -13,6 +13,7 @@
 @end
 
 @implementation UserInfoViewController
+@synthesize delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

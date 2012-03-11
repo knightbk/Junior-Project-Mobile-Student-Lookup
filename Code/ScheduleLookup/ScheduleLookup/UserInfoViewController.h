@@ -2,12 +2,22 @@
 //  UserInfoViewController.h
 //  ScheduleLookup
 //
-//  Created by Nix on 3/11/12.
+//  Created by Nick Crawford on 3/11/12.
 //  Copyright (c) 2012 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface UserInfoViewController : UITableViewController
+@protocol UserInfoViewControllerDelegate
+
+@end
+
+@interface UserInfoViewController : UITableViewController {
+
+id __unsafe_unretained delegate;
+
+}
+
+@property (nonatomic, unsafe_unretained) id<UserInfoViewControllerDelegate> delegate;
 
 @end

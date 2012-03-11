@@ -15,6 +15,7 @@
 #import "FacultyFactory.h"
 #import "Schedule.h"
 #import "ScheduleFactory.h"
+#import "UserInfoViewController.h"
 @implementation SearchViewController
 
 @synthesize nameLabel, usernameLabel, advisorLabel, scheduleTextView;
@@ -162,14 +163,24 @@ UIGestureRecognizer* cancelGesture;
     [nameLabel setText:person.name];
     //scheduleTextView.text = [schedule scheduleInformationString];
     
-    
-    NSLog(@"%@",[person asText]);
-    
     [advisorLabel setText:@"derp"];
     
     [usernameLabel setText:person.alias];
     [self hideLabels:(false)];
     [connection cancel];
+    
+    
+    
+    /*
+    if (self.settingsPage == nil) {
+        SettingsViewController *newSettingsPage = [[SettingsViewController alloc] init];
+        self.settingsPage = newSettingsPage;
+    }
+     */
+    UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] init];
+    
+    [self.navigationController pushViewController:userInfoPage animated:YES];
+    
 }
 
 
