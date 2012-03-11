@@ -15,6 +15,9 @@
 + (Faculty *) FacultyFromSchedulePage:(NSString *)html;
 
 + (NSString *) departmentFromStringData:(NSString *)sdata;
++ (NSString *) cmNumberFromStringData:(NSString *)sdata;
++ (NSString *) officeNumberFromStringData:(NSString *)sdata;
++ (NSString *) phoneNumberFromStringData:(NSString *)sdata;
 
 
 
