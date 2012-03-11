@@ -14,6 +14,8 @@
 
 @implementation UserInfoViewController
 
+@synthesize person, infoList;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -41,6 +43,12 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    self.title = self.person.alias;
+
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -58,7 +66,34 @@
 {
     // Return the number of rows in the section.
     
-    return 0;
+    self.infoList = [NSMutableArray arrayWithCapacity:5];
+    int count = 1;
+    [infoList addObject:[self.person getEmailAddress]];
+    if (![[self.person phoneNumber] isEqualToString:@""]){
+        [infoList addObject:[self.person phoneNumber]];
+        count++;
+    }
+    if (![[self.person cmNumber] isEqualToString:@""]){
+        [infoList addObject:[self.person cmNumber]];
+        count++;
+    }
+    if (![[self.person officeNumber] isEqualToString:@""]){
+        [infoList addObject:[self.person officeNumber]];
+        count++;
+    }
+    if (![[self.person department] isEqualToString:@"&nbsp"]){
+        [infoList addObject:[self.person department]];
+        count++;
+    }
+    
+    
+    if (section == 0) {
+        return count;
+    }
+    else
+    {
+        return 2;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,8 +102,57 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
+    
+    // Configure the cell...
+    if (indexPath.section == 0) {
+        
+        cell.textLabel.text = [infoList objectAtIndex:indexPath.row];
+        /*switch (indexPath.row) {
+            case 0:
+                cell.textLabel.text = [self.person getEmailAddress];
+                break;
+            case 1:
+                cell.textLabel.text = [self.person phoneNumber];
+                break;
+            case 2:
+                cell.textLabel.text = [self.person cmNumber];
+                break;
+            case 3:
+                cell.textLabel.text = [self.person officeNumber];
+                break;
+            case 4:
+                cell.textLabel.text = [self.person department];
+                break;
+            default:
+                break;
+        }*/
+    } else {
+        switch (indexPath.row) {
+            case 0:
+                cell.textLabel.text = @"View Schedule";
+                break;
+            case 1:
+//                if ([person inFavorites]) {
+//                    cell.textLabel.text = @"Remove from Favorites";
+//                }
+                cell.textLabel.text = @"Add to Favorites";
+                break;
+            default:
+                break;
+        }
+    }
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if(section == 0)
+        return [self.person name];
+    else
+        return @"Actions";
 }
 
 /*
@@ -121,6 +205,7 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
 }
 
 @end

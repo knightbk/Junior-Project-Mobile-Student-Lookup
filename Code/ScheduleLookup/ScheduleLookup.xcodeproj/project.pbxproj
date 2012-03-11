@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		50056598150D1BB0001D9A7D /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50056596150D1BB0001D9A7D /* UserInfoViewController.m */; };
-		50056599150D1BB0001D9A7D /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50056597150D1BB0001D9A7D /* UserInfoViewController.xib */; };
 		CE1BADCF14DA60FE00C54FFE /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BADCE14DA60FE00C54FFE /* KeychainItemWrapper.m */; };
 		CE57E7B514EB71C50033E59A /* ClassFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57E7B214EB71C50033E59A /* ClassFactory.m */; };
 		CE57E7B614EB71C50033E59A /* ClassSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57E7B414EB71C50033E59A /* ClassSchedule.m */; };
@@ -56,7 +55,6 @@
 /* Begin PBXFileReference section */
 		50056595150D1BB0001D9A7D /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		50056596150D1BB0001D9A7D /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
-		50056597150D1BB0001D9A7D /* UserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
 		CE1BADCD14DA60FE00C54FFE /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		CE1BADCE14DA60FE00C54FFE /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		CE25624A14DB119700706B01 /* ScheduleLookup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ScheduleLookup.entitlements; sourceTree = "<group>"; };
@@ -254,7 +252,6 @@
 				E3DE69DD14DA20D800299023 /* SettingsViewController.m */,
 				50056595150D1BB0001D9A7D /* UserInfoViewController.h */,
 				50056596150D1BB0001D9A7D /* UserInfoViewController.m */,
-				50056597150D1BB0001D9A7D /* UserInfoViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -355,7 +352,6 @@
 				E32079E81499122E005ACDD0 /* first@2x.png in Resources */,
 				E32079ED1499122E005ACDD0 /* second.png in Resources */,
 				E32079EF1499122E005ACDD0 /* second@2x.png in Resources */,
-				50056599150D1BB0001D9A7D /* UserInfoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

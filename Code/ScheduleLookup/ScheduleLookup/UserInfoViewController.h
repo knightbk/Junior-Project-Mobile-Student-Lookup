@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Faculty.h"
 @protocol UserInfoViewControllerDelegate
 
 @end
@@ -15,5 +15,9 @@
 @interface UserInfoViewController : UITableViewController {
 
 }
+
+
+@property (strong, nonatomic) Faculty *person;
+@property (strong, nonatomic) NSMutableArray *infoList;
 
 @end

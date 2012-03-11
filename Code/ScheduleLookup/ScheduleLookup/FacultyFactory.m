@@ -26,7 +26,7 @@
 
 + (NSString *) departmentFromStringData:(NSString *)sdata
 {
-    return [super firstMatchStringWithRegex:@">Dept: ([a-zA-Z ]+)<" WithStringData:sdata];
+    return [super firstMatchStringWithRegex:@">Dept: ([^<]+)<" WithStringData:sdata];
 }
 
 + (NSString *) cmNumberFromStringData:(NSString *)sdata

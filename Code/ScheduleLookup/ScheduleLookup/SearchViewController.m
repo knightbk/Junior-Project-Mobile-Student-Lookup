@@ -169,7 +169,7 @@ UIGestureRecognizer* cancelGesture;
     [self hideLabels:(false)];
     [connection cancel];
     
-    
+    NSLog(@"%@",[person asText]);
     
     /*
     if (self.settingsPage == nil) {
@@ -177,7 +177,9 @@ UIGestureRecognizer* cancelGesture;
         self.settingsPage = newSettingsPage;
     }
      */
-    UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] init];
+    UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    
+    userInfoPage.person = person;
     
     [self.navigationController pushViewController:userInfoPage animated:YES];
     
