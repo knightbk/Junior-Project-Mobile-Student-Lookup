@@ -15,32 +15,6 @@
 		CEB33E7714E9B5740048C518 /* ScheduleFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB33E7614E9B5740048C518 /* ScheduleFactory.m */; };
 		CEB729CB14DA65AE002E54EC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB729CA14DA65AE002E54EC /* Security.framework */; };
 		CED1D5F414D9D1AE00255F0C /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = CED1D5F314D9D1AE00255F0C /* Factory.m */; };
-		CEFEA1A214EC813B001B77E9 /* Calendar-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA15414EC813B001B77E9 /* Calendar-Info.plist */; };
-		CEFEA1A314EC813B001B77E9 /* CalendarAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFEA15B14EC813B001B77E9 /* CalendarAppDelegate.m */; };
-		CEFEA1A414EC813B001B77E9 /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA15D14EC813B001B77E9 /* Calendar.png */; };
-		CEFEA1A514EC813B001B77E9 /* CalendarBubbleBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA15E14EC813B001B77E9 /* CalendarBubbleBlue.png */; };
-		CEFEA1A614EC813B001B77E9 /* CalendarBubbleGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA15F14EC813B001B77E9 /* CalendarBubbleGreen.png */; };
-		CEFEA1A714EC813B001B77E9 /* CalendarBubbleGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA16014EC813B001B77E9 /* CalendarBubbleGrey.png */; };
-		CEFEA1A814EC813B001B77E9 /* CalendarBubbleMagenta.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA16114EC813B001B77E9 /* CalendarBubbleMagenta.png */; };
-		CEFEA1A914EC813B001B77E9 /* CalendarBubbleOrange.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA16214EC813B001B77E9 /* CalendarBubbleOrange.png */; };
-		CEFEA1AA14EC813B001B77E9 /* CalendarBubblePurple.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA16314EC813B001B77E9 /* CalendarBubblePurple.png */; };
-		CEFEA1AB14EC813B001B77E9 /* CalendarBubbleRed.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA16414EC813B001B77E9 /* CalendarBubbleRed.png */; };
-		CEFEA1AC14EC813B001B77E9 /* CalendarBubbleYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA16514EC813B001B77E9 /* CalendarBubbleYellow.png */; };
-		CEFEA1AD14EC813B001B77E9 /* GCCalendar.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA16614EC813B001B77E9 /* GCCalendar.strings */; };
-		CEFEA1AE14EC813B001B77E9 /* GCCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFEA16914EC813B001B77E9 /* GCCalendar.m */; };
-		CEFEA1AF14EC813B001B77E9 /* GCCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFEA16B14EC813B001B77E9 /* GCCalendarDayView.m */; };
-		CEFEA1B014EC813B001B77E9 /* GCCalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFEA16D14EC813B001B77E9 /* GCCalendarEvent.m */; };
-		CEFEA1B114EC813B001B77E9 /* GCCalendarPortraitView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFEA16F14EC813B001B77E9 /* GCCalendarPortraitView.m */; };
-		CEFEA1B214EC813B001B77E9 /* GCCalendarTile.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFEA17214EC813B001B77E9 /* GCCalendarTile.m */; };
-		CEFEA1B314EC813B001B77E9 /* GCCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFEA17414EC813B001B77E9 /* GCCalendarView.m */; };
-		CEFEA1B414EC813B001B77E9 /* GCDatePickerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFEA17614EC813B001B77E9 /* GCDatePickerControl.m */; };
-		CEFEA1B514EC813B001B77E9 /* GCDatePickerControlBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA17714EC813B001B77E9 /* GCDatePickerControlBackground.png */; };
-		CEFEA1B614EC813B001B77E9 /* GCDatePickerControlLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA17814EC813B001B77E9 /* GCDatePickerControlLeft.png */; };
-		CEFEA1B714EC813B001B77E9 /* GCDatePickerControlRight.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA17914EC813B001B77E9 /* GCDatePickerControlRight.png */; };
-		CEFEA1B814EC813B001B77E9 /* calendarMain.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFEA17A14EC813B001B77E9 /* calendarMain.m */; };
-		CEFEA1B914EC813B001B77E9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA17B14EC813B001B77E9 /* LICENSE */; };
-		CEFEA1BA14EC813B001B77E9 /* README in Resources */ = {isa = PBXBuildFile; fileRef = CEFEA17C14EC813B001B77E9 /* README */; };
-		CEFEA1C414EC8CD8001B77E9 /* SearchUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFEA1C314EC8CD8001B77E9 /* SearchUserViewController.m */; };
 		E32079CB1499122E005ACDD0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32079CA1499122E005ACDD0 /* UIKit.framework */; };
 		E32079CD1499122E005ACDD0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32079CC1499122E005ACDD0 /* Foundation.framework */; };
 		E32079CF1499122E005ACDD0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32079CE1499122E005ACDD0 /* CoreGraphics.framework */; };
@@ -94,44 +68,6 @@
 		CEB729CA14DA65AE002E54EC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CED1D5F214D9D0E800255F0C /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
 		CED1D5F314D9D1AE00255F0C /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
-		CEE8784D14ED78E2007A0E04 /* SearchUserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchUserDelegate.h; sourceTree = "<group>"; };
-		CEFEA15414EC813B001B77E9 /* Calendar-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Calendar-Info.plist"; sourceTree = "<group>"; };
-		CEFEA15814EC813B001B77E9 /* Calendar_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calendar_Prefix.pch; sourceTree = "<group>"; };
-		CEFEA15A14EC813B001B77E9 /* CalendarAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarAppDelegate.h; sourceTree = "<group>"; };
-		CEFEA15B14EC813B001B77E9 /* CalendarAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarAppDelegate.m; sourceTree = "<group>"; };
-		CEFEA15D14EC813B001B77E9 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar.png; sourceTree = "<group>"; };
-		CEFEA15E14EC813B001B77E9 /* CalendarBubbleBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarBubbleBlue.png; sourceTree = "<group>"; };
-		CEFEA15F14EC813B001B77E9 /* CalendarBubbleGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarBubbleGreen.png; sourceTree = "<group>"; };
-		CEFEA16014EC813B001B77E9 /* CalendarBubbleGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarBubbleGrey.png; sourceTree = "<group>"; };
-		CEFEA16114EC813B001B77E9 /* CalendarBubbleMagenta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarBubbleMagenta.png; sourceTree = "<group>"; };
-		CEFEA16214EC813B001B77E9 /* CalendarBubbleOrange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarBubbleOrange.png; sourceTree = "<group>"; };
-		CEFEA16314EC813B001B77E9 /* CalendarBubblePurple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarBubblePurple.png; sourceTree = "<group>"; };
-		CEFEA16414EC813B001B77E9 /* CalendarBubbleRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarBubbleRed.png; sourceTree = "<group>"; };
-		CEFEA16514EC813B001B77E9 /* CalendarBubbleYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarBubbleYellow.png; sourceTree = "<group>"; };
-		CEFEA16714EC813B001B77E9 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/GCCalendar.strings; sourceTree = "<group>"; };
-		CEFEA16814EC813B001B77E9 /* GCCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCalendar.h; sourceTree = "<group>"; };
-		CEFEA16914EC813B001B77E9 /* GCCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCalendar.m; sourceTree = "<group>"; };
-		CEFEA16A14EC813B001B77E9 /* GCCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCalendarDayView.h; sourceTree = "<group>"; };
-		CEFEA16B14EC813B001B77E9 /* GCCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCalendarDayView.m; sourceTree = "<group>"; };
-		CEFEA16C14EC813B001B77E9 /* GCCalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCalendarEvent.h; sourceTree = "<group>"; };
-		CEFEA16D14EC813B001B77E9 /* GCCalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCalendarEvent.m; sourceTree = "<group>"; };
-		CEFEA16E14EC813B001B77E9 /* GCCalendarPortraitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCalendarPortraitView.h; sourceTree = "<group>"; };
-		CEFEA16F14EC813B001B77E9 /* GCCalendarPortraitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCalendarPortraitView.m; sourceTree = "<group>"; };
-		CEFEA17014EC813B001B77E9 /* GCCalendarProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCalendarProtocols.h; sourceTree = "<group>"; };
-		CEFEA17114EC813B001B77E9 /* GCCalendarTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCalendarTile.h; sourceTree = "<group>"; };
-		CEFEA17214EC813B001B77E9 /* GCCalendarTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCalendarTile.m; sourceTree = "<group>"; };
-		CEFEA17314EC813B001B77E9 /* GCCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCalendarView.h; sourceTree = "<group>"; };
-		CEFEA17414EC813B001B77E9 /* GCCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCalendarView.m; sourceTree = "<group>"; };
-		CEFEA17514EC813B001B77E9 /* GCDatePickerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDatePickerControl.h; sourceTree = "<group>"; };
-		CEFEA17614EC813B001B77E9 /* GCDatePickerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDatePickerControl.m; sourceTree = "<group>"; };
-		CEFEA17714EC813B001B77E9 /* GCDatePickerControlBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GCDatePickerControlBackground.png; sourceTree = "<group>"; };
-		CEFEA17814EC813B001B77E9 /* GCDatePickerControlLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GCDatePickerControlLeft.png; sourceTree = "<group>"; };
-		CEFEA17914EC813B001B77E9 /* GCDatePickerControlRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GCDatePickerControlRight.png; sourceTree = "<group>"; };
-		CEFEA17A14EC813B001B77E9 /* calendarMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = calendarMain.m; sourceTree = "<group>"; };
-		CEFEA17B14EC813B001B77E9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		CEFEA17C14EC813B001B77E9 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		CEFEA1C214EC8CD8001B77E9 /* SearchUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchUserViewController.h; sourceTree = "<group>"; };
-		CEFEA1C314EC8CD8001B77E9 /* SearchUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchUserViewController.m; sourceTree = "<group>"; };
 		E32079C61499122E005ACDD0 /* ScheduleLookup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleLookup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32079CA1499122E005ACDD0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E32079CC1499122E005ACDD0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -212,72 +148,6 @@
 			name = Factories;
 			sourceTree = "<group>";
 		};
-		CEFEA12814EC813B001B77E9 /* GCCalendar */ = {
-			isa = PBXGroup;
-			children = (
-				CEFEA12914EC813B001B77E9 /* Calendar */,
-				CEFEA17B14EC813B001B77E9 /* LICENSE */,
-				CEFEA17C14EC813B001B77E9 /* README */,
-			);
-			path = GCCalendar;
-			sourceTree = "<group>";
-		};
-		CEFEA12914EC813B001B77E9 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				CEFEA15414EC813B001B77E9 /* Calendar-Info.plist */,
-				CEFEA15814EC813B001B77E9 /* Calendar_Prefix.pch */,
-				CEFEA15914EC813B001B77E9 /* Classes */,
-				CEFEA15C14EC813B001B77E9 /* GCCalendar */,
-				CEFEA17A14EC813B001B77E9 /* calendarMain.m */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
-		CEFEA15914EC813B001B77E9 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				CEFEA15A14EC813B001B77E9 /* CalendarAppDelegate.h */,
-				CEFEA15B14EC813B001B77E9 /* CalendarAppDelegate.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		CEFEA15C14EC813B001B77E9 /* GCCalendar */ = {
-			isa = PBXGroup;
-			children = (
-				CEFEA15D14EC813B001B77E9 /* Calendar.png */,
-				CEFEA15E14EC813B001B77E9 /* CalendarBubbleBlue.png */,
-				CEFEA15F14EC813B001B77E9 /* CalendarBubbleGreen.png */,
-				CEFEA16014EC813B001B77E9 /* CalendarBubbleGrey.png */,
-				CEFEA16114EC813B001B77E9 /* CalendarBubbleMagenta.png */,
-				CEFEA16214EC813B001B77E9 /* CalendarBubbleOrange.png */,
-				CEFEA16314EC813B001B77E9 /* CalendarBubblePurple.png */,
-				CEFEA16414EC813B001B77E9 /* CalendarBubbleRed.png */,
-				CEFEA16514EC813B001B77E9 /* CalendarBubbleYellow.png */,
-				CEFEA16614EC813B001B77E9 /* GCCalendar.strings */,
-				CEFEA16814EC813B001B77E9 /* GCCalendar.h */,
-				CEFEA16914EC813B001B77E9 /* GCCalendar.m */,
-				CEFEA16A14EC813B001B77E9 /* GCCalendarDayView.h */,
-				CEFEA16B14EC813B001B77E9 /* GCCalendarDayView.m */,
-				CEFEA16C14EC813B001B77E9 /* GCCalendarEvent.h */,
-				CEFEA16D14EC813B001B77E9 /* GCCalendarEvent.m */,
-				CEFEA16E14EC813B001B77E9 /* GCCalendarPortraitView.h */,
-				CEFEA16F14EC813B001B77E9 /* GCCalendarPortraitView.m */,
-				CEFEA17014EC813B001B77E9 /* GCCalendarProtocols.h */,
-				CEFEA17114EC813B001B77E9 /* GCCalendarTile.h */,
-				CEFEA17214EC813B001B77E9 /* GCCalendarTile.m */,
-				CEFEA17314EC813B001B77E9 /* GCCalendarView.h */,
-				CEFEA17414EC813B001B77E9 /* GCCalendarView.m */,
-				CEFEA17514EC813B001B77E9 /* GCDatePickerControl.h */,
-				CEFEA17614EC813B001B77E9 /* GCDatePickerControl.m */,
-				CEFEA17714EC813B001B77E9 /* GCDatePickerControlBackground.png */,
-				CEFEA17814EC813B001B77E9 /* GCDatePickerControlLeft.png */,
-				CEFEA17914EC813B001B77E9 /* GCDatePickerControlRight.png */,
-			);
-			path = GCCalendar;
-			sourceTree = "<group>";
-		};
 		E32079BB1499122E005ACDD0 = {
 			isa = PBXGroup;
 			children = (
@@ -312,7 +182,6 @@
 		E32079D01499122E005ACDD0 /* ScheduleLookup */ = {
 			isa = PBXGroup;
 			children = (
-				CEFEA12814EC813B001B77E9 /* GCCalendar */,
 				CE25624A14DB119700706B01 /* ScheduleLookup.entitlements */,
 				CE1BADCD14DA60FE00C54FFE /* KeychainItemWrapper.h */,
 				CE1BADCE14DA60FE00C54FFE /* KeychainItemWrapper.m */,
@@ -372,15 +241,12 @@
 		E340E72514C758AF00EBA4E0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CEFEA1C214EC8CD8001B77E9 /* SearchUserViewController.h */,
-				CEFEA1C314EC8CD8001B77E9 /* SearchUserViewController.m */,
 				E32079E21499122E005ACDD0 /* SearchViewController.h */,
 				E32079E31499122E005ACDD0 /* SearchViewController.m */,
 				E32079E91499122E005ACDD0 /* SecondViewController.h */,
 				E32079EA1499122E005ACDD0 /* SecondViewController.m */,
 				E3DE69DC14DA20D800299023 /* SettingsViewController.h */,
 				E3DE69DD14DA20D800299023 /* SettingsViewController.m */,
-				CEE8784D14ED78E2007A0E04 /* SearchUserDelegate.h */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -457,7 +323,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				English,
 			);
 			mainGroup = E32079BB1499122E005ACDD0;
 			productRefGroup = E32079C71499122E005ACDD0 /* Products */;
@@ -482,22 +347,6 @@
 				E32079E81499122E005ACDD0 /* first@2x.png in Resources */,
 				E32079ED1499122E005ACDD0 /* second.png in Resources */,
 				E32079EF1499122E005ACDD0 /* second@2x.png in Resources */,
-				CEFEA1A214EC813B001B77E9 /* Calendar-Info.plist in Resources */,
-				CEFEA1A414EC813B001B77E9 /* Calendar.png in Resources */,
-				CEFEA1A514EC813B001B77E9 /* CalendarBubbleBlue.png in Resources */,
-				CEFEA1A614EC813B001B77E9 /* CalendarBubbleGreen.png in Resources */,
-				CEFEA1A714EC813B001B77E9 /* CalendarBubbleGrey.png in Resources */,
-				CEFEA1A814EC813B001B77E9 /* CalendarBubbleMagenta.png in Resources */,
-				CEFEA1A914EC813B001B77E9 /* CalendarBubbleOrange.png in Resources */,
-				CEFEA1AA14EC813B001B77E9 /* CalendarBubblePurple.png in Resources */,
-				CEFEA1AB14EC813B001B77E9 /* CalendarBubbleRed.png in Resources */,
-				CEFEA1AC14EC813B001B77E9 /* CalendarBubbleYellow.png in Resources */,
-				CEFEA1AD14EC813B001B77E9 /* GCCalendar.strings in Resources */,
-				CEFEA1B514EC813B001B77E9 /* GCDatePickerControlBackground.png in Resources */,
-				CEFEA1B614EC813B001B77E9 /* GCDatePickerControlLeft.png in Resources */,
-				CEFEA1B714EC813B001B77E9 /* GCDatePickerControlRight.png in Resources */,
-				CEFEA1B914EC813B001B77E9 /* LICENSE in Resources */,
-				CEFEA1BA14EC813B001B77E9 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,16 +397,6 @@
 				CEB33E7714E9B5740048C518 /* ScheduleFactory.m in Sources */,
 				CE57E7B514EB71C50033E59A /* ClassFactory.m in Sources */,
 				CE57E7B614EB71C50033E59A /* ClassSchedule.m in Sources */,
-				CEFEA1A314EC813B001B77E9 /* CalendarAppDelegate.m in Sources */,
-				CEFEA1AE14EC813B001B77E9 /* GCCalendar.m in Sources */,
-				CEFEA1AF14EC813B001B77E9 /* GCCalendarDayView.m in Sources */,
-				CEFEA1B014EC813B001B77E9 /* GCCalendarEvent.m in Sources */,
-				CEFEA1B114EC813B001B77E9 /* GCCalendarPortraitView.m in Sources */,
-				CEFEA1B214EC813B001B77E9 /* GCCalendarTile.m in Sources */,
-				CEFEA1B314EC813B001B77E9 /* GCCalendarView.m in Sources */,
-				CEFEA1B414EC813B001B77E9 /* GCDatePickerControl.m in Sources */,
-				CEFEA1B814EC813B001B77E9 /* calendarMain.m in Sources */,
-				CEFEA1C414EC8CD8001B77E9 /* SearchUserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,14 +419,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CEFEA16614EC813B001B77E9 /* GCCalendar.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEFEA16714EC813B001B77E9 /* English */,
-			);
-			name = GCCalendar.strings;
-			sourceTree = "<group>";
-		};
 		E32079D31499122E005ACDD0 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -664,7 +495,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -674,12 +504,10 @@
 		E3207A081499122E005ACDD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ScheduleLookup/ScheduleLookup.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScheduleLookup/ScheduleLookup-Prefix.pch";
 				INFOPLIST_FILE = "ScheduleLookup/ScheduleLookup-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -687,12 +515,10 @@
 		E3207A091499122E005ACDD0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ScheduleLookup/ScheduleLookup.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScheduleLookup/ScheduleLookup-Prefix.pch";
 				INFOPLIST_FILE = "ScheduleLookup/ScheduleLookup-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -3,10 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>com.apple.developer.ubiquity-kvstore-identifier</key>
-	<string>edu.rose-hulman.ScheduleLookup</string>
-	<key>keychain-access-groups</key>
-	<array>
-		<string>edu.rose-hulman.ScheduleLookup</string>
-	</array>
+	<string>$(TeamIdentifierPrefix)edu.rose-hulman.ScheduleLookup</string>
 </dict>
 </plist>
