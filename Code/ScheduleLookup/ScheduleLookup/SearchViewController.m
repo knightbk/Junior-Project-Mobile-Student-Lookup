@@ -89,6 +89,7 @@
     [self loadView];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+<<<<<<< HEAD
     
 }
 - (NSArray *)calendarEventsForDate:(NSDate *)date{
@@ -231,6 +232,9 @@
     
 	
 	return events;
+=======
+    [self hideLabels:(true)];
+>>>>>>> parent of 6caa24b... Add placeholder text.
 }
 
 
