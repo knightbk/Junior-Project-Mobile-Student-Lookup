@@ -13,7 +13,6 @@
 @end
 
 @implementation UserInfoViewController
-@synthesize delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

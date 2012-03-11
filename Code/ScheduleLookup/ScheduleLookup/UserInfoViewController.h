@@ -14,10 +14,6 @@
 
 @interface UserInfoViewController : UITableViewController {
 
-id __unsafe_unretained delegate;
-
 }
-
-@property (nonatomic, unsafe_unretained) id<UserInfoViewControllerDelegate> delegate;
 
 @end
