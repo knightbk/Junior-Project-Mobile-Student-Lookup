@@ -26,4 +26,6 @@
                     WithDepartment:(NSString *)newDepartment
                   WithOfficeNumber:(NSString *)newOfficeNumber
                    WithPhoneNumber:(NSString *)newPhoneNumber;
+
+- (NSString *) asText;
 @end

@@ -15,20 +15,34 @@
 + (Faculty *) FacultyFromSchedulePage:(NSString *) html
 {
     return [[Faculty alloc] initFacultyWithAlias:[self usernameFromStringData:html] 
-                                    WithCmNumber:nil 
+                                    WithCmNumber:[self cmNumberFromStringData:html]
                                         WithName:[super nameFromStringData:html] 
                                        WithDepartment:[self departmentFromStringData:html] 
-                                        WithOfficeNumber:nil 
-                                     WithPhoneNumber:nil];
+                                        WithOfficeNumber:[self officeNumberFromStringData:html] 
+                                     WithPhoneNumber:[self phoneNumberFromStringData:html]];
 }
 
 
 
 + (NSString *) departmentFromStringData:(NSString *)sdata
 {
-    return [super firstMatchStringWithRegex:@"> Dept: ([a-zA-Z ]+)<" WithStringData:sdata];
+    return [super firstMatchStringWithRegex:@">Dept: ([a-zA-Z ]+)<" WithStringData:sdata];
 }
 
++ (NSString *) cmNumberFromStringData:(NSString *)sdata
+{
+    return [super firstMatchStringWithRegex:@">Campus Mail: (CM [0-9]+)<" WithStringData:sdata];
+}
+
++ (NSString *) officeNumberFromStringData:(NSString *)sdata
+{
+    return [super firstMatchStringWithRegex:@">Room: ([a-zA-Z0-9 ]+)<" WithStringData:sdata];
+}
+
++ (NSString *) phoneNumberFromStringData:(NSString *)sdata
+{
+    return [super firstMatchStringWithRegex:@">Phone: ([0-9]{3}-[0-9]{4})<" WithStringData:sdata];
+}
 
 
 

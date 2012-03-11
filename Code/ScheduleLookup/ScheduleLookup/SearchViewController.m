@@ -8,11 +8,11 @@
 //
 
 #import "SearchViewController.h"
-#import "Student.h"
+#import "Faculty.h"
 #import "Factory.h"
 #import "KeychainItemWrapper.h"
 #import "SettingsViewController.h"
-#import "StudentFactory.h"
+#import "FacultyFactory.h"
 #import "Schedule.h"
 #import "ScheduleFactory.h"
 @implementation SearchViewController
@@ -102,7 +102,7 @@ UIGestureRecognizer* cancelGesture;
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [self.view endEditing:YES];
-    NSString *url = [NSString stringWithFormat:@"https://prodweb.rose-hulman.edu/regweb-cgi/reg-sched.pl?type=Username&termcode=201220&view=tgrid&id=%@", searchBar.text];
+    NSString *url = [NSString stringWithFormat:@"https://prodweb.rose-hulman.edu/regweb-cgi/reg-sched.pl?type=Instructor&termcode=201230&view=tgrid&id=%@", searchBar.text];
 
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -157,11 +157,16 @@ UIGestureRecognizer* cancelGesture;
 {
     NSString *sdata = [[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding];
 
-    Student *person = [StudentFactory studentFromStudentSchedulePage:sdata];
-    Schedule *schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];
+    Faculty *person = [FacultyFactory FacultyFromSchedulePage:sdata];
+    //Schedule *schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];
     [nameLabel setText:person.name];
-    scheduleTextView.text = [schedule scheduleInformationString];
-    [advisorLabel setText:person.advisor];
+    //scheduleTextView.text = [schedule scheduleInformationString];
+    
+    
+    NSLog(@"%@",[person asText]);
+    
+    [advisorLabel setText:@"derp"];
+    
     [usernameLabel setText:person.alias];
     [self hideLabels:(false)];
     [connection cancel];

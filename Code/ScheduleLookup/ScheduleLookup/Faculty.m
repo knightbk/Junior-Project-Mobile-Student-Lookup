@@ -17,17 +17,21 @@
                           WithName:(NSString *)newName 
                     WithDepartment:(NSString *)newDepartment
                   WithOfficeNumber:(NSString *)newOfficeNumber
-                   WithOfficeNumber:(NSString *)newPhoneNumber
+                   WithPhoneNumber:(NSString *)newPhoneNumber
 {
     if (self = [super initPersonWithAlias:newAlias WithCmNumber:newCmNumber  WithName:newName])
     {
         self.department = newDepartment;
         self.officeNumber = newOfficeNumber;
-        self.phoneNumber = newPhoneNumber;
+        self.phoneNumber = [NSString stringWithFormat:@"812-%@", newPhoneNumber];
     }
     
     return self;
 }
 
+- (NSString *) asText
+{
+    return [NSString stringWithFormat:@"Alias: %@\nCM: %@\nName: %@\nDept: %@\nRoom: %@\nPhone: %@\n",[self alias], [self cmNumber], [self name], [self department], [self officeNumber], [self phoneNumber]];
+}
 
 @end
