@@ -516,6 +516,7 @@
 		E3207A081499122E005ACDD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ScheduleLookup/ScheduleLookup.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScheduleLookup/ScheduleLookup-Prefix.pch";
 				INFOPLIST_FILE = "ScheduleLookup/ScheduleLookup-Info.plist";
@@ -527,6 +528,7 @@
 		E3207A091499122E005ACDD0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ScheduleLookup/ScheduleLookup.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScheduleLookup/ScheduleLookup-Prefix.pch";
 				INFOPLIST_FILE = "ScheduleLookup/ScheduleLookup-Info.plist";

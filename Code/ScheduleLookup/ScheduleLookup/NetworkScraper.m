@@ -93,7 +93,7 @@
 {
     if(passwordItem == nil)
     {
-        passwordItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:@"$(TeamIdentifierPrefix)edu.rose-hulman.ScheduleLookup"];
+        passwordItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:@"422ME6PATL.edu.rose-hulman.ScheduleLookup"];
     }
 }
 
