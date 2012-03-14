@@ -111,6 +111,16 @@
     if (indexPath.section == 0) {
         
         cell.textLabel.text = [infoList objectAtIndex:indexPath.row];
+        
+        if(indexPath.row == 1 && [[self.person phoneNumber] isEqualToString:@""])
+        {
+            cell.userInteractionEnabled = NO;
+        }
+        else if(indexPath.row > 1)
+        {
+            cell.userInteractionEnabled = NO;
+            
+        }
         /*switch (indexPath.row) {
             case 0:
                 cell.textLabel.text = [self.person getEmailAddress];
@@ -211,6 +221,10 @@
                 if(indexPath.row == 0)
                 {
                     NSLog(@"Send E-mail to %@", person.getEmailAddress);
+                    
+                    NSString * email = [NSString stringWithFormat:@"email://%@",person.getPhoneNumberWithAreaCode];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
+                    
                 }
                 else if(indexPath.row == 1 && ![[self.person phoneNumber] isEqualToString:@""])
                 {
