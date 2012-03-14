@@ -204,8 +204,29 @@
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-    
+     */     
+            if(indexPath.section == 0)
+            {
+                if(indexPath.row == 0)
+                {
+                    NSLog(@"Send Email");
+                }
+                else if(indexPath.row == 1)
+                {
+                    NSLog(@"Make phone call");
+                    
+                    NSString * phone = [NSString stringWithFormat:@"tel://%@",person.getPhoneNumberWithAreaCode];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phone]];
+                    
+                }
+                
+            }
+            else
+            {
+                
+            }
+
+        
 }
 
 @end
