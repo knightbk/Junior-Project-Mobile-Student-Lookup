@@ -26,5 +26,10 @@
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection; 
 
 - (void) initiatePersonInfoSearchWithUsername:(NSString *)uname termcode:(NSString *) termcode;
+- (NSString *) getUserName;
+- (NSString *) getPassword;
+- (void) setUserName:(NSString *)username;
+- (void) setPassword:(NSString *)password;
+- (void) loadPasswordItem;
 
 @end

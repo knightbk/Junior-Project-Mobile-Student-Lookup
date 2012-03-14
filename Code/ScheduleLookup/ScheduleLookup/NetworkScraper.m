@@ -29,10 +29,6 @@
 
 - (void) connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
-    if(passwordItem == nil)
-    {
-        passwordItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:@"$(TeamIdentifierPrefix)edu.rose-hulman.ScheduleLookup"];
-    }
     
     if ([challenge previousFailureCount] > 0)
     {
@@ -43,8 +39,8 @@
     }
     else
     {
-        [[challenge sender]  useCredential:[NSURLCredential credentialWithUser:[passwordItem objectForKey:(__bridge_transfer id)kSecAttrAccount]
-                                                                      password:[passwordItem objectForKey:(__bridge_transfer id)kSecValueData]
+        [[challenge sender]  useCredential:[NSURLCredential credentialWithUser:[self getUserName]
+                                                                      password:[self getPassword]
                                                                    persistence:NSURLCredentialPersistenceNone] 
                 forAuthenticationChallenge:challenge];
     }
@@ -59,6 +55,42 @@
 {
     NSString *sdata = [[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding];
     [self.delegate networkScraperDidReceiveData:sdata];
+}
+
+- (NSString *) getUserName
+{
+    [self loadPasswordItem];
+    
+    return [passwordItem objectForKey:(__bridge id)kSecAttrAccount];
+}
+
+- (NSString *) getPassword
+{
+    [self loadPasswordItem];
+    
+    return [passwordItem objectForKey:(__bridge id)kSecValueData];
+}
+
+- (void) setUserName:(NSString *)username
+{
+    [self loadPasswordItem];
+    
+    [passwordItem setObject:username forKey:(__bridge id)kSecAttrAccount];
+}
+
+- (void) setPassword:(NSString *)password
+{
+    [self loadPasswordItem];
+    
+    [passwordItem setObject:password forKey:(__bridge id)kSecValueData];
+}
+
+- (void) loadPasswordItem
+{
+    if(passwordItem == nil)
+    {
+        passwordItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:@"$(TeamIdentifierPrefix)edu.rose-hulman.ScheduleLookup"];
+    }
 }
 
 @end

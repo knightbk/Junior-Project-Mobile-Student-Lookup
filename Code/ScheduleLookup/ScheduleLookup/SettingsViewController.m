@@ -68,19 +68,23 @@
         networkScraper = [[NetworkScraper alloc] init];
     }
     
-    [usernameTextField setText:[networkScraper.passwordItem objectForKey:(__bridge id)kSecAttrAccount]];
+    [usernameTextField setText:[networkScraper getUserName]];
         
-    [passwordTextField setText:[networkScraper.passwordItem objectForKey:(__bridge id)kSecValueData]];
+    [passwordTextField setText:[networkScraper getPassword]];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
     // Store username to keychain 	
     if ([usernameTextField text])
-        [networkScraper.passwordItem setObject:[usernameTextField text] forKey:(__bridge id)kSecAttrAccount];
+    {
+        [networkScraper setUserName:[usernameTextField text]];
+    }
     
     // Store password to keychain
     if ([passwordTextField text])
-        [networkScraper.passwordItem setObject:[passwordTextField text] forKey:(__bridge id)kSecValueData];  
+    {
+        [networkScraper setPassword:[passwordTextField text]];
+    }
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
