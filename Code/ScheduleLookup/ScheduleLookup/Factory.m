@@ -14,7 +14,7 @@
 
 + (NSString *) nameFromStringData:(NSString *)sdata
 {
-    return [self firstMatchStringWithRegex:@">Name: ([a-zA-Z ]+)<" WithStringData:sdata];
+    return [self firstMatchStringWithRegex:@">Name: ([^<]+)<" WithStringData:sdata];
 }
 
 + (NSString *) usernameFromStringData:(NSString *)sdata
