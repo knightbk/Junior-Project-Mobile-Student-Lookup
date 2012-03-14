@@ -9,6 +9,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface FavoritesViewController : UIViewController
 
 @end

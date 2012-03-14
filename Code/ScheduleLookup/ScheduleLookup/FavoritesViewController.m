@@ -6,9 +6,9 @@
 //  Copyright (c) 2011 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "FavoritesViewController.h"
 
-@implementation SecondViewController
+@implementation FavoritesViewController
 
 - (void)didReceiveMemoryWarning
 {

@@ -27,7 +27,7 @@
 		E32079E41499122E005ACDD0 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32079E31499122E005ACDD0 /* SearchViewController.m */; };
 		E32079E61499122E005ACDD0 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = E32079E51499122E005ACDD0 /* first.png */; };
 		E32079E81499122E005ACDD0 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E32079E71499122E005ACDD0 /* first@2x.png */; };
-		E32079EB1499122E005ACDD0 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32079EA1499122E005ACDD0 /* SecondViewController.m */; };
+		E32079EB1499122E005ACDD0 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32079EA1499122E005ACDD0 /* FavoritesViewController.m */; };
 		E32079ED1499122E005ACDD0 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = E32079EC1499122E005ACDD0 /* second.png */; };
 		E32079EF1499122E005ACDD0 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E32079EE1499122E005ACDD0 /* second@2x.png */; };
 		E32079F71499122E005ACDD0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32079F61499122E005ACDD0 /* SenTestingKit.framework */; };
@@ -88,8 +88,8 @@
 		E32079E31499122E005ACDD0 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		E32079E51499122E005ACDD0 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		E32079E71499122E005ACDD0 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		E32079E91499122E005ACDD0 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		E32079EA1499122E005ACDD0 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		E32079E91499122E005ACDD0 /* FavoritesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
+		E32079EA1499122E005ACDD0 /* FavoritesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		E32079EC1499122E005ACDD0 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		E32079EE1499122E005ACDD0 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		E32079F51499122E005ACDD0 /* ScheduleLookupTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleLookupTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,8 +249,8 @@
 			children = (
 				E32079E21499122E005ACDD0 /* SearchViewController.h */,
 				E32079E31499122E005ACDD0 /* SearchViewController.m */,
-				E32079E91499122E005ACDD0 /* SecondViewController.h */,
-				E32079EA1499122E005ACDD0 /* SecondViewController.m */,
+				E32079E91499122E005ACDD0 /* FavoritesViewController.h */,
+				E32079EA1499122E005ACDD0 /* FavoritesViewController.m */,
 				E3DE69DC14DA20D800299023 /* SettingsViewController.h */,
 				E3DE69DD14DA20D800299023 /* SettingsViewController.m */,
 				50056595150D1BB0001D9A7D /* UserInfoViewController.h */,
@@ -394,7 +394,7 @@
 				E32079D71499122E005ACDD0 /* main.m in Sources */,
 				E32079DB1499122E005ACDD0 /* AppDelegate.m in Sources */,
 				E32079E41499122E005ACDD0 /* SearchViewController.m in Sources */,
-				E32079EB1499122E005ACDD0 /* SecondViewController.m in Sources */,
+				E32079EB1499122E005ACDD0 /* FavoritesViewController.m in Sources */,
 				E340E72914C75A3300EBA4E0 /* Person.m in Sources */,
 				E371603614C9C51400883E8C /* Student.m in Sources */,
 				E371603E14C9D3D100883E8C /* Faculty.m in Sources */,
