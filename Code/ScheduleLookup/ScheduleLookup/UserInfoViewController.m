@@ -165,6 +165,21 @@
         return @"Actions";
 }
 
+- (UITableViewCellAccessoryType) tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0 && indexPath.section == 0)
+    {
+        return UITableViewCellAccessoryDetailDisclosureButton;
+    }
+    
+    if (indexPath.row == 1 && indexPath.section == 0 && ![[self.person phoneNumber] isEqualToString:@""])
+    {
+        return UITableViewCellAccessoryDetailDisclosureButton;
+    }
+    
+    return UITableViewCellAccessoryNone;
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -226,7 +241,7 @@
                     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
                     
                 }
-                else if(indexPath.row == 1 && ![[self.person phoneNumber] isEqualToString:@""])
+                else if(indexPath.row == 1 && indexPath.section == 0 && ![[self.person phoneNumber] isEqualToString:@""])
                 {
                     NSLog(@"Calling %@", person.getPhoneNumberWithAreaCode);
                     
