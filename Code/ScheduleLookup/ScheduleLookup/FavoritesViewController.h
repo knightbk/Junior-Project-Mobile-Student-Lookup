@@ -9,6 +9,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FavoritesViewController : UIViewController
+@interface FavoritesViewController : UIViewController {
+
+NSDictionary *userFavoritesDictionary;
+
+}
+
+@property (nonatomic, strong) NSDictionary *userFavoritesDictionary;
 
 @end

@@ -10,10 +10,11 @@
 
 @implementation FavoritesViewController
 
+@synthesize userFavoritesDictionary;
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -21,19 +22,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    if(self.userFavoritesDictionary == nil)
+    {
+        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"UserFavorites" ofType:@"plist"];
+        NSDictionary *newDict = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+        self.userFavoritesDictionary = newDict;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -53,12 +57,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
+        return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 @end
