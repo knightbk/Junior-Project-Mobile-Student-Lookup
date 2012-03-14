@@ -11,6 +11,7 @@
 @implementation FavoritesViewController
 
 @synthesize userFavoritesDictionary;
+@synthesize favoritesTable;
 
 - (void)didReceiveMemoryWarning
 {
@@ -32,12 +33,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if(self.userFavoritesDictionary == nil)
-    {
-        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"UserFavorites" ofType:@"plist"];
-        NSDictionary *newDict = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
-        self.userFavoritesDictionary = newDict;
-    }
+    [self updateFavorites];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -58,6 +54,13 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
         return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void) updateFavorites
+{
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"UserFavorites" ofType:@"plist"];
+    NSDictionary *newDict = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+    self.userFavoritesDictionary = newDict;
 }
 
 @end

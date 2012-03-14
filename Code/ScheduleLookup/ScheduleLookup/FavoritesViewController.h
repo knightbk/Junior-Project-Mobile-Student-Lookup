@@ -16,5 +16,8 @@ NSDictionary *userFavoritesDictionary;
 }
 
 @property (nonatomic, strong) NSDictionary *userFavoritesDictionary;
+@property (nonatomic, retain) IBOutlet UITableView *favoritesTable;
+
+- (void) updateFavorites;
 
 @end
