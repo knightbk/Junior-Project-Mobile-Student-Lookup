@@ -16,10 +16,12 @@
 #import "Schedule.h"
 #import "ScheduleFactory.h"
 #import "UserInfoViewController.h"
+
+
 @implementation SearchViewController
 
 @synthesize nameLabel, usernameLabel, advisorLabel, scheduleTextView;
-
+@synthesize networkScraper;
 
 
 
@@ -103,13 +105,13 @@ UIGestureRecognizer* cancelGesture;
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [self.view endEditing:YES];
-    NSString *url = [NSString stringWithFormat:@"https://prodweb.rose-hulman.edu/regweb-cgi/reg-sched.pl?type=Instructor&termcode=201230&view=tgrid&id=%@", searchBar.text];
-
-    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
-    NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [connection start];
-
+    if (networkScraper == nil) {
+        networkScraper = [[NetworkScraper alloc] init];
+        networkScraper.delegate = self;
+    }
+    [networkScraper initiatePersonInfoSearchWithUsername:searchBar.text termcode:@"201230"];
 }
+
 //will place cancelGesture methods only when searchBar is being edited.
 -(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     cancelGesture = [UITapGestureRecognizer new];
@@ -124,40 +126,10 @@ UIGestureRecognizer* cancelGesture;
     }
 }
 
+#pragma mark NetworkScraperDelegate methods
 
-
-
-#pragma mark - NSURLConnectionDelegate Methods
-
-- (void) connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+- (void) networkScraperDidReceiveData:(NSString *)sdata
 {
-        
-    if ([challenge previousFailureCount] > 0)
-    {
-        [[challenge sender] cancelAuthenticationChallenge:challenge];
-        
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials" message:@"The credentials you input for your account are invalid." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        
-    }
-    else
-    {
-        [[challenge sender]  useCredential:[NSURLCredential credentialWithUser:[passwordItem objectForKey:(__bridge_transfer id)kSecAttrAccount]
-                                                                      password:[passwordItem objectForKey:(__bridge_transfer id)kSecValueData]
-                                                                   persistence:NSURLCredentialPersistenceNone] 
-                forAuthenticationChallenge:challenge];
-    }
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection 
-{ 
-    [connection cancel];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data 
-{
-    NSString *sdata = [[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding];
-
     Faculty *person = [FacultyFactory FacultyFromSchedulePage:sdata];
     //Schedule *schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];
     [nameLabel setText:person.name];
@@ -167,9 +139,8 @@ UIGestureRecognizer* cancelGesture;
     
     [usernameLabel setText:person.alias];
     [self hideLabels:(false)];
-    [connection cancel];
     
-    NSLog(@"%@",[person asText]);
+//    NSLog(@"%@",[person asText]);
     
     /*
     if (self.settingsPage == nil) {

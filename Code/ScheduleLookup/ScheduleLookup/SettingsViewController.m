@@ -12,7 +12,7 @@
 #import "KeychainItemWrapper.h"
 @implementation SettingsViewController
 @synthesize  usernameTextField, passwordTextField;
-
+@synthesize networkScraper;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -64,20 +64,23 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-        [usernameTextField setText:[passwordItem objectForKey:(__bridge id)kSecAttrAccount]];
+    if (networkScraper == nil) {
+        networkScraper = [[NetworkScraper alloc] init];
+    }
+    
+    [usernameTextField setText:[networkScraper.passwordItem objectForKey:(__bridge id)kSecAttrAccount]];
         
-        [passwordTextField setText:[passwordItem objectForKey:(__bridge id)kSecValueData]];
+    [passwordTextField setText:[networkScraper.passwordItem objectForKey:(__bridge id)kSecValueData]];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
-    
     // Store username to keychain 	
     if ([usernameTextField text])
-        [passwordItem setObject:[usernameTextField text] forKey:(__bridge id)kSecAttrAccount];
+        [networkScraper.passwordItem setObject:[usernameTextField text] forKey:(__bridge id)kSecAttrAccount];
     
     // Store password to keychain
     if ([passwordTextField text])
-        [passwordItem setObject:[passwordTextField text] forKey:(__bridge id)kSecValueData];  
+        [networkScraper.passwordItem setObject:[passwordTextField text] forKey:(__bridge id)kSecValueData];  
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.

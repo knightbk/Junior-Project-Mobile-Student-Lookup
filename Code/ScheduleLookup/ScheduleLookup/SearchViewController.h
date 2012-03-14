@@ -9,14 +9,15 @@
 
 #import <UIKit/UIKit.h>
 #import "UserInfoViewController.h"
+#import "NetworkScraper.h"
 
-@interface SearchViewController : UIViewController <UISearchBarDelegate, NSURLConnectionDelegate>
+@interface SearchViewController : UIViewController <UISearchBarDelegate, NetworkScraperDelegate>
 
-@property(weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property(weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property(weak, nonatomic) IBOutlet UILabel *advisorLabel;
-@property(weak, nonatomic) IBOutlet UITextView *scheduleTextView;
-
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *advisorLabel;
+@property (weak, nonatomic) IBOutlet UITextView *scheduleTextView;
+@property (strong, nonatomic) NetworkScraper *networkScraper;
 
 
 @end
