@@ -12,6 +12,7 @@
 @implementation NetworkScraper
 @synthesize passwordItem;
 @synthesize delegate;
+@synthesize sdata;
 
 #pragma mark - NSURLConnectionDelegate Methods
 
@@ -23,6 +24,8 @@
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     [connection start];
+    NSLog(@"%@",@"initiatePersonInfoSearchWithUsername");
+
 }
 
 
@@ -48,14 +51,14 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection 
 { 
+    [self.delegate networkScraperDidReceiveData:sdata];
     [connection cancel];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data 
 {
-    NSString *sdata = [[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding];
 
-    [self.delegate networkScraperDidReceiveData:sdata];
+    self.sdata = [[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding];
 }
 
 - (NSString *) getUserName

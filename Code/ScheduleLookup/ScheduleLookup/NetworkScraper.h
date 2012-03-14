@@ -19,7 +19,7 @@
 
 @property (strong, nonatomic) KeychainItemWrapper *passwordItem;
 @property (unsafe_unretained, nonatomic) id <NetworkScraperDelegate> delegate;
-
+@property (strong, nonatomic) NSString *sdata;
 
 - (void) connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
 - (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data; 

@@ -140,12 +140,6 @@ UIGestureRecognizer* cancelGesture;
     [usernameLabel setText:person.alias];
     [self hideLabels:(false)];
     
-    /*
-    if (self.settingsPage == nil) {
-        SettingsViewController *newSettingsPage = [[SettingsViewController alloc] init];
-        self.settingsPage = newSettingsPage;
-    }
-     */
     UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
     
     userInfoPage.person = person;
