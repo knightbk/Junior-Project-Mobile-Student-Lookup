@@ -54,6 +54,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data 
 {
     NSString *sdata = [[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding];
+
     [self.delegate networkScraperDidReceiveData:sdata];
 }
 

@@ -140,8 +140,6 @@ UIGestureRecognizer* cancelGesture;
     [usernameLabel setText:person.alias];
     [self hideLabels:(false)];
     
-//    NSLog(@"%@",[person asText]);
-    
     /*
     if (self.settingsPage == nil) {
         SettingsViewController *newSettingsPage = [[SettingsViewController alloc] init];
