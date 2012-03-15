@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <deployment defaultVersion="1280" identifier="iOS"/>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
     </dependencies>
     <scenes>
+        <!--Search View Controller - First-->
         <scene sceneID="11">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
@@ -85,6 +86,7 @@
             </objects>
             <point key="canvasLocation" x="1244" y="-398"/>
         </scene>
+        <!--Settings View Controller - Third-->
         <scene sceneID="eF1-tM-IuK">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h67-33-qp0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -128,7 +130,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="SoT-m9-FOU"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="SoT-m9-FOU"/>
                     <connections>
                         <outlet property="passwordTextField" destination="kWa-XL-lYi" id="C6P-ft-qGk"/>
                         <outlet property="usernameTextField" destination="bK8-Wi-aE0" id="cvs-fV-DvG"/>
@@ -137,6 +139,7 @@
             </objects>
             <point key="canvasLocation" x="718" y="775"/>
         </scene>
+        <!--Tab Bar Controller-->
         <scene sceneID="15">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
@@ -156,11 +159,12 @@
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
+        <!--Navigation Controller - Search-->
         <scene sceneID="qX6-9H-uLU">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zou-BT-QJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="ggB-Ew-ERm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="first" id="7"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="search.png" id="7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="B7C-fM-YRF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -174,11 +178,12 @@
             </objects>
             <point key="canvasLocation" x="718" y="-398"/>
         </scene>
+        <!--Navigation Controller - Favorites-->
         <scene sceneID="fgr-wh-MGr">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odL-SD-EO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="sXD-A2-P2s" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" id="6"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="favorites.png" id="6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4l8-uc-4t8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -192,6 +197,7 @@
             </objects>
             <point key="canvasLocation" x="718" y="180"/>
         </scene>
+        <!--Favorites View Controller - Favorites-->
         <scene sceneID="xeM-Us-qAl">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ou-0Q-ea7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -223,8 +229,32 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="16" height="16"/>
+        <image name="favorites.png" width="26" height="26"/>
+        <image name="search.png" width="26" height="26"/>
+        <image name="settings.png" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="FavoritesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesViewController.h"/>
+        </class>
+        <class className="SearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="advisorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scheduleTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="usernameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="textFieldDidEndEditing:" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
