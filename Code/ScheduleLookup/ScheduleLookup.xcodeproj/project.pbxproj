@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		50056598150D1BB0001D9A7D /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50056596150D1BB0001D9A7D /* UserInfoViewController.m */; };
-		50D74B0C1510FF4A005B3723 /* UserFavorites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50D74B0B1510FF4A005B3723 /* UserFavorites.plist */; };
 		CE1BADCF14DA60FE00C54FFE /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BADCE14DA60FE00C54FFE /* KeychainItemWrapper.m */; };
 		CE57E7B514EB71C50033E59A /* ClassFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57E7B214EB71C50033E59A /* ClassFactory.m */; };
 		CE57E7B614EB71C50033E59A /* ClassSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57E7B414EB71C50033E59A /* ClassSchedule.m */; };
@@ -57,7 +56,6 @@
 /* Begin PBXFileReference section */
 		50056595150D1BB0001D9A7D /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		50056596150D1BB0001D9A7D /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
-		50D74B0B1510FF4A005B3723 /* UserFavorites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserFavorites.plist; sourceTree = "<group>"; };
 		CE1BADCD14DA60FE00C54FFE /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		CE1BADCE14DA60FE00C54FFE /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		CE25624A14DB119700706B01 /* ScheduleLookup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ScheduleLookup.entitlements; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 				E32079D31499122E005ACDD0 /* InfoPlist.strings */,
 				E32079D61499122E005ACDD0 /* main.m */,
 				E32079D81499122E005ACDD0 /* ScheduleLookup-Prefix.pch */,
-				50D74B0B1510FF4A005B3723 /* UserFavorites.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -360,7 +357,6 @@
 				E32079E81499122E005ACDD0 /* first@2x.png in Resources */,
 				E32079ED1499122E005ACDD0 /* second.png in Resources */,
 				E32079EF1499122E005ACDD0 /* second@2x.png in Resources */,
-				50D74B0C1510FF4A005B3723 /* UserFavorites.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

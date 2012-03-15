@@ -19,6 +19,8 @@
 
 - (void) initiatePersonInfoSearchWithUsername:(NSString *)uname termcode:(NSString *) termcode
 {
+    self.sdata = @"";
+    
     NSString *url = [NSString stringWithFormat:@"https://prodweb.rose-hulman.edu/regweb-cgi/reg-sched.pl?type=Instructor&termcode=%@&view=tgrid&id=%@", termcode, uname];
     
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
@@ -58,7 +60,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data 
 {
 
-    self.sdata = [[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding];
+    self.sdata = [NSString stringWithFormat:@"%@%@",self.sdata,[[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding]];
 }
 
 - (NSString *) getUserName

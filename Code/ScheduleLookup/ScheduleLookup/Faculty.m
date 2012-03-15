@@ -68,6 +68,7 @@
     NSMutableArray *aliasToAdd = [[NSMutableArray alloc] init];
     [aliasToAdd addObject:[self alias]];
     [newDict addEntriesFromDictionary:[[NSMutableDictionary alloc] initWithObjects:nameToAdd forKeys:aliasToAdd]];
+    NSLog(@"%@",newDict);
     [newDict writeToFile:plistPath atomically:YES];
     
 }
