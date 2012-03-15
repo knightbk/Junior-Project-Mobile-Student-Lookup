@@ -10,6 +10,7 @@
 #import "Faculty.h"
 #import "Factory.h"
 #import "FacultyFactory.h"
+#import "UserInfoViewController.h"
 
 @implementation FavoritesViewController
 
@@ -86,12 +87,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";  
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
     cell.textLabel.text = [[userFavoritesDictionary allValues] objectAtIndex:indexPath.row];
     return cell;
 }
@@ -100,9 +99,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSString * username = [userFavoritesDictionary objectForKey:([[userFavoritesDictionary allKeys] objectAtIndex:indexPath.row])];
-    
-    //NSLog(@"Viewing %@'s profile", username);
+    if (networkScraper == nil) {
+        networkScraper = [[NetworkScraper alloc] init];
+        networkScraper.delegate = self;
+    }
+    NSString *alias = [[userFavoritesDictionary allKeys] objectAtIndex:indexPath.row];
+    [networkScraper initiatePersonInfoSearchWithUsername:alias termcode:@"201230"];
+}
+     
+- (void) networkScraperDidReceiveData:(NSString *)sdata
+{
+    Faculty *person = [FacultyFactory FacultyFromSchedulePage:sdata];
+    //Schedule *schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];
+    //scheduleTextView.text = [schedule scheduleInformationString];
+    UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    userInfoPage.person = person;
+    [self.navigationController pushViewController:userInfoPage animated:YES];
 }
 
 @end

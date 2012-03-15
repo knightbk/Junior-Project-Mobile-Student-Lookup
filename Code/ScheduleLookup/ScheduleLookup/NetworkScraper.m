@@ -24,7 +24,7 @@
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     [connection start];
-    NSLog(@"%@",@"initiatePersonInfoSearchWithUsername");
+    
 
 }
 

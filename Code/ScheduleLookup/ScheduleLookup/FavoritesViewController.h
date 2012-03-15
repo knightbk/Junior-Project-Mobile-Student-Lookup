@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "NetworkScraper.h"
 
-@interface FavoritesViewController : UITableViewController {
+@interface FavoritesViewController : UITableViewController <NetworkScraperDelegate>{
 
 NSMutableDictionary *userFavoritesDictionary;
 
