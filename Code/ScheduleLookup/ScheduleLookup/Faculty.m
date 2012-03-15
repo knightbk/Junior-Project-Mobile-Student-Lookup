@@ -63,11 +63,7 @@
     NSLog(@"Adding %@ to favorites.", alias);
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"UserFavorites" ofType:@"plist"];
     NSMutableDictionary *newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-    NSMutableArray *nameToAdd = [[NSMutableArray alloc] init];
-    [nameToAdd addObject:[self name]];
-    NSMutableArray *aliasToAdd = [[NSMutableArray alloc] init];
-    [aliasToAdd addObject:[self alias]];
-    [newDict addEntriesFromDictionary:[[NSMutableDictionary alloc] initWithObjects:nameToAdd forKeys:aliasToAdd]];
+    [newDict setObject:[self name] forKey:[self alias]];
     NSLog(@"%@",newDict);
     [newDict writeToFile:plistPath atomically:YES];
     

@@ -37,6 +37,7 @@
 		E3207A041499122E005ACDD0 /* ScheduleLookupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3207A031499122E005ACDD0 /* ScheduleLookupTests.m */; };
 		E32C2ACF15101CA6007443C8 /* NetworkScraper.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C2ACE15101CA6007443C8 /* NetworkScraper.m */; };
 		E340E72914C75A3300EBA4E0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = E340E72814C75A3300EBA4E0 /* Person.m */; };
+		E35F5E67151238D500BCF42C /* UserFavorites.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35F5E66151238D500BCF42C /* UserFavorites.plist */; };
 		E36E4BB314D1324900EDE057 /* StudentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E36E4BB214D1324900EDE057 /* StudentFactory.m */; };
 		E371603614C9C51400883E8C /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = E371603514C9C51400883E8C /* Student.m */; };
 		E371603E14C9D3D100883E8C /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = E371603D14C9D3D100883E8C /* Faculty.m */; };
@@ -102,6 +103,7 @@
 		E32C2ACE15101CA6007443C8 /* NetworkScraper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkScraper.m; sourceTree = "<group>"; };
 		E340E72714C75A3300EBA4E0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		E340E72814C75A3300EBA4E0 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		E35F5E66151238D500BCF42C /* UserFavorites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = UserFavorites.plist; path = ../UserFavorites.plist; sourceTree = "<group>"; };
 		E36E4BB114D1324900EDE057 /* StudentFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentFactory.h; sourceTree = "<group>"; };
 		E36E4BB214D1324900EDE057 /* StudentFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentFactory.m; sourceTree = "<group>"; };
 		E371603414C9C51400883E8C /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		E32079D11499122E005ACDD0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E35F5E66151238D500BCF42C /* UserFavorites.plist */,
 				E32079D21499122E005ACDD0 /* ScheduleLookup-Info.plist */,
 				E32079D31499122E005ACDD0 /* InfoPlist.strings */,
 				E32079D61499122E005ACDD0 /* main.m */,
@@ -357,6 +360,7 @@
 				E32079E81499122E005ACDD0 /* first@2x.png in Resources */,
 				E32079ED1499122E005ACDD0 /* second.png in Resources */,
 				E32079EF1499122E005ACDD0 /* second@2x.png in Resources */,
+				E35F5E67151238D500BCF42C /* UserFavorites.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
