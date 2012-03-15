@@ -66,7 +66,6 @@
     [newDict setObject:[self name] forKey:[self alias]];
     NSLog(@"%@",newDict);
     [newDict writeToFile:plistPath atomically:YES];
-    
 }
 - (void) removeFromFavorites
 {
