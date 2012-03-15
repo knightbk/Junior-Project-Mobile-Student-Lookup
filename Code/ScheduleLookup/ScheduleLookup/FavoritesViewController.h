@@ -8,15 +8,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NetworkScraper.h"
 
-@interface FavoritesViewController : UIViewController {
+@interface FavoritesViewController : UITableViewController {
 
-NSDictionary *userFavoritesDictionary;
+NSMutableDictionary *userFavoritesDictionary;
 
 }
 
-@property (nonatomic, strong) NSDictionary *userFavoritesDictionary;
-@property (nonatomic, retain) IBOutlet UITableView *favoritesTable;
+@property (nonatomic, strong) NSMutableDictionary *userFavoritesDictionary;
+@property (strong, nonatomic) NetworkScraper *networkScraper;
 
 - (void) updateFavorites;
 

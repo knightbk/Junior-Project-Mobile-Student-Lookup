@@ -40,4 +40,44 @@
     return [NSString stringWithFormat:@"812-%@", self.phoneNumber];
 }
 
+- (BOOL) inFavorites
+{
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"UserFavorites" ofType:@"plist"];
+    NSMutableDictionary *newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    for(id key in newDict)
+    {
+        if([key isEqualToString:name]){
+            return true;
+            
+        }
+            
+    }
+    return false;
+}
+
+- (void) addToFavorites
+{
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"UserFavorites" ofType:@"plist"];
+    NSMutableDictionary *newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    NSMutableArray *nameToAdd = [[NSMutableArray alloc] init];
+    [nameToAdd addObject:[self name]];
+    NSMutableArray *aliasToAdd = [[NSMutableArray alloc] init];
+    [aliasToAdd addObject:[self alias]];
+    [newDict addEntriesFromDictionary:[[NSMutableDictionary alloc] initWithObjects:nameToAdd forKeys:aliasToAdd]];
+    [newDict writeToFile:plistPath atomically:YES];
+    
+    for(int i = 0; i < [newDict count]; i++)
+    {
+        NSLog(@"Item %d: %@", i, [[newDict allKeys] objectAtIndex:i]);
+    }
+}
+- (void) removeFromFavorites
+{
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"UserFavorites" ofType:@"plist"];
+    NSMutableDictionary *newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    [newDict removeObjectForKey:alias];
+    [newDict writeToFile:plistPath atomically:YES];
+}
+
+
 @end

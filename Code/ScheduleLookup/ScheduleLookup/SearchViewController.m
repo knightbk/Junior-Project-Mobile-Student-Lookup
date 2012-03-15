@@ -135,7 +135,7 @@ UIGestureRecognizer* cancelGesture;
     [nameLabel setText:person.name];
     //scheduleTextView.text = [schedule scheduleInformationString];
     
-    [advisorLabel setText:@"derp"];
+    [advisorLabel setText:@""];
     
     [usernameLabel setText:person.alias];
     [self hideLabels:(false)];

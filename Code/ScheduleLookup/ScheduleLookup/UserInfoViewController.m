@@ -37,8 +37,8 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    self.title = self.person.alias;
 
+    self.title = self.person.alias;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -116,10 +116,15 @@
                 cell.textLabel.text = @"View Schedule";
                 break;
             case 1:
-//                if ([person inFavorites]) {
-//                    cell.textLabel.text = @"Remove from Favorites";
-//                }
-                cell.textLabel.text = @"Add to Favorites";
+                if (person.inFavorites)
+                {
+                    cell.textLabel.text = @"Remove from Favorites";
+                }
+                else
+                {
+                    cell.textLabel.text = @"Add to Favorites";
+                }
+                
                 break;
             default:
                 break;
@@ -158,16 +163,14 @@
     {
         if(indexPath.row == 0)
         {
-            NSLog(@"Send E-mail to %@", person.getEmailAddress);
-            
+            //Sends e-mail to user.
             NSString * email = [NSString stringWithFormat:@"mailto:%@",person.getEmailAddress];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
             
         }
         else if(indexPath.row == 1 && indexPath.section == 0 && ![[self.person phoneNumber] isEqualToString:@""])
         {
-            NSLog(@"Calling %@", person.getPhoneNumberWithAreaCode);
-            
+            //Calls user.
             NSString * phone = [NSString stringWithFormat:@"tel://%@",person.getPhoneNumberWithAreaCode];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phone]];
         }
@@ -175,7 +178,27 @@
     }
     else
     {
-        
+        switch(indexPath.row)
+        {
+            case 0:
+                //Displays the schedule of the user.
+                
+                break;
+                
+            case 1:
+                //Adds or removes the user from favorites.
+                if(person.inFavorites)
+                {
+                    [person removeFromFavorites];                    
+                }
+                else
+                {
+                    [person addToFavorites];
+                }
+                
+                break;
+                
+        }
     }
 }
 

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
+        <deployment defaultVersion="1280" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller - First-->
         <scene sceneID="11">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
@@ -86,7 +85,6 @@
             </objects>
             <point key="canvasLocation" x="1244" y="-398"/>
         </scene>
-        <!--Settings View Controller - Third-->
         <scene sceneID="eF1-tM-IuK">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h67-33-qp0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -139,32 +137,6 @@
             </objects>
             <point key="canvasLocation" x="718" y="775"/>
         </scene>
-        <!--Favorites View Controller - Second-->
-        <scene sceneID="13">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
-                <viewController title="Second" id="3" customClass="FavoritesViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="17">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cD7-Je-dBk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Favorites" id="h4g-b4-rmp"/>
-                    <connections>
-                        <outlet property="favoritesTable" destination="cD7-Je-dBk" id="7yK-7F-aCw"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1244" y="180"/>
-        </scene>
-        <!--Tab Bar Controller-->
         <scene sceneID="15">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
@@ -184,7 +156,6 @@
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
-        <!--Navigation Controller - Search-->
         <scene sceneID="qX6-9H-uLU">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zou-BT-QJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -203,7 +174,6 @@
             </objects>
             <point key="canvasLocation" x="718" y="-398"/>
         </scene>
-        <!--Navigation Controller - Favorites-->
         <scene sceneID="fgr-wh-MGr">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odL-SD-EO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -216,41 +186,45 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="3" kind="relationship" relationship="rootViewController" id="49o-0a-qyM"/>
+                        <segue destination="QNL-Sg-QCw" kind="relationship" relationship="rootViewController" id="JFm-9Y-2pQ"/>
                     </connections>
                 </navigationController>
             </objects>
             <point key="canvasLocation" x="718" y="180"/>
         </scene>
+        <scene sceneID="xeM-Us-qAl">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ou-0Q-ea7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="QNL-Sg-QCw" customClass="FavoritesViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5dZ-PZ-5nA">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Wyz-80-Pxn">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QNL-Sg-QCw" id="cLb-OK-zRx"/>
+                            <outlet property="delegate" destination="QNL-Sg-QCw" id="jkb-DQ-y5g"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Favorites" id="aQo-op-1ju"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1244" y="180"/>
+        </scene>
     </scenes>
     <resources>
         <image name="first" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="FavoritesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="favoritesTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="SearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="advisorLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scheduleTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="usernameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="textFieldDidEndEditing:" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
