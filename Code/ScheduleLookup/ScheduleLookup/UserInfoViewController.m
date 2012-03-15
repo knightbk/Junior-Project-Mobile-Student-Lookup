@@ -120,7 +120,7 @@
                 {
                     cell.textLabel.text = @"Remove from Favorites";
                 }
-                else
+                else if(!person.inFavorites)
                 {
                     cell.textLabel.text = @"Add to Favorites";
                 }
@@ -191,7 +191,7 @@
                 {
                     [person removeFromFavorites];                    
                 }
-                else
+                else if(!person.inFavorites)
                 {
                     [person addToFavorites];
                 }

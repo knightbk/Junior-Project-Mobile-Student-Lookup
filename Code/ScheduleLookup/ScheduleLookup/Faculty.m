@@ -42,21 +42,25 @@
 
 - (BOOL) inFavorites
 {
+    BOOL isFavorited = NO;
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"UserFavorites" ofType:@"plist"];
     NSMutableDictionary *newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-    for(id key in newDict)
+    NSArray *aliases = [newDict allKeys];
+    for(int i = 0; i < [newDict count]; i++)
     {
-        if([key isEqualToString:name]){
-            return true;
-            
+        if([[self alias] isEqualToString:[aliases objectAtIndex:i]])
+        {
+            isFavorited = YES;
+            i+= [newDict count];
         }
-            
     }
-    return false;
+    
+    return isFavorited;
 }
 
 - (void) addToFavorites
 {
+    NSLog(@"Adding %@ to favorites.", alias);
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"UserFavorites" ofType:@"plist"];
     NSMutableDictionary *newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
     NSMutableArray *nameToAdd = [[NSMutableArray alloc] init];
@@ -66,13 +70,10 @@
     [newDict addEntriesFromDictionary:[[NSMutableDictionary alloc] initWithObjects:nameToAdd forKeys:aliasToAdd]];
     [newDict writeToFile:plistPath atomically:YES];
     
-    for(int i = 0; i < [newDict count]; i++)
-    {
-        NSLog(@"Item %d: %@", i, [[newDict allKeys] objectAtIndex:i]);
-    }
 }
 - (void) removeFromFavorites
 {
+    NSLog(@"Removing %@ from favorites.", alias);
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"UserFavorites" ofType:@"plist"];
     NSMutableDictionary *newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
     [newDict removeObjectForKey:alias];

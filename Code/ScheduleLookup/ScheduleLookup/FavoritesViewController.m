@@ -34,12 +34,14 @@
     [super viewDidUnload];
 }
 
+
 - (void)viewWillAppear:(BOOL)animated
 {
+    
+    
+    [super viewWillAppear:animated];
     [self updateFavorites];
     [self.tableView reloadData];
-    [super viewWillAppear:animated];
-    
 
 }
 
