@@ -195,7 +195,7 @@
                 {
                     [person addToFavorites];
                 }
-                
+                [[self tableView] reloadData]; 
                 break;
                 
         }
