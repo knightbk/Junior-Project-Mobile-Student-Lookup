@@ -45,6 +45,7 @@
 		E371603614C9C51400883E8C /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = E371603514C9C51400883E8C /* Student.m */; };
 		E371603E14C9D3D100883E8C /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = E371603D14C9D3D100883E8C /* Faculty.m */; };
 		E3B71D6D15195CD2002D1D8B /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B71D6C15195CD2002D1D8B /* ScheduleViewController.m */; };
+		E3B71D70151963A6002D1D8B /* ScheduleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3B71D6F151963A6002D1D8B /* ScheduleView.xib */; };
 		E3DE69DE14DA20D800299023 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DE69DD14DA20D800299023 /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +120,7 @@
 		E371603D14C9D3D100883E8C /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faculty.m; sourceTree = "<group>"; };
 		E3B71D6B15195CD2002D1D8B /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
 		E3B71D6C15195CD2002D1D8B /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
+		E3B71D6F151963A6002D1D8B /* ScheduleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleView.xib; sourceTree = "<group>"; };
 		E3DE69DC14DA20D800299023 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		E3DE69DD14DA20D800299023 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -206,8 +208,7 @@
 				E340E72514C758AF00EBA4E0 /* View Controllers */,
 				E32079D91499122E005ACDD0 /* AppDelegate.h */,
 				E32079DA1499122E005ACDD0 /* AppDelegate.m */,
-				E32079DC1499122E005ACDD0 /* MainStoryboard_iPhone.storyboard */,
-				E32079DF1499122E005ACDD0 /* MainStoryboard_iPad.storyboard */,
+				E3B71D71151963B4002D1D8B /* InterfaceBuilderFiles */,
 				E340E72314C757DE00EBA4E0 /* Images */,
 				E32079D11499122E005ACDD0 /* Supporting Files */,
 			);
@@ -296,6 +297,16 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		E3B71D71151963B4002D1D8B /* InterfaceBuilderFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E32079DC1499122E005ACDD0 /* MainStoryboard_iPhone.storyboard */,
+				E3B71D6F151963A6002D1D8B /* ScheduleView.xib */,
+				E32079DF1499122E005ACDD0 /* MainStoryboard_iPad.storyboard */,
+			);
+			name = InterfaceBuilderFiles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -378,6 +389,7 @@
 				501E52D3151265C300408054 /* favorites.png in Resources */,
 				501E52D51512666C00408054 /* settings@2x.png in Resources */,
 				501E52D71512667D00408054 /* settings.png in Resources */,
+				E3B71D70151963A6002D1D8B /* ScheduleView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
