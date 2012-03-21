@@ -23,6 +23,7 @@
 		CEB33E7714E9B5740048C518 /* ScheduleFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB33E7614E9B5740048C518 /* ScheduleFactory.m */; };
 		CEB729CB14DA65AE002E54EC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB729CA14DA65AE002E54EC /* Security.framework */; };
 		CED1D5F414D9D1AE00255F0C /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = CED1D5F314D9D1AE00255F0C /* Factory.m */; };
+		E3102708151A718F00BC9971 /* SingleDayScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3102707151A718F00BC9971 /* SingleDayScheduleViewController.m */; };
 		E32079CB1499122E005ACDD0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32079CA1499122E005ACDD0 /* UIKit.framework */; };
 		E32079CD1499122E005ACDD0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32079CC1499122E005ACDD0 /* Foundation.framework */; };
 		E32079CF1499122E005ACDD0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32079CE1499122E005ACDD0 /* CoreGraphics.framework */; };
@@ -85,6 +86,8 @@
 		CEB729CA14DA65AE002E54EC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CED1D5F214D9D0E800255F0C /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
 		CED1D5F314D9D1AE00255F0C /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
+		E3102706151A718F00BC9971 /* SingleDayScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleDayScheduleViewController.h; sourceTree = "<group>"; };
+		E3102707151A718F00BC9971 /* SingleDayScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleDayScheduleViewController.m; sourceTree = "<group>"; };
 		E32079C61499122E005ACDD0 /* ScheduleLookup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleLookup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32079CA1499122E005ACDD0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E32079CC1499122E005ACDD0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -273,6 +276,8 @@
 				50056596150D1BB0001D9A7D /* UserInfoViewController.m */,
 				E3B71D7B15196638002D1D8B /* ScheduleViewController.h */,
 				E3B71D7C15196638002D1D8B /* ScheduleViewController.m */,
+				E3102706151A718F00BC9971 /* SingleDayScheduleViewController.h */,
+				E3102707151A718F00BC9971 /* SingleDayScheduleViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -443,6 +448,7 @@
 				50056598150D1BB0001D9A7D /* UserInfoViewController.m in Sources */,
 				E32C2ACF15101CA6007443C8 /* NetworkScraper.m in Sources */,
 				E3B71D7E15196638002D1D8B /* ScheduleViewController.m in Sources */,
+				E3102708151A718F00BC9971 /* SingleDayScheduleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

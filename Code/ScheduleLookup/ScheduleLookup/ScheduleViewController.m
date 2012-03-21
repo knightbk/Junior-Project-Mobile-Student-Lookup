@@ -9,6 +9,7 @@
 #define Y_VALUE 50
 
 #import "ScheduleViewController.h"
+#import "SingleDayScheduleViewController.h"
 
 @implementation ScheduleViewController
 
@@ -110,19 +111,25 @@
 {
     self.viewControllers = [[NSMutableArray alloc] initWithCapacity:5];
     
-    UITableViewController *mondayTableViewController = [[UITableViewController alloc] init];
-    UITableViewController *tuesdayTableViewController = [[UITableViewController alloc] init];
-    UITableViewController *wednesdayTableViewController = [[UITableViewController alloc] init];
-    UITableViewController *thursdayTableViewController = [[UITableViewController alloc] init];
-    UITableViewController *fridayTableViewController = [[UITableViewController alloc] init];
+    SingleDayScheduleViewController *mondayTableViewController = [[SingleDayScheduleViewController alloc] init];
+    SingleDayScheduleViewController *tuesdayTableViewController = [[SingleDayScheduleViewController alloc] init];
+    SingleDayScheduleViewController *wednesdayTableViewController = [[SingleDayScheduleViewController alloc] init];
+    SingleDayScheduleViewController *thursdayTableViewController = [[SingleDayScheduleViewController alloc] init];
+    SingleDayScheduleViewController *fridayTableViewController = [[SingleDayScheduleViewController alloc] init];
 
-
+    mondayTableViewController.dayString = @"Monday";
     
     [self.viewControllers addObject:mondayTableViewController];
     [self.viewControllers addObject:tuesdayTableViewController];  
     [self.viewControllers addObject:wednesdayTableViewController];
     [self.viewControllers addObject:thursdayTableViewController];
     [self.viewControllers addObject:fridayTableViewController];
+
+    
+    tuesdayTableViewController.dayString = @"Tuesday";
+    wednesdayTableViewController.dayString = @"Wednesday";
+    thursdayTableViewController.dayString = @"Thursday";
+    fridayTableViewController.dayString = @"Friday";
 
     self.pageControl.numberOfPages = 5;
     self.pageControl.currentPage = 0;    
