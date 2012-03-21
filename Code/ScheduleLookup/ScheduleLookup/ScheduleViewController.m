@@ -49,6 +49,7 @@
         CGRect frame = scrollView.frame;
         frame.origin.x = frame.size.width * page;
         frame.origin.y = Y_VALUE;
+        frame.size.height -= Y_VALUE;
         controller.view.frame = frame;
         [scrollView addSubview:controller.view];
     }
@@ -60,6 +61,7 @@
     CGRect frame = scrollView.frame;
     frame.origin.x = frame.size.width*page;
     frame.origin.y = Y_VALUE;
+    frame.size.height -= Y_VALUE;
     [scrollView scrollRectToVisible:frame animated:YES];
     pageControlUsed = YES;
         
@@ -111,31 +113,32 @@
 {
     self.viewControllers = [[NSMutableArray alloc] initWithCapacity:5];
     
+    //create viewcontrollers
     SingleDayScheduleViewController *mondayTableViewController = [[SingleDayScheduleViewController alloc] init];
     SingleDayScheduleViewController *tuesdayTableViewController = [[SingleDayScheduleViewController alloc] init];
     SingleDayScheduleViewController *wednesdayTableViewController = [[SingleDayScheduleViewController alloc] init];
     SingleDayScheduleViewController *thursdayTableViewController = [[SingleDayScheduleViewController alloc] init];
     SingleDayScheduleViewController *fridayTableViewController = [[SingleDayScheduleViewController alloc] init];
 
+    //set the daystring property
     mondayTableViewController.dayString = @"Monday";
+    tuesdayTableViewController.dayString = @"Tuesday";
+    wednesdayTableViewController.dayString = @"Wednesday";
+    thursdayTableViewController.dayString = @"Thursday";
+    fridayTableViewController.dayString = @"Friday";
     
+    //add them to the viewcontrollers array
     [self.viewControllers addObject:mondayTableViewController];
     [self.viewControllers addObject:tuesdayTableViewController];  
     [self.viewControllers addObject:wednesdayTableViewController];
     [self.viewControllers addObject:thursdayTableViewController];
     [self.viewControllers addObject:fridayTableViewController];
 
-    
-    tuesdayTableViewController.dayString = @"Tuesday";
-    wednesdayTableViewController.dayString = @"Wednesday";
-    thursdayTableViewController.dayString = @"Thursday";
-    fridayTableViewController.dayString = @"Friday";
-
     self.pageControl.numberOfPages = 5;
     self.pageControl.currentPage = 0;    
     
     scrollView.pagingEnabled = YES;
-    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width*5, scrollView.frame.size.height);
+    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width*5,scrollView.frame.size.height);
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.scrollsToTop = NO;
