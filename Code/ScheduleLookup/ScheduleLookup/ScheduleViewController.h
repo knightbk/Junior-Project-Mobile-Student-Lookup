@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScheduleViewController : UIViewController
+@interface ScheduleViewController : UIViewController <UIScrollViewDelegate> {
+    NSMutableArray *viewControllers;
+    
+    BOOL pageControlUsed;
+}
+@property (strong, nonatomic) NSMutableArray *viewControllers;
+
+@property (weak,nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak,nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end

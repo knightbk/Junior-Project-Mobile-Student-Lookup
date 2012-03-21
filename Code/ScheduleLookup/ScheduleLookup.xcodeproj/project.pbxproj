@@ -44,8 +44,8 @@
 		E36E4BB314D1324900EDE057 /* StudentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E36E4BB214D1324900EDE057 /* StudentFactory.m */; };
 		E371603614C9C51400883E8C /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = E371603514C9C51400883E8C /* Student.m */; };
 		E371603E14C9D3D100883E8C /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = E371603D14C9D3D100883E8C /* Faculty.m */; };
-		E3B71D6D15195CD2002D1D8B /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B71D6C15195CD2002D1D8B /* ScheduleViewController.m */; };
-		E3B71D70151963A6002D1D8B /* ScheduleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3B71D6F151963A6002D1D8B /* ScheduleView.xib */; };
+		E3B71D7E15196638002D1D8B /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B71D7C15196638002D1D8B /* ScheduleViewController.m */; };
+		E3B71D7F15196638002D1D8B /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3B71D7D15196638002D1D8B /* ScheduleViewController.xib */; };
 		E3DE69DE14DA20D800299023 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DE69DD14DA20D800299023 /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -118,9 +118,9 @@
 		E371603514C9C51400883E8C /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		E371603C14C9D3D100883E8C /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faculty.h; sourceTree = "<group>"; };
 		E371603D14C9D3D100883E8C /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faculty.m; sourceTree = "<group>"; };
-		E3B71D6B15195CD2002D1D8B /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
-		E3B71D6C15195CD2002D1D8B /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
-		E3B71D6F151963A6002D1D8B /* ScheduleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleView.xib; sourceTree = "<group>"; };
+		E3B71D7B15196638002D1D8B /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
+		E3B71D7C15196638002D1D8B /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
+		E3B71D7D15196638002D1D8B /* ScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleViewController.xib; sourceTree = "<group>"; };
 		E3DE69DC14DA20D800299023 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		E3DE69DD14DA20D800299023 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -271,8 +271,8 @@
 				E3DE69DD14DA20D800299023 /* SettingsViewController.m */,
 				50056595150D1BB0001D9A7D /* UserInfoViewController.h */,
 				50056596150D1BB0001D9A7D /* UserInfoViewController.m */,
-				E3B71D6B15195CD2002D1D8B /* ScheduleViewController.h */,
-				E3B71D6C15195CD2002D1D8B /* ScheduleViewController.m */,
+				E3B71D7B15196638002D1D8B /* ScheduleViewController.h */,
+				E3B71D7C15196638002D1D8B /* ScheduleViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -300,8 +300,8 @@
 		E3B71D71151963B4002D1D8B /* InterfaceBuilderFiles */ = {
 			isa = PBXGroup;
 			children = (
+				E3B71D7D15196638002D1D8B /* ScheduleViewController.xib */,
 				E32079DC1499122E005ACDD0 /* MainStoryboard_iPhone.storyboard */,
-				E3B71D6F151963A6002D1D8B /* ScheduleView.xib */,
 				E32079DF1499122E005ACDD0 /* MainStoryboard_iPad.storyboard */,
 			);
 			name = InterfaceBuilderFiles;
@@ -389,7 +389,7 @@
 				501E52D3151265C300408054 /* favorites.png in Resources */,
 				501E52D51512666C00408054 /* settings@2x.png in Resources */,
 				501E52D71512667D00408054 /* settings.png in Resources */,
-				E3B71D70151963A6002D1D8B /* ScheduleView.xib in Resources */,
+				E3B71D7F15196638002D1D8B /* ScheduleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,7 +442,7 @@
 				CE57E7B614EB71C50033E59A /* ClassSchedule.m in Sources */,
 				50056598150D1BB0001D9A7D /* UserInfoViewController.m in Sources */,
 				E32C2ACF15101CA6007443C8 /* NetworkScraper.m in Sources */,
-				E3B71D6D15195CD2002D1D8B /* ScheduleViewController.m in Sources */,
+				E3B71D7E15196638002D1D8B /* ScheduleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
