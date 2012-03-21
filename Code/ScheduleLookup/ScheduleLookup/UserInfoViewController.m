@@ -7,6 +7,7 @@
 //
 
 #import "UserInfoViewController.h"
+#import "ScheduleViewController.h"
 
 @interface UserInfoViewController ()
 
@@ -178,11 +179,16 @@
     }
     else
     {
+        ScheduleViewController *scheduleViewController = [[ScheduleViewController alloc] init];
+
         switch(indexPath.row)
         {
             case 0:
                 //Displays the schedule of the user.
                 
+                //userInfoPage.person = person;
+                
+                [self.navigationController pushViewController:scheduleViewController animated:YES];
                 break;
                 
             case 1:
