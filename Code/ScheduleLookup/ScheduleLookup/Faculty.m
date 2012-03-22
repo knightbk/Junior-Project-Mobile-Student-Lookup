@@ -70,10 +70,12 @@
     
     NSMutableDictionary *newDict;
     
-    if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
+    if ([[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
         newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
     }
-    else {
+    else
+    {
+        [[NSFileManager defaultManager] createFileAtPath:plistPath contents:nil attributes:nil];
         newDict = [[NSMutableDictionary alloc] init];
     }
     
@@ -82,6 +84,7 @@
     BOOL suc = [newDict writeToFile:plistPath atomically:YES];
     NSLog(@"%@ %@", (suc ? @"Yes": @"No"), newDict);
 }
+
 - (void) removeFromFavorites
 {
     NSLog(@"Removing %@ from favorites.", alias);
