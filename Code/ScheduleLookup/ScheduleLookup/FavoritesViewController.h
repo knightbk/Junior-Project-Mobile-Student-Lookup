@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  FavoritesViewController.h
 //  ScheduleLookup
 //
 //  Created by Mark Vitale on 12/14/11.

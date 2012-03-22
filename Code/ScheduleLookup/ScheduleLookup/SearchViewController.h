@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  SearchViewController.h
 //  ScheduleLookup
 //
 //  Created by Mark Vitale on 12/14/11.
