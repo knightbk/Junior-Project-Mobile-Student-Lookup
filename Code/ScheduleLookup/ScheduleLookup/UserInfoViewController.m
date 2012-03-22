@@ -8,6 +8,10 @@
 
 #import "UserInfoViewController.h"
 #import "ScheduleViewController.h"
+#import "Schedule.h"
+#import "ScheduleFactory.h"
+#import "NetworkScraper.h"
+
 
 @interface UserInfoViewController ()
 
@@ -179,17 +183,20 @@
     }
     else
     {
-        ScheduleViewController *scheduleViewController = [[ScheduleViewController alloc]initWithNibName:@"ScheduleViewController" bundle:[NSBundle mainBundle]];
-
         switch(indexPath.row)
         {
+
             case 0:
+            {
                 //Displays the schedule of the user.
-                                
-                [self.navigationController pushViewController:scheduleViewController animated:YES];
+                NetworkScraper *networkScraper = [[NetworkScraper alloc] init];
+                networkScraper.delegate = self;
+                [networkScraper initiatePersonScheduleSearchWithUsername:person.alias termcode:@"201230"];                
                 break;
+            }
                 
             case 1:
+            {
                 //Adds or removes the user from favorites.
                 if(person.inFavorites)
                 {
@@ -201,9 +208,21 @@
                 }
                 [[self tableView] reloadData]; 
                 break;
+            }
                 
         }
     }
 }
+#pragma mark NetworkScraperDelegate methods
+    
+- (void) networkScraperDidReceiveData:(NSString *)sdata
+{
+    ScheduleViewController *scheduleViewController = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:[NSBundle mainBundle]];
+    scheduleViewController.schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];;
+
+    [self.navigationController pushViewController:scheduleViewController animated:YES];
+
+}
+
 
 @end

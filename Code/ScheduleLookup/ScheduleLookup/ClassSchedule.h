@@ -46,5 +46,10 @@
                             WithFinal_Schedule:(NSString *)newFinal_Schedule;
 
 - (NSString *) classInformationString;
+- (NSMutableArray *) classMeetingsForDay:(int)day;
+- (NSNumber *) numberFromString:(NSString *)numberString;
+- (NSMutableArray *) getRangeOfHours:(NSString *)term_schedule;
+
+
 
 @end

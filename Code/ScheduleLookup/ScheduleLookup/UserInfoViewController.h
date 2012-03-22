@@ -8,16 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "Faculty.h"
-@protocol UserInfoViewControllerDelegate
+#import "NetworkScraper.h"
+
+@protocol UserInfoViewControllerDelegate 
 
 @end
 
-@interface UserInfoViewController : UITableViewController {
+@interface UserInfoViewController : UITableViewController <NetworkScraperDelegate> {
 
 }
 
 
 @property (strong, nonatomic) Faculty *person;
 @property (strong, nonatomic) NSMutableArray *infoList;
+
+- (void) networkScraperDidReceiveData:(NSString *)sdata;
 
 @end

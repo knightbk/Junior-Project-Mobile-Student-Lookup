@@ -10,7 +10,7 @@
 
 
 @implementation SingleDayScheduleViewController
-@synthesize dayString;
+@synthesize dayString, classArray;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -101,7 +101,7 @@
     
     // Configure the cell...
 
-    cell.textLabel.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
+    cell.textLabel.text = [NSString stringWithFormat:@"%d     %@",indexPath.row+1, [classArray objectAtIndex:indexPath.row]];
     
     return cell;
 }

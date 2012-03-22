@@ -28,6 +28,17 @@
     [connection start];
 }
 
+- (void) initiatePersonScheduleSearchWithUsername:(NSString *)uname termcode:(NSString *) termcode
+{
+    self.sdata = @"";
+    
+    NSString *url = [NSString stringWithFormat:@"https://prodweb.rose-hulman.edu/regweb-cgi/reg-sched.pl?type=Username&termcode=%@&view=tgrid&id=%@", termcode, uname];
+    
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [connection start];
+}
+
 
 
 - (void) connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
@@ -57,7 +68,6 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data 
 {
-
     self.sdata = [NSString stringWithFormat:@"%@%@",self.sdata,[[NSString alloc ]initWithData:data encoding:NSASCIIStringEncoding]];
 }
 

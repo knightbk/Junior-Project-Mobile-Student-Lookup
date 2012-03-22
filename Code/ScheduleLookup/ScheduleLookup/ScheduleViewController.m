@@ -10,11 +10,14 @@
 
 #import "ScheduleViewController.h"
 #import "SingleDayScheduleViewController.h"
+#import "Schedule.h"
+#import "ClassSchedule.h"
 
 @implementation ScheduleViewController
 
 @synthesize scrollView,pageControl;
 @synthesize viewControllers;
+@synthesize schedule;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -109,8 +112,10 @@
 
 #pragma mark - View lifecycle
 
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
+    self.title = @"Schedule";
+    
     self.viewControllers = [[NSMutableArray alloc] initWithCapacity:5];
     
     //create viewcontrollers
@@ -120,12 +125,19 @@
     SingleDayScheduleViewController *thursdayTableViewController = [[SingleDayScheduleViewController alloc] init];
     SingleDayScheduleViewController *fridayTableViewController = [[SingleDayScheduleViewController alloc] init];
 
-    //set the daystring property
+    //set the properties
     mondayTableViewController.dayString = @"Monday";
     tuesdayTableViewController.dayString = @"Tuesday";
     wednesdayTableViewController.dayString = @"Wednesday";
     thursdayTableViewController.dayString = @"Thursday";
     fridayTableViewController.dayString = @"Friday";
+    
+    mondayTableViewController.classArray = [schedule getScheduleForDay:MONDAY];
+    tuesdayTableViewController.classArray = [schedule getScheduleForDay:TUESDAY];
+    wednesdayTableViewController.classArray = [schedule getScheduleForDay:WEDNESDAY];
+    thursdayTableViewController.classArray = [schedule getScheduleForDay:THURSDAY];
+    fridayTableViewController.classArray = [schedule getScheduleForDay:FRIDAY];
+
     
     //add them to the viewcontrollers array
     [self.viewControllers addObject:mondayTableViewController];
@@ -135,7 +147,6 @@
     [self.viewControllers addObject:fridayTableViewController];
 
     self.pageControl.numberOfPages = 5;
-    self.pageControl.currentPage = 0;    
     
     scrollView.pagingEnabled = YES;
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width*5,scrollView.frame.size.height);
@@ -143,10 +154,27 @@
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.scrollsToTop = NO;
     scrollView.delegate = self;
+
     
-    [self loadScrollViewWithPage:0];
-    [self loadScrollViewWithPage:1];
+    NSInteger weekday = [self getWeekday];
     
+    if (weekday == 1 || weekday == 7) 
+    {
+        self.pageControl.currentPage = 0;
+    }
+    else
+    {
+        self.pageControl.currentPage = weekday - 2;
+    }
+    [self changePage:nil];
+    
+}
+
+-(NSInteger) getWeekday
+{
+    NSCalendar* cal = [NSCalendar currentCalendar];
+    NSDateComponents* components = [cal components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+    return [components weekday];
 }
 
 
@@ -168,5 +196,7 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+
 
 @end

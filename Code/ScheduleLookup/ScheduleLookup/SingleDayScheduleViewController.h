@@ -12,4 +12,7 @@
 
 
 @property (strong, nonatomic) NSString *dayString;
+@property (strong, nonatomic) NSArray *classArray;
+
+
 @end
