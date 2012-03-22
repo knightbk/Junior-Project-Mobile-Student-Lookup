@@ -37,8 +37,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
-    
     [super viewWillAppear:animated];
     [self updateFavorites];
     [self.tableView reloadData];
@@ -67,7 +65,9 @@
 
 - (void) updateFavorites
 {
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"UserFavorites" ofType:@"plist"];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",@"UserFavorites"]];
     NSMutableDictionary *newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
     userFavoritesDictionary = newDict;
     

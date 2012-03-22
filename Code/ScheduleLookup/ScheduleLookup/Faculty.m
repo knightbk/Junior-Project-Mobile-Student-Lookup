@@ -43,7 +43,10 @@
 - (BOOL) inFavorites
 {
     BOOL isFavorited = NO;
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"UserFavorites" ofType:@"plist"];
+    //NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"UserFavorites" ofType:@"plist"];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",@"UserFavorites"]];
     NSMutableDictionary *newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
     NSArray *aliases = [newDict allKeys];
     for(int i = 0; i < [newDict count]; i++)
@@ -61,16 +64,30 @@
 - (void) addToFavorites
 {
     NSLog(@"Adding %@ to favorites.", alias);
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"UserFavorites" ofType:@"plist"];
-    NSMutableDictionary *newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-    [newDict setObject:[self name] forKey:[self alias]];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:@"UserFavorites.plist"];
+    
+    NSMutableDictionary *newDict;
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
+        newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    }
+    else {
+        newDict = [[NSMutableDictionary alloc] init];
+    }
+    
     NSLog(@"%@",newDict);
-    [newDict writeToFile:plistPath atomically:YES];
+    [newDict setObject:[self name] forKey:[self alias]];
+    BOOL suc = [newDict writeToFile:plistPath atomically:YES];
+    NSLog(@"%@ %@", (suc ? @"Yes": @"No"), newDict);
 }
 - (void) removeFromFavorites
 {
     NSLog(@"Removing %@ from favorites.", alias);
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"UserFavorites" ofType:@"plist"];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",@"UserFavorites"]]; 
     NSMutableDictionary *newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
     [newDict removeObjectForKey:alias];
     [newDict writeToFile:plistPath atomically:YES];
