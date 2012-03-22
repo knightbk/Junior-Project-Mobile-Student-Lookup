@@ -14,7 +14,7 @@
 
 @end
 
-@interface UserInfoViewController : UITableViewController <NetworkScraperDelegate> {
+@interface UserInfoViewController : UITableViewController <NetworkScraperDelegate, UIActionSheetDelegate> {
 
 }
 

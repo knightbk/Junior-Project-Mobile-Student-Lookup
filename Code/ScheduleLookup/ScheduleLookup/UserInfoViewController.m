@@ -175,9 +175,10 @@
         }
         else if(indexPath.row == 1 && indexPath.section == 0 && ![[self.person phoneNumber] isEqualToString:@""])
         {
-            //Calls user.
-            NSString * phone = [NSString stringWithFormat:@"tel://%@",person.getPhoneNumberWithAreaCode];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phone]];
+            UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Call", nil];
+            
+            popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+            [popupQuery showFromTabBar:self.tabBarController.tabBar];
         }
         
     }
@@ -224,5 +225,14 @@
 
 }
 
+#pragma mark UIActionSheetDelegate methods
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	if (buttonIndex == 0)
+    {
+        //Calls user.
+        NSString * phone = [NSString stringWithFormat:@"tel://%@",person.getPhoneNumberWithAreaCode];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phone]];
+	}
+}
 
 @end

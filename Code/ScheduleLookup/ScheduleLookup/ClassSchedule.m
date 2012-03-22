@@ -76,10 +76,8 @@
     
     for (NSString *meeting in meetings)
     {
-        NSLog(@"%@", meeting);
         if(!([meeting rangeOfString:dayCode].location==NSNotFound) && ([meeting rangeOfString:@"TBA"].location==NSNotFound))
         {
-            NSLog(@"Here for %@", meeting);
             [result addObjectsFromArray:[self getRangeOfHours:meeting]];
         }
     }
