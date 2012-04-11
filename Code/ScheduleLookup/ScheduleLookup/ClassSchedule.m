@@ -71,17 +71,19 @@
             break;
     }
     
-    
     NSArray *meetings = [Term_Schedule componentsSeparatedByString:@":"];
     
     for (NSString *meeting in meetings)
     {
-        if(!([meeting rangeOfString:dayCode].location==NSNotFound) && ([meeting rangeOfString:@"TBA"].location==NSNotFound))
+        //extract the days only to avoid false positives from rooms with shorthand same as a dayCode
+        //i.e. looking at the entire string W/7-9/F225 would return meeting times for Friday.
+        NSString *meetingDays = [[meeting componentsSeparatedByString:@"/"] objectAtIndex:0];
+        
+        if(!([meetingDays rangeOfString:dayCode].location==NSNotFound) && ([meetingDays rangeOfString:@"TBA"].location==NSNotFound))
         {
             [result addObjectsFromArray:[self getRangeOfHours:meeting]];
         }
     }
-
     return result;
 }
 

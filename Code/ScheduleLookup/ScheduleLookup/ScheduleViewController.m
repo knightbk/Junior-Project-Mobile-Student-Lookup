@@ -131,13 +131,12 @@
     wednesdayTableViewController.dayString = @"Wednesday";
     thursdayTableViewController.dayString = @"Thursday";
     fridayTableViewController.dayString = @"Friday";
-    
+
     mondayTableViewController.classArray = [schedule getScheduleForDay:MONDAY];
     tuesdayTableViewController.classArray = [schedule getScheduleForDay:TUESDAY];
     wednesdayTableViewController.classArray = [schedule getScheduleForDay:WEDNESDAY];
     thursdayTableViewController.classArray = [schedule getScheduleForDay:THURSDAY];
     fridayTableViewController.classArray = [schedule getScheduleForDay:FRIDAY];
-
     
     //add them to the viewcontrollers array
     [self.viewControllers addObject:mondayTableViewController];

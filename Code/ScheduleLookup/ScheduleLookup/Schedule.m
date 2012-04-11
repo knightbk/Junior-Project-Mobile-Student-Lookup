@@ -35,11 +35,10 @@
 
 - (NSMutableArray *)getScheduleForDay:(int) day
 {
-    
-    
     NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:10];
     
-    for (int x = 0; x < 10; x++) {
+    for (int x = 0; x < 10; x++)
+    {
         [result addObject:@""];
     }
     
