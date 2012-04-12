@@ -39,22 +39,24 @@
     [super viewDidLoad];
     
     searchValues = [[NSMutableArray alloc] init];
-    [searchValues addObject:@"Username"];
-    [searchValues addObject:@"Room"];
     [searchValues addObject:@"Course"];
+    [searchValues addObject:@"Room"];
+    [searchValues addObject:@"Username"];
     termValues = [[NSMutableArray alloc] init];
     [termValues addObject:@"Fall"];
     [termValues addObject:@"Winter"];
     [termValues addObject:@"Spring"];
     [termValues addObject:@"Summer"];
     yearValues = [[NSMutableArray alloc] init];
-    for (int i = 2000; i < 2012; i++) {
+    for (int i = 2012; i >= 2000; i--) {
         [yearValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
     pickerView = [[UIPickerView alloc] init];
     pickerView.delegate = self;
+    pickerView.showsSelectionIndicator = YES;
     [self.view addSubview:pickerView];
-    [pickerView selectRow:1 inComponent:0 animated:YES];
+    [pickerView selectRow:2 inComponent:0 animated:YES];
+    [pickerView selectRow:2 inComponent:1 animated:YES];
 	// Do any additional setup after loading the view, typically from a nib.
     scheduleTextView.text = [searchValues objectAtIndex:[pickerView selectedRowInComponent:0]];
 }
@@ -71,7 +73,20 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    scheduleTextView.text= [searchValues objectAtIndex:row];
+    switch (component) {
+        case 0:
+            scheduleTextView.text = [searchValues objectAtIndex:row];
+            break;
+        case 1:
+            scheduleTextView.text = [termValues objectAtIndex:row];
+            break;
+            
+        case 2:
+            scheduleTextView.text = [yearValues objectAtIndex:row];
+            break;
+        default:
+            break;
+    }
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;
@@ -106,16 +121,32 @@
     return 0;
 }
 
-- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
+{
     switch(component) {
             case 0: return 120;
             case 1: return 100;
             case 2: return 100;
-        default: return 22;
+        default: return 100;
     }
+    return 100;
+}
+
+- (NSString *) getSelectedTerm
+{
+    switch([pickerView selectedRowInComponent:1])
+    {
+        case 0:
+            return @"10";
+        case 1:
+            return @"20";
+        case 2:
+            return @"30";
+        case 3:
+            return @"40";
+    }
+    return @"10";
     
-    //NOT REACHED
-    return 22;
 }
 - (void)viewDidUnload
 {
@@ -170,7 +201,19 @@ UIGestureRecognizer* cancelGesture;
         networkScraper = [[NetworkScraper alloc] init];
         networkScraper.delegate = self;
     }
-    [networkScraper initiatePersonInfoSearchWithUsername:searchBar.text termcode:@"201230"];
+    switch ([pickerView selectedRowInComponent:0])
+    {
+        case 0:
+            //Initiate Course Search
+            break;
+        case 1:
+            //Initiate Room Search
+            break;
+        case 2:
+            [networkScraper initiatePersonInfoSearchWithUsername:searchBar.text termcode:[NSString stringWithFormat:@"%d%d",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]]];
+            break;
+    }
+
 }
 
 //will place cancelGesture methods only when searchBar is being edited.
