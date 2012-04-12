@@ -10,4 +10,7 @@
 
 @interface RosterFactory : NSObject
 
++ (NSDictionary *) rosterFromCoursePage:(NSString *) html;
++ (NSDictionary *) matchesInStrings:(NSString *)expression WithStringData:(NSString *)sdata;
+
 @end
