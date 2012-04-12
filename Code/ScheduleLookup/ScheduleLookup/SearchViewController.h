@@ -11,11 +11,15 @@
 #import "UserInfoViewController.h"
 #import "NetworkScraper.h"
 
-@interface SearchViewController : UIViewController <UISearchBarDelegate, NetworkScraperDelegate>
+@interface SearchViewController : UIViewController <UISearchBarDelegate, NetworkScraperDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+{
+    IBOutlet NSMutableArray *searchValues;
+    IBOutlet NSMutableArray *termValues;
+    IBOutlet NSMutableArray *yearValues;
+    IBOutlet UIPickerView *pickerView;
+}
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *advisorLabel;
+
 @property (weak, nonatomic) IBOutlet UITextView *scheduleTextView;
 @property (strong, nonatomic) NetworkScraper *networkScraper;
 

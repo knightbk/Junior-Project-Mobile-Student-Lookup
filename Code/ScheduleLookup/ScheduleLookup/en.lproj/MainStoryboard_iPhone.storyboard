@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
+        <deployment defaultVersion="1280" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller - First-->
         <scene sceneID="11">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
@@ -23,70 +22,29 @@
                                     <outlet property="delegate" destination="2" id="WSn-zo-W2s"/>
                                 </connections>
                             </searchBar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name:" lineBreakMode="tailTruncation" minimumFontSize="10" id="Dqq-Fg-LAw">
-                                <rect key="frame" x="20" y="70" width="51" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username:" lineBreakMode="tailTruncation" minimumFontSize="10" id="W6b-sy-WfK">
-                                <rect key="frame" x="20" y="99" width="84" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Advisor:" lineBreakMode="tailTruncation" minimumFontSize="10" id="ihj-hX-gyS">
-                                <rect key="frame" x="20" y="128" width="63" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="gyp-jZ-VWa">
-                                <rect key="frame" x="109" y="70" width="191" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="9Gc-e6-JNB">
-                                <rect key="frame" x="109" y="99" width="191" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="CkA-an-VxW">
-                                <rect key="frame" x="109" y="128" width="191" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="placeholder text...." id="S0l-B3-5u6">
-                                <rect key="frame" x="20" y="164" width="280" height="227"/>
+                                <rect key="frame" x="20" y="300" width="280" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <pickerView contentMode="scaleToFill" id="7pq-vz-Wmm">
+                                <rect key="frame" x="0.0" y="83" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="zBT-R1-zGZ"/>
                     <connections>
-                        <outlet property="advisorLabel" destination="CkA-an-VxW" id="zFG-oU-iuC"/>
-                        <outlet property="nameLabel" destination="gyp-jZ-VWa" id="p37-rg-B5f"/>
+                        <outlet property="pickerView" destination="7pq-vz-Wmm" id="eBe-Zm-MDP"/>
                         <outlet property="scheduleTextView" destination="S0l-B3-5u6" id="jMy-Iv-16E"/>
-                        <outlet property="usernameLabel" destination="9Gc-e6-JNB" id="pbr-sf-Z7D"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1244" y="-398"/>
         </scene>
-        <!--Settings View Controller - Third-->
         <scene sceneID="eF1-tM-IuK">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h67-33-qp0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -139,7 +97,6 @@
             </objects>
             <point key="canvasLocation" x="718" y="775"/>
         </scene>
-        <!--Tab Bar Controller-->
         <scene sceneID="15">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
@@ -159,7 +116,6 @@
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
-        <!--Navigation Controller - Search-->
         <scene sceneID="qX6-9H-uLU">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zou-BT-QJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -178,7 +134,6 @@
             </objects>
             <point key="canvasLocation" x="718" y="-398"/>
         </scene>
-        <!--Navigation Controller - Favorites-->
         <scene sceneID="fgr-wh-MGr">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odL-SD-EO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -197,7 +152,6 @@
             </objects>
             <point key="canvasLocation" x="718" y="180"/>
         </scene>
-        <!--Favorites View Controller - Favorites-->
         <scene sceneID="xeM-Us-qAl">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ou-0Q-ea7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -231,19 +185,23 @@
     <resources>
         <image name="favorites.png" width="26" height="26"/>
         <image name="search.png" width="26" height="26"/>
-        <image name="settings.png" width="16" height="16"/>
+        <image name="settings.png" width="26" height="26"/>
     </resources>
     <classes>
         <class className="FavoritesViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesViewController.h"/>
         </class>
+        <class className="NSMutableArray" superclassName="NSArray">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSMutableArray.h"/>
+        </class>
         <class className="SearchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="advisorLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="scheduleTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="usernameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchValues" candidateClass="NSMutableArray"/>
+                <relationship kind="outlet" name="termValues" candidateClass="NSMutableArray"/>
+                <relationship kind="outlet" name="yearValues" candidateClass="NSMutableArray"/>
             </relationships>
         </class>
         <class className="SettingsViewController" superclassName="UIViewController">
