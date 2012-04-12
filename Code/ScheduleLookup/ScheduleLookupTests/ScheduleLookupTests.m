@@ -10,6 +10,7 @@
 
 #import "ScheduleFactory.h"
 #import "ClassSchedule.h"
+#import "RosterFactory.h"
 
 @implementation ScheduleLookupTests
 
@@ -30,12 +31,26 @@
 //Test get course info from https://prodweb.rose-hulman.edu/regweb-cgi/reg-sched.pl?type=Roster&termcode=TERM_ID&view=tgrid&id=COURSE_ID
 - (void)testViewCourseInformationFromCoursePage
 {
-    //@synthesize Course, CRN, Credit, Comments, CAP, Instructor, Description, ENRL, Final_Schedule, Term_Schedule;
-    NSString *classHTMLPath = [[NSBundle mainBundle] pathForResource:@"CSSE404-01" ofType:@"html"];
+    NSString *classHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"CSSE404-01" ofType:@"html"];
     NSString *classHTML = [[NSString alloc] initWithContentsOfFile:classHTMLPath encoding:NSUTF8StringEncoding error:nil];
     ClassSchedule *classSchedule = [[ScheduleFactory scheduleFromSchedulePage:classHTML].schedule objectAtIndex:0];
-    STAssertEqualObjects(@"", classSchedule.Course, @"asdf");
-    STFail(@"aaaa");
+    STAssertEqualObjects(@"CSSE404-01", classSchedule.Course, @"");
+    STAssertEqualObjects(@"3264", classSchedule.CRN, @"");
+    STAssertEqualObjects(@"4", classSchedule.Credit, @"");
+    STAssertEqualObjects(@"&nbsp", classSchedule.Comments, @"");
+    STAssertEqualObjects(@"25", classSchedule.CAP, @"");
+    STAssertEqualObjects(@"anderson", classSchedule.Instructor, @"");
+    STAssertEqualObjects(@"Compiler Construction", classSchedule.Description, @"");
+    STAssertEqualObjects(@"9", classSchedule.ENRL, @"");
+    STAssertEqualObjects(@"&nbsp", classSchedule.Final_Schedule, @"");
+    STAssertEqualObjects(@"MTR/7/O267:W/6/O267", classSchedule.Term_Schedule, @"");
 }
+
+- (void)testViewCourseRoster
+{
+    NSString *classHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"CSSE404-01" ofType:@"html"];
+    NSString *classHTML = [[NSString alloc] initWithContentsOfFile:classHTMLPath encoding:NSUTF8StringEncoding error:nil];
+}
+
 
 @end
