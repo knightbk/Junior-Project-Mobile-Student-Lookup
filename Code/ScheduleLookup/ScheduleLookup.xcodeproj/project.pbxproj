@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		50056598150D1BB0001D9A7D /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50056596150D1BB0001D9A7D /* UserInfoViewController.m */; };
+		5012702515378D640083FE7A /* crawfonw.html in Resources */ = {isa = PBXBuildFile; fileRef = 5012702215378D640083FE7A /* crawfonw.html */; };
+		5012702615378D640083FE7A /* CSSE404-01.html in Resources */ = {isa = PBXBuildFile; fileRef = 5012702315378D640083FE7A /* CSSE404-01.html */; };
+		5012702715378D640083FE7A /* mohan.html in Resources */ = {isa = PBXBuildFile; fileRef = 5012702415378D640083FE7A /* mohan.html */; };
 		5012DA481512617600CD9948 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 5012DA471512617600CD9948 /* search.png */; };
 		5012DA4B1512619B00CD9948 /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5012DA4A1512619B00CD9948 /* search@2x.png */; };
 		501E52D1151265B000408054 /* favorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 501E52D0151265B000408054 /* favorites@2x.png */; };
@@ -63,6 +66,9 @@
 /* Begin PBXFileReference section */
 		50056595150D1BB0001D9A7D /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		50056596150D1BB0001D9A7D /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		5012702215378D640083FE7A /* crawfonw.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = crawfonw.html; sourceTree = "<group>"; };
+		5012702315378D640083FE7A /* CSSE404-01.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "CSSE404-01.html"; sourceTree = "<group>"; };
+		5012702415378D640083FE7A /* mohan.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = mohan.html; sourceTree = "<group>"; };
 		5012DA471512617600CD9948 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		5012DA4A1512619B00CD9948 /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
 		501E52D0151265B000408054 /* favorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorites@2x.png"; sourceTree = "<group>"; };
@@ -243,6 +249,9 @@
 		E32079FD1499122E005ACDD0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5012702215378D640083FE7A /* crawfonw.html */,
+				5012702315378D640083FE7A /* CSSE404-01.html */,
+				5012702415378D640083FE7A /* mohan.html */,
 				E32079FE1499122E005ACDD0 /* ScheduleLookupTests-Info.plist */,
 				E32079FF1499122E005ACDD0 /* InfoPlist.strings */,
 			);
@@ -403,6 +412,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3207A011499122E005ACDD0 /* InfoPlist.strings in Resources */,
+				5012702515378D640083FE7A /* crawfonw.html in Resources */,
+				5012702615378D640083FE7A /* CSSE404-01.html in Resources */,
+				5012702715378D640083FE7A /* mohan.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
