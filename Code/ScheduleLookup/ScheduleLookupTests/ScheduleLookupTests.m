@@ -46,10 +46,22 @@
     STAssertEqualObjects(@"MTR/7/O267:W/6/O267", classSchedule.Term_Schedule, @"");
 }
 
-- (void)testViewCourseRoster
+- (void)testGetCourseRosterIsCorrectSize
 {
     NSString *classHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"CSSE404-01" ofType:@"html"];
     NSString *classHTML = [[NSString alloc] initWithContentsOfFile:classHTMLPath encoding:NSUTF8StringEncoding error:nil];
+    NSDictionary *rosterDict = [RosterFactory rosterFromCoursePage:classHTML];
+    
+    STAssertEquals(9, (int) [rosterDict count], @"");
+}
+
+- (void)testGetCourseRosterContainsCorrectKeysAndValues
+{
+    NSString *classHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"CSSE404-01" ofType:@"html"];
+    NSString *classHTML = [[NSString alloc] initWithContentsOfFile:classHTMLPath encoding:NSUTF8StringEncoding error:nil];
+    NSDictionary *rosterDict = [RosterFactory rosterFromCoursePage:classHTML];
+    
+    STAssertEqualObjects(@"mooreja1", [rosterDict valueForKey:@"James Andrew Moore"], @"");
 }
 
 
