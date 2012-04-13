@@ -64,5 +64,15 @@
     STAssertEqualObjects(@"mooreja1", [rosterDict valueForKey:@"James Andrew Moore"], @"");
 }
 
+- (void)testGetCourseRosterFromPipedCourses
+{
+    NSString *classHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"CSSE491-06CSSE290-09" ofType:@"html"];
+    NSString *classHTML = [[NSString alloc] initWithContentsOfFile:classHTMLPath encoding:NSUTF8StringEncoding error:nil];
+    NSDictionary *rosterDict = [RosterFactory rosterFromCoursePage:classHTML];
+    
+    STAssertEquals(2, (int) [rosterDict count], @"");
+    STAssertEqualObjects(@"agnerrl", [rosterDict valueForKey:@"Rachel Lynn Agner"], @"");
+    STAssertEqualObjects(@"theisje", [rosterDict valueForKey:@"James Edward Theis"], @"");
+}
 
 @end
