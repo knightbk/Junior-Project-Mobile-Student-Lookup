@@ -19,7 +19,7 @@
 
 @implementation UserInfoViewController
 
-@synthesize person, infoList;
+@synthesize person, infoList, termCode;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -192,7 +192,7 @@
                 //Displays the schedule of the user.
                 NetworkScraper *networkScraper = [[NetworkScraper alloc] init];
                 networkScraper.delegate = self;
-                [networkScraper initiatePersonScheduleSearchWithUsername:person.alias termcode:@"201230"];                
+                [networkScraper initiatePersonScheduleSearchWithUsername:person.alias termcode:termCode];                
                 break;
             }
                 

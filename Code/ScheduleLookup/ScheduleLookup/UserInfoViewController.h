@@ -18,7 +18,7 @@
 
 }
 
-
+@property (strong, nonatomic) NSString *termCode;
 @property (strong, nonatomic) Faculty *person;
 @property (strong, nonatomic) NSMutableArray *infoList;
 

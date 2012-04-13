@@ -245,7 +245,7 @@ UIGestureRecognizer* cancelGesture;
     UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
     
     userInfoPage.person = person;
-    
+    userInfoPage.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
     [self.navigationController pushViewController:userInfoPage animated:YES];
     
 }
