@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		50056598150D1BB0001D9A7D /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50056596150D1BB0001D9A7D /* UserInfoViewController.m */; };
+		5007BA8A1537C1BD00BA4F45 /* CourseRosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5007BA891537C1BD00BA4F45 /* CourseRosterViewController.m */; };
 		5012702515378D640083FE7A /* crawfonw.html in Resources */ = {isa = PBXBuildFile; fileRef = 5012702215378D640083FE7A /* crawfonw.html */; };
 		5012702615378D640083FE7A /* CSSE404-01.html in Resources */ = {isa = PBXBuildFile; fileRef = 5012702315378D640083FE7A /* CSSE404-01.html */; };
 		5012702715378D640083FE7A /* mohan.html in Resources */ = {isa = PBXBuildFile; fileRef = 5012702415378D640083FE7A /* mohan.html */; };
@@ -69,6 +70,8 @@
 /* Begin PBXFileReference section */
 		50056595150D1BB0001D9A7D /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		50056596150D1BB0001D9A7D /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		5007BA881537C1BD00BA4F45 /* CourseRosterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseRosterViewController.h; sourceTree = "<group>"; };
+		5007BA891537C1BD00BA4F45 /* CourseRosterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseRosterViewController.m; sourceTree = "<group>"; };
 		5012702215378D640083FE7A /* crawfonw.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = crawfonw.html; sourceTree = "<group>"; };
 		5012702315378D640083FE7A /* CSSE404-01.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "CSSE404-01.html"; sourceTree = "<group>"; };
 		5012702415378D640083FE7A /* mohan.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = mohan.html; sourceTree = "<group>"; };
@@ -300,6 +303,8 @@
 				E3102707151A718F00BC9971 /* SingleDayScheduleViewController.m */,
 				50D98F301537A526004337B5 /* ClassInfoViewController.h */,
 				50D98F311537A526004337B5 /* ClassInfoViewController.m */,
+				5007BA881537C1BD00BA4F45 /* CourseRosterViewController.h */,
+				5007BA891537C1BD00BA4F45 /* CourseRosterViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 				E3102708151A718F00BC9971 /* SingleDayScheduleViewController.m in Sources */,
 				E338045E153798BD0034DEAB /* RosterFactory.m in Sources */,
 				50D98F321537A526004337B5 /* ClassInfoViewController.m in Sources */,
+				5007BA8A1537C1BD00BA4F45 /* CourseRosterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

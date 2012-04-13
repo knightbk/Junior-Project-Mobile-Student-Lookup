@@ -2,11 +2,15 @@
 //  ClassInfoViewController.m
 //  ScheduleLookup
 //
-//  Created by Nix on 4/12/12.
+//  Created by Nick Crawford on 4/12/12.
 //  Copyright (c) 2012 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
 #import "ClassInfoViewController.h"
+#import "NetworkScraper.h"
+#import "ScheduleFactory.h"
+#import "CourseRosterViewController.h"
+#import "RosterFactory.h"
 
 @interface ClassInfoViewController ()
 
@@ -115,7 +119,30 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    if(indexPath.section == 0)
+    {
+        if(indexPath.row == 0)
+        {
+            //View instructor profile
+            NetworkScraper *networkScraper = [[NetworkScraper alloc] init];
+            networkScraper.delegate = self;
+            [networkScraper initiatePersonScheduleSearchWithUsername:self.course.Instructor termcode:termCode];
+        }
+    }
+    else
+    {
+        //Displays the roster of a course.
+        NetworkScraper *networkScraper = [[NetworkScraper alloc] init];
+        networkScraper.delegate = self;
+        [networkScraper initiateClassInfoSearchWithCourse:self.course.Course termcode:termCode];
+    }           
 }
 
+#pragma mark NetworkScraperDelegate methods
+- (void) networkScraperDidReceiveData:(NSString *)sdata
+{
+    CourseRosterViewController *classViewController = [[CourseRosterViewController alloc] init];
+    classViewController.userDictionary = [RosterFactory rosterFromCoursePage:sdata];
+    [self.navigationController pushViewController:classViewController animated:YES];
+}
 @end
