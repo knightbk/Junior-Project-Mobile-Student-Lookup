@@ -17,6 +17,7 @@
 #import "ScheduleFactory.h"
 #import "UserInfoViewController.h"
 #import "ClassInfoViewController.h"
+#import "ScheduleViewController.h"
 
 #define COURSE_SEARCH 0
 #define ROOM_SEARCH 1
@@ -215,6 +216,7 @@ UIGestureRecognizer* cancelGesture;
             [networkScraper initiateClassInfoSearchWithCourse:searchBar.text termcode:[NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]]];
             break;
         case ROOM_SEARCH:
+            [networkScraper initiateRoomSearchWithRoom:searchBar.text termcode:[NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]]];
             break;
         case USER_SEARCH:
             [networkScraper initiatePersonInfoSearchWithUsername:searchBar.text termcode:[NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]]];
@@ -243,7 +245,6 @@ UIGestureRecognizer* cancelGesture;
 {
     Faculty *person = nil;
     ClassSchedule *schedule = nil;
-    
     switch ([pickerView selectedRowInComponent:0])
     {
         case COURSE_SEARCH:
@@ -256,7 +257,11 @@ UIGestureRecognizer* cancelGesture;
             break;
         }
         case ROOM_SEARCH:
-        {
+        {            
+            ScheduleViewController *scheduleViewController = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:[NSBundle mainBundle]];
+            scheduleViewController.schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];;
+            
+            [self.navigationController pushViewController:scheduleViewController animated:YES];
             break;
         }
         case USER_SEARCH:
