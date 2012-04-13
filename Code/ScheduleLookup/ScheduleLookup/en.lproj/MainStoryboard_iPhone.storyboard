@@ -30,7 +30,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <pickerView contentMode="scaleToFill" id="7pq-vz-Wmm">
-                                <rect key="frame" x="0.0" y="280" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="76" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
@@ -200,6 +200,7 @@
                 <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="scheduleTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="searchValues" candidateClass="NSMutableArray"/>
+                <relationship kind="outlet" name="selectedYear" candidateClass="NSString"/>
                 <relationship kind="outlet" name="termValues" candidateClass="NSMutableArray"/>
                 <relationship kind="outlet" name="yearValues" candidateClass="NSMutableArray"/>
             </relationships>

@@ -28,6 +28,7 @@
 - (void) initiatePersonInfoSearchWithUsername:(NSString *)uname termcode:(NSString *) termcode;
 - (void) initiatePersonScheduleSearchWithUsername:(NSString *)uname termcode:(NSString *) termcode;
 - (void) initiateClassInfoSearchWithCourse:(NSString *)course termcode:(NSString *) termcode;
+- (void) initiateRoomSearchWithRoom:(NSString *)room termcode: (NSString *) termcode;
 
 - (NSString *) getUserName;
 - (NSString *) getPassword;

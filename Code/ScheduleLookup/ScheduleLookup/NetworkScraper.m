@@ -50,6 +50,16 @@
     [connection start];
 }
 
+- (void) initiateRoomSearchWithRoom:(NSString *)room termcode: (NSString *) termcode
+{
+    self.sdata = @"";
+    
+    NSString *url = [NSString stringWithFormat:@"https://prodweb.rose-hulman.edu/regweb-cgi/reg-sched.pl?type=Room&termcode=%@&view=tgrid&id=%@", termcode, room];
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [connection start];
+}
+
 
 
 - (void) connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge

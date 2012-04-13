@@ -241,7 +241,6 @@ UIGestureRecognizer* cancelGesture;
 
 - (void) networkScraperDidReceiveData:(NSString *)sdata
 {
-    //scheduleTextView.text = [schedule scheduleInformationString];
     Faculty *person = nil;
     ClassSchedule *schedule = nil;
     
@@ -270,9 +269,6 @@ UIGestureRecognizer* cancelGesture;
             break;
         }
     }
-    
 }
-
-
 
 @end
