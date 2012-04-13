@@ -79,8 +79,8 @@
 {
     NSString *roomHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"G220" ofType:@"html"];
     NSString *roomHTML = [[NSString alloc] initWithContentsOfFile:roomHTMLPath encoding:NSUTF8StringEncoding error:nil];
-    NSDictionary *rosterDict = nil;//[RoomFactory coursesFromRoom:roomHTML];
-    
+    NSDictionary *rosterDict = [RosterFactory rosterFromCoursePage:roomHTML];
+
     STAssertEquals(9, (int) [rosterDict count], @"");
 }
 
@@ -88,10 +88,10 @@
 {
     NSString *roomHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"G220" ofType:@"html"];
     NSString *roomHTML = [[NSString alloc] initWithContentsOfFile:roomHTMLPath encoding:NSUTF8StringEncoding error:nil];
-    NSDictionary *rosterDict = nil;//[RoomFactory coursesFromRoom:roomHTML];
-    
-    STAssertEquals(16, (int) [rosterDict count], @"");
-    //STAssertEqualObjects(@"walter", [rosterDict valueForKey:@"ECE206-01"].Instructor, @"");
+    Schedule *roomSchedule = [ScheduleFactory scheduleFromSchedulePage:roomHTML];
+    STAssertNotNil(roomSchedule,@"");
+//    STAssertEquals(16, (int) [rosterDict count], @"");
+//    STAssertEqualObjects(@"walter", [schedule valueForKey:@"ECE206-01"].Instructor, @"");
 }
 
 @end

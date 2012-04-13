@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NetworkScraper.h"
 
-@interface SingleDayScheduleViewController : UITableViewController
+@interface SingleDayScheduleViewController : UITableViewController<NetworkScraperDelegate>
 
 
 @property (strong, nonatomic) NSString *dayString;
 @property (strong, nonatomic) NSArray *classArray;
 
+@property (strong, nonatomic) NetworkScraper *networkScraper;
 
 @end

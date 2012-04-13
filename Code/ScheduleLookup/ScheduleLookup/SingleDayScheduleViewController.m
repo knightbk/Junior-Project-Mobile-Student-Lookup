@@ -7,10 +7,14 @@
 //
 
 #import "SingleDayScheduleViewController.h"
+#import "ClassSchedule.h"
+#import "ScheduleFactory.h"
+#import "ClassInfoViewController.h"
 
 
 @implementation SingleDayScheduleViewController
 @synthesize dayString, classArray;
+@synthesize networkScraper;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -154,13 +158,27 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    if (networkScraper == nil) {
+        networkScraper = [[NetworkScraper alloc] init];
+        networkScraper.delegate = self;
+    }
+    
+    if (![@"" isEqualToString:[classArray objectAtIndex:indexPath.row]]) {
+        [networkScraper initiateClassInfoSearchWithCourse:[classArray objectAtIndex:indexPath.row] termcode:@"201230"];
+    }
 }
+
+- (void) networkScraperDidReceiveData:(NSString *)sdata
+{
+    NSLog(@"here?");
+
+    ClassSchedule *schedule = [[ScheduleFactory scheduleFromSchedulePage:sdata].schedule objectAtIndex:0];
+    ClassInfoViewController *classInfoPage = [[ClassInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    classInfoPage.course = schedule;
+    //TODO: Needs to be unhardcoded
+    classInfoPage.termCode = @"201230";
+    [self.navigationController pushViewController:classInfoPage animated:YES];
+}
+
 
 @end
