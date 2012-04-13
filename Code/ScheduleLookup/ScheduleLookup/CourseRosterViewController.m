@@ -41,7 +41,7 @@
 
 - (void) viewWillAppear
 {
-    
+    self.title = @"Roster";
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
