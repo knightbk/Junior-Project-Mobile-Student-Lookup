@@ -207,10 +207,10 @@ UIGestureRecognizer* cancelGesture;
     switch ([pickerView selectedRowInComponent:0])
     {
         case 0:
-            //Initiate Course Search
+            [networkScraper initiateCourseRosterSearchWithID:searchBar.text termcode:[NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]]];
             break;
         case 1:
-            //Initiate Room Search
+            [networkScraper initiateRoomSearchWithRoom:searchBar.text termcode:[NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]]];
             break;
         case 2:
             [networkScraper initiatePersonInfoSearchWithUsername:searchBar.text termcode:[NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]]];
@@ -240,16 +240,27 @@ UIGestureRecognizer* cancelGesture;
     Faculty *person = [FacultyFactory FacultyFromSchedulePage:sdata];
     //Schedule *schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];
     //scheduleTextView.text = [schedule scheduleInformationString];
-    
-    
     UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
     
-    userInfoPage.person = person;
-    userInfoPage.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
-    [self.navigationController pushViewController:userInfoPage animated:YES];
     
-}
-
+    switch ([pickerView selectedRowInComponent:0]) {
+        case 0:
+            //course
+            break;
+        case 1:
+            //room
+            break;
+        case 2:
+            userInfoPage.person = person;
+            userInfoPage.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+            [self.navigationController pushViewController:userInfoPage animated:YES];
+            break;
+        default:
+            break;
+    }
+    
+    
+    }
 
 
 @end
