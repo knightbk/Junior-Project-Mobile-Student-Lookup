@@ -14,6 +14,7 @@
     
 }
 
+@property (strong, nonatomic) NSString *termCode;
 @property (strong, nonatomic) ClassSchedule *course;
 @property (strong, nonatomic) NSMutableArray *infoList;
 

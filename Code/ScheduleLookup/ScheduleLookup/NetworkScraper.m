@@ -39,6 +39,17 @@
     [connection start];
 }
 
+- (void) initiateClassInfoSearchWithCourse:(NSString *)course termcode:(NSString *) termcode
+{
+    self.sdata = @"";
+    
+    NSString *url = [NSString stringWithFormat:@"https://prodweb.rose-hulman.edu/regweb-cgi/reg-sched.pl?type=Roster&termcode=%@&view=tgrid&id=%@", termcode, course];
+    
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [connection start];
+}
+
 
 
 - (void) connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge

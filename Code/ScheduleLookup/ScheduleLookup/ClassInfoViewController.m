@@ -14,7 +14,7 @@
 
 @implementation ClassInfoViewController
 
-@synthesize course, infoList;
+@synthesize course, infoList, termCode;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -55,8 +55,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    self.infoList = [NSMutableArray arrayWithCapacity:9];
-    int count = 6;
+    self.infoList = [NSMutableArray arrayWithCapacity:7];
+    int count = 5;
     
     //[infoList addObject:self.course.Description];
     [infoList addObject:self.course.Instructor];
@@ -67,11 +67,11 @@
     
     
     
-    if (![self.course.Comments isEqualToString:@""]){
+    if (![self.course.Comments isEqualToString:@"&nbsp"]){
         [infoList addObject:self.course.Comments];
         count++;
     }
-    if (![self.course.Final_Schedule isEqualToString:@""]){
+    if (![self.course.Final_Schedule isEqualToString:@"&nbsp"]){
         [infoList addObject:self.course.Final_Schedule];
         count++;
     }   
@@ -115,13 +115,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+
 }
 
 @end

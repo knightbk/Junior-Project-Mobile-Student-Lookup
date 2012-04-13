@@ -16,6 +16,11 @@
 #import "Schedule.h"
 #import "ScheduleFactory.h"
 #import "UserInfoViewController.h"
+#import "ClassInfoViewController.h"
+
+#define COURSE_SEARCH 0
+#define ROOM_SEARCH 1
+#define USER_SEARCH 2
 
 
 @implementation SearchViewController
@@ -206,13 +211,12 @@ UIGestureRecognizer* cancelGesture;
     }
     switch ([pickerView selectedRowInComponent:0])
     {
-        case 0:
-            //Initiate Course Search
+        case COURSE_SEARCH:
+            [networkScraper initiateClassInfoSearchWithCourse:searchBar.text termcode:[NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]]];
             break;
-        case 1:
-            //Initiate Room Search
+        case ROOM_SEARCH:
             break;
-        case 2:
+        case USER_SEARCH:
             [networkScraper initiatePersonInfoSearchWithUsername:searchBar.text termcode:[NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]]];
             break;
     }
@@ -237,16 +241,35 @@ UIGestureRecognizer* cancelGesture;
 
 - (void) networkScraperDidReceiveData:(NSString *)sdata
 {
-    Faculty *person = [FacultyFactory FacultyFromSchedulePage:sdata];
-    //Schedule *schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];
     //scheduleTextView.text = [schedule scheduleInformationString];
+    Faculty *person = nil;
+    ClassSchedule *schedule = nil;
     
-    
-    UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    
-    userInfoPage.person = person;
-    userInfoPage.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
-    [self.navigationController pushViewController:userInfoPage animated:YES];
+    switch ([pickerView selectedRowInComponent:0])
+    {
+        case COURSE_SEARCH:
+        {
+            schedule = [[ScheduleFactory scheduleFromSchedulePage:sdata].schedule objectAtIndex:0];
+            ClassInfoViewController *classInfoPage = [[ClassInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
+            classInfoPage.course = schedule;
+            classInfoPage.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+            [self.navigationController pushViewController:classInfoPage animated:YES];
+            break;
+        }
+        case ROOM_SEARCH:
+        {
+            break;
+        }
+        case USER_SEARCH:
+        {
+            person = [FacultyFactory FacultyFromSchedulePage:sdata];
+            UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
+            userInfoPage.person = person;
+            userInfoPage.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+            [self.navigationController pushViewController:userInfoPage animated:YES];
+            break;
+        }
+    }
     
 }
 
