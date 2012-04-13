@@ -57,6 +57,9 @@
     [self.view addSubview:pickerView];
     [pickerView selectRow:2 inComponent:0 animated:YES];
     [pickerView selectRow:2 inComponent:1 animated:YES];
+    CGRect frame = pickerView.frame;
+    frame.origin.y = 45;
+    pickerView.frame = frame;
 	// Do any additional setup after loading the view, typically from a nib.
     scheduleTextView.text = [searchValues objectAtIndex:[pickerView selectedRowInComponent:0]];
 }
@@ -210,7 +213,7 @@ UIGestureRecognizer* cancelGesture;
             //Initiate Room Search
             break;
         case 2:
-            [networkScraper initiatePersonInfoSearchWithUsername:searchBar.text termcode:[NSString stringWithFormat:@"%d%d",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]]];
+            [networkScraper initiatePersonInfoSearchWithUsername:searchBar.text termcode:[NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]]];
             break;
     }
 

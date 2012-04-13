@@ -17,6 +17,7 @@
     IBOutlet NSMutableArray *termValues;
     IBOutlet NSMutableArray *yearValues;
     IBOutlet UIPickerView *pickerView;
+    IBOutlet NSString *selectedYear;
 }
 
 -(NSString *) getSelectedTerm;
