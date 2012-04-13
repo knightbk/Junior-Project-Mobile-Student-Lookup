@@ -75,4 +75,23 @@
     STAssertEqualObjects(@"theisje", [rosterDict valueForKey:@"James Edward Theis"], @"");
 }
 
+- (void)testGetRoomScheduleIsCorrectSize
+{
+    NSString *roomHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"G220" ofType:@"html"];
+    NSString *roomHTML = [[NSString alloc] initWithContentsOfFile:roomHTMLPath encoding:NSUTF8StringEncoding error:nil];
+    NSDictionary *rosterDict = nil;//[RoomFactory coursesFromRoom:roomHTML];
+    
+    STAssertEquals(9, (int) [rosterDict count], @"");
+}
+
+- (void)testGetRoomSchedulsHasGivenCourse
+{
+    NSString *roomHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"G220" ofType:@"html"];
+    NSString *roomHTML = [[NSString alloc] initWithContentsOfFile:roomHTMLPath encoding:NSUTF8StringEncoding error:nil];
+    NSDictionary *rosterDict = nil;//[RoomFactory coursesFromRoom:roomHTML];
+    
+    STAssertEquals(16, (int) [rosterDict count], @"");
+    //STAssertEqualObjects(@"walter", [rosterDict valueForKey:@"ECE206-01"].Instructor, @"");
+}
+
 @end
