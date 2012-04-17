@@ -28,6 +28,7 @@
     [super tearDown];
 }
 
+#pragma mark Course Roster Tests
 //Test get course info from https://prodweb.rose-hulman.edu/regweb-cgi/reg-sched.pl?type=Roster&termcode=TERM_ID&view=tgrid&id=COURSE_ID
 - (void)testViewCourseInformationFromCoursePage
 {
@@ -55,6 +56,15 @@
     STAssertEquals(9, (int) [rosterDict count], @"");
 }
 
+- (void)testGetCourseRosterIsEmptyForInvalidCourse
+{
+    NSString *classHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"CSSE555-01" ofType:@"html"];
+    NSString *classHTML = [[NSString alloc] initWithContentsOfFile:classHTMLPath encoding:NSUTF8StringEncoding error:nil];
+    NSDictionary *rosterDict = [RosterFactory rosterFromCoursePage:classHTML];
+    
+    STAssertEquals(0, (int) [rosterDict count], @"");
+}
+
 - (void)testGetCourseRosterContainsCorrectKeysAndValues
 {
     NSString *classHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"CSSE404-01" ofType:@"html"];
@@ -75,23 +85,42 @@
     STAssertEqualObjects(@"theisje", [rosterDict valueForKey:@"James Edward Theis"], @"");
 }
 
+#pragma mark Room Roster Tests
 - (void)testGetRoomScheduleIsCorrectSize
 {
     NSString *roomHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"G220" ofType:@"html"];
     NSString *roomHTML = [[NSString alloc] initWithContentsOfFile:roomHTMLPath encoding:NSUTF8StringEncoding error:nil];
-    NSDictionary *rosterDict = [RosterFactory rosterFromCoursePage:roomHTML];
-
-    STAssertEquals(9, (int) [rosterDict count], @"");
+    Schedule *roomSchedule = [ScheduleFactory scheduleFromSchedulePage:roomHTML];
+    
+    STAssertEquals(9, (int) [roomSchedule.schedule count], @"");
 }
 
-- (void)testGetRoomSchedulsHasGivenCourse
+- (void)testGetRoomSchedulsHasGivenCoursesOnDifferentDays
 {
     NSString *roomHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"G220" ofType:@"html"];
     NSString *roomHTML = [[NSString alloc] initWithContentsOfFile:roomHTMLPath encoding:NSUTF8StringEncoding error:nil];
     Schedule *roomSchedule = [ScheduleFactory scheduleFromSchedulePage:roomHTML];
-    STAssertNotNil(roomSchedule,@"");
-//    STAssertEquals(16, (int) [rosterDict count], @"");
-//    STAssertEqualObjects(@"walter", [schedule valueForKey:@"ECE206-01"].Instructor, @"");
+    
+    STAssertEqualObjects(@"MA460-01", [[roomSchedule getScheduleForDay:1] objectAtIndex:8], @"");
+    STAssertEqualObjects(@"MA450-01", [[roomSchedule getScheduleForDay:3] objectAtIndex:3], @"");
+}
+
+- (void)testRoomScheduleDoesNotContainClassAtTime
+{
+    NSString *roomHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"O159" ofType:@"html"];
+    NSString *roomHTML = [[NSString alloc] initWithContentsOfFile:roomHTMLPath encoding:NSUTF8StringEncoding error:nil];
+    Schedule *roomSchedule = [ScheduleFactory scheduleFromSchedulePage:roomHTML];
+    
+    STAssertEqualObjects(@"", [[roomSchedule getScheduleForDay:3] objectAtIndex:6], @"");
+}
+
+- (void)testRoomScheduleIsEmptyForInvalidRoom
+{
+    NSString *roomHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"F333" ofType:@"html"];
+    NSString *roomHTML = [[NSString alloc] initWithContentsOfFile:roomHTMLPath encoding:NSUTF8StringEncoding error:nil];
+    Schedule *roomSchedule = [ScheduleFactory scheduleFromSchedulePage:roomHTML];
+    
+    STAssertEquals(0, (int) [roomSchedule.schedule count], @"");
 }
 
 @end
