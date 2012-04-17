@@ -98,12 +98,13 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    if (cell == nil) {
+    if (cell == nil)
+    {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    if (indexPath.section == 0) {
-        
+    if (indexPath.section == 0)
+    {
         cell.textLabel.text = [infoList objectAtIndex:indexPath.row];
         
         if(indexPath.row == 1 && [[self.person phoneNumber] isEqualToString:@""])
@@ -115,8 +116,11 @@
             cell.userInteractionEnabled = NO;
             
         }
-    } else {
-        switch (indexPath.row) {
+    }
+    else
+    {
+        switch (indexPath.row)
+        {
             case 0:
                 cell.textLabel.text = @"View Schedule";
                 break;
@@ -138,7 +142,8 @@
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
     if(section == 0)
         return [self.person name];
     else

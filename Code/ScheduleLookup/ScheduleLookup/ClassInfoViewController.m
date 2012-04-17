@@ -64,19 +64,19 @@
     
     //[infoList addObject:self.course.Description];
     [infoList addObject:self.course.Instructor];
-    [infoList addObject:self.course.Credit];
-    [infoList addObject:self.course.ENRL];
-    [infoList addObject:self.course.CAP];
-    [infoList addObject:self.course.CRN];
+    [infoList addObject:[@"Credit Hours: " stringByAppendingString:self.course.Credit]];
+    [infoList addObject:[@"Enrolled: " stringByAppendingString:self.course.ENRL]];
+    [infoList addObject:[@"Cap: " stringByAppendingString:self.course.CAP]];
+    [infoList addObject:[@"CRN: " stringByAppendingString:self.course.CRN]];
     
     
     
     if (![self.course.Comments isEqualToString:@"&nbsp"]){
-        [infoList addObject:self.course.Comments];
+        [infoList addObject:[@"Comments: " stringByAppendingString:self.course.Comments]];
         count++;
     }
     if (![self.course.Final_Schedule isEqualToString:@"&nbsp"]){
-        [infoList addObject:self.course.Final_Schedule];
+        [infoList addObject:[@"Final Schedule: " stringByAppendingString:self.course.Final_Schedule]];
         count++;
     }   
     
@@ -99,9 +99,10 @@
     }
     
     if (indexPath.section == 0) {
-        
         cell.textLabel.text = [infoList objectAtIndex:indexPath.row];
-        
+        if (indexPath.row != 0) {
+            cell.userInteractionEnabled = NO;
+        }
     } else {
         cell.textLabel.text = @"View Roster";
     }
@@ -141,6 +142,11 @@
 #pragma mark NetworkScraperDelegate methods
 - (void) networkScraperDidReceiveData:(NSString *)sdata
 {
+    /* TODO:
+     *  This method handles clicking the "View Roster Button". We need to determine
+     *  how to also click the instructor's name since both of these need to implement
+     *  this method.
+     */
     CourseRosterViewController *classViewController = [[CourseRosterViewController alloc] init];
     classViewController.userDictionary = [RosterFactory rosterFromCoursePage:sdata];
     [self.navigationController pushViewController:classViewController animated:YES];
