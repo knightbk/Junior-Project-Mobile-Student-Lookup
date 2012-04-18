@@ -7,6 +7,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "OCMock.h"
 
 @interface ScheduleLookupTests : SenTestCase
 

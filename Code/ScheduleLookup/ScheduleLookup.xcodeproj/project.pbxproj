@@ -25,6 +25,7 @@
 		50825F26153DA91E00A517BD /* F333.html in Resources */ = {isa = PBXBuildFile; fileRef = 50825F24153DA91E00A517BD /* F333.html */; };
 		50D98F321537A526004337B5 /* ClassInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D98F311537A526004337B5 /* ClassInfoViewController.m */; };
 		50D98F391537AC77004337B5 /* CSSE491-06CSSE290-09.html in Resources */ = {isa = PBXBuildFile; fileRef = 50D98F381537AC77004337B5 /* CSSE491-06CSSE290-09.html */; };
+		50F92220153F66CD0034400D /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F92218153F66CD0034400D /* libOCMock.a */; };
 		CE1BADCF14DA60FE00C54FFE /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BADCE14DA60FE00C54FFE /* KeychainItemWrapper.m */; };
 		CE57E7B514EB71C50033E59A /* ClassFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57E7B214EB71C50033E59A /* ClassFactory.m */; };
 		CE57E7B614EB71C50033E59A /* ClassSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57E7B414EB71C50033E59A /* ClassSchedule.m */; };
@@ -93,6 +94,13 @@
 		50D98F301537A526004337B5 /* ClassInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfoViewController.h; sourceTree = "<group>"; };
 		50D98F311537A526004337B5 /* ClassInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoViewController.m; sourceTree = "<group>"; };
 		50D98F381537AC77004337B5 /* CSSE491-06CSSE290-09.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "CSSE491-06CSSE290-09.html"; sourceTree = "<group>"; };
+		50F92218153F66CD0034400D /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = Libraries/libOCMock.a; sourceTree = "<group>"; };
+		50F9221A153F66CD0034400D /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		50F9221B153F66CD0034400D /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		50F9221C153F66CD0034400D /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		50F9221D153F66CD0034400D /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		50F9221E153F66CD0034400D /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		50F9221F153F66CD0034400D /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		CE1BADCD14DA60FE00C54FFE /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		CE1BADCE14DA60FE00C54FFE /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		CE25624A14DB119700706B01 /* ScheduleLookup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ScheduleLookup.entitlements; sourceTree = "<group>"; };
@@ -172,12 +180,36 @@
 				E32079F71499122E005ACDD0 /* SenTestingKit.framework in Frameworks */,
 				E32079F81499122E005ACDD0 /* UIKit.framework in Frameworks */,
 				E32079F91499122E005ACDD0 /* Foundation.framework in Frameworks */,
+				50F92220153F66CD0034400D /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50F92217153F66AA0034400D /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				50F92218153F66CD0034400D /* libOCMock.a */,
+				50F92219153F66CD0034400D /* OCMock */,
+			);
+			name = OCMock;
+			sourceTree = "<group>";
+		};
+		50F92219153F66CD0034400D /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				50F9221A153F66CD0034400D /* NSNotificationCenter+OCMAdditions.h */,
+				50F9221B153F66CD0034400D /* OCMArg.h */,
+				50F9221C153F66CD0034400D /* OCMConstraint.h */,
+				50F9221D153F66CD0034400D /* OCMock.h */,
+				50F9221E153F66CD0034400D /* OCMockObject.h */,
+				50F9221F153F66CD0034400D /* OCMockRecorder.h */,
+			);
+			name = OCMock;
+			path = Libraries/OCMock;
+			sourceTree = "<group>";
+		};
 		CED1D5F114D9D0AA00255F0C /* Factories */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +251,7 @@
 		E32079C91499122E005ACDD0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50F92217153F66AA0034400D /* OCMock */,
 				CEB729CA14DA65AE002E54EC /* Security.framework */,
 				E32079CA1499122E005ACDD0 /* UIKit.framework */,
 				E32079CC1499122E005ACDD0 /* Foundation.framework */,
@@ -610,6 +643,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScheduleLookup/ScheduleLookup-Prefix.pch";
 				INFOPLIST_FILE = "ScheduleLookup/ScheduleLookup-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ScheduleLookupTests\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -622,6 +659,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScheduleLookup/ScheduleLookup-Prefix.pch";
 				INFOPLIST_FILE = "ScheduleLookup/ScheduleLookup-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ScheduleLookupTests\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -637,7 +678,18 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScheduleLookup/ScheduleLookup-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Libraries/**";
 				INFOPLIST_FILE = "ScheduleLookupTests/ScheduleLookupTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ScheduleLookupTests/iOS\"",
+					"\"$(SRCROOT)/ScheduleLookupTests\"",
+					"\"$(SRCROOT)/Libraries\"",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"$(PROJECT_DIR)/Libraries/libOCMock.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -654,7 +706,18 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScheduleLookup/ScheduleLookup-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Libraries/**";
 				INFOPLIST_FILE = "ScheduleLookupTests/ScheduleLookupTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ScheduleLookupTests/iOS\"",
+					"\"$(SRCROOT)/ScheduleLookupTests\"",
+					"\"$(SRCROOT)/Libraries\"",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"$(PROJECT_DIR)/Libraries/libOCMock.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;

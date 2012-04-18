@@ -119,4 +119,12 @@
     STAssertEquals(0, (int) [roomSchedule.schedule count], @"");
 }
 
+- (void)testOCMockPass {
+    id mock = [OCMockObject mockForClass:NSString.class];
+    [[[mock stub] andReturn:@"mocktest"] lowercaseString];
+    
+    NSString *returnValue = [mock lowercaseString];
+    STAssertEqualObjects(@"mocktest", returnValue, @"Should have returned the expected string.");
+}
+
 @end
