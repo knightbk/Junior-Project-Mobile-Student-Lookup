@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserInfoViewController.h"
 
-@interface PartialMatchUserViewController : UITableViewController
+@interface PartialMatchUserViewController : UITableViewController <NetworkScraperDelegate> {
+
+    NSArray *usernameArray;
+    
+}
+
+@property (strong, nonatomic) NSArray *usernameArray;
+@property (strong, nonatomic) NSString *termCode;
 
 @end

@@ -19,6 +19,7 @@
 #import "ClassInfoViewController.h"
 #import "ScheduleViewController.h"
 #import "PartialMatchCourseViewController.h"
+#import "PartialMatchUserViewController.h"
 
 #define COURSE_SEARCH 0
 #define ROOM_SEARCH 1
@@ -282,17 +283,19 @@ UIGestureRecognizer* cancelGesture;
         {
             if ([Factory userSearchIsPartialMatch:sdata])
             {
+                PartialMatchUserViewController *viewController = [[PartialMatchUserViewController alloc] init];
                 NSArray *matches = [FacultyFactory AllFacultyFromPartialMatchPage:sdata];
                 if([matches count] > 0)
                 {
-                    for (NSString *s in matches) {
-                        
-                    }
+                    viewController.usernameArray = matches;
+                    viewController.termCode = [NSString stringWithFormat:@"%@%@", [yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+                    viewController.title = @"Results";
                 }
                 else
                 {
-                    //display no results
+                    viewController.title = @"No Results";
                 }
+                [self.navigationController pushViewController:viewController animated:YES];
             }
             else
             {
