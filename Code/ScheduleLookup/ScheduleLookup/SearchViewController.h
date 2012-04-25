@@ -21,8 +21,7 @@
 }
 
 -(NSString *) getSelectedTerm;
--(void) getSelectedYear;
--(void) getSelectedSearchCode;
+
 @property (weak, nonatomic) IBOutlet UITextView *scheduleTextView;
 @property (strong, nonatomic) NetworkScraper *networkScraper;
 

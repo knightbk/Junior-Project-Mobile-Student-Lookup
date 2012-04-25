@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <deployment defaultVersion="1280" identifier="iOS"/>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
+        <!--Search View Controller - First-->
         <scene sceneID="11">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
@@ -45,6 +46,7 @@
             </objects>
             <point key="canvasLocation" x="1244" y="-398"/>
         </scene>
+        <!--Settings View Controller - Third-->
         <scene sceneID="eF1-tM-IuK">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h67-33-qp0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -97,6 +99,7 @@
             </objects>
             <point key="canvasLocation" x="718" y="775"/>
         </scene>
+        <!--Tab Bar Controller-->
         <scene sceneID="15">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
@@ -116,6 +119,7 @@
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
+        <!--Navigation Controller - Search-->
         <scene sceneID="qX6-9H-uLU">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zou-BT-QJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -134,6 +138,7 @@
             </objects>
             <point key="canvasLocation" x="718" y="-398"/>
         </scene>
+        <!--Navigation Controller - Favorites-->
         <scene sceneID="fgr-wh-MGr">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odL-SD-EO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -152,6 +157,7 @@
             </objects>
             <point key="canvasLocation" x="718" y="180"/>
         </scene>
+        <!--Favorites View Controller - Favorites-->
         <scene sceneID="xeM-Us-qAl">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ou-0Q-ea7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -161,7 +167,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Wyz-80-Pxn">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Favorites" id="Wyz-80-Pxn">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -190,9 +196,6 @@
     <classes>
         <class className="FavoritesViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesViewController.h"/>
-        </class>
-        <class className="NSMutableArray" superclassName="NSArray">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSMutableArray.h"/>
         </class>
         <class className="SearchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
