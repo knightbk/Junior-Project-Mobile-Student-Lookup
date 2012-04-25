@@ -22,6 +22,17 @@
     return [self firstMatchStringWithRegex:@">Username: ([a-zA-Z ]+)<" WithStringData:sdata];
 }
 
++ (BOOL) userSearchIsPartialMatch:(NSString *)sdata
+{
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@">Instructor Match:"
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:&error];
+    NSUInteger numberOfMatches = [regex numberOfMatchesInString:sdata options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [sdata length])];
+    
+    return (int) numberOfMatches > 0;
+}
+
 + (NSString *) firstMatchStringWithRegex:(NSString *)expression WithStringData:(NSString *)sdata
 {
     NSError *error = NULL;

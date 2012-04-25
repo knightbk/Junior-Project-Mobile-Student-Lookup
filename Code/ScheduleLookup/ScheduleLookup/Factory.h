@@ -13,6 +13,7 @@
 + (NSString *) firstMatchStringWithRegex:(NSString *)expression WithStringData:(NSString *)sdata;
 + (NSString *) usernameFromStringData:(NSString *)sdata;
 + (NSString *) nameFromStringData:(NSString *)sdata;
++ (BOOL) userSearchIsPartialMatch:(NSString *)sdata;
 
 
 @end
