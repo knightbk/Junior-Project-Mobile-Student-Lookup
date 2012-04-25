@@ -115,6 +115,7 @@
     //Schedule *schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];
     //scheduleTextView.text = [schedule scheduleInformationString];
     UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    userInfoPage.termCode = @"201230";
     userInfoPage.person = person;
     [self.navigationController pushViewController:userInfoPage animated:YES];
 }

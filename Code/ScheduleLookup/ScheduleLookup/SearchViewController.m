@@ -260,7 +260,7 @@ UIGestureRecognizer* cancelGesture;
         {            
             ScheduleViewController *scheduleViewController = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:[NSBundle mainBundle]];
             scheduleViewController.schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];;
-            
+            scheduleViewController.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
             [self.navigationController pushViewController:scheduleViewController animated:YES];
             break;
         }

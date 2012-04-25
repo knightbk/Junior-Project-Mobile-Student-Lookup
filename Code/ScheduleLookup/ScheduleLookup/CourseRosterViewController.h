@@ -17,5 +17,7 @@
 
 @property (nonatomic, strong) NSDictionary *userDictionary;
 @property (strong, nonatomic) NetworkScraper *networkScraper;
+@property (strong, nonatomic) NSString *termCode;
+
 
 @end

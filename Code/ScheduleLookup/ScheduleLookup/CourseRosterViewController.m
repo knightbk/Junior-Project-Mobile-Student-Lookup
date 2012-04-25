@@ -19,6 +19,7 @@
 
 @synthesize userDictionary;
 @synthesize networkScraper;
+@synthesize termCode;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -81,13 +82,14 @@
         networkScraper.delegate = self;
     }
     NSString *alias = [[userDictionary allValues] objectAtIndex:indexPath.row];
-    [networkScraper initiatePersonInfoSearchWithUsername:alias termcode:@"201230"];
+    [networkScraper initiatePersonInfoSearchWithUsername:alias termcode:termCode];
 }
 
 - (void) networkScraperDidReceiveData:(NSString *)sdata
 {
     Faculty *person = [FacultyFactory FacultyFromSchedulePage:sdata];
     UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    userInfoPage.termCode = termCode;
     userInfoPage.person = person;
     [self.navigationController pushViewController:userInfoPage animated:YES];
 }

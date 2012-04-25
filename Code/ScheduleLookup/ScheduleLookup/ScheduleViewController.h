@@ -17,6 +17,7 @@
 }
 @property (strong, nonatomic) NSMutableArray *viewControllers;
 @property (strong, nonatomic) Schedule *schedule;
+@property (strong, nonatomic) NSString *termCode;
 
 @property (weak,nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak,nonatomic) IBOutlet UIPageControl *pageControl;

@@ -18,6 +18,7 @@
 @synthesize scrollView,pageControl;
 @synthesize viewControllers;
 @synthesize schedule;
+@synthesize termCode;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -131,6 +132,12 @@
     wednesdayTableViewController.dayString = @"Wednesday";
     thursdayTableViewController.dayString = @"Thursday";
     fridayTableViewController.dayString = @"Friday";
+    
+    mondayTableViewController.termCode = termCode;
+    tuesdayTableViewController.termCode = termCode;
+    wednesdayTableViewController.termCode = termCode;
+    thursdayTableViewController.termCode = termCode;
+    fridayTableViewController.termCode = termCode;
 
     mondayTableViewController.classArray = [schedule getScheduleForDay:MONDAY];
     tuesdayTableViewController.classArray = [schedule getScheduleForDay:TUESDAY];

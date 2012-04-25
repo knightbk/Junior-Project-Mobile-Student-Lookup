@@ -149,6 +149,7 @@
      */
     CourseRosterViewController *classViewController = [[CourseRosterViewController alloc] init];
     classViewController.userDictionary = [RosterFactory rosterFromCoursePage:sdata];
+    classViewController.termCode = termCode;
     [self.navigationController pushViewController:classViewController animated:YES];
 }
 @end

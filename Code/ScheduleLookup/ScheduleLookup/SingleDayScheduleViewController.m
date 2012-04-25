@@ -15,6 +15,7 @@
 @implementation SingleDayScheduleViewController
 @synthesize dayString, classArray;
 @synthesize networkScraper;
+@synthesize termCode;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -164,7 +165,7 @@
     }
     
     if (![@"" isEqualToString:[classArray objectAtIndex:indexPath.row]]) {
-        [networkScraper initiateClassInfoSearchWithCourse:[classArray objectAtIndex:indexPath.row] termcode:@"201230"];
+        [networkScraper initiateClassInfoSearchWithCourse:[classArray objectAtIndex:indexPath.row] termcode:termCode];
     }
 }
 
@@ -176,7 +177,7 @@
     ClassInfoViewController *classInfoPage = [[ClassInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
     classInfoPage.course = schedule;
     //TODO: Needs to be unhardcoded
-    classInfoPage.termCode = @"201230";
+    classInfoPage.termCode = termCode;
     [self.navigationController pushViewController:classInfoPage animated:YES];
 }
 

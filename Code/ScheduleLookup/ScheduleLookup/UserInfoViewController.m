@@ -225,6 +225,7 @@
 {
     ScheduleViewController *scheduleViewController = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:[NSBundle mainBundle]];
     scheduleViewController.schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];;
+    scheduleViewController.termCode = termCode;
 
     [self.navigationController pushViewController:scheduleViewController animated:YES];
 

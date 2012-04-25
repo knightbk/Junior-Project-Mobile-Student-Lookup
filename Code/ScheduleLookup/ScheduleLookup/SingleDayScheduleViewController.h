@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) NSString *dayString;
 @property (strong, nonatomic) NSArray *classArray;
+@property (strong, nonatomic) NSString *termCode;
 
 @property (strong, nonatomic) NetworkScraper *networkScraper;
 
