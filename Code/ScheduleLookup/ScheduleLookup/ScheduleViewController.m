@@ -9,7 +9,6 @@
 #define Y_VALUE 50
 
 #import "ScheduleViewController.h"
-#import "SingleDayScheduleViewController.h"
 #import "Schedule.h"
 #import "ClassSchedule.h"
 
@@ -133,6 +132,13 @@
     thursdayTableViewController.dayString = @"Thursday";
     fridayTableViewController.dayString = @"Friday";
     
+    mondayTableViewController.delegate = self;
+    tuesdayTableViewController.delegate = self;
+    wednesdayTableViewController.delegate = self;
+    thursdayTableViewController.delegate = self;
+    fridayTableViewController.delegate = self;
+    
+    
     mondayTableViewController.termCode = termCode;
     tuesdayTableViewController.termCode = termCode;
     wednesdayTableViewController.termCode = termCode;
@@ -201,6 +207,11 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void) pushViewController:(ClassInfoViewController *) viewController
+{
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 

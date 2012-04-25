@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Schedule.h"
+#import "SingleDayScheduleViewController.h"
 
-
-@interface ScheduleViewController : UIViewController <UIScrollViewDelegate> {
+@interface ScheduleViewController : UIViewController <UIScrollViewDelegate,SingleDayScheduleDelegate> {
     NSMutableArray *viewControllers;
     
     BOOL pageControlUsed;

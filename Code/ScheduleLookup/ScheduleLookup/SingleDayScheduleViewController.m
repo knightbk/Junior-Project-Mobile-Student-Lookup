@@ -9,14 +9,13 @@
 #import "SingleDayScheduleViewController.h"
 #import "ClassSchedule.h"
 #import "ScheduleFactory.h"
-#import "ClassInfoViewController.h"
-
 
 @implementation SingleDayScheduleViewController
+
 @synthesize dayString, classArray;
 @synthesize networkScraper;
 @synthesize termCode;
-
+@synthesize delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -178,7 +177,7 @@
     classInfoPage.course = schedule;
     //TODO: Needs to be unhardcoded
     classInfoPage.termCode = termCode;
-    [self.navigationController pushViewController:classInfoPage animated:YES];
+    [delegate pushViewController:classInfoPage];
 }
 
 

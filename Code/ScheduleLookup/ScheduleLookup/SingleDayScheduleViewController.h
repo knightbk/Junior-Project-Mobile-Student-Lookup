@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "NetworkScraper.h"
+#import "ClassInfoViewController.h"
+
+@protocol SingleDayScheduleDelegate
+
+- (void) pushViewController:(ClassInfoViewController *) viewController;
+
+@end
+
+
 
 @interface SingleDayScheduleViewController : UITableViewController<NetworkScraperDelegate>
 
@@ -17,5 +26,7 @@
 @property (strong, nonatomic) NSString *termCode;
 
 @property (strong, nonatomic) NetworkScraper *networkScraper;
+
+@property (unsafe_unretained, nonatomic) id <SingleDayScheduleDelegate> delegate;
 
 @end
