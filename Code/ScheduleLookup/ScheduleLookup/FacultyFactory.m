@@ -22,10 +22,6 @@
     NSArray *matchArray = [[NSArray alloc] initWithArray:[regex matchesInString:html options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [html length])]];
     
     NSMutableArray *temp = [[NSMutableArray alloc] initWithCapacity:[matchArray count]];
-
-    NSLog(@"Number of partial matches: %d", (int) [matchArray count]);
-    
-    NSLog(@"Number of partial matches: %d", (int) [temp count]);
     
     for (int i = 0; i < (int) [matchArray count]; i++) {
         NSString *name = @"";
@@ -35,8 +31,7 @@
             [temp addObject:name];
         }
     }
-    NSLog(@"%@", temp);
-    return nil;
+    return temp;
 }
 
 

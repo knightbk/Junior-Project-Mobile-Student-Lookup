@@ -282,7 +282,17 @@ UIGestureRecognizer* cancelGesture;
         {
             if ([Factory userSearchIsPartialMatch:sdata])
             {
-                [FacultyFactory AllFacultyFromPartialMatchPage:sdata];
+                NSArray *matches = [FacultyFactory AllFacultyFromPartialMatchPage:sdata];
+                if([matches count] > 0)
+                {
+                    for (NSString *s in matches) {
+                        
+                    }
+                }
+                else
+                {
+                    //display no results
+                }
             }
             else
             {
