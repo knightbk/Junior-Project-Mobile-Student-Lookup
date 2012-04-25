@@ -264,9 +264,16 @@ UIGestureRecognizer* cancelGesture;
             else
             {
                 PartialMatchCourseViewController *viewController = [[PartialMatchCourseViewController alloc] init];
-                viewController.courseArray = schedules.schedule;
-                viewController.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
-                viewController.title = @"Results";
+                if (numMatches > 1)
+                {
+                    viewController.courseArray = schedules.schedule;
+                    viewController.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+                    viewController.title = @"Results";
+                }
+                else
+                {
+                    viewController.title = @"No Results";
+                }
                 [self.navigationController pushViewController:viewController animated:YES];
             }
             break;
