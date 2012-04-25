@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PartialMatchCourseViewController : UITableViewController
+@interface PartialMatchCourseViewController : UITableViewController {
+
+    NSArray *courseArray;
+    
+}
+
+@property (strong, nonatomic) NSArray *courseArray;
+@property (strong, nonatomic) NSString *termCode;
 
 @end

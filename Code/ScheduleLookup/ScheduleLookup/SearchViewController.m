@@ -18,6 +18,7 @@
 #import "UserInfoViewController.h"
 #import "ClassInfoViewController.h"
 #import "ScheduleViewController.h"
+#import "PartialMatchCourseViewController.h"
 
 #define COURSE_SEARCH 0
 #define ROOM_SEARCH 1
@@ -244,16 +245,29 @@ UIGestureRecognizer* cancelGesture;
 - (void) networkScraperDidReceiveData:(NSString *)sdata
 {
     Faculty *person = nil;
-    ClassSchedule *schedule = nil;
+    Schedule *schedules = nil;
     switch ([pickerView selectedRowInComponent:0])
     {
         case COURSE_SEARCH:
         {
-            schedule = [[ScheduleFactory scheduleFromSchedulePage:sdata].schedule objectAtIndex:0];
-            ClassInfoViewController *classInfoPage = [[ClassInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
-            classInfoPage.course = schedule;
-            classInfoPage.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
-            [self.navigationController pushViewController:classInfoPage animated:YES];
+            schedules = [ScheduleFactory scheduleFromSchedulePage:sdata];
+            
+            NSInteger numMatches = [schedules.schedule count];
+            if (numMatches == 1)
+            {
+                ClassInfoViewController *classInfoPage = [[ClassInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
+                classInfoPage.course = [schedules.schedule objectAtIndex:0];
+                classInfoPage.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+                [self.navigationController pushViewController:classInfoPage animated:YES];
+            }
+            else
+            {
+                PartialMatchCourseViewController *viewController = [[PartialMatchCourseViewController alloc] init];
+                viewController.courseArray = schedules.schedule;
+                viewController.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+                viewController.title = @"Results";
+                [self.navigationController pushViewController:viewController animated:YES];
+            }
             break;
         }
         case ROOM_SEARCH:
