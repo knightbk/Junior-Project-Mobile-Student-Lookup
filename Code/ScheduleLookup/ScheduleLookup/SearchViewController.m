@@ -282,7 +282,7 @@ UIGestureRecognizer* cancelGesture;
         {
             if ([Factory userSearchIsPartialMatch:sdata])
             {
-                
+                [FacultyFactory AllFacultyFromPartialMatchPage:sdata];
             }
             else
             {

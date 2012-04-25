@@ -13,6 +13,7 @@
 @interface FacultyFactory : Factory
 
 + (Faculty *) FacultyFromSchedulePage:(NSString *)html;
++ (NSArray *) AllFacultyFromPartialMatchPage:(NSString *)html;
 
 + (NSString *) departmentFromStringData:(NSString *)sdata;
 + (NSString *) cmNumberFromStringData:(NSString *)sdata;
