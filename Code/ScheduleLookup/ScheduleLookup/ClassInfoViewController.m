@@ -10,7 +10,13 @@
 #import "NetworkScraper.h"
 #import "ScheduleFactory.h"
 #import "CourseRosterViewController.h"
+#import "UserInfoViewController.h"
 #import "RosterFactory.h"
+#import "Faculty.h"
+#import "FacultyFactory.h"
+
+#define PROFESSOR 0
+#define ROSTER 1
 
 @interface ClassInfoViewController ()
 
@@ -19,6 +25,7 @@
 @implementation ClassInfoViewController
 
 @synthesize course, infoList, termCode;
+@synthesize buttonPressed;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -128,6 +135,7 @@
             NetworkScraper *networkScraper = [[NetworkScraper alloc] init];
             networkScraper.delegate = self;
             [networkScraper initiatePersonScheduleSearchWithUsername:self.course.Instructor termcode:termCode];
+            buttonPressed = [NSNumber numberWithInt:PROFESSOR];
         }
     }
     else
@@ -136,20 +144,28 @@
         NetworkScraper *networkScraper = [[NetworkScraper alloc] init];
         networkScraper.delegate = self;
         [networkScraper initiateClassInfoSearchWithCourse:self.course.Course termcode:termCode];
+        buttonPressed = [NSNumber numberWithInt:ROSTER];
     }           
 }
 
 #pragma mark NetworkScraperDelegate methods
 - (void) networkScraperDidReceiveData:(NSString *)sdata
 {
-    /* TODO:
-     *  This method handles clicking the "View Roster Button". We need to determine
-     *  how to also click the instructor's name since both of these need to implement
-     *  this method.
-     */
-    CourseRosterViewController *classViewController = [[CourseRosterViewController alloc] init];
-    classViewController.userDictionary = [RosterFactory rosterFromCoursePage:sdata];
-    classViewController.termCode = termCode;
-    [self.navigationController pushViewController:classViewController animated:YES];
+    if ([buttonPressed intValue] == PROFESSOR) 
+    {
+        Faculty *person = [FacultyFactory FacultyFromSchedulePage:sdata];
+        UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        userInfoPage.person = person;
+        userInfoPage.termCode = termCode;
+        [self.navigationController pushViewController:userInfoPage animated:YES];
+    } 
+    else 
+    {
+        CourseRosterViewController *classViewController = [[CourseRosterViewController alloc] init];
+        classViewController.userDictionary = [RosterFactory rosterFromCoursePage:sdata];
+        classViewController.termCode = termCode;
+        [self.navigationController pushViewController:classViewController animated:YES];
+
+    }
 }
 @end
