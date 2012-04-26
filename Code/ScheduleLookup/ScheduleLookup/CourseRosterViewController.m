@@ -33,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Roster";
 }
 
 - (void)viewDidUnload
