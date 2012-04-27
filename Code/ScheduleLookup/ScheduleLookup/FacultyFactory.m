@@ -14,9 +14,10 @@
 
 + (NSArray *) AllFacultyFromPartialMatchPage:(NSString *)html
 {
+
     NSError *error = NULL;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<TR><TD><A HREF=.*>([^<]+)</A></TD><TD>.*</TD><TD>([^<]+)</TD></TR>"
-                                                                           options:NSRegularExpressionCaseInsensitive
+options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];
     
     NSArray *matchArray = [[NSArray alloc] initWithArray:[regex matchesInString:html options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [html length])]];
