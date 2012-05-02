@@ -39,6 +39,8 @@
     [connection start];
 }
 
+
+
 - (void) initiateClassInfoSearchWithCourse:(NSString *)course termcode:(NSString *) termcode
 {
     self.sdata = @"";

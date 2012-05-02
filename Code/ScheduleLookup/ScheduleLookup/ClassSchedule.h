@@ -20,6 +20,8 @@
     NSString *Term_Schedule;
     NSString *Comments;
     NSString *Final_Schedule;
+    
+    
 
 }
 
@@ -49,7 +51,7 @@
 - (NSMutableArray *) classMeetingsForDay:(int)day;
 - (NSNumber *) numberFromString:(NSString *)numberString;
 - (NSMutableArray *) getRangeOfHours:(NSString *)term_schedule;
-
-
-
+- (NSString *) getLocation;
+- (NSString *) getClassDays;
+- (NSString *) getClassHours;
 @end

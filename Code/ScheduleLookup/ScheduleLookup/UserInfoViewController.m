@@ -12,7 +12,7 @@
 #import "ScheduleFactory.h"
 #import "NetworkScraper.h"
 #import "CalendarExporter.h"
-
+#import "CalendarExportViewController.h"
 
 @interface UserInfoViewController ()
 
@@ -98,7 +98,7 @@
         {
             return 3;
         }
-            
+        
         
     }
 }
@@ -149,7 +149,7 @@
                 cell.textLabel.text = @"Add to overlay";
                 break;
             case 3:
-                cell.textLabel.text = @"Export schedule to iPhone calendar";
+                cell.textLabel.text = @"Export schedule";
                 break;
             default:
                 break;
@@ -237,7 +237,7 @@
             }
             case 3:
             {
-                //Adds schedule to calendar system
+                //Create CalendarExportViewController with schedule and push it
                 
             }   
                 
@@ -252,9 +252,11 @@
     scheduleViewController.schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];;
     scheduleViewController.termCode = termCode;
 
+    
+    CalendarExportViewController *calendarViewController = [[CalendarExportViewController alloc] initWithSchedule:[ScheduleFactory scheduleFromSchedulePage:sdata]];
     [[CalendarExporter alloc] initiateExportWithSchedule:[ScheduleFactory scheduleFromSchedulePage:sdata]];
     
-    [self.navigationController pushViewController:scheduleViewController animated:YES];
+    [self.navigationController pushViewController:calendarViewController animated:YES];
 
 }
 

@@ -43,7 +43,7 @@
 
 - (BOOL) isCurrentUser
 {
-    return name == [[NetworkScraper alloc] getUserName];
+    return [alias isEqualToString:[[NetworkScraper alloc] getUserName]];
 }
 
 - (BOOL) inFavorites

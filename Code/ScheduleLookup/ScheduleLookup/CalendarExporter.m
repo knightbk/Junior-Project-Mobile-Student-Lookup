@@ -17,7 +17,6 @@
     for (ClassSchedule *sched in schedule.schedule)
     {
         [self exportSingleClassToCalendar:sched];
-        
     }
 }
 
@@ -30,10 +29,13 @@
     [event setTitle:schedule.Course];
     [event setLocation:schedule.description];
     [event setStartDate:[NSDate date]];
-    
+    [event setEndDate:[NSDate date]];
     [event setCalendar:[eventStore defaultCalendarForNewEvents]];
     NSError *err;
     [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
+    
+    NSLog(@"Exported event: %@", schedule.Course);
+    
     
 }
 

@@ -64,7 +64,7 @@
     pickerView.showsSelectionIndicator = YES;
     [self.view addSubview:pickerView];
     [pickerView selectRow:2 inComponent:0 animated:YES];
-    [pickerView selectRow:2 inComponent:1 animated:YES];
+    [pickerView selectRow:0 inComponent:1 animated:YES];
     CGRect frame = pickerView.frame;
     frame.origin.y = 45;
     pickerView.frame = frame;
@@ -91,7 +91,6 @@
         case 1:
             scheduleTextView.text = [termValues objectAtIndex:row];
             break;
-            
         case 2:
             scheduleTextView.text = [yearValues objectAtIndex:row];
             break;

@@ -10,6 +10,7 @@
 		0A383DC41550C9CF00BDF422 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A383DC31550C9CF00BDF422 /* EventKit.framework */; };
 		0A383DC61550C9E000BDF422 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A383DC51550C9E000BDF422 /* EventKitUI.framework */; };
 		0A383DCD1550CDF500BDF422 /* CalendarExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A383DCC1550CDF500BDF422 /* CalendarExporter.m */; };
+		0A383DD11550F19E00BDF422 /* CalendarExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A383DD01550F19E00BDF422 /* CalendarExportViewController.m */; };
 		0A68B54C154ADE6100D0446D /* loa.html in Resources */ = {isa = PBXBuildFile; fileRef = 0A68B54B154ADE6100D0446D /* loa.html */; };
 		0A68B54E154AE53F00D0446D /* djkdaajkad.html in Resources */ = {isa = PBXBuildFile; fileRef = 0A68B54D154AE53F00D0446D /* djkdaajkad.html */; };
 		0A68B550154AE57800D0446D /* csse375.html in Resources */ = {isa = PBXBuildFile; fileRef = 0A68B54F154AE57800D0446D /* csse375.html */; };
@@ -84,6 +85,8 @@
 		0A383DC51550C9E000BDF422 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		0A383DCB1550CDF500BDF422 /* CalendarExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarExporter.h; sourceTree = "<group>"; };
 		0A383DCC1550CDF500BDF422 /* CalendarExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarExporter.m; sourceTree = "<group>"; };
+		0A383DCF1550F19E00BDF422 /* CalendarExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarExportViewController.h; sourceTree = "<group>"; };
+		0A383DD01550F19E00BDF422 /* CalendarExportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarExportViewController.m; sourceTree = "<group>"; };
 		0A68B54B154ADE6100D0446D /* loa.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = loa.html; sourceTree = "<group>"; };
 		0A68B54D154AE53F00D0446D /* djkdaajkad.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = djkdaajkad.html; sourceTree = "<group>"; };
 		0A68B54F154AE57800D0446D /* csse375.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = csse375.html; sourceTree = "<group>"; };
@@ -347,6 +350,8 @@
 				E38D1200154791B300DB75F2 /* PartialMatchUserViewController.m */,
 				E38D1202154791C200DB75F2 /* PartialMatchCourseViewController.h */,
 				E38D1203154791C300DB75F2 /* PartialMatchCourseViewController.m */,
+				0A383DCF1550F19E00BDF422 /* CalendarExportViewController.h */,
+				0A383DD01550F19E00BDF422 /* CalendarExportViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -537,6 +542,7 @@
 				E38D1201154791B300DB75F2 /* PartialMatchUserViewController.m in Sources */,
 				E38D1204154791C300DB75F2 /* PartialMatchCourseViewController.m in Sources */,
 				0A383DCD1550CDF500BDF422 /* CalendarExporter.m in Sources */,
+				0A383DD11550F19E00BDF422 /* CalendarExportViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

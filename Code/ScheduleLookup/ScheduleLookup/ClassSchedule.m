@@ -119,6 +119,22 @@
     return result;
 }
 
+- (NSString *) getLocation
+{
+    return [[[self Term_Schedule] componentsSeparatedByString:@"/"] lastObject];
+}
+
+- (NSString *) getClassDays
+{
+    return [[[self Term_Schedule] componentsSeparatedByString:@"/"] objectAtIndex:0];
+}
+
+- (NSString *) getClassHours
+{
+    return [[[self Term_Schedule] componentsSeparatedByString:@"/"] objectAtIndex:1];
+}
+
+
 - (NSNumber *) numberFromString:(NSString *)numberString
 {
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
