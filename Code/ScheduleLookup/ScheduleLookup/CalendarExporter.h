@@ -12,8 +12,6 @@
 #import "ClassSchedule.h"
 
 @interface CalendarExporter : NSObject
-    
-@property (nonatomic,retain) Schedule* schedule;
 
 - (void) initiateExportWithSchedule: (Schedule*) schedule;
 - (void) exportSingleClassToCalendar: (ClassSchedule*) schedule;
