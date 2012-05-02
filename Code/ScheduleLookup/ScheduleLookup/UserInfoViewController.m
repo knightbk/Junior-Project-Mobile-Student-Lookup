@@ -11,7 +11,7 @@
 #import "Schedule.h"
 #import "ScheduleFactory.h"
 #import "NetworkScraper.h"
-
+#import "CalendarExporter.h"
 
 
 @interface UserInfoViewController ()
@@ -239,7 +239,7 @@
             {
                 //Adds schedule to calendar system
                 
-            }
+            }   
                 
         }
     }
@@ -252,6 +252,8 @@
     scheduleViewController.schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];;
     scheduleViewController.termCode = termCode;
 
+    [[CalendarExporter alloc] initiateExportWithSchedule:[ScheduleFactory scheduleFromSchedulePage:sdata]];
+    
     [self.navigationController pushViewController:scheduleViewController animated:YES];
 
 }

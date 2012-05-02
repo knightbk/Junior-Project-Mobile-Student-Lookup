@@ -56,7 +56,7 @@
     [termValues addObject:@"Spring"];
     [termValues addObject:@"Summer"];
     yearValues = [[NSMutableArray alloc] init];
-    for (int i = 2012; i >= 2000; i--) {
+    for (int i = 2013; i >= 2000; i--) {
         [yearValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
     pickerView = [[UIPickerView alloc] init];
