@@ -11,7 +11,7 @@
 #define DAYS 2
 #define HOUR 3
 #define DATE 4
-
+#define SECTION_TYPES 4
 #import "CalendarExportViewController.h"
 
 
@@ -121,31 +121,42 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
+    if(section < ([schedule.schedule count] * SECTION_TYPES))
+    {   
+        if(section % SECTION_TYPES == 2)
+        {
+            return 0;
+        }
+        if(section % SECTION_TYPES == 3)
+        {
+            return 0;
+        }
+    }
     return 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if(section < ([schedule.schedule count] * 4))
+    if(section < ([schedule.schedule count] * SECTION_TYPES))
     {
-        if(section % 4 == 0)
+        if(section % SECTION_TYPES == 0)
         {
             return @"Course";
         }
-        if(section % 4 == 1)
+        if(section % SECTION_TYPES == 1)
         {
             return @"Location";
         }
-        if(section % 4 == 2)
+        if(section % SECTION_TYPES == 2)
         {
-            return @"Meets";
+            return [NSString stringWithFormat:@"Meets: %@", [courseList objectAtIndex:section]];
         }
-        if(section % 4 == 3)
+        if(section % SECTION_TYPES == 3)
         {
-            return @"Hour";
+            return [NSString stringWithFormat:@"Hour(s): %@", [courseList objectAtIndex:section]];
         }
     }
-    else if(section < [schedule.schedule count] * 4 + 1)
+    else if(section < [schedule.schedule count] * SECTION_TYPES + 1)
     {
         return @"Calendar Start date";
     }
@@ -156,6 +167,17 @@
     return @"";
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if(section < ([schedule.schedule count] * SECTION_TYPES) && section % SECTION_TYPES == 3)
+    {
+        return 40;
+    }
+    else
+    {
+        return 10;
+    }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -167,8 +189,12 @@
     }
 
         cell.textLabel.text = [courseList objectAtIndex:indexPath.section];
-    
-    
+        if([[pickerPicker objectAtIndex:indexPath.section] isEqualToString:[NSString stringWithFormat:@"%d",DAYS]])
+        {
+            cell.userInteractionEnabled = NO;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
     
     return cell;
 }
