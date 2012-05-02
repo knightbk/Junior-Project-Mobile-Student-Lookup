@@ -13,6 +13,7 @@
 
 @property (nonatomic, retain) Schedule* schedule;
 @property (nonatomic, retain) NSMutableArray* courseList;
+@property (nonatomic, retain) NSMutableArray* pickerPicker;
 
 - (id)initWithSchedule:(Schedule*) sched;
 

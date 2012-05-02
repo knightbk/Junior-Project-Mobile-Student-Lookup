@@ -6,28 +6,45 @@
 //  Copyright (c) 2012 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
+
+#define TEXT 1
+#define DAYS 2
+#define HOUR 3
+#define DATE 4
+
 #import "CalendarExportViewController.h"
+
 
 
 @implementation CalendarExportViewController
 @synthesize schedule;
 
 @synthesize courseList;
+@synthesize pickerPicker;
 
 - (id)initWithSchedule:(Schedule*) sched
 {
     [self initWithStyle:UITableViewStyleGrouped].schedule = sched;
     courseList = [[NSMutableArray alloc] init];
+    pickerPicker = [[NSMutableArray alloc] init];
     for (ClassSchedule* classSched in sched.schedule)
     {
         [courseList addObject:classSched.Course];
         [courseList addObject:[classSched getLocation]];
         [courseList addObject:[classSched getClassDays]];
         [courseList addObject:[classSched getClassHours]];
+        
+        [pickerPicker addObject:[NSString stringWithFormat:@"%d",TEXT]];
+        [pickerPicker addObject:[NSString stringWithFormat:@"%d",TEXT]];
+        [pickerPicker addObject:[NSString stringWithFormat:@"%d",DAYS]];
+        [pickerPicker addObject:[NSString stringWithFormat:@"%d",HOUR]];        
     }
     
     [courseList addObject:@"Enter Start Date"];
     [courseList addObject:@"Enter End Date"];
+    
+    [pickerPicker addObject:[NSString stringWithFormat:@"%d",DATE]];
+    [pickerPicker addObject:[NSString stringWithFormat:@"%d",DATE]];
     return self;
 }
 
@@ -159,7 +176,28 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    switch ([[pickerPicker objectAtIndex:indexPath.section] intValue]) {
+        case 1:
+            //Bring up keyboard and allow editing of [courseList objectAtIndex:indexPath.section]
+            //Modifies course title or location.
+            NSLog(@"Edit text");
+            break;
+        case 2:
+            //Bring up picker with days and allow them to verify the correct days with check list
+            //Maybe we shouldn't let them change this. It's definitely right..
+            NSLog(@"Select days");
+            break;
+        case 3:
+            //Bring up picker with hours and allow them to verify correct hour
+            //Maybe we shouldn't let them change this. It's definitely right.
+            NSLog(@"Select hour");
+            break;
+        case 4:
+            //Bring up date picker and allow them to pick start/end date
+            NSLog(@"Select date");
+        default:
+            break;
+    }
 }
 
 @end
