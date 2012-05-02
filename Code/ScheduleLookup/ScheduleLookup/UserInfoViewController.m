@@ -13,6 +13,7 @@
 #import "NetworkScraper.h"
 
 
+
 @interface UserInfoViewController ()
 
 @end
@@ -89,7 +90,16 @@
     }
     else
     {
-        return 2;
+        if(person.isCurrentUser)
+        {
+            return 4;
+        }
+        else
+        {
+            return 3;
+        }
+            
+        
     }
 }
 
@@ -134,6 +144,12 @@
                     cell.textLabel.text = @"Add to Favorites";
                 }
                 
+                break;
+            case 2:
+                cell.textLabel.text = @"Add to overlay";
+                break;
+            case 3:
+                cell.textLabel.text = @"Export schedule to iPhone calendar";
                 break;
             default:
                 break;
@@ -214,6 +230,15 @@
                 }
                 [[self tableView] reloadData]; 
                 break;
+            }
+            case 2:
+            {
+                //Adds user to overlay feature?
+            }
+            case 3:
+            {
+                //Adds schedule to calendar system
+                
             }
                 
         }

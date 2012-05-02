@@ -56,7 +56,7 @@
 {
     userHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:user ofType:@"html"];
     userHTML = [[NSString alloc] initWithContentsOfFile:userHTMLPath encoding:NSUTF8StringEncoding error:nil];
-    userList = [FacultyFactory AllFacultyFromPartialMatchPage:@"<link REL=stylesheet HREF=/regweb/rhit_menu.css TYPE=text/css><title>Person Match: Usernames that match loa*</title><TABLE WIDTH=100% COLS=2><TR><TD ALIGN=LEFT CLASS=wr100>Person Match: Usernames that match loa*</TD><TD ALIGN=RIGHT CLASS=wr90>Rose-Hulman Institute of Technology</TD></TR><TR><TD ALIGN=RIGHT CLASS=bw70 COLSPAN=2>Updated Fri Apr 27 09:00:28 2012<br><A HREF=\"/regweb-cgi/reg-sched.pl\">Reset Schedule Lookup Page</A><BR><BR><A HREF=\"http://rose-hulmanbooks.collegestoreonline.com/ePOS?this_category=1&store=505&level1_category=1&form=shared3%2ftextbooks%2fmain%2ehtml&design=505\" target=\"_blank\">Rose-Hulman Bookstore Textbook Search</A></TD></TR></TABLE><p><TABLE BORDER=1 CELLSPACING=0 CELLPADDING=3><TR><TH>USERNAME</TH><TH>DESCRIPTION</TH><TH>NAME</TH><TH>CAMPUS MAIL</TH><TH>MAJOR</TH><TH>CLASS</TH><TH>ADVISOR</TH></TR>                <TR><TD><A HREF=\"/regweb-cgi/reg-sched.pl?type=Instructor&termcode=201230&view=tgrid&id=loaj\">loaj</A></TD><TD>faculty</TD><TD>Alexander J Lo</TD><TD>CM 4043</TD></TR>                </TABLE>"];
+    userList = [FacultyFactory AllFacultyFromPartialMatchPage:userHTML];
 }
 
 #pragma mark Course Roster Tests
@@ -132,15 +132,12 @@
 -(void) testFactoryCorrectlyDeterminesPartialMatch
 {
     
-    
+
     userHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"loa" ofType:@"html"];
-    NSLog(@"%@", userHTMLPath);
     userHTML = [[NSString alloc] initWithContentsOfFile:userHTMLPath encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"JSDLASJDLASKDJALSKDJASLGHFSKLDASFBHSLK%@",userHTML);
-    
-    
     userList = [FacultyFactory AllFacultyFromPartialMatchPage:userHTML];
- 
+
+    
     STAssertEquals(true,[Factory userSearchIsPartialMatch:userHTML], @"");
 }
 
@@ -153,7 +150,7 @@
 
 - (void) testPartialMatchShowNoUsersIfThereAreNoResults
 {
-    [self setUpUserTestWithUser:@"loaa"];
+    [self setUpUserTestWithUser:@"djkdaajkad"];
     
     STAssertEquals(0, [userList count], @"");
 }
@@ -162,7 +159,7 @@
 {
     [self setUpCourseTestWithCourse:@"csse375"];
     
-    STAssertEquals(0, (int) [courseList.schedule count], @"");
+    STAssertEquals(2, (int) [courseList.schedule count], @"");
 }
 
 

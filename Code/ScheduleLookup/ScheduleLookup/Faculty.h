@@ -29,6 +29,7 @@
 
 - (NSString *) asText;
 - (NSString *) getPhoneNumberWithAreaCode;
+- (BOOL) isCurrentUser;
 - (BOOL) inFavorites;
 - (void) addToFavorites;
 - (void) removeFromFavorites;

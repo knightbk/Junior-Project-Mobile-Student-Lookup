@@ -7,6 +7,7 @@
 //
 
 #import "Faculty.h"
+#import "NetworkScraper.h"
 
 @implementation Faculty
 
@@ -38,6 +39,11 @@
 - (NSString *) getPhoneNumberWithAreaCode
 {
     return [NSString stringWithFormat:@"812-%@", self.phoneNumber];
+}
+
+- (BOOL) isCurrentUser
+{
+    return name == [[NetworkScraper alloc] getUserName];
 }
 
 - (BOOL) inFavorites
