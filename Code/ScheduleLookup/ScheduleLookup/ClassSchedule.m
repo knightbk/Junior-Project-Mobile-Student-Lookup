@@ -119,6 +119,128 @@
     return result;
 }
 
+- (NSMutableArray *) getRangeOfDates
+{
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+    NSMutableArray* hours = [self getRangeOfHours:[self Term_Schedule]];
+    
+    [result addObject:[self getStartTimeFromHourSlot:[hours objectAtIndex:0]]];
+    [result addObject:[self getEndTimeFromHourSlot:[hours lastObject]]];
+    
+    return result;
+}
+
+- (NSDate *) getStartTimeFromHourSlot : (NSNumber*) hour
+{
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    
+    
+    switch ([hour intValue]) {
+        case 1:
+            [dateComponents setHour:8];
+            [dateComponents setMinute:05];
+            break;
+        case 2:
+            [dateComponents setHour:9];
+            [dateComponents setMinute:00];
+            break;
+        case 3:
+            [dateComponents setHour:9];
+            [dateComponents setMinute:55];
+            break;
+        case 4:
+            [dateComponents setHour:10];
+            [dateComponents setMinute:50];
+            break;
+        case 5:
+            [dateComponents setHour:11];
+            [dateComponents setMinute:45];
+            break;
+        case 6:
+            [dateComponents setHour:12];
+            [dateComponents setMinute:40];
+            break;
+        case 7:
+            [dateComponents setHour:13];
+            [dateComponents setMinute:35];
+            break;
+        case 8:
+            [dateComponents setHour:14];
+            [dateComponents setMinute:30];
+            break;
+        case 9:
+            [dateComponents setHour:15];
+            [dateComponents setMinute:25];
+            break;
+        case 10:
+            [dateComponents setHour:16];
+            [dateComponents setMinute:20];
+            break;
+        default:
+            NSLog(@"FIX: Evening Classes");
+            [dateComponents setHour:18];
+            [dateComponents setMinute:0];
+            break;
+    }
+    
+    return [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
+}
+- (NSDate *) getEndTimeFromHourSlot : (NSNumber *) hour
+{
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    
+    
+    switch ([hour intValue]) {
+        case 1:
+            [dateComponents setHour:8];
+            [dateComponents setMinute:55];
+            break;
+        case 2:
+            [dateComponents setHour:9];
+            [dateComponents setMinute:50];
+            break;
+        case 3:
+            [dateComponents setHour:10];
+            [dateComponents setMinute:45];
+            break;
+        case 4:
+            [dateComponents setHour:11];
+            [dateComponents setMinute:40];
+            break;
+        case 5:
+            [dateComponents setHour:12];
+            [dateComponents setMinute:35];
+            break;
+        case 6:
+            [dateComponents setHour:13];
+            [dateComponents setMinute:30];
+            break;
+        case 7:
+            [dateComponents setHour:14];
+            [dateComponents setMinute:25];
+            break;
+        case 8:
+            [dateComponents setHour:15];
+            [dateComponents setMinute:20];
+            break;
+        case 9:
+            [dateComponents setHour:14];
+            [dateComponents setMinute:15];
+            break;
+        case 10:
+            [dateComponents setHour:17];
+            [dateComponents setMinute:15];
+            break;
+        default:
+            NSLog(@"FIX: Evening Classes");
+            [dateComponents setHour:18];
+            [dateComponents setMinute:0];
+            break;
+    }
+    
+    return [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
+}
+
 - (NSString *) getLocation
 {
     return [[[self Term_Schedule] componentsSeparatedByString:@"/"] lastObject];

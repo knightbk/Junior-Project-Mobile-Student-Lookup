@@ -51,6 +51,9 @@
 - (NSMutableArray *) classMeetingsForDay:(int)day;
 - (NSNumber *) numberFromString:(NSString *)numberString;
 - (NSMutableArray *) getRangeOfHours:(NSString *)term_schedule;
+- (NSDate *) getStartTimeFromHourSlot : (NSNumber *) hour;
+- (NSDate *) getEndTimeFromHourSlot: (NSNumber *) hour;
+- (NSMutableArray *) getRangeOfDates;
 - (NSString *) getLocation;
 - (NSString *) getClassDays;
 - (NSString *) getClassHours;

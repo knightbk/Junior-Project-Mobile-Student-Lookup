@@ -24,15 +24,21 @@
 
 - (id)initWithSchedule:(Schedule*) sched
 {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
     [self initWithStyle:UITableViewStyleGrouped].schedule = sched;
     courseList = [[NSMutableArray alloc] init];
     pickerPicker = [[NSMutableArray alloc] init];
     for (ClassSchedule* classSched in sched.schedule)
     {
+        
+        
+        NSMutableArray* classHours = [classSched getRangeOfDates];
+        NSString* hours = [NSString stringWithFormat:@"%@ - %@", [dateFormatter stringFromDate:[classHours objectAtIndex:0]], [dateFormatter stringFromDate:[classHours objectAtIndex:1]]];
         [courseList addObject:classSched.Course];
         [courseList addObject:[classSched getLocation]];
         [courseList addObject:[classSched getClassDays]];
-        [courseList addObject:[classSched getClassHours]];
+        [courseList addObject:hours];
         
         [pickerPicker addObject:[NSString stringWithFormat:@"%d",TEXT]];
         [pickerPicker addObject:[NSString stringWithFormat:@"%d",TEXT]];
@@ -149,11 +155,11 @@
         }
         if(section % SECTION_TYPES == 2)
         {
-            return [NSString stringWithFormat:@"Meets: %@", [courseList objectAtIndex:section]];
+            return [NSString stringWithFormat:@"Days: %@", [courseList objectAtIndex:section]];
         }
         if(section % SECTION_TYPES == 3)
         {
-            return [NSString stringWithFormat:@"Hour(s): %@", [courseList objectAtIndex:section]];
+            return [NSString stringWithFormat:@"Time: %@", [courseList objectAtIndex:section]];
         }
     }
     else if(section < [schedule.schedule count] * SECTION_TYPES + 1)
@@ -221,9 +227,12 @@
         case 4:
             //Bring up date picker and allow them to pick start/end date
             NSLog(@"Select date");
-        default:
+            
             break;
+       
     }
 }
+
+
 
 @end

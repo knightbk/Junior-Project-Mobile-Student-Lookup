@@ -13,8 +13,8 @@
 
 @interface CalendarExporter : NSObject
 
-- (void) initiateExportWithSchedule: (Schedule*) schedule;
-- (void) exportSingleClassToCalendar: (ClassSchedule*) schedule;
+- (void) initiateExportWithSchedule: (Schedule*) schedule OnDate:(NSDate*) start Until:(NSDate*) end;
+- (void) exportSingleClassToCalendar:(ClassSchedule *)schedule From:(NSDate*) start Until:(NSDate*) end;
 
 
 

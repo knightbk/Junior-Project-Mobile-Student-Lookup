@@ -12,7 +12,7 @@
 
 @implementation CalendarExporter
 
-- (void) initiateExportWithSchedule:(Schedule *)schedule
+- (void) initiateExportWithSchedule: (Schedule*) schedule OnDate:(NSDate*) start Until:(NSDate*) end
 {
     for (ClassSchedule *sched in schedule.schedule)
     {
@@ -20,7 +20,7 @@
     }
 }
 
-- (void) exportSingleClassToCalendar:(ClassSchedule *)schedule
+- (void) exportSingleClassToCalendar:(ClassSchedule *)schedule From:(NSDate*) start Until:(NSDate*) end
 {
     EKEventStore *eventStore = [[EKEventStore alloc] init];
     

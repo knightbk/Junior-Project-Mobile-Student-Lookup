@@ -254,7 +254,6 @@
 
     
     CalendarExportViewController *calendarViewController = [[CalendarExportViewController alloc] initWithSchedule:[ScheduleFactory scheduleFromSchedulePage:sdata]];
-    [[CalendarExporter alloc] initiateExportWithSchedule:[ScheduleFactory scheduleFromSchedulePage:sdata]];
     
     [self.navigationController pushViewController:calendarViewController animated:YES];
 
