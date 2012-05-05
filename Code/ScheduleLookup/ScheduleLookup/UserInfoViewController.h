@@ -16,6 +16,7 @@
 
 @interface UserInfoViewController : UITableViewController <NetworkScraperDelegate, UIActionSheetDelegate> {
 
+@private NSString* searchTypeInitiated;
 }
 
 @property (strong, nonatomic) NSString *termCode;
@@ -23,5 +24,7 @@
 @property (strong, nonatomic) NSMutableArray *infoList;
 
 - (void) networkScraperDidReceiveData:(NSString *)sdata;
+- (void) viewSchedule:(NSString *)sdata;
+- (void) exportSchedule:(NSString *)sdata;
 
 @end

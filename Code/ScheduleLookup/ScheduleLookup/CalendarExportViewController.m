@@ -11,9 +11,10 @@
 #define DAYS 2
 #define HOUR 3
 #define DATE 4
+#define SUBMIT 5
 #define SECTION_TYPES 4
 #import "CalendarExportViewController.h"
-
+#import "CalendarExporter.h"
 
 
 @implementation CalendarExportViewController
@@ -48,9 +49,11 @@
     
     [courseList addObject:@"Enter Start Date"];
     [courseList addObject:@"Enter End Date"];
+    [courseList addObject:@"Submit"];
     
     [pickerPicker addObject:[NSString stringWithFormat:@"%d",DATE]];
     [pickerPicker addObject:[NSString stringWithFormat:@"%d",DATE]];
+    [pickerPicker addObject:[NSString stringWithFormat:@"%d",SUBMIT]];
     return self;
 }
 
@@ -58,17 +61,16 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+
     }
     return self;
 }
 
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
+
     [super didReceiveMemoryWarning];
     
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -77,23 +79,21 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    CalendarExporter *exporter = [[CalendarExporter alloc] init];
+    
+    [exporter initiateExportWithSchedule:schedule OnDate:[NSDate date] Until:[NSDate date]];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -113,7 +113,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
+    
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
@@ -141,8 +141,13 @@
     return 1;
 }
 
+
+
+
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
+    
     if(section < ([schedule.schedule count] * SECTION_TYPES))
     {
         if(section % SECTION_TYPES == 0)
@@ -166,7 +171,7 @@
     {
         return @"Calendar Start date";
     }
-    else
+    else if(section < [schedule.schedule count] * SECTION_TYPES + 2)
     {
         return @"Calendar End date";
     }
@@ -175,7 +180,7 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if(section < ([schedule.schedule count] * SECTION_TYPES) && section % SECTION_TYPES == 3)
+    if((section < ([schedule.schedule count] * SECTION_TYPES) && section % SECTION_TYPES == 3) || section == [courseList count] - 2)
     {
         return 40;
     }
@@ -185,6 +190,8 @@
     }
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -193,7 +200,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-
+    cell.textAlignment = UITextAlignmentCenter;
         cell.textLabel.text = [courseList objectAtIndex:indexPath.section];
         if([[pickerPicker objectAtIndex:indexPath.section] isEqualToString:[NSString stringWithFormat:@"%d",DAYS]])
         {

@@ -213,7 +213,8 @@
                 //Displays the schedule of the user.
                 NetworkScraper *networkScraper = [[NetworkScraper alloc] init];
                 networkScraper.delegate = self;
-                [networkScraper initiatePersonScheduleSearchWithUsername:person.alias termcode:termCode];                
+                [networkScraper initiatePersonScheduleSearchWithUsername:person.alias termcode:termCode];
+                searchTypeInitiated = @"ViewSchedule";
                 break;
             }
                 
@@ -237,27 +238,48 @@
             }
             case 3:
             {
-                //Create CalendarExportViewController with schedule and push it
-                
+                NetworkScraper *networkScraper = [[NetworkScraper alloc] init];
+                networkScraper.delegate = self;
+                [networkScraper initiatePersonScheduleSearchWithUsername:person.alias termcode:termCode];
+                searchTypeInitiated = @"ExportSchedule";
+                break;
             }   
                 
         }
     }
 }
-#pragma mark NetworkScraperDelegate methods
-    
-- (void) networkScraperDidReceiveData:(NSString *)sdata
+
+- (void) viewSchedule : (NSString *) sdata
 {
     ScheduleViewController *scheduleViewController = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:[NSBundle mainBundle]];
     scheduleViewController.schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];;
     scheduleViewController.termCode = termCode;
-
     
-    CalendarExportViewController *calendarViewController = [[CalendarExportViewController alloc] initWithSchedule:[ScheduleFactory scheduleFromSchedulePage:sdata]];
+    
+    [self.navigationController pushViewController:scheduleViewController animated:YES];
+}
+- (void) exportSchedule : (NSString*) sdata
+{
+        CalendarExportViewController *calendarViewController = [[CalendarExportViewController alloc] initWithSchedule:[ScheduleFactory scheduleFromSchedulePage:sdata]];
     
     [self.navigationController pushViewController:calendarViewController animated:YES];
-
 }
+
+#pragma mark NetworkScraperDelegate methods
+    
+- (void) networkScraperDidReceiveData:(NSString *)data
+{
+    if([searchTypeInitiated isEqualToString:@"ViewSchedule"])
+    {
+        [self viewSchedule:data];
+    }
+    else if([searchTypeInitiated isEqualToString:@"ExportSchedule"])
+    {
+        [self exportSchedule:data];
+    }
+}
+
+
 
 #pragma mark UIActionSheetDelegate methods
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
