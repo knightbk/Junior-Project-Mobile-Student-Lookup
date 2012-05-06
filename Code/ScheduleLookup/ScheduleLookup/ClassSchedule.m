@@ -105,7 +105,7 @@
 
         if ([first intValue] > 10) 
         {
-            NSLog(@"FIX: evening class");
+            [result addObject:[NSNumber numberWithInt:11]];
         }
         else
         {
