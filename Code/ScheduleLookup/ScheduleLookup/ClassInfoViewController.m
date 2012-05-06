@@ -73,10 +73,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     self.infoList = [NSMutableArray arrayWithCapacity:7];
-    int count = 5;
+    int count = 6;
     
-    //[infoList addObject:self.course.Description];
     [infoList addObject:self.course.Instructor];
+    [infoList addObject:self.course.Term_Schedule];
     [infoList addObject:[@"Credit Hours: " stringByAppendingString:self.course.Credit]];
     [infoList addObject:[@"Enrolled: " stringByAppendingString:self.course.ENRL]];
     [infoList addObject:[@"Cap: " stringByAppendingString:self.course.CAP]];
@@ -113,7 +113,7 @@
     
     if (indexPath.section == 0) {
         cell.textLabel.text = [infoList objectAtIndex:indexPath.row];
-        if (indexPath.row != 0) {
+        if (indexPath.row != 0 || [cell.textLabel.text isEqualToString:@"tba"]) {
             cell.userInteractionEnabled = NO;
         }
     } else {
