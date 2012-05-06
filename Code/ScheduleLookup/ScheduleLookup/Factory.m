@@ -19,7 +19,7 @@
 
 + (NSString *) usernameFromStringData:(NSString *)sdata
 {
-    return [self firstMatchStringWithRegex:@">Username: ([a-zA-Z ]+)<" WithStringData:sdata];
+    return [self firstMatchStringWithRegex:@">Username: ([a-zA-Z0-9 ]+)<" WithStringData:sdata];
 }
 
 + (BOOL) userSearchIsPartialMatch:(NSString *)sdata
