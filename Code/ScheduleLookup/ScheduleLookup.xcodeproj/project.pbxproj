@@ -40,7 +40,7 @@
 		CEB33E7314E9B4820048C518 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB33E7214E9B4820048C518 /* Schedule.m */; };
 		CEB33E7714E9B5740048C518 /* ScheduleFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB33E7614E9B5740048C518 /* ScheduleFactory.m */; };
 		CEB729CB14DA65AE002E54EC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB729CA14DA65AE002E54EC /* Security.framework */; };
-		CED1D5F414D9D1AE00255F0C /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = CED1D5F314D9D1AE00255F0C /* Factory.m */; };
+		CED1D5F414D9D1AE00255F0C /* PersonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CED1D5F314D9D1AE00255F0C /* PersonFactory.m */; };
 		E3102708151A718F00BC9971 /* SingleDayScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3102707151A718F00BC9971 /* SingleDayScheduleViewController.m */; };
 		E32079CB1499122E005ACDD0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32079CA1499122E005ACDD0 /* UIKit.framework */; };
 		E32079CD1499122E005ACDD0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32079CC1499122E005ACDD0 /* Foundation.framework */; };
@@ -127,8 +127,8 @@
 		CEB33E7514E9B5740048C518 /* ScheduleFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleFactory.h; sourceTree = "<group>"; };
 		CEB33E7614E9B5740048C518 /* ScheduleFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleFactory.m; sourceTree = "<group>"; };
 		CEB729CA14DA65AE002E54EC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		CED1D5F214D9D0E800255F0C /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
-		CED1D5F314D9D1AE00255F0C /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
+		CED1D5F214D9D0E800255F0C /* PersonFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonFactory.h; sourceTree = "<group>"; };
+		CED1D5F314D9D1AE00255F0C /* PersonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonFactory.m; sourceTree = "<group>"; };
 		E3102706151A718F00BC9971 /* SingleDayScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleDayScheduleViewController.h; sourceTree = "<group>"; };
 		E3102707151A718F00BC9971 /* SingleDayScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleDayScheduleViewController.m; sourceTree = "<group>"; };
 		E32079C61499122E005ACDD0 /* ScheduleLookup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleLookup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,8 +213,8 @@
 				CEB33E7614E9B5740048C518 /* ScheduleFactory.m */,
 				CE5CE83E14DC36C700E096C8 /* FacultyFactory.h */,
 				CE5CE83F14DC36C700E096C8 /* FacultyFactory.m */,
-				CED1D5F214D9D0E800255F0C /* Factory.h */,
-				CED1D5F314D9D1AE00255F0C /* Factory.m */,
+				CED1D5F214D9D0E800255F0C /* PersonFactory.h */,
+				CED1D5F314D9D1AE00255F0C /* PersonFactory.m */,
 				E36E4BB114D1324900EDE057 /* StudentFactory.h */,
 				E36E4BB214D1324900EDE057 /* StudentFactory.m */,
 				E338045C153798BD0034DEAB /* RosterFactory.h */,
@@ -528,7 +528,7 @@
 				E371603614C9C51400883E8C /* Student.m in Sources */,
 				E371603E14C9D3D100883E8C /* Faculty.m in Sources */,
 				E36E4BB314D1324900EDE057 /* StudentFactory.m in Sources */,
-				CED1D5F414D9D1AE00255F0C /* Factory.m in Sources */,
+				CED1D5F414D9D1AE00255F0C /* PersonFactory.m in Sources */,
 				E3DE69DE14DA20D800299023 /* SettingsViewController.m in Sources */,
 				CE1BADCF14DA60FE00C54FFE /* KeychainItemWrapper.m in Sources */,
 				CE5CE84014DC36C700E096C8 /* FacultyFactory.m in Sources */,

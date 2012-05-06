@@ -9,7 +9,7 @@
 
 #import "SearchViewController.h"
 #import "Faculty.h"
-#import "Factory.h"
+#import "PersonFactory.h"
 #import "KeychainItemWrapper.h"
 #import "SettingsViewController.h"
 #import "FacultyFactory.h"
@@ -287,7 +287,7 @@ UIGestureRecognizer* cancelGesture;
         }
         case USER_SEARCH:
         {
-            if ([Factory userSearchIsPartialMatch:sdata])
+            if ([PersonFactory userSearchIsPartialMatch:sdata])
             {
                 PartialMatchUserViewController *viewController = [[PartialMatchUserViewController alloc] init];
                 NSArray *matches = [FacultyFactory AllFacultyFromPartialMatchPage:sdata];

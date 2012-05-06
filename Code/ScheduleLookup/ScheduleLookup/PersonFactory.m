@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
-#import "Factory.h"
+#import "PersonFactory.h"
 
 
 
-@implementation Factory
+@implementation PersonFactory
 
 + (NSString *) nameFromStringData:(NSString *)sdata
 {

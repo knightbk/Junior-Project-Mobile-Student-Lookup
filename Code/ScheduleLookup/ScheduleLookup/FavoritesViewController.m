@@ -8,7 +8,7 @@
 
 #import "FavoritesViewController.h"
 #import "Faculty.h"
-#import "Factory.h"
+#import "PersonFactory.h"
 #import "FacultyFactory.h"
 #import "UserInfoViewController.h"
 

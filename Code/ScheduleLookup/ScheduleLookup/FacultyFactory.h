@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Faculty.h"
-#import "Factory.h"
+#import "PersonFactory.h"
 
-@interface FacultyFactory : Factory
+@interface FacultyFactory : PersonFactory
 
 + (Faculty *) FacultyFromSchedulePage:(NSString *)html;
 + (NSArray *) AllFacultyFromPartialMatchPage:(NSString *)html;

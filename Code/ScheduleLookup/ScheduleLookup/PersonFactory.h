@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Student.h"
 
-@interface Factory : NSObject
+@interface PersonFactory : NSObject
 + (NSString *) firstMatchStringWithRegex:(NSString *)expression WithStringData:(NSString *)sdata;
 + (NSString *) usernameFromStringData:(NSString *)sdata;
 + (NSString *) nameFromStringData:(NSString *)sdata;

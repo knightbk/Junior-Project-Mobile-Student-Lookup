@@ -8,7 +8,7 @@
 
 
 #import "StudentFactory.h"
-#import "Factory.h"
+#import "PersonFactory.h"
 
 @implementation StudentFactory
 

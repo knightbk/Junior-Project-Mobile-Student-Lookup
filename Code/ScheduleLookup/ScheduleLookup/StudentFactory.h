@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Student.h"
-#import "Factory.h"
+#import "PersonFactory.h"
 
-@interface StudentFactory : Factory
+@interface StudentFactory : PersonFactory
 
 + (Student *) studentFromStudentSchedulePage:(NSString *) html;
 
