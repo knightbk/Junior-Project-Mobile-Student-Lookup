@@ -22,8 +22,9 @@
 
 -(NSString *) getSelectedTerm;
 
-@property (weak, nonatomic) IBOutlet UITextView *scheduleTextView;
 @property (strong, nonatomic) NetworkScraper *networkScraper;
+@property (strong, nonatomic) IBOutlet UISearchBar *scheduleSearchBar;
+@property (strong, nonatomic) IBOutlet UIButton *bottomSearchButton;
 
 
 @end

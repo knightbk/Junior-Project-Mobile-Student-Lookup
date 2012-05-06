@@ -23,24 +23,33 @@
                                     <outlet property="delegate" destination="2" id="WSn-zo-W2s"/>
                                 </connections>
                             </searchBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="placeholder text...." id="S0l-B3-5u6">
-                                <rect key="frame" x="20" y="300" width="280" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <pickerView contentMode="scaleToFill" id="7pq-vz-Wmm">
                                 <rect key="frame" x="0.0" y="76" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tgd-1t-mjF">
+                                <rect key="frame" x="20" y="310" width="280" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="bottomSearchButtonPressed:" destination="2" eventType="touchUpInside" id="dL5-SI-GnT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="zBT-R1-zGZ"/>
                     <connections>
+                        <outlet property="bottomSearchButton" destination="Tgd-1t-mjF" id="RTT-Hr-Z81"/>
                         <outlet property="pickerView" destination="7pq-vz-Wmm" id="eBe-Zm-MDP"/>
-                        <outlet property="scheduleTextView" destination="S0l-B3-5u6" id="jMy-Iv-16E"/>
+                        <outlet property="scheduleSearchBar" destination="WHu-Ws-S3J" id="eoL-oW-9GV"/>
                     </connections>
                 </viewController>
             </objects>
@@ -203,8 +212,9 @@
         <class className="SearchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="bottomSearchButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="scheduleTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="scheduleSearchBar" candidateClass="UISearchBar"/>
                 <relationship kind="outlet" name="searchValues" candidateClass="NSMutableArray"/>
                 <relationship kind="outlet" name="selectedYear" candidateClass="NSString"/>
                 <relationship kind="outlet" name="termValues" candidateClass="NSMutableArray"/>

@@ -28,7 +28,8 @@
 
 @implementation SearchViewController
 
-@synthesize scheduleTextView;
+@synthesize scheduleSearchBar;
+@synthesize bottomSearchButton;
 @synthesize networkScraper;
 
 
@@ -68,8 +69,6 @@
     CGRect frame = pickerView.frame;
     frame.origin.y = 45;
     pickerView.frame = frame;
-	// Do any additional setup after loading the view, typically from a nib.
-    scheduleTextView.text = [searchValues objectAtIndex:[pickerView selectedRowInComponent:0]];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -87,7 +86,7 @@
 {
     return 3;
 }
-
+/*
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     switch (component) {
@@ -104,6 +103,7 @@
             break;
     }
 }
+ */
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;
 {
@@ -164,6 +164,20 @@
     return @"10";
     
 }
+
+- (void) toggleBottomSearchBarButtonClickability
+{
+    if ([self.scheduleSearchBar.text isEqualToString:@""]){
+        self.bottomSearchButton.enabled = NO;
+        self.bottomSearchButton.alpha = 0.5;
+    }
+    else
+    {
+        self.bottomSearchButton.enabled = YES;
+        self.bottomSearchButton.alpha = 1.0;
+    }
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -174,6 +188,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self toggleBottomSearchBarButtonClickability];
 }
 
 
@@ -202,6 +217,11 @@ UIGestureRecognizer* cancelGesture;
 - (IBAction)backgroundTouched:(id)sender 
 {
     [self.view endEditing:YES];
+}
+
+- (IBAction) bottomSearchButtonPressed:(id)sender
+{
+    [self searchBarSearchButtonClicked:self.scheduleSearchBar];
 }
 
 #pragma mark - UISearchBarDelegate Methods
@@ -237,6 +257,9 @@ UIGestureRecognizer* cancelGesture;
 }
 
 -(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    
+    [self toggleBottomSearchBarButtonClickability];
+    
     if (cancelGesture) {
         [self.view removeGestureRecognizer:cancelGesture];
         cancelGesture = nil;
