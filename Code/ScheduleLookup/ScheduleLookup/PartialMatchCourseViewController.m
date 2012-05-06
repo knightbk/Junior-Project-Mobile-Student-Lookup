@@ -39,6 +39,12 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -77,6 +83,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     ClassInfoViewController *classInfoPage = [[ClassInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
     classInfoPage.course = [courseArray objectAtIndex:indexPath.row];
     classInfoPage.termCode = termCode;

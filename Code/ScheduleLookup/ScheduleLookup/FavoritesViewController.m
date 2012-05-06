@@ -34,6 +34,11 @@
     [super viewDidUnload];
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -41,11 +46,6 @@
     [self updateFavorites];
     [self.tableView reloadData];
 
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -105,6 +105,7 @@
         networkScraper = [[NetworkScraper alloc] init];
         networkScraper.delegate = self;
     }
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSString *alias = [[userFavoritesDictionary allKeys] objectAtIndex:indexPath.row];
     [networkScraper initiatePersonInfoSearchWithUsername:alias termcode:@"201230"];
 }

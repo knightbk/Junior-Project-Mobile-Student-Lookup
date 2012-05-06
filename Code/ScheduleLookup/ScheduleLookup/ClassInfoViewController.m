@@ -52,6 +52,12 @@
     self.title = self.course.Course;
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -136,6 +142,7 @@
             networkScraper.delegate = self;
             [networkScraper initiatePersonScheduleSearchWithUsername:self.course.Instructor termcode:termCode];
             buttonPressed = [NSNumber numberWithInt:PROFESSOR];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         }
     }
     else
@@ -145,6 +152,7 @@
         networkScraper.delegate = self;
         [networkScraper initiateClassInfoSearchWithCourse:self.course.Course termcode:termCode];
         buttonPressed = [NSNumber numberWithInt:ROSTER];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     }           
 }
 

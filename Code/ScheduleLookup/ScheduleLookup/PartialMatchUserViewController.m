@@ -37,6 +37,13 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -80,6 +87,8 @@
     NetworkScraper *networkScraper = [[NetworkScraper alloc] init];
     networkScraper.delegate = self;
     [networkScraper initiatePersonInfoSearchWithUsername:[usernameArray objectAtIndex:indexPath.row] termcode:termCode];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+
 }
 
 #pragma mark NetworkScraperDelegate methods

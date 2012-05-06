@@ -32,6 +32,12 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
 
 -(void)findAndResignFirstResponder{
 	for (UIView *aView in [self.view subviews]){

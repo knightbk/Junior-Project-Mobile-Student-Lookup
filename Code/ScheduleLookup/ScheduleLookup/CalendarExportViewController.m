@@ -23,6 +23,12 @@
 @synthesize courseList;
 @synthesize pickerPicker;
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
 - (id)initWithSchedule:(Schedule*) sched
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -96,10 +102,6 @@
     
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
 
 - (void)viewWillDisappear:(BOOL)animated
 {
