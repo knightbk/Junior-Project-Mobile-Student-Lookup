@@ -69,7 +69,6 @@
 
 - (void) addToFavorites
 {
-    NSLog(@"Adding %@ to favorites.", alias);
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:@"UserFavorites.plist"];
@@ -85,15 +84,12 @@
         newDict = [[NSMutableDictionary alloc] init];
     }
     
-    NSLog(@"%@",newDict);
     [newDict setObject:[self name] forKey:[self alias]];
-    BOOL suc = [newDict writeToFile:plistPath atomically:YES];
-    NSLog(@"%@ %@", (suc ? @"Yes": @"No"), newDict);
+    [newDict writeToFile:plistPath atomically:YES];
 }
 
 - (void) removeFromFavorites
 {
-    NSLog(@"Removing %@ from favorites.", alias);
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",@"UserFavorites"]]; 

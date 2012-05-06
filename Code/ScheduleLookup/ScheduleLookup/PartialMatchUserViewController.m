@@ -94,7 +94,6 @@
 #pragma mark NetworkScraperDelegate methods
 - (void) networkScraperDidReceiveData:(NSString *)sdata
 {
-    NSLog(@"%@", sdata);
     UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
     userInfoPage.person = [FacultyFactory FacultyFromSchedulePage:sdata];
     userInfoPage.termCode = termCode;

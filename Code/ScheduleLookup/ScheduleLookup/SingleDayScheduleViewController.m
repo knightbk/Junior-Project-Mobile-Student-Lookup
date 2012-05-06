@@ -128,12 +128,9 @@
 
 - (void) networkScraperDidReceiveData:(NSString *)sdata
 {
-    NSLog(@"here?");
-
     ClassSchedule *schedule = [[ScheduleFactory scheduleFromSchedulePage:sdata].schedule objectAtIndex:0];
     ClassInfoViewController *classInfoPage = [[ClassInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
     classInfoPage.course = schedule;
-    //TODO: Needs to be unhardcoded
     classInfoPage.termCode = termCode;
     [delegate pushViewController:classInfoPage];
 }
