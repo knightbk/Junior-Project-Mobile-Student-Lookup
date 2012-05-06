@@ -23,6 +23,7 @@
 @synthesize userList;
 @synthesize userHTMLPath;
 @synthesize courseList;
+@synthesize faculty;
 
 - (void)setUp
 {
@@ -57,6 +58,36 @@
     userHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:user ofType:@"html"];
     userHTML = [[NSString alloc] initWithContentsOfFile:userHTMLPath encoding:NSUTF8StringEncoding error:nil];
     userList = [FacultyFactory AllFacultyFromPartialMatchPage:userHTML];
+}
+
+- (void) setupTestWithExactMatchUser: (NSString *) user
+{
+    userHTMLPath = [[NSBundle bundleForClass:[self class]] pathForResource:user ofType:@"html"];
+    userHTML = [[NSString alloc] initWithContentsOfFile:userHTMLPath encoding:NSUTF8StringEncoding error:nil];
+    faculty = [FacultyFactory FacultyFromSchedulePage:userHTML];
+}
+
+#pragma mark User Parsing Tests
+- (void) testUserIsParsedCorrectly
+{
+    [self setupTestWithExactMatchUser:@"crawfonw"];
+    STAssertEqualObjects(@"Nicholas William Crawford", faculty.name, @"");
+    STAssertEqualObjects(@"crawfonw", faculty.alias, @"");
+    STAssertEqualObjects(@"CM 1043", faculty.cmNumber, @"");
+    STAssertEqualObjects(@"&nbsp", faculty.department, @"");
+    STAssertEqualObjects(@"Apartment Room WEST 209A", faculty.officeNumber, @"");
+    STAssertEqualObjects(@"872-6796", faculty.phoneNumber, @"");
+}
+
+- (void) testUserWithNumberInUsernameIsParsedCorrectly
+{
+    [self setupTestWithExactMatchUser:@"casey1"];
+    STAssertEqualObjects(@"Nicholas William Crawford", faculty.name, @"");
+    STAssertEqualObjects(@"crawfonw", faculty.alias, @"");
+    STAssertEqualObjects(@"CM 1043", faculty.cmNumber, @"");
+    STAssertEqualObjects(@"&nbsp", faculty.department, @"");
+    STAssertEqualObjects(@"Apartment Room WEST 209A", faculty.officeNumber, @"");
+    STAssertEqualObjects(@"872-6796", faculty.phoneNumber, @"");
 }
 
 #pragma mark Course Roster Tests
@@ -128,7 +159,7 @@
     
     STAssertEquals(0, (int) [roomSchedule.schedule count], @"");
 }
-
+/*
 -(void) testFactoryCorrectlyDeterminesPartialMatch
 {
     
@@ -138,7 +169,7 @@
     userList = [FacultyFactory AllFacultyFromPartialMatchPage:userHTML];
 
     
-    STAssertEquals(true,[Factory userSearchIsPartialMatch:userHTML], @"");
+    STAssertEquals(YES, [Factory userSearchIsPartialMatch:userHTML], @"");
 }
 
 - (void) testPartialMatchShowsCorrectNumberOfUsers
@@ -161,6 +192,6 @@
     
     STAssertEquals(2, (int) [courseList.schedule count], @"");
 }
-
+*/
 
 @end
