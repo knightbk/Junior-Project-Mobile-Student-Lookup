@@ -46,6 +46,13 @@
     self.title = @"Roster";
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -84,6 +91,7 @@
     }
     NSString *alias = [[userDictionary allValues] objectAtIndex:indexPath.row];
     [networkScraper initiatePersonInfoSearchWithUsername:alias termcode:termCode];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 
 - (void) networkScraperDidReceiveData:(NSString *)sdata

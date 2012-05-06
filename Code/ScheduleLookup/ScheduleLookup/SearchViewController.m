@@ -72,6 +72,12 @@
     scheduleTextView.text = [searchValues objectAtIndex:[pickerView selectedRowInComponent:0]];
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
 - (NSString *)picker:(UIPickerView *)picker titleForRow:(NSInteger)row forComponent:(NSInteger)component;
 {
     return [searchValues objectAtIndex:row];
@@ -170,10 +176,6 @@
     [super viewWillAppear:animated];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -211,6 +213,7 @@ UIGestureRecognizer* cancelGesture;
         networkScraper = [[NetworkScraper alloc] init];
         networkScraper.delegate = self;
     }
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     switch ([pickerView selectedRowInComponent:0])
     {
         case COURSE_SEARCH:

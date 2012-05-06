@@ -35,6 +35,12 @@
 {
     [super viewDidLoad];
 }
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
 
 - (void)viewDidUnload
 {
@@ -215,6 +221,7 @@
                 networkScraper.delegate = self;
                 [networkScraper initiatePersonScheduleSearchWithUsername:person.alias termcode:termCode];
                 searchTypeInitiated = @"ViewSchedule";
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
                 break;
             }
                 

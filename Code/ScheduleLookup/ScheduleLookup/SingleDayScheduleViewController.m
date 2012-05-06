@@ -47,6 +47,13 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -59,10 +66,6 @@
     [super viewWillAppear:animated];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -164,6 +167,7 @@
     }
     
     if (![@"" isEqualToString:[classArray objectAtIndex:indexPath.row]]) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         [networkScraper initiateClassInfoSearchWithCourse:[classArray objectAtIndex:indexPath.row] termcode:termCode];
     }
 }
