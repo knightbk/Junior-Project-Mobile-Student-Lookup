@@ -61,7 +61,6 @@
 		E338045E153798BD0034DEAB /* RosterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E338045D153798BD0034DEAB /* RosterFactory.m */; };
 		E340E72914C75A3300EBA4E0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = E340E72814C75A3300EBA4E0 /* Person.m */; };
 		E35F5E67151238D500BCF42C /* UserFavorites.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35F5E66151238D500BCF42C /* UserFavorites.plist */; };
-		E36E4BB314D1324900EDE057 /* StudentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E36E4BB214D1324900EDE057 /* StudentFactory.m */; };
 		E371603614C9C51400883E8C /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = E371603514C9C51400883E8C /* Student.m */; };
 		E371603E14C9D3D100883E8C /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = E371603D14C9D3D100883E8C /* Faculty.m */; };
 		E38D1201154791B300DB75F2 /* PartialMatchUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D1200154791B300DB75F2 /* PartialMatchUserViewController.m */; };
@@ -160,8 +159,6 @@
 		E340E72714C75A3300EBA4E0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		E340E72814C75A3300EBA4E0 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		E35F5E66151238D500BCF42C /* UserFavorites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = UserFavorites.plist; path = ../UserFavorites.plist; sourceTree = "<group>"; };
-		E36E4BB114D1324900EDE057 /* StudentFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentFactory.h; sourceTree = "<group>"; };
-		E36E4BB214D1324900EDE057 /* StudentFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentFactory.m; sourceTree = "<group>"; };
 		E371603414C9C51400883E8C /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		E371603514C9C51400883E8C /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		E371603C14C9D3D100883E8C /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faculty.h; sourceTree = "<group>"; };
@@ -215,8 +212,6 @@
 				CE5CE83F14DC36C700E096C8 /* FacultyFactory.m */,
 				CED1D5F214D9D0E800255F0C /* PersonFactory.h */,
 				CED1D5F314D9D1AE00255F0C /* PersonFactory.m */,
-				E36E4BB114D1324900EDE057 /* StudentFactory.h */,
-				E36E4BB214D1324900EDE057 /* StudentFactory.m */,
 				E338045C153798BD0034DEAB /* RosterFactory.h */,
 				E338045D153798BD0034DEAB /* RosterFactory.m */,
 			);
@@ -527,7 +522,6 @@
 				E340E72914C75A3300EBA4E0 /* Person.m in Sources */,
 				E371603614C9C51400883E8C /* Student.m in Sources */,
 				E371603E14C9D3D100883E8C /* Faculty.m in Sources */,
-				E36E4BB314D1324900EDE057 /* StudentFactory.m in Sources */,
 				CED1D5F414D9D1AE00255F0C /* PersonFactory.m in Sources */,
 				E3DE69DE14DA20D800299023 /* SettingsViewController.m in Sources */,
 				CE1BADCF14DA60FE00C54FFE /* KeychainItemWrapper.m in Sources */,
