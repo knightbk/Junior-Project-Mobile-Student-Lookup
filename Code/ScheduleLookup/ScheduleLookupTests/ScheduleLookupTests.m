@@ -77,17 +77,19 @@
     STAssertEqualObjects(@"&nbsp", faculty.department, @"");
     STAssertEqualObjects(@"Apartment Room WEST 209A", faculty.officeNumber, @"");
     STAssertEqualObjects(@"872-6796", faculty.phoneNumber, @"");
+    STAssertEqualObjects(@"crawfonw@rose-hulman.edu", [faculty getEmailAddress], @"");
 }
 
 - (void) testUserWithNumberInUsernameIsParsedCorrectly
 {
     [self setupTestWithExactMatchUser:@"casey1"];
-    STAssertEqualObjects(@"Nicholas William Crawford", faculty.name, @"");
-    STAssertEqualObjects(@"crawfonw", faculty.alias, @"");
-    STAssertEqualObjects(@"CM 1043", faculty.cmNumber, @"");
-    STAssertEqualObjects(@"&nbsp", faculty.department, @"");
-    STAssertEqualObjects(@"Apartment Room WEST 209A", faculty.officeNumber, @"");
-    STAssertEqualObjects(@"872-6796", faculty.phoneNumber, @"");
+    STAssertEqualObjects(@"Terrence C Casey", faculty.name, @"");
+    STAssertEqualObjects(@"casey1", faculty.alias, @"");
+    STAssertEqualObjects(@"CM 93", faculty.cmNumber, @"");
+    STAssertEqualObjects(@"Humanities & Social Sciences", faculty.department, @"");
+    STAssertEqualObjects(@"Moench A209", faculty.officeNumber, @"");
+    STAssertEqualObjects(@"877-8281", faculty.phoneNumber, @"");
+    STAssertEqualObjects(@"casey1@rose-hulman.edu", [faculty getEmailAddress], @"");
 }
 
 #pragma mark Course Roster Tests
