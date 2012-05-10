@@ -34,15 +34,14 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH:mm"];
     [self initWithStyle:UITableViewStyleGrouped].schedule = sched;
+    
     courseList = [[NSMutableArray alloc] init];
     pickerPicker = [[NSMutableArray alloc] init];
     for (ClassSchedule* classSched in sched.schedule)
     {
-        
-        
         NSMutableArray* classHours = [classSched getRangeOfDates];
         NSString* hours = [NSString stringWithFormat:@"%@ - %@", [dateFormatter stringFromDate:[classHours objectAtIndex:0]], [dateFormatter stringFromDate:[classHours objectAtIndex:1]]];
-        [courseList addObject:classSched.Course];
+        [courseList addObject:classSched.Description];
         [courseList addObject:[classSched getLocation]];
         [courseList addObject:[classSched getClassDays]];
         [courseList addObject:hours];
@@ -67,7 +66,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-
+    
     }
     return self;
 }
@@ -131,6 +130,10 @@
 
     if(section < ([schedule.schedule count] * SECTION_TYPES))
     {   
+        if(section % SECTION_TYPES == 1)
+        {
+            return 0;
+        }
         if(section % SECTION_TYPES == 2)
         {
             return 0;
@@ -158,7 +161,7 @@
         }
         if(section % SECTION_TYPES == 1)
         {
-            return @"Location";
+            return [NSString stringWithFormat:@"Location: %@", [courseList objectAtIndex:section]];
         }
         if(section % SECTION_TYPES == 2)
         {
@@ -196,6 +199,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -203,13 +207,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     cell.textAlignment = UITextAlignmentCenter;
-        cell.textLabel.text = [courseList objectAtIndex:indexPath.section];
-        if([[pickerPicker objectAtIndex:indexPath.section] isEqualToString:[NSString stringWithFormat:@"%d",DAYS]])
-        {
-            cell.userInteractionEnabled = NO;
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
-        
+    cell.textLabel.text = [courseList objectAtIndex:indexPath.section];
+       
+    if(indexPath.section < [schedule.schedule count] * 4)
+    {
+        cell.backgroundColor = [UIColor clearColor];
+    }
     
     return cell;
 }
@@ -238,7 +241,9 @@
             NSLog(@"Select date");
             
             break;
-       
+        case 5:
+            NSLog(@"Submit");
+            break;
     }
 }
 
