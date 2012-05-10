@@ -11,7 +11,7 @@
 #import "ClassSchedule.h"
 #import "RosterFactory.h"
 #import "FacultyFactory.h"
-#import "Factory.h"
+#import "PersonFactory.h"
 @interface ScheduleLookupTests : SenTestCase
 
 
