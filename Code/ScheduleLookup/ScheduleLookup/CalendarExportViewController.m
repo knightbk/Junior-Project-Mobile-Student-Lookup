@@ -206,11 +206,7 @@
     }
     cell.textAlignment = UITextAlignmentCenter;
     cell.textLabel.text = [courseList objectAtIndex:indexPath.section];
-       
-    if(indexPath.section < [schedule.schedule count] * 4)
-    {
-        cell.backgroundColor = [UIColor clearColor];
-    }
+    
     
     return cell;
 }
@@ -242,13 +238,7 @@
             
             break;
         case 5:
-           
-            
-            for (ClassSchedule* classSched in schedule.schedule) {
-                
-                [exporter exportSingleClassToCalendar:classSched From:[[classSched getRangeOfDates] objectAtIndex:0] Until:[[classSched getRangeOfDates] objectAtIndex:1]];
-                
-            }
+            [exporter initiateExportWithSchedule:schedule OnDate:[NSDate date] Until:[NSDate dateWithTimeInterval:(24*60*60) sinceDate:[NSDate date]]];
             break;
     }
 }
