@@ -7,7 +7,12 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "NetworkScraper.h"
 
-@interface IntegrationTests : SenTestCase
+@interface IntegrationTests : SenTestCase <NetworkScraperDelegate>
+{
+}
+@property (strong, nonatomic) NSString *sHtml;
+@property (strong, nonatomic) NSNumber *canContinue;
 
 @end
