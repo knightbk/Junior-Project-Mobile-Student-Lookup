@@ -63,33 +63,39 @@
                                         daysOfTheYear:nil
                                         setPositions:nil 
                                         end:recurrenceEnd];
-    event.recurrenceRules = [NSArray arrayWithObject:recurrenceRule];
-    startDate = [self createNewDateWithTime:[[schedule getRangeOfDates] objectAtIndex:0] OnDate:startDate];
+    //event.recurrenceRule = recurrenceRule; //this breaks :(
+    event.recurrenceRules = [NSArray arrayWithObject:recurrenceRule]; //Non-deprecated version. Still breaks.
+    NSDate* startTime = [[NSDate alloc] init];
+    startTime = [self createNewDateWithTime:[[schedule getRangeOfDates] objectAtIndex:0] OnDate:startDate];
     endDate = [self createNewDateWithTime:[[schedule getRangeOfDates] objectAtIndex:1] OnDate:startDate];
     [event setTitle:schedule.Course];
     [event setLocation:schedule.getLocation];
     [event setStartDate:startDate];
     [event setEndDate:endDate];
     [event setCalendar:[eventStore defaultCalendarForNewEvents]];
-
+    NSLog(@"Course: %@", schedule.Course);
+    NSLog(@"Stored Result: %@", startTime);
     NSError *err;
     [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
     
-    NSLog(@"Exported event: %@", schedule.Course);
+    
     
     
 }
 - (NSDate*) createNewDateWithTime:(NSDate*) time OnDate:(NSDate*) start{
-    NSDateComponents* timeComponents = [[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:time];
-    NSDateComponents* startComponents = [[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:start];
+   
+    NSCalendarUnit unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+
+    NSDateComponents* timeComponents = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:time];
+    NSDateComponents* startComponents = [[NSCalendar currentCalendar] components:unitFlags fromDate:start];
     
     NSDateComponents* result = [[NSDateComponents alloc] init];
-    [result setHour:timeComponents.hour];
+    [result setHour:timeComponents.hour - 4];
     [result setMinute:timeComponents.minute];
     [result setDay:startComponents.day];
     [result setMonth:startComponents.month];
     [result setYear:startComponents.year];
-    
+    [result setTimeZone:[[NSCalendar currentCalendar] timeZone]];
     return [[NSCalendar currentCalendar] dateFromComponents:result];
     
 }

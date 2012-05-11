@@ -134,7 +134,7 @@
 {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     
-    
+    [dateComponents setTimeZone:[[NSCalendar currentCalendar] timeZone]];
     switch ([hour intValue]) {
         case 1:
             [dateComponents setHour:8];
@@ -188,7 +188,7 @@
 - (NSDate *) getEndTimeFromHourSlot : (NSNumber *) hour
 {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    
+    [dateComponents setTimeZone:[[NSCalendar currentCalendar] timeZone]];
     
     switch ([hour intValue]) {
         case 1:

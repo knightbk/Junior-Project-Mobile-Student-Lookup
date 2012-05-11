@@ -20,7 +20,6 @@
 - (void) initiatePersonInfoSearchWithUsername:(NSString *)uname termcode:(NSString *) termcode
 {
     self.sdata = @"";
-    
     NSString *url = [NSString stringWithFormat:@"https://prodweb.rose-hulman.edu/regweb-cgi/reg-sched.pl?type=Instructor&termcode=%@&view=tgrid&id=%@", termcode, uname];
     
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
@@ -66,12 +65,10 @@
 
 - (void) connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
-    
     if ([challenge previousFailureCount] > 0)
     {
         [[challenge sender] cancelAuthenticationChallenge:challenge];
-        
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials" message:@"The credentials you input for your account are invalid." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Network Error" message:@"Check you have a working internet connection and valid Rose-Hulman credentials." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
     else
