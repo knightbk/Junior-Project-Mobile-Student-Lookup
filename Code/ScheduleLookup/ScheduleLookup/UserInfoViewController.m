@@ -98,8 +98,8 @@
     {
         if(person.isCurrentUser)
         {
-            //return 3;
-            return 2;
+            return 3;
+          
         }
         else
         {
