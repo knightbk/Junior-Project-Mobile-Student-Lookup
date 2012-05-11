@@ -25,6 +25,8 @@
 #define ROOM_SEARCH 1
 #define USER_SEARCH 2
 
+#define YEAR 2013
+
 
 @implementation SearchViewController
 
@@ -47,6 +49,17 @@
 {
     [super viewDidLoad];
     
+    [self setUpPicker];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
+- (void) setUpPicker
+{
     searchValues = [[NSMutableArray alloc] init];
     [searchValues addObject:@"Course"];
     [searchValues addObject:@"Room"];
@@ -57,24 +70,55 @@
     [termValues addObject:@"Spring"];
     [termValues addObject:@"Summer"];
     yearValues = [[NSMutableArray alloc] init];
-    for (int i = 2013; i >= 2000; i--) {
+    for (int i = YEAR; i >= 2000; i--) {
         [yearValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist", @"SearchSelectionFavorites"]];
+    NSMutableDictionary *newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    
+    NSString *searchType = [newDict valueForKey:@"Type"];
+    NSString *term = [newDict valueForKey:@"Term"];
+    int year = [[newDict valueForKey:@"Year"] intValue];
+    
+    NSLog(@"%@", newDict);
+    NSLog(@"%@, %@, %d", searchType, term, year);
+    
     pickerView = [[UIPickerView alloc] init];
     pickerView.delegate = self;
     pickerView.showsSelectionIndicator = YES;
     [self.view addSubview:pickerView];
-    [pickerView selectRow:2 inComponent:0 animated:YES];
-    [pickerView selectRow:0 inComponent:1 animated:YES];
+    [pickerView selectRow:[searchValues indexOfObject:searchType] inComponent:0 animated:YES];
+    [pickerView selectRow:[searchValues indexOfObject:term] inComponent:1 animated:YES];
+    [pickerView selectRow:YEAR - year inComponent:2 animated:YES];
     CGRect frame = pickerView.frame;
     frame.origin.y = 45;
     pickerView.frame = frame;
 }
 
-- (void) viewDidAppear:(BOOL)animated
+- (void) saveContentsOfPicker
 {
-    [super viewDidAppear:animated];
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:@"SearchSelectionFavorites.plist"];
+    
+    NSMutableDictionary *newDict;
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
+        newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    }
+    else
+    {
+        [[NSFileManager defaultManager] createFileAtPath:plistPath contents:nil attributes:nil];
+        newDict = [[NSMutableDictionary alloc] init];
+    }
+    
+    [newDict setObject:[searchValues objectAtIndex:[pickerView selectedRowInComponent:0]] forKey:@"Type"];
+    [newDict setObject:[termValues objectAtIndex:[pickerView selectedRowInComponent:1]] forKey:@"Term"];
+    [newDict setObject:[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]] forKey:@"Year"];
+    [newDict writeToFile:plistPath atomically:YES];
 }
 
 - (NSString *)picker:(UIPickerView *)picker titleForRow:(NSInteger)row forComponent:(NSInteger)component;
@@ -195,6 +239,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];
+    [self saveContentsOfPicker];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
