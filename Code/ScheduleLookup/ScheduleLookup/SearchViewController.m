@@ -121,7 +121,7 @@
     pickerView.showsSelectionIndicator = YES;
     [self.view addSubview:pickerView];
     [pickerView selectRow:[searchValues indexOfObject:searchType] inComponent:0 animated:YES];
-    [pickerView selectRow:[searchValues indexOfObject:term] inComponent:1 animated:YES];
+    [pickerView selectRow:[termValues indexOfObject:term] inComponent:1 animated:YES];
     [pickerView selectRow:currentYear - year inComponent:2 animated:YES];
     CGRect frame = pickerView.frame;
     frame.origin.y = 45;
@@ -149,6 +149,7 @@
     [newDict setObject:[termValues objectAtIndex:[pickerView selectedRowInComponent:1]] forKey:@"Term"];
     [newDict setObject:[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]] forKey:@"Year"];
     [newDict setObject:[self getSelectedTerm] forKey:@"TermCode"];
+    
     [newDict writeToFile:plistPath atomically:YES];
 }
 
