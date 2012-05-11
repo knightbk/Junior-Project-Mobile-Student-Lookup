@@ -22,7 +22,7 @@
 
 @synthesize courseList;
 @synthesize pickerPicker;
-@synthesize datePicker;
+//@synthesize datePicker;
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
