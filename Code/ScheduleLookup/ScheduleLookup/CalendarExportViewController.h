@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Schedule.h"
 #import "ClassSchedule.h"
-//#import "ActionSheetPicker.h"
+#import "ActionSheetPicker.h"
 
 @interface CalendarExportViewController : UITableViewController <UIAlertViewDelegate, UIActionSheetDelegate>
 {
@@ -19,12 +19,16 @@
 @property (nonatomic, retain) Schedule* schedule;
 @property (nonatomic, retain) NSMutableArray* courseList;
 @property (nonatomic, retain) NSMutableArray* pickerPicker;
-//@property (nonatomic, retain) ActionSheetDatePicker* datePicker;
+
+@property (nonatomic, retain) ActionSheetDatePicker* startDatePicker;
+@property (nonatomic, retain) ActionSheetDatePicker* endDatePicker;
 
 - (id)initWithSchedule:(Schedule*) sched;
 - (NSString*) formatDate: (NSDate*) date;
-- (void) displayStartDatePicker;
-- (void) displayEndDatePicker;
+- (IBAction)displayStartDatePicker:(id)sender;
+- (IBAction)displayEndDatePicker:(id)sender;
+- (void) startDateWasSelected:(NSDate*)date element:(id)element;
+- (void) endDateWasSelected:(NSDate*)date element:(id)element;
 @end
 
 

@@ -22,7 +22,9 @@
 
 @synthesize courseList;
 @synthesize pickerPicker;
-//@synthesize datePicker;
+
+@synthesize startDatePicker, endDatePicker;
+
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -77,14 +79,14 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-    
+        
     }
     return self;
 }
 
 - (void)didReceiveMemoryWarning
 {
-
+    
     [super didReceiveMemoryWarning];
     
 }
@@ -94,7 +96,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
 }
 
 - (void)viewDidUnload
@@ -106,7 +108,7 @@
 {
     [super viewWillAppear:animated];
     
-
+    
     
 }
 
@@ -136,7 +138,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
+    
     if(section < ([schedule.schedule count] * SECTION_TYPES))
     {   
         if(section % SECTION_TYPES == 1)
@@ -223,9 +225,22 @@
     {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.textAlignment = UITextAlignmentCenter;
+    
+    
     cell.textLabel.text = [courseList objectAtIndex:indexPath.section];
-
+    
+    
+    if(indexPath.section == [courseList count] - 3)
+    {
+        cell.textLabel.text = [self formatDate:startDate];
+    }
+    else if(indexPath.section == [courseList count] - 2)
+    {
+        cell.textLabel.text = [self formatDate:endDate];
+    }
+    cell.textAlignment = UITextAlignmentCenter;
+    
+    
     return cell;
 }
 
@@ -237,33 +252,67 @@
     
     switch ([[pickerPicker objectAtIndex:indexPath.section] intValue]) {
         case 1:
-
+            
             break;
         case 2:
-
+            
             break;
         case 3:
-           
+            
             NSLog(@"Select start date");
-            [self displayStartDatePicker];
+            [self displayStartDatePicker:[tableView cellForRowAtIndexPath:indexPath]];
             break;
         case 4:
-            //Bring up date picker and allow them to pick start/end date
-            NSLog(@"Select end date");
             
+            NSLog(@"Select end date");
+            [self displayEndDatePicker:[tableView cellForRowAtIndexPath:indexPath]];
             
             break;
         case 5:
-            [exporter initiateExportWithSchedule:schedule OnDate:[NSDate date] Until:[NSDate dateWithTimeInterval:(24*60*60) sinceDate:[NSDate date]]];
-            [[[UIAlertView alloc] initWithTitle:@"Courses exported successfully!" message:@"Press OK to continue" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+            if([endDate timeIntervalSinceDate:startDate] > 0)
+            {
+                [exporter initiateExportWithSchedule:schedule OnDate:startDate Until:endDate];
+                [[[UIAlertView alloc] initWithTitle:@"Courses exported successfully!" message:@"Press OK to continue" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+            }
+            else
+            {
+                [[[UIAlertView alloc] initWithTitle:@"Warning" message:@"Start date must be before end date!" delegate:nil cancelButtonTitle:@"Sorry." otherButtonTitles:nil] show];
+            }
             break;
     }
 }
 
-- (void) displayStartDatePicker
+- (IBAction)displayStartDatePicker:(id)sender
 {
+    startDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Select start date" datePickerMode:UIDatePickerModeDate selectedDate:startDate target:self action:@selector(startDateWasSelected:element:) origin:sender];
+    self.startDatePicker.hideCancel = YES;
     
+    [self.startDatePicker showActionSheetPicker];
+}
+
+- (void) startDateWasSelected:(NSDate*)date element:(id)element {
+    startDate = date;
     
+    NSLog(@"Date changed to %@", date);
+    [[self tableView] reloadData];
+    
+}
+
+- (IBAction)displayEndDatePicker:(id)sender
+{
+    endDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Select end date" datePickerMode:UIDatePickerModeDate selectedDate:endDate target:self action:@selector(endDateWasSelected:element:) origin:sender];
+    self.endDatePicker.hideCancel = YES;
+    
+    [self.endDatePicker showActionSheetPicker];
+}
+
+- (void) endDateWasSelected:(NSDate *)date element:(id)element
+{
+    endDate = date;
+    
+    NSLog(@"End date changed to %@", date);
+    
+    [[self tableView] reloadData];
 }
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex 
@@ -271,18 +320,5 @@
     [[self navigationController] popViewControllerAnimated:YES];
 }
 
--(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSLog(@"Clicked button.");
-}
--(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    NSLog(@"Clicked cancel button.");
-}
-
--(void) actionSheetCancel:(UIActionSheet *)actionSheet
-{
-    NSLog(@"Cancelling.");
-}
 
 @end

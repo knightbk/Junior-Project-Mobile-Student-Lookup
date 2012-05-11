@@ -50,11 +50,11 @@
         }
     }
     
-    
+    endDate = [self createNewDateWithTime:[[schedule getRangeOfDates] objectAtIndex:1] OnDate:endDate];
     EKEvent *event = [EKEvent eventWithEventStore:eventStore];
     EKRecurrenceEnd *recurrenceEnd = [EKRecurrenceEnd recurrenceEndWithEndDate:endDate];
     EKRecurrenceRule *recurrenceRule = [[EKRecurrenceRule alloc]
-                initRecurrenceWithFrequency:EKRecurrenceFrequencyWeekly
+                                        initRecurrenceWithFrequency:EKRecurrenceFrequencyWeekly
                                         interval:1
                                         daysOfTheWeek:daysOfWeek
                                         daysOfTheMonth:nil
@@ -81,14 +81,14 @@
     
 }
 - (NSDate*) createNewDateWithTime:(NSDate*) time OnDate:(NSDate*) start{
-   
+    
     NSCalendarUnit unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
-
+    
     NSDateComponents* timeComponents = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:time];
     NSDateComponents* startComponents = [[NSCalendar currentCalendar] components:unitFlags fromDate:start];
     
     NSDateComponents* result = [[NSDateComponents alloc] init];
-    [result setHour:timeComponents.hour - 4];
+    [result setHour:timeComponents.hour];
     [result setMinute:timeComponents.minute];
     [result setDay:startComponents.day];
     [result setMonth:startComponents.month];
