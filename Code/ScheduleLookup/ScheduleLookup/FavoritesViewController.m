@@ -67,7 +67,7 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",@"UserFavorites"]];
+    NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist", @"UserFavorites"]];
     NSMutableDictionary *newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
     userFavoritesDictionary = newDict;
     
@@ -107,7 +107,7 @@
     }
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSString *alias = [[userFavoritesDictionary allKeys] objectAtIndex:indexPath.row];
-    [networkScraper initiatePersonInfoSearchWithUsername:alias termcode:@"201230"];
+    [networkScraper initiatePersonInfoSearchWithUsername:alias termcode:[self getSavedTermCode]];
 }
      
 - (void) networkScraperDidReceiveData:(NSString *)sdata
@@ -116,9 +116,24 @@
     //Schedule *schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];
     //scheduleTextView.text = [schedule scheduleInformationString];
     UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    userInfoPage.termCode = @"201230";
+    userInfoPage.termCode = [self getSavedTermCode];
     userInfoPage.person = person;
     [self.navigationController pushViewController:userInfoPage animated:YES];
 }
+
+- (NSString *)getSavedTermCode
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist", @"SearchSelectionFavorites"]];
+    NSMutableDictionary *newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    
+    NSString *term = [newDict valueForKey:@"TermCode"];
+    NSString *year = [newDict valueForKey:@"Year"];
+    NSString *catString = [[NSString alloc] initWithFormat:@"%@%@", year, term];
+    
+    return catString;
+}
+
 
 @end

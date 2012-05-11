@@ -52,6 +52,32 @@
     [self setUpPicker];
 }
 
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self toggleBottomSearchBarButtonClickability];
+    [self setUpPicker];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+    [self saveContentsOfPicker];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	[super viewDidDisappear:animated];
+}
+
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -70,7 +96,7 @@
     [termValues addObject:@"Spring"];
     [termValues addObject:@"Summer"];
     yearValues = [[NSMutableArray alloc] init];
-    for (int i = YEAR; i >= 2000; i--) {
+    for (int i = YEAR; i > 2000; i--) {
         [yearValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
     
@@ -82,9 +108,6 @@
     NSString *searchType = [newDict valueForKey:@"Type"];
     NSString *term = [newDict valueForKey:@"Term"];
     int year = [[newDict valueForKey:@"Year"] intValue];
-    
-    NSLog(@"%@", newDict);
-    NSLog(@"%@, %@, %d", searchType, term, year);
     
     pickerView = [[UIPickerView alloc] init];
     pickerView.delegate = self;
@@ -118,6 +141,7 @@
     [newDict setObject:[searchValues objectAtIndex:[pickerView selectedRowInComponent:0]] forKey:@"Type"];
     [newDict setObject:[termValues objectAtIndex:[pickerView selectedRowInComponent:1]] forKey:@"Term"];
     [newDict setObject:[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]] forKey:@"Year"];
+    [newDict setObject:[self getSelectedTerm] forKey:@"TermCode"];
     [newDict writeToFile:plistPath atomically:YES];
 }
 
@@ -130,24 +154,6 @@
 {
     return 3;
 }
-/*
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    switch (component) {
-        case 0:
-            scheduleTextView.text = [searchValues objectAtIndex:row];
-            break;
-        case 1:
-            scheduleTextView.text = [termValues objectAtIndex:row];
-            break;
-        case 2:
-            scheduleTextView.text = [yearValues objectAtIndex:row];
-            break;
-        default:
-            break;
-    }
-}
- */
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;
 {
@@ -220,31 +226,6 @@
         self.bottomSearchButton.enabled = YES;
         self.bottomSearchButton.alpha = 1.0;
     }
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self toggleBottomSearchBarButtonClickability];
-}
-
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-    [self saveContentsOfPicker];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
