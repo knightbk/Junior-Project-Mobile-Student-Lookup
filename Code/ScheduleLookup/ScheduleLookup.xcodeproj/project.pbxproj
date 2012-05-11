@@ -66,6 +66,7 @@
 		E371603E14C9D3D100883E8C /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = E371603D14C9D3D100883E8C /* Faculty.m */; };
 		E38D1201154791B300DB75F2 /* PartialMatchUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D1200154791B300DB75F2 /* PartialMatchUserViewController.m */; };
 		E38D1204154791C300DB75F2 /* PartialMatchCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D1203154791C300DB75F2 /* PartialMatchCourseViewController.m */; };
+		E3A26181155C8F3D00944DBE /* IntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A26180155C8F3D00944DBE /* IntegrationTests.m */; };
 		E3B71D7E15196638002D1D8B /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B71D7C15196638002D1D8B /* ScheduleViewController.m */; };
 		E3B71D7F15196638002D1D8B /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3B71D7D15196638002D1D8B /* ScheduleViewController.xib */; };
 		E3DE69DE14DA20D800299023 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DE69DD14DA20D800299023 /* SettingsViewController.m */; };
@@ -169,6 +170,8 @@
 		E38D1200154791B300DB75F2 /* PartialMatchUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartialMatchUserViewController.m; sourceTree = "<group>"; };
 		E38D1202154791C200DB75F2 /* PartialMatchCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartialMatchCourseViewController.h; sourceTree = "<group>"; };
 		E38D1203154791C300DB75F2 /* PartialMatchCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartialMatchCourseViewController.m; sourceTree = "<group>"; };
+		E3A2617F155C8F3D00944DBE /* IntegrationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegrationTests.h; sourceTree = "<group>"; };
+		E3A26180155C8F3D00944DBE /* IntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegrationTests.m; sourceTree = "<group>"; };
 		E3B71D7B15196638002D1D8B /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
 		E3B71D7C15196638002D1D8B /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		E3B71D7D15196638002D1D8B /* ScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleViewController.xib; sourceTree = "<group>"; };
@@ -286,6 +289,8 @@
 		E32079FC1499122E005ACDD0 /* ScheduleLookupTests */ = {
 			isa = PBXGroup;
 			children = (
+				E3A2617F155C8F3D00944DBE /* IntegrationTests.h */,
+				E3A26180155C8F3D00944DBE /* IntegrationTests.m */,
 				E3207A021499122E005ACDD0 /* ScheduleLookupTests.h */,
 				E3207A031499122E005ACDD0 /* ScheduleLookupTests.m */,
 				E32079FD1499122E005ACDD0 /* Supporting Files */,
@@ -553,6 +558,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3207A041499122E005ACDD0 /* ScheduleLookupTests.m in Sources */,
+				E3A26181155C8F3D00944DBE /* IntegrationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
