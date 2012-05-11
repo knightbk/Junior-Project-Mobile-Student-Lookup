@@ -9,8 +9,8 @@
 
 #define TEXT 1
 #define DAYS 2
-#define HOUR 3
-#define DATE 4
+#define START_DATE 3
+#define END_DATE 4
 #define SUBMIT 5
 #define SECTION_TYPES 4
 #import "CalendarExportViewController.h"
@@ -22,7 +22,7 @@
 
 @synthesize courseList;
 @synthesize pickerPicker;
-
+@synthesize datePicker;
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -31,6 +31,9 @@
 
 - (id)initWithSchedule:(Schedule*) sched
 {
+    startDate = [NSDate date];
+    endDate = [[NSDate alloc] initWithTimeInterval:(60*60*24) sinceDate:startDate];
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH:mm"];
     [self initWithStyle:UITableViewStyleGrouped].schedule = sched;
@@ -49,17 +52,25 @@
         [pickerPicker addObject:[NSString stringWithFormat:@"%d",TEXT]];
         [pickerPicker addObject:[NSString stringWithFormat:@"%d",TEXT]];
         [pickerPicker addObject:[NSString stringWithFormat:@"%d",DAYS]];
-        [pickerPicker addObject:[NSString stringWithFormat:@"%d",HOUR]];        
+        [pickerPicker addObject:[NSString stringWithFormat:@"%d",TEXT]];        
     }
     
-    [courseList addObject:@"Enter Start Date"];
-    [courseList addObject:@"Enter End Date"];
+    [courseList addObject:[NSString stringWithFormat:@"%@",[self formatDate:startDate]]];
+    [courseList addObject:[NSString stringWithFormat:@"%@",[self formatDate:endDate]]];
     [courseList addObject:@"Submit"];
     
-    [pickerPicker addObject:[NSString stringWithFormat:@"%d",DATE]];
-    [pickerPicker addObject:[NSString stringWithFormat:@"%d",DATE]];
+    [pickerPicker addObject:[NSString stringWithFormat:@"%d",START_DATE]];
+    [pickerPicker addObject:[NSString stringWithFormat:@"%d",END_DATE]];
     [pickerPicker addObject:[NSString stringWithFormat:@"%d",SUBMIT]];
     return self;
+}
+
+- (NSString*) formatDate:(NSDate*) date
+{
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM dd yyyy"];
+    
+    return [formatter stringFromDate:date];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -204,6 +215,14 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    if(indexPath.section > [courseList count] - 4)
+    {
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    }
+    else
+    {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
     cell.textAlignment = UITextAlignmentCenter;
     cell.textLabel.text = [courseList objectAtIndex:indexPath.section];
 
@@ -213,35 +232,57 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     CalendarExporter *exporter = [[CalendarExporter alloc] init];
     
     switch ([[pickerPicker objectAtIndex:indexPath.section] intValue]) {
         case 1:
-            //Bring up keyboard and allow editing of [courseList objectAtIndex:indexPath.section]
-            //Modifies course title or location.
-            NSLog(@"Edit text");
+
             break;
         case 2:
-            //Bring up picker with days and allow them to verify the correct days with check list
-            //Maybe we shouldn't let them change this. It's definitely right..
-            NSLog(@"Select days");
+
             break;
         case 3:
-            //Bring up picker with hours and allow them to verify correct hour
-            //Maybe we shouldn't let them change this. It's definitely right.
-            NSLog(@"Select hour");
+           
+            NSLog(@"Select start date");
+            [self displayStartDatePicker];
             break;
         case 4:
             //Bring up date picker and allow them to pick start/end date
-            NSLog(@"Select date");
+            NSLog(@"Select end date");
+            
             
             break;
         case 5:
             [exporter initiateExportWithSchedule:schedule OnDate:[NSDate date] Until:[NSDate dateWithTimeInterval:(24*60*60) sinceDate:[NSDate date]]];
+            [[[UIAlertView alloc] initWithTitle:@"Courses exported successfully!" message:@"Press OK to continue" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
             break;
     }
 }
 
+- (void) displayStartDatePicker
+{
+    
+    
+}
 
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex 
+{
+    [[self navigationController] popViewControllerAnimated:YES];
+}
+
+-(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"Clicked button.");
+}
+-(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"Clicked cancel button.");
+}
+
+-(void) actionSheetCancel:(UIActionSheet *)actionSheet
+{
+    NSLog(@"Cancelling.");
+}
 
 @end
