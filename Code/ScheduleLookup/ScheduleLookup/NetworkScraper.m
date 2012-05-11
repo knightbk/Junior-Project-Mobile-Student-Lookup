@@ -68,7 +68,7 @@
     if ([challenge previousFailureCount] > 0)
     {
         [[challenge sender] cancelAuthenticationChallenge:challenge];
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials" message:@"The credentials you input for your account are invalid." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Network Error" message:@"Check you have a working internet connection and valid Rose-Hulman credentials." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
     else

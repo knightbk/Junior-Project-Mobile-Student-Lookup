@@ -298,72 +298,83 @@ UIGestureRecognizer* cancelGesture;
 {
     Faculty *person = nil;
     Schedule *schedules = nil;
-    switch ([pickerView selectedRowInComponent:0])
+    
+
+    if ([sdata rangeOfString:@"may not be available"].location != NSNotFound) 
     {
-        case COURSE_SEARCH:
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid Term" message:@"There doesn't appear to be schedule information available for that term." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+
+    } 
+    else 
+    {
+        switch ([pickerView selectedRowInComponent:0])
         {
-            schedules = [ScheduleFactory scheduleFromSchedulePage:sdata];
-            
-            NSInteger numMatches = [schedules.schedule count];
-            if (numMatches == 1)
+            case COURSE_SEARCH:
             {
-                ClassInfoViewController *classInfoPage = [[ClassInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
-                classInfoPage.course = [schedules.schedule objectAtIndex:0];
-                classInfoPage.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
-                [self.navigationController pushViewController:classInfoPage animated:YES];
-            }
-            else
-            {
-                PartialMatchCourseViewController *viewController = [[PartialMatchCourseViewController alloc] init];
-                if (numMatches > 1)
+                schedules = [ScheduleFactory scheduleFromSchedulePage:sdata];
+                
+                NSInteger numMatches = [schedules.schedule count];
+                if (numMatches == 1)
                 {
-                    viewController.courseArray = schedules.schedule;
-                    viewController.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
-                    viewController.title = @"Results";
+                    ClassInfoViewController *classInfoPage = [[ClassInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
+                    classInfoPage.course = [schedules.schedule objectAtIndex:0];
+                    classInfoPage.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+                    [self.navigationController pushViewController:classInfoPage animated:YES];
                 }
                 else
                 {
-                    viewController.title = @"No Results";
+                    PartialMatchCourseViewController *viewController = [[PartialMatchCourseViewController alloc] init];
+                    if (numMatches > 1)
+                    {
+                        viewController.courseArray = schedules.schedule;
+                        viewController.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+                        viewController.title = @"Results";
+                    }
+                    else
+                    {
+                        viewController.title = @"No Results";
+                    }
+                    [self.navigationController pushViewController:viewController animated:YES];
                 }
-                [self.navigationController pushViewController:viewController animated:YES];
+                break;
             }
-            break;
-        }
-        case ROOM_SEARCH:
-        {            
-            ScheduleViewController *scheduleViewController = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:[NSBundle mainBundle]];
-            scheduleViewController.schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];;
-            scheduleViewController.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
-            [self.navigationController pushViewController:scheduleViewController animated:YES];
-            break;
-        }
-        case USER_SEARCH:
-        {
-            if ([PersonFactory userSearchIsPartialMatch:sdata])
+            case ROOM_SEARCH:
+            {            
+                ScheduleViewController *scheduleViewController = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:[NSBundle mainBundle]];
+                scheduleViewController.schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];;
+                scheduleViewController.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+                [self.navigationController pushViewController:scheduleViewController animated:YES];
+                break;
+            }
+            case USER_SEARCH:
             {
-                PartialMatchUserViewController *viewController = [[PartialMatchUserViewController alloc] init];
-                NSArray *matches = [FacultyFactory AllFacultyFromPartialMatchPage:sdata];
-                if([matches count] > 0)
+                if ([PersonFactory userSearchIsPartialMatch:sdata])
                 {
-                    viewController.usernameArray = matches;
-                    viewController.termCode = [NSString stringWithFormat:@"%@%@", [yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
-                    viewController.title = @"Results";
+                    PartialMatchUserViewController *viewController = [[PartialMatchUserViewController alloc] init];
+                    NSArray *matches = [FacultyFactory AllFacultyFromPartialMatchPage:sdata];
+                    if([matches count] > 0)
+                    {
+                        viewController.usernameArray = matches;
+                        viewController.termCode = [NSString stringWithFormat:@"%@%@", [yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+                        viewController.title = @"Results";
+                    }
+                    else
+                    {
+                        viewController.title = @"No Results";
+                    }
+                    [self.navigationController pushViewController:viewController animated:YES];
                 }
                 else
                 {
-                    viewController.title = @"No Results";
+                    person = [FacultyFactory FacultyFromSchedulePage:sdata];
+                    UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
+                    userInfoPage.person = person;
+                    userInfoPage.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+                    [self.navigationController pushViewController:userInfoPage animated:YES];
                 }
-                [self.navigationController pushViewController:viewController animated:YES];
+                break;
             }
-            else
-            {
-                person = [FacultyFactory FacultyFromSchedulePage:sdata];
-                UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
-                userInfoPage.person = person;
-                userInfoPage.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
-                [self.navigationController pushViewController:userInfoPage animated:YES];
-            }
-            break;
         }
     }
 }
