@@ -113,8 +113,6 @@
 - (void) networkScraperDidReceiveData:(NSString *)sdata
 {
     Faculty *person = [FacultyFactory FacultyFromSchedulePage:sdata];
-    //Schedule *schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];
-    //scheduleTextView.text = [schedule scheduleInformationString];
     UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
     userInfoPage.termCode = [self getSavedTermCode];
     userInfoPage.person = person;

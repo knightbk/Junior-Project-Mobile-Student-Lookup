@@ -25,8 +25,6 @@
 #define ROOM_SEARCH 1
 #define USER_SEARCH 2
 
-#define YEAR 2013
-
 
 @implementation SearchViewController
 
@@ -49,14 +47,23 @@
 {
     [super viewDidLoad];
     
+    NSCalendar* cal = [NSCalendar currentCalendar];
+    NSDateComponents* monthComponents = [cal components:NSMonthCalendarUnit fromDate:[NSDate date]];
+    NSDateComponents* yearComponents = [cal components:NSYearCalendarUnit fromDate:[NSDate date]];
+    if([monthComponents month] < 4)
+    {
+        currentYear = [yearComponents year];
+    } 
+    else
+    {
+        currentYear = [yearComponents year] + 1;
+    }
     [self setUpPicker];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -96,7 +103,7 @@
     [termValues addObject:@"Spring"];
     [termValues addObject:@"Summer"];
     yearValues = [[NSMutableArray alloc] init];
-    for (int i = YEAR; i > 2000; i--) {
+    for (int i = currentYear; i > 2000; i--) {
         [yearValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
     
@@ -115,7 +122,7 @@
     [self.view addSubview:pickerView];
     [pickerView selectRow:[searchValues indexOfObject:searchType] inComponent:0 animated:YES];
     [pickerView selectRow:[searchValues indexOfObject:term] inComponent:1 animated:YES];
-    [pickerView selectRow:YEAR - year inComponent:2 animated:YES];
+    [pickerView selectRow:currentYear - year inComponent:2 animated:YES];
     CGRect frame = pickerView.frame;
     frame.origin.y = 45;
     pickerView.frame = frame;

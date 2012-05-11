@@ -18,6 +18,7 @@
     IBOutlet NSMutableArray *yearValues;
     IBOutlet UIPickerView *pickerView;
     IBOutlet NSString *selectedYear;
+    int currentYear;
 }
 
 -(NSString *) getSelectedTerm;
@@ -25,6 +26,5 @@
 @property (strong, nonatomic) NetworkScraper *networkScraper;
 @property (strong, nonatomic) IBOutlet UISearchBar *scheduleSearchBar;
 @property (strong, nonatomic) IBOutlet UIButton *bottomSearchButton;
-
 
 @end
