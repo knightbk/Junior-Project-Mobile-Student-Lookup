@@ -20,5 +20,5 @@ NSMutableDictionary *userFavoritesDictionary;
 @property (strong, nonatomic) NetworkScraper *networkScraper;
 
 - (void) updateFavorites;
-
+- (NSString *)getSavedTermCode;
 @end

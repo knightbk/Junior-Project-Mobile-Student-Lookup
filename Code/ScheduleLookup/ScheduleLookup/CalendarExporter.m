@@ -30,29 +30,29 @@
         NSString* dayCode = [NSString stringWithFormat:@"%C",[[schedule getClassDays] characterAtIndex:i]];
         if([dayCode isEqualToString:@"M"])
         {
-            [daysOfWeek addObject:[NSNumber numberWithInt:2]];
+            [daysOfWeek addObject:[EKRecurrenceDayOfWeek dayOfWeek:2]];
         }
         else if([dayCode isEqualToString:@"T"])
         {
-            [daysOfWeek addObject:[NSNumber numberWithInt:3]];
+            [daysOfWeek addObject:[EKRecurrenceDayOfWeek dayOfWeek:3]];
         }
         else if([dayCode isEqualToString:@"W"])
         {
-            [daysOfWeek addObject:[NSNumber numberWithInt:4]];
+            [daysOfWeek addObject:[EKRecurrenceDayOfWeek dayOfWeek:4]];
         }
         else if([dayCode isEqualToString:@"R"])
         {
-            [daysOfWeek addObject:[NSNumber numberWithInt:5]];
+            [daysOfWeek addObject:[EKRecurrenceDayOfWeek dayOfWeek:5]];
         }
         else if([dayCode isEqualToString:@"F"])
         {
-            [daysOfWeek addObject:[NSNumber numberWithInt:6]];
+            [daysOfWeek addObject:[EKRecurrenceDayOfWeek dayOfWeek:6]];
         }
     }
     
     
     EKEvent *event = [EKEvent eventWithEventStore:eventStore];
-    EKRecurrenceEnd *recurrenceEnd = [EKRecurrenceEnd recurrenceEndWithOccurrenceCount:1];
+    EKRecurrenceEnd *recurrenceEnd = [EKRecurrenceEnd recurrenceEndWithEndDate:endDate];
     EKRecurrenceRule *recurrenceRule = [[EKRecurrenceRule alloc]
                 initRecurrenceWithFrequency:EKRecurrenceFrequencyWeekly
                                         interval:1
@@ -63,18 +63,16 @@
                                         daysOfTheYear:nil
                                         setPositions:nil 
                                         end:recurrenceEnd];
-    //event.recurrenceRule = recurrenceRule; //this breaks :(
-    event.recurrenceRules = [NSArray arrayWithObject:recurrenceRule]; //Non-deprecated version. Still breaks.
     NSDate* startTime = [[NSDate alloc] init];
+    NSDate* endTime = [[NSDate alloc] init];
     startTime = [self createNewDateWithTime:[[schedule getRangeOfDates] objectAtIndex:0] OnDate:startDate];
-    endDate = [self createNewDateWithTime:[[schedule getRangeOfDates] objectAtIndex:1] OnDate:startDate];
+    endTime = [self createNewDateWithTime:[[schedule getRangeOfDates] objectAtIndex:1] OnDate:startDate];
     [event setTitle:schedule.Course];
     [event setLocation:schedule.getLocation];
-    [event setStartDate:startDate];
-    [event setEndDate:endDate];
+    [event setStartDate:startTime];
+    [event setEndDate:endTime];
     [event setCalendar:[eventStore defaultCalendarForNewEvents]];
-    NSLog(@"Course: %@", schedule.Course);
-    NSLog(@"Stored Result: %@", startTime);
+    [event setRecurrenceRules:[NSArray arrayWithObject:recurrenceRule]];
     NSError *err;
     [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
     

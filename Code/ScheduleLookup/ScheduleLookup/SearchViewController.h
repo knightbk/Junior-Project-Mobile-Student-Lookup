@@ -22,6 +22,9 @@
 }
 
 -(NSString *) getSelectedTerm;
+- (void) setUpPicker;
+- (void) saveContentsOfPicker;
+- (void) toggleBottomSearchBarButtonClickability;
 
 @property (strong, nonatomic) NetworkScraper *networkScraper;
 @property (strong, nonatomic) IBOutlet UISearchBar *scheduleSearchBar;

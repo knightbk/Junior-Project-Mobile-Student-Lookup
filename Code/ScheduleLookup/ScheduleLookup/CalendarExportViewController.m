@@ -206,8 +206,7 @@
     }
     cell.textAlignment = UITextAlignmentCenter;
     cell.textLabel.text = [courseList objectAtIndex:indexPath.section];
-    
-    
+
     return cell;
 }
 

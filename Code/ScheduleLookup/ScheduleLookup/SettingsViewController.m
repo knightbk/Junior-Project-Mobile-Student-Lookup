@@ -13,7 +13,7 @@
 @implementation SettingsViewController
 @synthesize  usernameTextField, passwordTextField;
 @synthesize networkScraper;
-
+@synthesize pickerView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
