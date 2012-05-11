@@ -16,7 +16,7 @@
 - (void) initiateExportWithSchedule: (Schedule*) schedule OnDate:(NSDate*) start Until:(NSDate*) end;
 - (void) exportSingleClassToCalendar:(ClassSchedule *)schedule From:(NSDate*) startDate Until:(NSDate*) endDate;
 
-
+- (NSDate*) createNewDateWithTime:(NSDate*) time OnDate:(NSDate*) start;
 
 @end
 

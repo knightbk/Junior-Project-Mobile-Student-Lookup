@@ -98,11 +98,11 @@
     {
         if(person.isCurrentUser)
         {
-            return 4;
+            return 3;
         }
         else
         {
-            return 3;
+            return 2;
         }
         
         
@@ -152,9 +152,6 @@
                 
                 break;
             case 2:
-                cell.textLabel.text = @"Add to overlay";
-                break;
-            case 3:
                 cell.textLabel.text = @"Export schedule";
                 break;
             default:
@@ -241,16 +238,12 @@
             }
             case 2:
             {
-                //Adds user to overlay feature?
-            }
-            case 3:
-            {
                 NetworkScraper *networkScraper = [[NetworkScraper alloc] init];
                 networkScraper.delegate = self;
                 [networkScraper initiatePersonScheduleSearchWithUsername:person.alias termcode:termCode];
                 searchTypeInitiated = @"ExportSchedule";
                 break;
-            }   
+            } 
                 
         }
     }

@@ -23,8 +23,6 @@
 - (void) exportSingleClassToCalendar:(ClassSchedule *)schedule From:(NSDate*) startDate Until:(NSDate*) endDate
 {
     EKEventStore *eventStore = [[EKEventStore alloc] init];
-    
-    EKEvent *event = [EKEvent eventWithEventStore:eventStore];
     NSMutableArray* daysOfWeek = [[NSMutableArray alloc] init];
     
     for(int i = 0; i < [schedule getClassDays].length; i++)
@@ -52,18 +50,47 @@
         }
     }
     
-
+    
+    EKEvent *event = [EKEvent eventWithEventStore:eventStore];
+    EKRecurrenceEnd *recurrenceEnd = [EKRecurrenceEnd recurrenceEndWithOccurrenceCount:1];
+    EKRecurrenceRule *recurrenceRule = [[EKRecurrenceRule alloc]
+                initRecurrenceWithFrequency:EKRecurrenceFrequencyWeekly
+                                        interval:1
+                                        daysOfTheWeek:daysOfWeek
+                                        daysOfTheMonth:nil
+                                        monthsOfTheYear:nil
+                                        weeksOfTheYear:nil
+                                        daysOfTheYear:nil
+                                        setPositions:nil 
+                                        end:recurrenceEnd];
+    event.recurrenceRules = [NSArray arrayWithObject:recurrenceRule];
+    startDate = [self createNewDateWithTime:[[schedule getRangeOfDates] objectAtIndex:0] OnDate:startDate];
+    endDate = [self createNewDateWithTime:[[schedule getRangeOfDates] objectAtIndex:1] OnDate:startDate];
     [event setTitle:schedule.Course];
     [event setLocation:schedule.getLocation];
     [event setStartDate:startDate];
     [event setEndDate:endDate];
     [event setCalendar:[eventStore defaultCalendarForNewEvents]];
-    
+
     NSError *err;
     [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
     
     NSLog(@"Exported event: %@", schedule.Course);
     
+    
+}
+- (NSDate*) createNewDateWithTime:(NSDate*) time OnDate:(NSDate*) start{
+    NSDateComponents* timeComponents = [[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:time];
+    NSDateComponents* startComponents = [[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:start];
+    
+    NSDateComponents* result = [[NSDateComponents alloc] init];
+    [result setHour:timeComponents.hour];
+    [result setMinute:timeComponents.minute];
+    [result setDay:startComponents.day];
+    [result setMonth:startComponents.month];
+    [result setYear:startComponents.year];
+    
+    return [[NSCalendar currentCalendar] dateFromComponents:result];
     
 }
 

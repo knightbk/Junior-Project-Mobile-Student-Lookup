@@ -95,9 +95,7 @@
 {
     [super viewWillAppear:animated];
     
-    CalendarExporter *exporter = [[CalendarExporter alloc] init];
-    
-    [exporter initiateExportWithSchedule:schedule OnDate:[NSDate date] Until:[NSDate date]];
+
     
 }
 
@@ -220,6 +218,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    CalendarExporter *exporter = [[CalendarExporter alloc] init];
+    
     switch ([[pickerPicker objectAtIndex:indexPath.section] intValue]) {
         case 1:
             //Bring up keyboard and allow editing of [courseList objectAtIndex:indexPath.section]
@@ -242,7 +242,13 @@
             
             break;
         case 5:
-            NSLog(@"Submit");
+           
+            
+            for (ClassSchedule* classSched in schedule.schedule) {
+                
+                [exporter exportSingleClassToCalendar:classSched From:[[classSched getRangeOfDates] objectAtIndex:0] Until:[[classSched getRangeOfDates] objectAtIndex:1]];
+                
+            }
             break;
     }
 }
