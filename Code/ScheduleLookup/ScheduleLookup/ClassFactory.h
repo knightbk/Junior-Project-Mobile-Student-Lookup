@@ -10,8 +10,6 @@
 #import "ClassSchedule.h"
 
 @interface ClassFactory: NSObject
-+ (ClassSchedule *) matchesInStringsForClass:(NSString *)expression WithStringData:(NSString *)sdata;
-+ (ClassSchedule *) classScheduleFromSchedulePage:(NSString *)html;
 + (ClassSchedule *) getClass:(NSString *) sdata withRange:(NSTextCheckingResult *) match;
 
 

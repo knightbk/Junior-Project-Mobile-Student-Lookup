@@ -1,10 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
+        <!--Search View Controller - First-->
+        <scene sceneID="11">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
+                <viewController title="First" id="2" customClass="SearchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="16">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" barStyle="blackOpaque" text="" id="WHu-Ws-S3J">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="WSn-zo-W2s"/>
+                                </connections>
+                            </searchBar>
+                            <pickerView contentMode="scaleToFill" id="7pq-vz-Wmm">
+                                <rect key="frame" x="0.0" y="76" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tgd-1t-mjF">
+                                <rect key="frame" x="20" y="310" width="280" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="bottomSearchButtonPressed:" destination="2" eventType="touchUpInside" id="dL5-SI-GnT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search" id="zBT-R1-zGZ"/>
+                    <connections>
+                        <outlet property="bottomSearchButton" destination="Tgd-1t-mjF" id="RTT-Hr-Z81"/>
+                        <outlet property="pickerView" destination="7pq-vz-Wmm" id="eBe-Zm-MDP"/>
+                        <outlet property="scheduleSearchBar" destination="WHu-Ws-S3J" id="eoL-oW-9GV"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1244" y="-398"/>
+        </scene>
+        <!--Settings View Controller - Third-->
         <scene sceneID="eF1-tM-IuK">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h67-33-qp0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -48,7 +99,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="SoT-m9-FOU"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="SoT-m9-FOU"/>
                     <connections>
                         <outlet property="passwordTextField" destination="kWa-XL-lYi" id="C6P-ft-qGk"/>
                         <outlet property="usernameTextField" destination="bK8-Wi-aE0" id="cvs-fV-DvG"/>
@@ -57,45 +108,7 @@
             </objects>
             <point key="canvasLocation" x="718" y="775"/>
         </scene>
-        <scene sceneID="13">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
-                <viewController title="Second" id="3" customClass="FavoritesViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="17">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" id="Lsk-YI-W7F">
-                                <rect key="frame" x="0.0" y="-4" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="My Favorites" id="D5Q-f4-e8J"/>
-                                </items>
-                            </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zDn-kq-592">
-                                <rect key="frame" x="0.0" y="40" width="320" height="371"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="MT1-Fq-t6g">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" id="6"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="718" y="180"/>
-        </scene>
+        <!--Tab Bar Controller-->
         <scene sceneID="15">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
@@ -107,109 +120,106 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="MAR-aq-h0D" kind="relationship" relationship="viewControllers" id="Gsm-fn-dJG"/>
-                        <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
+                        <segue destination="ggB-Ew-ERm" kind="relationship" relationship="viewControllers" id="26"/>
+                        <segue destination="sXD-A2-P2s" kind="relationship" relationship="viewControllers" id="27"/>
                         <segue destination="Z3N-gO-d2d" kind="relationship" relationship="viewControllers" id="Ntj-Yy-B5r"/>
                     </connections>
                 </tabBarController>
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
-        <scene sceneID="V1X-Zx-ghp">
+        <!--Navigation Controller - Search-->
+        <scene sceneID="qX6-9H-uLU">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3VO-E7-cRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController definesPresentationContext="YES" id="bPD-L4-bR1" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="n28-Cf-Yri">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zou-BT-QJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="ggB-Ew-ERm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="search.png" id="7"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="B7C-fM-YRF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="C6j-J4-Agj" kind="relationship" relationship="rootViewController" id="hV0-0r-fp2"/>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="7Sc-Lu-9Dg"/>
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="1278" y="-436"/>
+            <point key="canvasLocation" x="718" y="-398"/>
         </scene>
-        <scene sceneID="gPm-cP-ECC">
+        <!--Navigation Controller - Favorites-->
+        <scene sceneID="fgr-wh-MGr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OWY-XN-CAy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="C6j-J4-Agj" customClass="SearchUserViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="NNB-a6-Rkc">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search" id="Zkh-5h-4Td">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                                <connections>
-                                    <outlet property="delegate" destination="C6j-J4-Agj" id="jDY-BK-vXm"/>
-                                </connections>
-                            </searchBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Search" id="btg-lt-0jK">
-                        <barButtonItem key="leftBarButtonItem" title="Done" id="1BA-O6-Z1J">
-                            <connections>
-                                <action selector="done:" destination="C6j-J4-Agj" id="cVe-Bp-3tE"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="odL-SD-EO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="sXD-A2-P2s" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="favorites.png" id="6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4l8-uc-4t8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QNL-Sg-QCw" kind="relationship" relationship="rootViewController" id="JFm-9Y-2pQ"/>
+                    </connections>
+                </navigationController>
             </objects>
-            <point key="canvasLocation" x="1858" y="-436"/>
+            <point key="canvasLocation" x="718" y="180"/>
         </scene>
-        <scene sceneID="seF-vK-1ch">
+        <!--Favorites View Controller - Favorites-->
+        <scene sceneID="xeM-Us-qAl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xbM-cc-h8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="z6o-06-qlf" customClass="SearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6gM-r2-MqF">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ou-0Q-ea7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="QNL-Sg-QCw" customClass="FavoritesViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5dZ-PZ-5nA">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Schedule" id="heM-u5-RSD">
-                        <barButtonItem key="rightBarButtonItem" title="Search" id="eSa-jr-x3Z">
-                            <connections>
-                                <segue destination="bPD-L4-bR1" kind="modal" id="H5W-is-Mk8"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Favorites" id="Wyz-80-Pxn">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QNL-Sg-QCw" id="cLb-OK-zRx"/>
+                            <outlet property="delegate" destination="QNL-Sg-QCw" id="jkb-DQ-y5g"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Favorites" id="aQo-op-1ju"/>
+                </tableViewController>
             </objects>
-            <point key="canvasLocation" x="718" y="-436"/>
-        </scene>
-        <scene sceneID="Sye-qE-eSf">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DRl-Hp-pZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController definesPresentationContext="YES" id="MAR-aq-h0D" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" systemItem="search" id="K4S-3a-cHA"/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="UjR-2R-Gs0">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="z6o-06-qlf" kind="relationship" relationship="rootViewController" id="Xlr-nR-InX"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="158" y="-436"/>
+            <point key="canvasLocation" x="1244" y="180"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="favorites.png" width="26" height="26"/>
+        <image name="search.png" width="26" height="26"/>
+        <image name="settings.png" width="26" height="26"/>
+    </resources>
     <classes>
-        <class className="GCCalendarPortraitView" superclassName="GCCalendarView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GCCalendarPortraitView.h"/>
+        <class className="FavoritesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesViewController.h"/>
         </class>
-        <class className="GCCalendarView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GCCalendarView.h"/>
+        <class className="NSMutableArray" superclassName="NSArray">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSMutableArray.h"/>
         </class>
-        <class className="SearchUserViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchUserViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-            </relationships>
-        </class>
-        <class className="SearchViewController" superclassName="GCCalendarPortraitView">
+        <class className="SearchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bottomSearchButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="scheduleSearchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="searchValues" candidateClass="NSMutableArray"/>
+                <relationship kind="outlet" name="selectedYear" candidateClass="NSString"/>
+                <relationship kind="outlet" name="termValues" candidateClass="NSMutableArray"/>
+                <relationship kind="outlet" name="yearValues" candidateClass="NSMutableArray"/>
+            </relationships>
         </class>
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>

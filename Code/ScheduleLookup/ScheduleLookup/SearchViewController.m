@@ -1,5 +1,5 @@
 //
-//  FirstViewController.m
+//  SearchViewController.m
 //  ScheduleLookup
 //
 //  Created by Mark Vitale on 12/14/11.
@@ -8,28 +8,31 @@
 //
 
 #import "SearchViewController.h"
-#import "Student.h"
-#import "Factory.h"
+#import "Faculty.h"
+#import "PersonFactory.h"
 #import "KeychainItemWrapper.h"
 #import "SettingsViewController.h"
-#import "GCCalendarPortraitView.h"
-#import "StudentFactory.h"
+#import "FacultyFactory.h"
 #import "Schedule.h"
 #import "ScheduleFactory.h"
-#import "ClassSchedule.h"
-#import "ClassFactory.h"
-#import "SearchUserViewController.h"
+#import "UserInfoViewController.h"
+#import "ClassInfoViewController.h"
+#import "ScheduleViewController.h"
+#import "PartialMatchCourseViewController.h"
+#import "PartialMatchUserViewController.h"
+
+#define COURSE_SEARCH 0
+#define ROOM_SEARCH 1
+#define USER_SEARCH 2
+
+
 @implementation SearchViewController
 
-@synthesize schedule = _schedule;
+@synthesize scheduleSearchBar;
+@synthesize bottomSearchButton;
+@synthesize networkScraper;
 
 
-- (void)calendarViewAddButtonPressed:(GCCalendarView *)view {
-	NSLog(@"%s", __PRETTY_FUNCTION__);
-}
-- (void)calendarTileTouchedInView:(GCCalendarView *)view withEvent:(GCCalendarEvent *)event {
-	NSLog(@"%s", __PRETTY_FUNCTION__);
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -37,229 +40,200 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (int) getPeriod:(NSString *) period
-{
-    
-    return 0;
-}
-- (BOOL) isSlash:(char) character
-{
-    if (character == '/')
-        return true;
-    else
-        return false;
-}
 
-+ (NSMutableArray *) parseThis:(ClassSchedule *) withClass
-{
-    SearchViewController *thing = [[SearchViewController alloc] init];
-    NSMutableArray *things = [[NSMutableArray alloc] initWithObjects:[withClass Course], [withClass CRN], [withClass Description],[withClass Instructor], [withClass Credit], [withClass ENRL], [withClass CAP], [withClass Term_Schedule], [withClass Comments], [withClass Final_Schedule], nil];
-    NSMutableArray *newString = [[NSMutableArray alloc] init];
-    NSString *tempString = @"";
-    NSString *checkMe =[things objectAtIndex:7];
-    for(int i = 0; i < [checkMe length]; i++){
-        if ([thing isSlash:[checkMe characterAtIndex:i]]) {
-            i++;
-            while( ! [thing isSlash:[checkMe characterAtIndex:i]])
-            {
-                tempString = [tempString stringByAppendingString:[checkMe substringWithRange:NSMakeRange(i, 1)]];
-                
-                i++;
-                
-            }
-            [newString addObject:tempString];
-            tempString = [tempString stringByAppendingString:@":"];
-        }
-    }
-    NSLog(@"%@", tempString);
-    for(NSObject *match in newString){
-        NSLog(@"%@", match);
-        
-    }
-    
-    
-    return newString;
-}
+#pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
-    
-    self.dataSource = self;
-    self.delegate = self;
-    [self loadView];
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     
+    NSCalendar* cal = [NSCalendar currentCalendar];
+    NSDateComponents* monthComponents = [cal components:NSMonthCalendarUnit fromDate:[NSDate date]];
+    NSDateComponents* yearComponents = [cal components:NSYearCalendarUnit fromDate:[NSDate date]];
+    if([monthComponents month] < 4)
+    {
+        currentYear = [yearComponents year];
+    } 
+    else
+    {
+        currentYear = [yearComponents year] + 1;
+    }
+    [self setUpPicker];
 }
-- (NSArray *)calendarEventsForDate:(NSDate *)date{
-	NSMutableArray *events = [NSMutableArray array];
-	
-    SearchUserViewController *obj = (SearchUserViewController *)[[(UINavigationController *)[[[self tabBarController] viewControllers] objectAtIndex:0] viewControllers] objectAtIndex:0];
-    
-	NSDateComponents *components = [[NSCalendar currentCalendar] components:
-									(NSWeekdayCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit)
-																   fromDate:date];
-	[components setSecond:0];
-
-    
-	// create 5 calendar events that aren't all day events
-    
-   
-    for(ClassSchedule *c in obj.schedule.schedule){
-        GCCalendarEvent *event = [[GCCalendarEvent alloc] init];
-        event.color = [[GCCalendar colors] objectAtIndex:1];
-        event.allDayEvent = NO;
-        NSLog(@"first");
-        event.eventName = c.Course;
-        event.eventDescription = c.Description;
-
-        NSMutableArray *array = [SearchViewController parseThis:c];
-        if(c != nil){
-            for(NSString *match in array){
-                
-                if([match length] == 1){
-                    if([match characterAtIndex:0] == '1'){
-                        [components setHour:8];
-                        [components setMinute:5];
-                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [components setMinute:50];
-                        
-                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [events addObject:event];
-                    }
-                    if([match characterAtIndex:0] == '2'){
-                        [components setHour:9];
-                        [components setMinute:0];  
-                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [components setMinute:50];
-                        
-                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [events addObject:event];
-                    }
-                    if([match characterAtIndex:0] == '3'){
-                        [components setHour:9];
-                        [components setMinute:55];
-                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [components setHour:10];
-                        [components setMinute:45];
-                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [events addObject:event];
-                    }
-                    if([match characterAtIndex:0] == '4'){
-                        [components setHour:10];
-                        [components setMinute:50];
-                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [components setHour:11];
-                        [components setMinute:40];
-                        
-                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [events addObject:event];
-                    }
-                    if([match characterAtIndex:0] == '5'){
-                        [components setHour:11];
-                        [components setMinute:45];
-                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [components setHour:12];
-                        [components setMinute:35];
-                        
-                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [events addObject:event];
-                    }
-                    if([match characterAtIndex:0] == '6'){
-                        [components setHour:12];
-                        [components setMinute:40];
-                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [components setHour:13];
-                        [components setMinute:30];
-                        
-                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [events addObject:event];
-                        
-                    }
-                    if([match characterAtIndex:0] == '7'){
-                        [components setHour:13];
-                        [components setMinute:35];
-                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        [components setHour:14];
-                        [components setMinute:25];
-                        
-                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [events addObject:event];
-                    }
-                    if([match characterAtIndex:0] == '8'){
-                        [components setHour:14];
-                        [components setMinute:30];
-                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        [components setHour:15];
-                        [components setMinute:20];
-                        
-                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [events addObject:event];
-                    }
-                    if([match characterAtIndex:0] == '9'){
-                        [components setHour:15];
-                        [components setMinute:25];
-                        event.startDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [components setHour:16];
-                        [components setMinute:15];
-                        
-                        event.endDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-                        
-                        [events addObject:event];
-                    }
-                    
-                }
-            }
-        }
-	}
-	
-    
-	
-	return events;
-}
-
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self today];
+    [self toggleBottomSearchBarButtonClickability];
+    [self setUpPicker];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
 
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];
+    [self saveContentsOfPicker];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
 	[super viewDidDisappear:animated];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
+- (void) setUpPicker
+{
+    searchValues = [[NSMutableArray alloc] init];
+    [searchValues addObject:@"Course"];
+    [searchValues addObject:@"Room"];
+    [searchValues addObject:@"Username"];
+    termValues = [[NSMutableArray alloc] init];
+    [termValues addObject:@"Fall"];
+    [termValues addObject:@"Winter"];
+    [termValues addObject:@"Spring"];
+    [termValues addObject:@"Summer"];
+    yearValues = [[NSMutableArray alloc] init];
+    for (int i = currentYear; i > 2000; i--) {
+        [yearValues addObject:[NSString stringWithFormat:@"%d", i]];
+    }
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist", @"SearchSelectionFavorites"]];
+    NSMutableDictionary *newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    
+    NSString *searchType = [newDict valueForKey:@"Type"];
+    NSString *term = [newDict valueForKey:@"Term"];
+    int year = [[newDict valueForKey:@"Year"] intValue];
+    
+    pickerView = [[UIPickerView alloc] init];
+    pickerView.delegate = self;
+    pickerView.showsSelectionIndicator = YES;
+    [self.view addSubview:pickerView];
+    [pickerView selectRow:[searchValues indexOfObject:searchType] inComponent:0 animated:YES];
+    [pickerView selectRow:[termValues indexOfObject:term] inComponent:1 animated:YES];
+    [pickerView selectRow:currentYear - year inComponent:2 animated:YES];
+    CGRect frame = pickerView.frame;
+    frame.origin.y = 45;
+    pickerView.frame = frame;
+}
+
+- (void) saveContentsOfPicker
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:@"SearchSelectionFavorites.plist"];
+    
+    NSMutableDictionary *newDict;
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
+        newDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    }
+    else
+    {
+        [[NSFileManager defaultManager] createFileAtPath:plistPath contents:nil attributes:nil];
+        newDict = [[NSMutableDictionary alloc] init];
+    }
+    
+    [newDict setObject:[searchValues objectAtIndex:[pickerView selectedRowInComponent:0]] forKey:@"Type"];
+    [newDict setObject:[termValues objectAtIndex:[pickerView selectedRowInComponent:1]] forKey:@"Term"];
+    [newDict setObject:[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]] forKey:@"Year"];
+    [newDict setObject:[self getSelectedTerm] forKey:@"TermCode"];
+    
+    [newDict writeToFile:plistPath atomically:YES];
+}
+
+- (NSString *)picker:(UIPickerView *)picker titleForRow:(NSInteger)row forComponent:(NSInteger)component;
+{
+    return [searchValues objectAtIndex:row];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
+{
+    return 3;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;
+{
+    switch (component) {
+        case 0:
+            return [searchValues count];
+        case 1:
+            return [termValues count];
+        case 2:
+            return [yearValues count];
+            
+        default:
+            break;
+    }
+    
+    return 0;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
+{
+    switch (component) {
+        case 0:
+            return [searchValues objectAtIndex:row];
+        case 1:
+            return [termValues objectAtIndex:row];
+        case 2:
+            return [yearValues objectAtIndex:row];
+        default:
+            break;
+    }
+    return 0;
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
+{
+    switch(component) {
+            case 0: return 120;
+            case 1: return 100;
+            case 2: return 100;
+        default: return 100;
+    }
+    return 100;
+}
+
+- (NSString *) getSelectedTerm
+{
+    switch([pickerView selectedRowInComponent:1])
+    {
+        case 0:
+            return @"10";
+        case 1:
+            return @"20";
+        case 2:
+            return @"30";
+        case 3:
+            return @"40";
+    }
+    return @"10";
+    
+}
+
+- (void) toggleBottomSearchBarButtonClickability
+{
+    if ([self.scheduleSearchBar.text isEqualToString:@""]){
+        self.bottomSearchButton.enabled = NO;
+        self.bottomSearchButton.alpha = 0.5;
+    }
+    else
+    {
+        self.bottomSearchButton.enabled = YES;
+        self.bottomSearchButton.alpha = 1.0;
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -271,17 +245,146 @@
         return YES;
     }
 }
+//recognizes cancel touches on screen
+UIGestureRecognizer* cancelGesture;
 
-#pragma mark - SearchUserDelegate methods
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UINavigationController * popoverNavigationController = segue.destinationViewController;
-    SearchUserViewController * targetController = [[popoverNavigationController viewControllers] objectAtIndex:0];
-   targetController.delegate = self;
+- (IBAction)backgroundTouched:(id)sender 
+{
+    [self.view endEditing:YES];
 }
 
-- (void)controller:(SearchUserViewController *)controller withSchedule:(Schedule *)personSchedule{
-    self.schedule = personSchedule;
+- (IBAction) bottomSearchButtonPressed:(id)sender
+{
+    [self searchBarSearchButtonClicked:self.scheduleSearchBar];
+}
+
+#pragma mark - UISearchBarDelegate Methods
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self.view endEditing:YES];
+    if (networkScraper == nil) {
+        networkScraper = [[NetworkScraper alloc] init];
+        networkScraper.delegate = self;
+    }
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    switch ([pickerView selectedRowInComponent:0])
+    {
+        case COURSE_SEARCH:
+            [networkScraper initiateClassInfoSearchWithCourse:searchBar.text termcode:[NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]]];
+            break;
+        case ROOM_SEARCH:
+            [networkScraper initiateRoomSearchWithRoom:searchBar.text termcode:[NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]]];
+            break;
+        case USER_SEARCH:
+            [networkScraper initiatePersonInfoSearchWithUsername:searchBar.text termcode:[NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]]];
+            break;
+    }
+
+}
+
+//will place cancelGesture methods only when searchBar is being edited.
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    cancelGesture = [UITapGestureRecognizer new];
+    [cancelGesture addTarget:self action:@selector(backgroundTouched:)];
+    [self.view addGestureRecognizer:cancelGesture];
+}
+
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    
+    [self toggleBottomSearchBarButtonClickability];
+    
+    if (cancelGesture) {
+        [self.view removeGestureRecognizer:cancelGesture];
+        cancelGesture = nil;
+    }
+}
+
+#pragma mark NetworkScraperDelegate methods
+
+- (void) networkScraperDidReceiveData:(NSString *)sdata
+{
+    Faculty *person = nil;
+    Schedule *schedules = nil;
+    
+
+    if ([sdata rangeOfString:@"may not be available"].location != NSNotFound) 
+    {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid Term" message:@"There doesn't appear to be schedule information available for that term." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+
+    } 
+    else 
+    {
+        switch ([pickerView selectedRowInComponent:0])
+        {
+            case COURSE_SEARCH:
+            {
+                schedules = [ScheduleFactory scheduleFromSchedulePage:sdata];
+                
+                NSInteger numMatches = [schedules.schedule count];
+                if (numMatches == 1)
+                {
+                    ClassInfoViewController *classInfoPage = [[ClassInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
+                    classInfoPage.course = [schedules.schedule objectAtIndex:0];
+                    classInfoPage.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+                    [self.navigationController pushViewController:classInfoPage animated:YES];
+                }
+                else
+                {
+                    PartialMatchCourseViewController *viewController = [[PartialMatchCourseViewController alloc] init];
+                    if (numMatches > 1)
+                    {
+                        viewController.courseArray = schedules.schedule;
+                        viewController.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+                        viewController.title = @"Results";
+                    }
+                    else
+                    {
+                        viewController.title = @"No Results";
+                    }
+                    [self.navigationController pushViewController:viewController animated:YES];
+                }
+                break;
+            }
+            case ROOM_SEARCH:
+            {            
+                ScheduleViewController *scheduleViewController = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:[NSBundle mainBundle]];
+                scheduleViewController.schedule = [ScheduleFactory scheduleFromSchedulePage:sdata];;
+                scheduleViewController.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+                [self.navigationController pushViewController:scheduleViewController animated:YES];
+                break;
+            }
+            case USER_SEARCH:
+            {
+                if ([PersonFactory userSearchIsPartialMatch:sdata])
+                {
+                    PartialMatchUserViewController *viewController = [[PartialMatchUserViewController alloc] init];
+                    NSArray *matches = [FacultyFactory AllFacultyFromPartialMatchPage:sdata];
+                    if([matches count] > 0)
+                    {
+                        viewController.usernameArray = matches;
+                        viewController.termCode = [NSString stringWithFormat:@"%@%@", [yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+                        viewController.title = @"Results";
+                    }
+                    else
+                    {
+                        viewController.title = @"No Results";
+                    }
+                    [self.navigationController pushViewController:viewController animated:YES];
+                }
+                else
+                {
+                    person = [FacultyFactory FacultyFromSchedulePage:sdata];
+                    UserInfoViewController *userInfoPage = [[UserInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
+                    userInfoPage.person = person;
+                    userInfoPage.termCode = [NSString stringWithFormat:@"%@%@",[yearValues objectAtIndex:[pickerView selectedRowInComponent:2]], [self getSelectedTerm]];
+                    [self.navigationController pushViewController:userInfoPage animated:YES];
+                }
+                break;
+            }
+        }
+    }
 }
 
 @end

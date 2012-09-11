@@ -10,7 +10,6 @@
 #import <UIKit/UIKit.h>
 #import "KeychainItemWrapper.h"
 
-KeychainItemWrapper *passwordItem;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
