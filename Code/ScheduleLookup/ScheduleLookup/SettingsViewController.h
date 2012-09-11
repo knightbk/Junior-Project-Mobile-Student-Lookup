@@ -9,13 +9,15 @@
 
 #import <UIKit/UIKit.h>
 #import "KeychainItemWrapper.h"
-#import "AppDelegate.h"
-@interface SettingsViewController : UIViewController <UITextFieldDelegate>
-
+#import "NetworkScraper.h"
+@interface SettingsViewController : UIViewController <UITextFieldDelegate> {
+    
+}
 
 -(IBAction)textFieldDidEndEditing:(UITextField *)textField;
-@property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
-@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
-
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, nonatomic) NetworkScraper *networkScraper;
+@property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
 
 @end

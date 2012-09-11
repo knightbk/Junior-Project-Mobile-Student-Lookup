@@ -12,8 +12,8 @@
 #import "KeychainItemWrapper.h"
 @implementation SettingsViewController
 @synthesize  usernameTextField, passwordTextField;
-
-
+@synthesize networkScraper;
+@synthesize pickerView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +30,12 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 
@@ -64,20 +70,27 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-        [usernameTextField setText:[passwordItem objectForKey:(__bridge id)kSecAttrAccount]];
+    if (networkScraper == nil) {
+        networkScraper = [[NetworkScraper alloc] init];
+    }
+    
+    [usernameTextField setText:[networkScraper getUserName]];
         
-        [passwordTextField setText:[passwordItem objectForKey:(__bridge id)kSecValueData]];
+    [passwordTextField setText:[networkScraper getPassword]];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
-    
     // Store username to keychain 	
     if ([usernameTextField text])
-        [passwordItem setObject:[usernameTextField text] forKey:(__bridge id)kSecAttrAccount];
+    {
+        [networkScraper setUserName:[usernameTextField text]];
+    }
     
     // Store password to keychain
     if ([passwordTextField text])
-        [passwordItem setObject:[passwordTextField text] forKey:(__bridge id)kSecValueData];  
+    {
+        [networkScraper setPassword:[passwordTextField text]];
+    }
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.

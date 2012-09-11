@@ -33,4 +33,23 @@
     return result;
 }
 
+- (NSMutableArray *)getScheduleForDay:(int) day
+{
+    NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:11];
+    
+    for (int x = 0; x < 11; x++)
+    {
+        [result addObject:@""];
+    }
+    
+    for (ClassSchedule *class in schedule)
+    {
+        for (NSNumber *number in [class classMeetingsForDay:day])
+        {
+            [result replaceObjectAtIndex:[number intValue]-1 withObject:class.Course];
+        }
+    }
+    return result;
+}
+
 @end

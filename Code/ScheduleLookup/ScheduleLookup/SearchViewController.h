@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  SearchViewController.h
 //  ScheduleLookup
 //
 //  Created by Mark Vitale on 12/14/11.
@@ -8,14 +8,26 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GCCalendar.h"
-#import "ClassSchedule.h"
-#import "SearchUserDelegate.h"
-@interface SearchViewController : GCCalendarPortraitView <UISearchBarDelegate, NSURLConnectionDelegate, GCCalendarDataSource, GCCalendarDelegate, SearchUserDelegate>
+#import "UserInfoViewController.h"
+#import "NetworkScraper.h"
+
+@interface SearchViewController : UIViewController <UISearchBarDelegate, NetworkScraperDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 {
+    IBOutlet NSMutableArray *searchValues;
+    IBOutlet NSMutableArray *termValues;
+    IBOutlet NSMutableArray *yearValues;
+    IBOutlet UIPickerView *pickerView;
+    IBOutlet NSString *selectedYear;
+    int currentYear;
 }
 
-@property (strong) Schedule *schedule;
-+ (NSMutableArray *) parseThis:(ClassSchedule *) withClass;
+-(NSString *) getSelectedTerm;
+- (void) setUpPicker;
+- (void) saveContentsOfPicker;
+- (void) toggleBottomSearchBarButtonClickability;
+
+@property (strong, nonatomic) NetworkScraper *networkScraper;
+@property (strong, nonatomic) IBOutlet UISearchBar *scheduleSearchBar;
+@property (strong, nonatomic) IBOutlet UIButton *bottomSearchButton;
 
 @end

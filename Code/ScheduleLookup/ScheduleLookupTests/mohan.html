@@ -1,0 +1,107 @@
+<link REL=stylesheet HREF=/regweb/rhit_menu.css TYPE=text/css><title>Schedule Lookup</title>
+
+<script type="text/javascript">
+function cancelAction (evt) {
+  return false;
+}
+function disableSubmitButton (button) {
+  if (typeof button.disabled != 'undefined')
+    button.disabled = true;
+  else if (!button.buttonDisabled) {
+    button.oldValue = button.value;
+    button.oldOnclick = button.onclick;
+    button.value = 'DISABLED';
+    button.onclick = cancelAction;
+    button.buttonDisabled = true;
+  }
+}
+function enableSubmitButton (button) {
+  if (typeof button.disabled != 'undefined')
+    button.disabled = false;
+  else if (button.buttonDisabled) {
+    button.value = button.oldValue;
+    button.onclick = button.oldOnclick;
+    button.buttonDisabled = false;
+  }
+}
+</script>
+<FORM NAME="InputForm" ACTION="/regweb-cgi/reg-sched.pl" METHOD="POST">
+<TABLE WIDTH=100% COLS=2><TR>
+<TD ALIGN=LEFT CLASS=wr100>Schedule Lookup</TD>
+<TD ALIGN=RIGHT CLASS=wr90>Rose-Hulman Institute of Technology</TD></TR>
+<TR><TD colspan=2>&nbsp;</TD></TR>
+<TR><TD ALIGN=RIGHT CLASS=bw80><SELECT  NAME="termcode"><option value="201240">Summer Quarter - 2011-12</option><option value="201230" selected>Spring Quarter - 2011-12</option><option value="201220">Winter Quarter - 2011-12</option><option value="201210">Fall Quarter - 2011-12</option><option value="201140">Summer Quarter - 2010-11</option><option value="201130">Spring Quarter - 2010-11</option><option value="201120">Winter Quarter - 2010-11</option><option value="201110">Fall Quarter - 2010-11</option><option value="201040">Summer Quarter - 2009-10</option><option value="201030">Spring Quarter - 2009-10</option><option value="201020">Winter Quarter - 2009-10</option><option value="201010">Fall Quarter - 2009-10</option><option value="200940">Summer Quarter - 2008-09</option><option value="200930">Spring Quarter - 2008-09</option><option value="200920">Winter Quarter - 2008-09</option><option value="200910">Fall Quarter - 2008-09</option><option value="200840">Summer Quarter - 2007-08</option><option value="200830">Spring Quarter - 2007-08</option><option value="200820">Winter Quarter - 2007-08</option><option value="200810">Fall Quarter - 2007-08</option><option value="200740">Summer Quarter - 2006-07</option><option value="200730">Spring Quarter - 2006-07</option><option value="200720">Winter Quarter - 2006-07</option><option value="200710">Fall Quarter - 2006-07</option><option value="200640">Summer Quarter - 2005-06</option><option value="200630">Spring Quarter - 2005-06</option><option value="200620">Winter Quarter - 2005-06</option><option value="200610">Fall Quarter - 2005-06</option><option value="200540">Summer Quarter - 2004-05</option><option value="200530">Spring Quarter - 2004-05</option><option value="200520">Winter Quarter - 2004-05</option><option value="200510">Fall Quarter - 2004-05</option><option value="200440">Summer Quarter - 2003-04</option><option value="200430">Spring Quarter - 2003-04</option><option value="200420">Winter Quarter - 2003-04</option><option value="200410">Fall Quarter - 2003-04</option><option value="200340">Summer Quarter - 2002-03</option><option value="200330">Spring Quarter - 2002-03</option><option value="200320">Winter Quarter - 2002-03</option><option value="200310">Fall Quarter - 2002-03</option><option value="200240">Summer Quarter - 2001-02</option><option value="200230">Spring Quarter - 2001-02</option><option value="200220">Winter Quarter - 2001-02</option><option value="200210">Fall Quarter - 2001-02</option><option value="200140">Summer Quarter - 2000-01</option><option value="200130">Spring Quarter - 2000-01</option><option value="200120">Winter Quarter - 2000-01</option><option value="200110">Fall Quarter - 2000-01</option></SELECT></TD>
+<TD CLASS=bw80><SELECT NAME="view" ><OPTION VALUE="tgrid">Table & Term Grid</OPTION>
+              <OPTION VALUE="fgrid">Table & Finals Grid</OPTION>
+              <OPTION VALUE="table">Table Only</OPTION>
+              <OPTION VALUE="matrix">Course Matrix</OPTION></SELECT></TD>
+</TR>
+
+<TR><TD ALIGN=RIGHT CLASS=bw80>
+	ID/Username:<input type="text" name="id1" size="12" maxlength="10"
+                          onfocus="enableSubmitButton(this.form.bt1);
+                                        disableSubmitButton(this.form.bt4);
+                                        disableSubmitButton(this.form.bt5);
+                                   "/>
+    </TD>
+    <TD CLASS=bw80>
+    <input type="submit" name="bt1" value="ID/Username"
+           onclick="if (this.form.id1.value == '') {
+                       alert('Please enter a valid ID/username.');
+                       this.form.id1.focus();
+                       return false;
+                    } else return true;"/>
+    </TD>
+</TR>
+<TR><TD ALIGN=RIGHT CLASS=bw80>
+	Room Number:<input type="text" name="id4" size="12" maxlength="6"
+                             onfocus="disableSubmitButton(this.form.bt1);
+                                        enableSubmitButton(this.form.bt4);
+                                       disableSubmitButton(this.form.bt5);
+                                   "/>
+    </TD>
+    <TD CLASS=bw80>
+    <input type="submit" name="bt4" value="Room"
+           onclick="if (this.form.id4.value == '') {
+                       alert('Please enter a valid room number.');
+                       this.form.id4.focus();
+                       return false;
+                    } else return true;"/>
+    </TD>
+</TR>
+<TR><TD ALIGN=RIGHT CLASS=bw80>
+	Course ID:<input type="text" name="id5" size="12" maxlength="12"
+                             onfocus="disableSubmitButton(this.form.bt1);
+                                       disableSubmitButton(this.form.bt4);
+                                        enableSubmitButton(this.form.bt5);
+                                   "/>
+    </TD>
+    <TD CLASS=bw80>
+    <input type="submit" name="bt5" value="Course"
+           onclick="if (this.form.id5.value == '') {
+                       alert('Please enter a valid course ID.');
+                       this.form.id5.focus();
+                       return false;
+                    } else return true;"/>
+    </TD>
+</TR>
+<TR><TD ALIGN=RIGHT CLASS=bw80>
+	Use Exact Match for Search:
+    </TD>
+    <TD CLASS=bw80>
+    <input type="checkbox" name="match" value=1 />
+    </TD>
+</TR>
+<TR><TD ALIGN=RIGHT CLASS=bw70 COLSPAN=2><br><A HREF="/regweb-cgi/reg-sched.pl">Reset Schedule Lookup Page</A><BR><BR><A HREF="http://rose-hulmanbooks.collegestoreonline.com/ePOS?this_category=1&store=505&level1_category=1&form=shared3%2ftextbooks%2fmain%2ehtml&design=505" target="_blank">Rose-Hulman Bookstore Textbook Search</A></TD></TR>
+<TR><TD ALIGN=RIGHT CLASS=bw70 COLSPAN=2>
+<input type="submit" name="matrix" value="Class Schedule Options" />
+</TD></TR>
+<TR><TD COLSPAN=2>
+<TABLE cols=2 width="100%"><TBODY><TR><TD colSpan=2><HR><P>Updated April 2011<H5><B>Important dates and deadlines pertaining to the 2011-2012 academic year are summarized further below.</B><P>Important Reminder:  <UL><P><LI>The Schedule Lookup Page is not live data.  It is only updated every few hours throughout the day and evening.</UL><UL><P><LI> To view live data, which may be more crucial during the registration period, log into your Banner Web account and view the Banner Schedule of Classes. </H5></UL><UL><UL></LI></UL></UL><HR><P><H5><B>Search Tips:</B> </H5><UL><LI><B>To view ALL courses</B> in the selected term, enter an asterisk in the Room Number search field.</LI><P><LI><B>To view all courses with a particular prefix</B> in the selected term, enter the course prefix in the Course ID search field.  Examples: MA in the Course ID search field will return all courses and sections with the MA prefix; MA111 will return all sections of only MA111; MA2 will return all 200-level MA courses.</LI><P><LI><B>To view multiple course prefixes</B> in the selected term, using the Course ID search field, enter desired course prefixes, separated by a pipe, such as MA|PH.  Or, search for ALL HSS classes by entering GS|IA|SV|RH in the Course ID field.</LI><P><LI>When searching by ID/Username:  Username for students is usually the first six characters of the last name followed by first initial and middle initial; Username for faculty is usually the last name. Searching by ID requires entering an exact match of the Banner ID (8xxxxxxxx) </LI></UL><P><B>Additional Information:</B> <P>The Class Schedule Options button will take you to the course matrix view page for the latest term for which the Registrar has released course data. The course matrix is a report of all permutations of course schedule options. This is a great advising tool.  See the Class Schedule Options page for more details.<P>A student/faculty username link will show you the courses they are taking/teaching. <P>A course link will take you to a course roster page. <P>On the course roster page, the <B>[<U>Set Grid</U>]</B> link will produce a grid display of the cumulative schedules for the selected set of faculty, students or courses. </UL><P>Partial match is available for Student Username, Faculty Username, Room and Course.<HR><P><H5><B>Important Dates and Deadlines for the 2011-2012 Academic Year:</B> </H5><UL><LI><B><U>DROP/ADD first five days of class</U></B> - Students who need to make schedule changes should obtain drop/add forms from the registrar’s office.  Classes dropped by the fifth day of class will be deleted from the student’s permanent record. <P><B> THE LAST DAY TO DROP/ADD for each term is as follows:</B> </LI><UL><P><LI> <B>Fall Quarter - Wednesday, September 7, 2011</LI><P><LI> Winter Quarter - Friday, December 2, 2011</LI><P><LI> Spring Quarter - Friday, March 9, 2012</LI> </B></LI></UL><P><LI><B><U>DROPPING A COURSE AFTER DROP/ADD WEEK</U></B>  - After the first five days of classes, a student may withdraw from a course by obtaining a “Drop Request” card from the Registrar’s Office.  This may be done through the end of the sixth week of classes.  The Drop Request card requires signatures of approval from the student’s advisor, instructor of the course being dropped, the Dean of Student Affairs (or his representative), and the Registrar and must be completed and returned to the Registrar’s Office <B>by the appropriate dates noted below</B>.  A course dropped during this period will remain on the student’s permanent record with a grade of “WS” indicating “Withdrawn Satisfactory”.  If a student withdraws from a course after the corresponding deadline noted below, a grade of “WF” will be recorded unless the student withdraws for reasons beyond the student’s control.  A grade of “WF” will count as “F” in calculating the G.P.A.   Exceptions will be considered by the Committee on Admissions and Standing. <P><B>THE LAST DAY TO DROP A COURSE WITHOUT PENALTY, and receive a grade of WS, for each term is as follows:</B></LI><UL><P><LI> <B>Fall Quarter - Monday, October 17, 2011</LI><P><LI> Winter Quarter - Friday, January 20, 2012</LI><P><LI> Spring Quarter - Friday, April 20, 2012</LI> </B></LI></UL><P><P><LI><B><U>STUDENT BILLING and FEE PAYMENTS DUE</U> - Tuition and fees are due in the business office, for each term, by the dates below.</B> A late fee will be assessed if tuition and fees are not paid by this deadline.  Students are reminded that payment of tuition and fees is a part of the registration process. </LI><P><UL><LI> <B>Fall Quarter Fee Payments - Due Friday, August 26, 2011</LI><P><LI> Winter Quarter Fee Payments - Due Friday, November 18, 2011</LI><P><LI> Spring Quarter Fee Payments - Due Friday, February 24, 2012</LI> </B></LI></UL><P></UL><HR><P><B>Other Notes:</B> <UL><LI>The Registrar’s Office reserves the right to make changes to the registration process outlined above.</LI><LI>The Registrar’s Office reserves the right to make changes to students’ class schedules as may be necessitated by this office or academic departments.</LI><LI>Although your advisor, your department head, and the registrar all make an effort to see that all seniors are apprised of any graduation requirement deficiencies they might have, the final responsibility to see that you satisfy graduation requirements is yours.  See the registrar if you have any questions about graduation requirements.</LI></UL><HR></P></TD></TR></TBODY></TABLE></TD></TR>
+</TABLE>
+<script type="text/javascript">
+disableSubmitButton(document.InputForm.bt1);
+disableSubmitButton(document.InputForm.bt4);
+disableSubmitButton(document.InputForm.bt5);
+</script>
+</FORM>

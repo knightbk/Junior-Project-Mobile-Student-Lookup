@@ -26,4 +26,11 @@
                     WithDepartment:(NSString *)newDepartment
                   WithOfficeNumber:(NSString *)newOfficeNumber
                    WithPhoneNumber:(NSString *)newPhoneNumber;
+
+- (NSString *) asText;
+- (NSString *) getPhoneNumberWithAreaCode;
+- (BOOL) isCurrentUser;
+- (BOOL) inFavorites;
+- (void) addToFavorites;
+- (void) removeFromFavorites;
 @end
